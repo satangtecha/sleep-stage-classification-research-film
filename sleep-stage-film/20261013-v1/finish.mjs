@@ -1,0 +1,33 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+import {audioFor} from './film.mjs';
+const ROOT=path.dirname(fileURLToPath(import.meta.url)),OUT=path.join(ROOT,'outputs','final');
+const story=JSON.parse(fs.readFileSync(path.join(ROOT,'story.json')));
+const facts=JSON.parse(fs.readFileSync(path.join(ROOT,'facts.json')));
+const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const probe=p=>JSON.parse(execFileSync('ffprobe',['-v','error','-show_format','-show_streams','-show_chapters','-of','json',p],{encoding:'utf8'}));
+const clips=[],proofs=[];
+for(let i=1;i<=5;i++){
+  const file=path.join(OUT,`minute-${String(i).padStart(2,'0')}.mp4`),p=probe(file),v=p.streams.find(s=>s.codec_type==='video'),a=p.streams.find(s=>s.codec_type==='audio');
+  if(!v||!a||v.width!==1920||v.height!==1080||Math.abs(Number(p.format.duration)-60)>.05||v.avg_frame_rate!=='24/1')throw Error('Invalid minute '+i);
+  clips.push(file);proofs.push({minute:i,file:path.basename(file),sha256:hash(file),duration:Number(p.format.duration),video_codec:v.codec_name,audio_codec:a.codec_name,frames:Number(v.nb_frames),resolution:[v.width,v.height]});
+}
+const joined=path.join(OUT,'SleepStageResearch-5min.mp4');
+if(fs.existsSync(joined))throw Error('Refusing to overwrite final film');
+const concat=path.join(OUT,'concat.txt'),metadata=path.join(OUT,'chapters.ffmetadata');
+fs.writeFileSync(concat,clips.map(p=>`file '${p.replaceAll('\\','/')}'`).join('\n')+'\n',{flag:'wx'});
+fs.writeFileSync(metadata,';FFMETADATA1\ntitle=Sleep Stage Research\nartist=Research presentation with synthesized Thai narration\n'+story.chapters.map(c=>`[CHAPTER]\nTIMEBASE=1/1000\nSTART=${(c.minute-1)*60000}\nEND=${c.minute*60000}\ntitle=${c.minute}. ${c.title}\n`).join(''),{flag:'wx'});
+const audio=[];for(let i=1;i<=5;i++)audio.push(await audioFor(i));
+const args=['-hide_banner','-loglevel','error','-f','concat','-safe','0','-i',concat,'-i',metadata,...audio.flatMap(p=>['-i',p]),'-filter_complex','[2:a][3:a][4:a][5:a][6:a]concat=n=5:v=0:a=1[a]','-map','0:v','-map','[a]','-map_metadata','1','-c:v','copy','-c:a','aac','-b:a','160k','-t','300','-movflags','+faststart',joined];
+execFileSync('ffmpeg',args,{stdio:'inherit'});
+const finished=probe(joined),vf=finished.streams.find(s=>s.codec_type==='video');
+if(Math.abs(Number(finished.format.duration)-300)>.05||Number(vf.nb_frames)!==7200||finished.chapters.length!==5)throw Error('Final duration/frames/chapters invalid');
+const slides={slides:clips.map((file,i)=>({file:path.relative(ROOT,file).replaceAll('\\','/'),rev_file:path.relative(ROOT,file).replaceAll('\\','/'),loop:false,auto_next:false,playback_rate:1,notes:story.chapters[i].title+'\n'+story.chapters[i].scenes.map(s=>s.narration).join('\n')})),resolution:[1920,1080],background_color:'#081321'};
+fs.mkdirSync(path.join(ROOT,'slides'),{recursive:true});
+fs.writeFileSync(path.join(ROOT,'slides','SleepStageFilm.json'),JSON.stringify(slides,null,2)+'\n',{flag:'wx'});
+const evidence={status:'complete',duration_seconds:Number(finished.format.duration),video_duration_seconds:Number(vf.duration),frames:Number(vf.nb_frames),fps:vf.avg_frame_rate,resolution:[vf.width,vf.height],sha256:hash(joined),chapter_previews:proofs,chapters:finished.chapters,source_sha256:facts.source_sha256,source_code_sha256:Object.fromEntries(['story.json','facts.json','film.mjs','narrate.ps1'].map(n=>[n,hash(path.join(ROOT,n))])),narration:{language:'th-TH',voice:'Microsoft Pattara',type:'synthesized',reference_audio_reused:false},reference_footage_reused:false,training:false,new_inference:false,new_test_evaluation:false,independent_confirmation_claimed:false,reverse_presentation_animations_generated:false};
+fs.writeFileSync(path.join(OUT,'verification.json'),JSON.stringify(evidence,null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({film:joined,duration_seconds:evidence.duration_seconds,frames:evidence.frames,chapters:evidence.chapters.length,sha256:evidence.sha256},null,2));

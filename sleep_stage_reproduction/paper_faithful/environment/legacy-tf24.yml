@@ -1,0 +1,15 @@
+name: sleep-stage-paper-tf24
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7.12
+  - pip=20.3.4
+  - cudatoolkit=11.0
+  - cudnn=8.0
+  - pip:
+      - tensorflow-gpu==2.4.0
+      - tensorflow-addons==0.12.0
+      - numpy==1.19.5
+      - h5py==2.10.0
+      - protobuf==3.20.3
+

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "artifact_type": "immutable_infrastructure_failure_evidence",
+  "status": "failed_before_training",
+  "observed_at": "2026-08-30T19:14:39.5423782+07:00",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r12-20260830",
+  "invoked_exactly_once": true,
+  "invocation_exit_code": 92,
+  "retriable": false,
+  "resumable": false,
+  "reusable": false,
+  "training_launched": false,
+  "canonical_gate_sha256": "f465da07371ab987c2430f957e9a0b2992dd2ca55a28e0412d4ef82935a3abf7",
+  "explicit_user_confirmation_sha256": "fb7ebcfebbb99ead774c19ab77180417394ecec4cdb7eb152d9c85ea6738a473",
+  "source_lock_closure_count": 47,
+  "failure_class": "task_scheduler_com_property_name_mismatch_before_task_registration",
+  "root_cause": {
+    "dispatcher_source": "paper_faithful/training/launch_paper_text_multiseed_smoke_r12.ps1",
+    "dispatcher_sha256": "9e63326212d9740c6c1e5a006f690268870ece311e95b5e7d44d139312ab30c4",
+    "failing_assignment": "TaskDefinition.Settings.AllowStartOnDemand = true",
+    "windows_powershell_5_1_property_present": false,
+    "correct_property": "AllowDemandStart",
+    "correct_property_present": true,
+    "correct_property_default": true,
+    "exact_error": "Exception setting \"AllowStartOnDemand\": \"The property 'AllowStartOnDemand' cannot be found on this object. Verify that the property exists and can be set.\"",
+    "confirmed_not_environmental": true
+  },
+  "immutable_dispatch_evidence": {
+    "marker_path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r12-20260830.dispatch.lock",
+    "marker_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "marker_length": 0,
+    "lifecycle_path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r12-20260830.dispatch.lifecycle.jsonl",
+    "lifecycle_sha256": "9e9256d63a4b73c68f9c35573427bf0b24b30c94194f7330ac9ce4d7e2dfe617",
+    "lifecycle_length": 787,
+    "dispatch_created_at": "2026-08-30T19:10:55.2463824+07:00",
+    "dispatch_failed_at": "2026-08-30T19:10:55.5710109+07:00",
+    "dispatch_marker_permanent": true
+  },
+  "no_training_evidence": {
+    "attempt_marker_absent": true,
+    "task_registration_absent": true,
+    "scheduler_runex_absent": true,
+    "dispatcher_success_record_absent": true,
+    "workload_lifecycle_absent": true,
+    "workload_stdout_absent": true,
+    "workload_stderr_absent": true,
+    "workload_exit_evidence_absent": true,
+    "child42_directory_absent": true,
+    "child43_directory_absent": true,
+    "windows_training_processes": 0,
+    "wsl_training_processes": 0,
+    "gpu_compute_processes": 0
+  },
+  "resource_snapshot": {
+    "power_online": true,
+    "critical": false,
+    "battery_status": 2,
+    "battery_percent": 100,
+    "c_free_gib": 12.859,
+    "e_free_gib": 369.715
+  },
+  "recovery_boundary": {
+    "r12_dispatch_marker_consumed": true,
+    "r12_attempt_marker_consumed": false,
+    "r12_retry_resume_relaunch_reuse_forbidden": true,
+    "next_version": "paper-text-v1-multiseed-cap128-r13-20260830",
+    "r13_engineering_allowed": true,
+    "r13_training_requires_fresh_canonical_gate_and_exact_user_confirmation": true,
+    "required_fix": "construct and validate the complete exact TaskDefinition before the permanent dispatch marker; use AllowDemandStart"
+  }
+}

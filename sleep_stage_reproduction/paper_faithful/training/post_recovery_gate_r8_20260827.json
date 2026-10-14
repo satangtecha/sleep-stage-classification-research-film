@@ -1,0 +1,338 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-08-27T12:56:25.0255144+07:00",
+  "run_id": "paper-text-v1-pilot-cap128-seed42-r8-20260827",
+  "fresh_evidence_required": true,
+  "resume_forbidden": [
+    "paper-text-v1-pilot-cap128-seed42-20260824",
+    "paper-text-v1-pilot-cap128-seed42-r2-20260824",
+    "paper-text-v1-pilot-cap128-seed42-r3-20260825",
+    "paper-text-v1-pilot-cap128-seed42-r4-20260825",
+    "paper-text-v1-pilot-cap128-seed42-r5-20260826",
+    "paper-text-v1-pilot-cap128-seed42-r6-20260826",
+    "paper-text-v1-pilot-cap128-seed42-r7-20260826"
+  ],
+  "failed_predecessor": {
+    "run_id": "paper-text-v1-pilot-cap128-seed42-r5-20260826",
+    "exit_code": 2,
+    "exit_timestamp": "2026-08-26T21:29:02.9987713+07:00",
+    "completed_training": "stage1_epochs_20_of_20_and_stage2_epochs_20_of_20",
+    "failure_path": "stage3_missing_nominal_batch_gradient_accumulation",
+    "failure_fingerprint": "a45bd30448e1516f6300946b28075e0192c416480e14a6419cfa42fccb1a7807",
+    "lifecycle": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-pilot-cap128-seed42-r5-20260826.lifecycle.jsonl",
+    "lifecycle_sha256": "c5608dae361340c7a8dfc6c5f88f6bf79254028380f04e2346eb291ca89c1e69",
+    "execution": "E:\\blp\\sleep_stage_reproduction\\runs\\paper-text-v1-pilot-cap128-seed42-r5-20260826\\execution.json",
+    "execution_sha256": "6ecf8465103ebcee49141b7e278175e1aa5aa8579b0bc0198cc0354ccbcafe08",
+    "diagnosis": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r5-stage3-failure-diagnosis-20260826.json",
+    "diagnosis_sha256": "15fa3803604c320b952ffb14c1013573e7dcd2850cb8828307fcb259070a9ff4",
+    "stage2_checkpoint": "E:\\blp\\sleep_stage_reproduction\\runs\\paper-text-v1-pilot-cap128-seed42-r5-20260826\\stage2.weights.h5",
+    "stage2_checkpoint_sha256": "c07eef06ad0f42dc4fc3c6e5b4ad1908dd150418b74a79fbd3aa911b1e225800",
+    "relaunch_forbidden": true
+  },
+  "driver_recovery_manifest": {
+    "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\driver_recovery_manifest.json",
+    "sha256": "c0cb50d1258be2e7dc69301385777dbc49a6211ba4e6f8c5557f3f47e2ebc9ad"
+  },
+  "cache_gate": {
+    "manifest": "E:\\blp\\sleep_stage_reproduction\\sst_cache\\paper_faithful_v3_full_20260820\\sst_full_cohort_run_manifest.json",
+    "sha256": "a4512970c6023cd1dc727cad40c2352126fea46356b78bb6782055f9d0ce7ed2",
+    "validator_v2_log": "E:\\blp\\sleep_stage_reproduction\\runtime\\integrity-logs\\full-cache-validation-v2.stdout.log",
+    "validator_v2_log_sha256": "8c52cc004fb134354d87a133d4bb85a0160563f65e361065fc2560256f517e07",
+    "validator_v2_status": "valid"
+  },
+  "source_and_environment": {
+    "source_manifest_sha256": "578fd3afec29e3d8ecdf9d142b8841e94d3b939624ca019f9d0701c94f544b50",
+    "environment_manifest_sha256": "5194d573abd019444f073fec3252125f290d70f44315627070abd5dac1084a79"
+  },
+  "windows": {
+    "last_boot": "2026-08-27T07:47:22.500597+07:00",
+    "r7_shutdown_classification": "orderly_windows_critical_battery_shutdown",
+    "r7_bugcheck_display_nvlddmkm_or_unexpected_kernel_power_event": false,
+    "current_boot_after_r7_shutdown": true
+  },
+  "driver": {
+    "cim_version": "32.0.16.1047",
+    "nvidia_version": "610.47",
+    "status": "OK",
+    "host_gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU"
+  },
+  "tensorflow_gate": {
+    "python": "3.7.12",
+    "tensorflow": "2.4.0",
+    "built_with_cuda": true,
+    "gpus": [
+      "/physical_device:GPU:0"
+    ]
+  },
+  "gradient_accumulation_recovery": {
+    "source_sha256": {
+      "trainer_py": "5e81de61c7394d728a8889cad0cc1e56e0d9344852e79b783721f9efb28023c0",
+      "cli_py": "4e7b10f39c6bbf126fa8ca82bad7c94fa7b46c19168d7af3cf2e85195be836d1",
+      "metrics_py": "4b4ba248b450147f623d9476c11309dae6cf10967bdcc9e06298f7f94d879baa",
+      "models_py": "17f37c00a680cf9f1e102fe14256de4b085b187f2dfe74195e89444b3189ef4f",
+      "splits_py": "f846bc8f969c4b03e5083a092a2f73c95786456ea1db95810fabc110a40163b5",
+      "readme_md": "c0efd50171db3597e3e8ad8f82b5a8f9efed53d254a9d2f88d0232243e3ce456",
+      "stage3_stability_smoke_py": "ddd5fb3d8ec5ceaa065410151d6e3c32f4db93d7c3d8e38fe49604d20e959a5f",
+      "test_execution_corrections_py": "e36f4e261b0d00602974f34908644170aba6558889c5afc3a0aefbf00423dc27",
+      "test_trainer_contract_py": "8774bb60939adc8e5226c53a098ce9f1fc9116321bfeabbdcbe1149b0bebfc2c",
+      "test_training_scaffold_py": "88dff6e375c176a04e8a476b08d291d46bf4e6fc3a9beaa2e0056eb7efa99db1"
+    },
+    "test_evidence": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r5-gradient-accumulation-test-evidence-20260826.json",
+    "test_evidence_sha256": "ff1c26add1c8ce832ba123c561728aec9b01619be32930928e4284f516717459",
+    "host_full_tests": {
+      "status": "pass",
+      "passed": 45,
+      "skipped": 4
+    },
+    "locked_wsl_tf24_focused_tests": {
+      "status": "pass",
+      "passed": 31,
+      "skipped": 0,
+      "elapsed_seconds": 28.879
+    },
+    "real_data_diagnostic": "E:\\blp\\sleep_stage_reproduction\\runtime\\diagnostics\\paper-text-v1-stage3-accumulation-r5ckpt-20260826-v2.json",
+    "real_data_diagnostic_sha256": "10ba7ae869835759410ae11a76794d7dbe01c89ff83341530c898cdc457968a4",
+    "real_data_diagnostic_status": "pass",
+    "strategy": {
+      "nominal_batch": 128,
+      "hardware_microbatch": 1,
+      "gradient_accumulation_steps": 128,
+      "effective_batch": 128,
+      "optimizer_iterations": 1,
+      "drop_incomplete_nominal_batch": true,
+      "terminate_on_nan": true,
+      "refuse_incomplete_or_non_finite_history": true
+    },
+    "independent_review": {
+      "status": "no_material_finding",
+      "agent_id": "01a03ec2-f0e1-7301-bd05-8dd173a21e9c",
+      "all_prior_findings_closed": true,
+      "r6_gate_creation_authorized": true
+    }
+  },
+  "runner": {
+    "path": "paper_faithful/training/run_paper_text_pilot_r8.sh",
+    "sha256": "2f059bb13fd3694376c19b7bd4513724c5dd7428ad410d0bd2d981276b00105c"
+  },
+  "launcher": {
+    "path": "paper_faithful/training/launch_paper_text_pilot_r8.ps1",
+    "sha256": "ebac2f6c38863d019b845c28303386c4cde6968823e25247b87876a0448bd284",
+    "hash_implementation": "System.Security.Cryptography.SHA256",
+    "operator_supplied_gate_sha256_required_before_parsing": true,
+    "exclusive_launch_lock": "FileShare.None",
+    "permanent_attempt_marker": "FileMode.CreateNew",
+    "stable_ac_power_gate_immediately_before_lifecycle_and_child_start": true
+  },
+  "storage_gate": {
+    "c_free_gib": 27.737,
+    "c_minimum_gib": 10,
+    "e_free_gib": 369.778,
+    "e_minimum_gib": 50,
+    "bulk_root": "E:\\blp\\sleep_stage_reproduction",
+    "status": "pass"
+  },
+  "contract_gate": {
+    "status": "valid",
+    "scope": "large",
+    "risk": "high",
+    "phase": "executing",
+    "workers": 1,
+    "max_concurrent_agents": 2,
+    "contract_sha256": "d706184014be79230ff4a9deac71af33afa4e3f5a1fa15fb780d449d2a5ba40c"
+  },
+  "launch_review": {
+    "review_id": "r8-final-launch-gate-review-20260827",
+    "agent_id": "01a041c4-f281-7c80-b0a9-7ebecf5cde26",
+    "status": "no_material_finding",
+    "reviewed_run_id": "paper-text-v1-pilot-cap128-seed42-r8-20260827",
+    "r7_diagnosis_sha256": "5e4352123ed0022a2e74b3b502857ee42649dc86982f071cffc9aca08ea7dab9",
+    "reviewed_source_sha256": {
+      "launcher_ps1": "ebac2f6c38863d019b845c28303386c4cde6968823e25247b87876a0448bd284",
+      "runner_sh": "2f059bb13fd3694376c19b7bd4513724c5dd7428ad410d0bd2d981276b00105c",
+      "lean_team_contract_json": "d706184014be79230ff4a9deac71af33afa4e3f5a1fa15fb780d449d2a5ba40c"
+    },
+    "all_prior_findings_closed": true,
+    "stable_ac_power_gate_reviewed": true,
+    "r7_interruption_evidence_reviewed": true,
+    "operator_trust_anchor_and_exclusive_lock_reviewed": true,
+    "permanent_create_new_attempt_marker_reviewed": true,
+    "explicit_user_confirmation_gate_reviewed": true,
+    "exact_user_excerpt_digest_reviewed": true,
+    "fresh_run_authorized": true,
+    "launch_authorized_without_later_confirmation_and_online_ac": false
+  },
+  "status": "pass",
+  "fresh_launch_authorized": true,
+  "failed_preflight_predecessor": {
+    "run_id": "paper-text-v1-pilot-cap128-seed42-r6-20260826",
+    "launch_attempt_count": 1,
+    "failure_phase": "launcher_preflight_before_lifecycle_publication",
+    "failure_classification": "background_windows_powershell_hash_cmdlet_resolution_failure",
+    "diagnosis": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r6-preflight-failure-diagnosis-20260826.json",
+    "diagnosis_sha256": "c2da7924a53878ac08f67d8d8fc13511f11985fbd7e3a66e174d5498974ac5bd",
+    "launcher_stdout": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-pilot-cap128-seed42-r6-20260826.launcher.stdout.log",
+    "launcher_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "launcher_stderr": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-pilot-cap128-seed42-r6-20260826.launcher.stderr.log",
+    "launcher_stderr_sha256": "238a765b62e5409afe35e90a85d627e78bbb944f6d400d9c85e4e0e5960bc8a7",
+    "launch_lock": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-pilot-cap128-seed42-r6-20260826.launch.lock",
+    "launch_lock_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lifecycle_absent": true,
+    "run_directory_absent": true,
+    "training_started": false,
+    "relaunch_forbidden": true
+  },
+  "launcher_compatibility_recovery": {
+    "implementation": "System.Security.Cryptography.SHA256 over explicit read-only FileStream",
+    "get_file_hash_dependency_removed": true,
+    "smoke_script": "paper_faithful/training/r7_hidden_host_hash_smoke.ps1",
+    "smoke_script_sha256": "06fddd7239a0b7b70f5bf9546e9d6bfbe1a6135ef633bfac6925be701bf05872",
+    "exact_host": "hidden Windows PowerShell 5.1.26100.9168",
+    "smoke_input": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\post-recovery-gate-r6-20260826.json",
+    "smoke_input_sha256": "0cc5c4f85022c0404ce2fb38c303de297e43ab044857929bb8ce55192a05df3d",
+    "smoke_stdout": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r7-hidden-host-hash-smoke.stdout.jsonl",
+    "smoke_stdout_sha256": "71d552073d0c9970d55fe24dcee8d680170eac5a3b77e041cc275e13724ea129",
+    "smoke_stderr": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r7-hidden-host-hash-smoke.stderr.log",
+    "smoke_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "smoke_exit_code": 0,
+    "status": "pass",
+    "attempt_marker": {
+      "implementation": "FileMode.CreateNew + FileShare.None",
+      "script": "paper_faithful/training/r7_attempt_marker_smoke.ps1",
+      "script_sha256": "100ae266ac96ecb464192b78157fa4be1d5a37d7721babdab11f5cfb497649fc",
+      "marker": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r7-attempt-marker-smoke.lock",
+      "marker_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r7-attempt-marker-smoke.stdout.jsonl",
+      "stdout_sha256": "337a4fffce3fdedeb9cab69d3aaee4e473d0a7a748e65c6d762bc4eaf585790a",
+      "stderr": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r7-attempt-marker-smoke.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit_code": 0,
+      "concurrent_invocation_refused": true,
+      "later_invocation_refused_after_first_handle_closed": true,
+      "marker_remains": true,
+      "status": "pass"
+    }
+  },
+  "interrupted_predecessor": {
+    "run_id": "paper-text-v1-pilot-cap128-seed42-r7-20260826",
+    "launch_attempt_count": 1,
+    "interruption_phase": "strict_cache_scan_before_run_directory_execution_gpu_or_training",
+    "interruption_classification": "orderly_windows_critical_battery_shutdown",
+    "diagnosis": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r7-critical-battery-interruption-diagnosis-20260827.json",
+    "diagnosis_sha256": "5e4352123ed0022a2e74b3b502857ee42649dc86982f071cffc9aca08ea7dab9",
+    "lifecycle": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-pilot-cap128-seed42-r7-20260826.lifecycle.jsonl",
+    "lifecycle_sha256": "599205eac3318c05bf76e7d3022f9e1e1861bee36953bf97d890be5e2943780f",
+    "process_id": 32120,
+    "launch_requested_at": "2026-08-26T23:41:18.4589223+07:00",
+    "process_started_at": "2026-08-26T23:41:18.5636926+07:00",
+    "pilot_stdout": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-pilot-cap128-seed42-r7-20260826.stdout.log",
+    "pilot_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pilot_stderr": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-pilot-cap128-seed42-r7-20260826.stderr.log",
+    "pilot_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "launcher_stdout": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-pilot-cap128-seed42-r7-20260826.launcher.stdout.log",
+    "launcher_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "launcher_stderr": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-pilot-cap128-seed42-r7-20260826.launcher.stderr.log",
+    "launcher_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "launch_lock": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-pilot-cap128-seed42-r7-20260826.launch.lock",
+    "launch_lock_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "process_exited_event_absent": true,
+    "run_directory_absent": true,
+    "execution_absent": true,
+    "gpu_process_absent": true,
+    "training_started": false,
+    "relaunch_forbidden": true
+  },
+  "power_interruption_recovery": {
+    "r7_diagnosis": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r7-critical-battery-interruption-diagnosis-20260827.json",
+    "r7_diagnosis_sha256": "5e4352123ed0022a2e74b3b502857ee42649dc86982f071cffc9aca08ea7dab9",
+    "test_evidence": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r8-power-gate-test-evidence-20260827-v3.json",
+    "test_evidence_sha256": "bf0d6a65fd6ed7db9c8c3139baec646a3067090d54eed09d5510a87092c8fc7b",
+    "source_sha256": {
+      "r8_power_gate_smoke_ps1": "76dcd19ce8b31e96ed732df95a6b3e71b60e37a6a4fdfc10bbfa13685d1243d0",
+      "r8_review_binding_smoke_ps1": "ac19e3dc0e407f98e2b61936a53a885e1c678f24b0b9037f3fbf7cc4a38dee24",
+      "r8_live_power_gate_probe_ps1": "0854218088b0abb626661c03945fe1c0293f8e8429e5d8306a905300f808951d",
+      "r8_user_confirmation_gate_smoke_ps1": "f9a8f87992ba6bb9aea309addcc30872b5940e0d8d9693648adba595c09fccf3"
+    },
+    "stable_ac_contract": {
+      "active_battery_required": true,
+      "power_online_required": true,
+      "critical_must_be_false": true,
+      "win32_battery_required": true,
+      "positive_charge_required": true,
+      "allowed_win32_battery_statuses": [
+        2,
+        3,
+        6,
+        7,
+        8,
+        11
+      ],
+      "all_other_statuses_refused": true,
+      "checked_immediately_before_lifecycle_and_child_start": true
+    },
+    "hidden_host": {
+      "host": "Windows PowerShell 5.1 hidden noninteractive",
+      "stdout": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r8-power-gate-hidden-host-v4.stdout.jsonl",
+      "stdout_sha256": "c4e2fe8a57b73a38fb4235d65f1cbe626e13444a83c6d7fd4191cf5e4ef64209",
+      "stderr": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r8-power-gate-hidden-host-v4.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit_code": 0,
+      "offline_refused": true,
+      "pilot_launched": false,
+      "status": "pass"
+    },
+    "current_live_power": {
+      "observed_at": "2026-08-27T12:45:51.1861667+07:00",
+      "power_online": false,
+      "battery_status": 1,
+      "estimated_charge_remaining": 27,
+      "charging": false,
+      "discharging": true,
+      "launch_allowed": false
+    },
+    "independent_review": {
+      "review_id": "r8-exact-message-digest-closure-review-20260827",
+      "agent_id": "01a041c4-f281-7c80-b0a9-7ebecf5cde26",
+      "status": "no_material_finding",
+      "reviewed_run_id": "paper-text-v1-pilot-cap128-seed42-r8-20260827",
+      "r7_diagnosis_sha256": "5e4352123ed0022a2e74b3b502857ee42649dc86982f071cffc9aca08ea7dab9",
+      "reviewed_source_sha256": {
+        "launcher_ps1": "ebac2f6c38863d019b845c28303386c4cde6968823e25247b87876a0448bd284",
+        "runner_sh": "2f059bb13fd3694376c19b7bd4513724c5dd7428ad410d0bd2d981276b00105c",
+        "lean_team_contract_json": "d706184014be79230ff4a9deac71af33afa4e3f5a1fa15fb780d449d2a5ba40c"
+      },
+      "all_prior_findings_closed": true,
+      "r8_gate_creation_authorized": true,
+      "launch_authorized": false,
+      "exact_user_excerpt_digest_reviewed": true
+    },
+    "prior_independent_review": {
+      "review_id": "r8-power-recovery-closure-review-20260827",
+      "agent_id": "01a041ac-5e8e-70c2-8f3d-0cfa69c1c2f9",
+      "status": "no_material_finding",
+      "reviewed_run_id": "paper-text-v1-pilot-cap128-seed42-r8-20260827",
+      "r7_diagnosis_sha256": "5e4352123ed0022a2e74b3b502857ee42649dc86982f071cffc9aca08ea7dab9",
+      "reviewed_source_sha256": {
+        "launcher_ps1": "3ea35cd1be4377c601d98aa0b76f502fcede05a24a51df99c9b80bbd409f839c",
+        "runner_sh": "2f059bb13fd3694376c19b7bd4513724c5dd7428ad410d0bd2d981276b00105c",
+        "lean_team_contract_json": "902284c5679f386675f77f2f7132537595401e264e18c5549b4412c9ba2e4373"
+      },
+      "all_prior_findings_closed": true,
+      "r8_gate_creation_authorized": true,
+      "launch_authorized": false
+    }
+  },
+  "explicit_user_launch_confirmation_required": true,
+  "explicit_user_launch_confirmation": {
+    "required": true,
+    "canonical_path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r8-explicit-user-launch-confirmation-20260827.json",
+    "source_thread_id": "01a014bc-7bc1-7590-bd2b-029c8a84285b",
+    "operator_supplied_sha256_required": true,
+    "bind_recovery_gate_and_source_hashes": true,
+    "must_be_validated_before_attempt_marker": true,
+    "artifact_absent_until_explicit_user_request": true,
+    "current_artifact_absent": true,
+    "confirmation_is_not_launch": true,
+    "user_message_hash_encoding": "utf-8-no-bom-of-json-decoded-exact_user_excerpt",
+    "launcher_recomputes_exact_excerpt_digest": true
+  }
+}

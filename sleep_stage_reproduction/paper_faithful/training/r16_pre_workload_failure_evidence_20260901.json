@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "artifact_type": "immutable_pre_workload_failure_evidence",
+  "status": "failed_after_attempt_marker_before_training",
+  "observed_at": "2026-09-01T01:28:07.4503820+07:00",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r16-20260901",
+  "ordered_seeds": [42, 43],
+  "expected_children": [
+    "paper-text-v1-multiseed-cap128-r16-20260901-split42-model42",
+    "paper-text-v1-multiseed-cap128-r16-20260901-split43-model43"
+  ],
+  "dispatcher_process_invocations": 1,
+  "permanent_dispatch_marker_consumed": true,
+  "permanent_attempt_marker_consumed": true,
+  "training_launched": false,
+  "child_run_directories_created": false,
+  "retriable": false,
+  "resumable": false,
+  "relaunchable": false,
+  "reusable": false,
+  "canonical_gate_sha256": "b03b47c8458345c498c90fe09419589e63f1ad4b4e5b190e5124b3d78aaba336",
+  "delegated_authorization_sha256": "b33213a1dd53cbba733e8b3407782f7a50f6e7916921e3a56bc8941703e5b68f",
+  "launch_evidence_sha256": "973d8f0ee2253bb0f2273f82b458f75678e1aaa48a9174b8d6b8d8a9e65a7980",
+  "independent_review_sha256": "d515eea93a3985f944c3a39bbf0cd874f0f963b8addbf117a8536e79492755a4",
+  "failure_class": "wsl_bootstrap_or_wrapper_pre_runner_failure_without_host_diagnostics",
+  "root_cause": {
+    "confirmed_boundary": "The Task Scheduler-owned supervisor passed all source-lock, parent, power, storage, and bound-dispatch gates, created the permanent attempt marker, and started Windows wsl.exe PID 72460. The Windows host exited before stdout, stderr, or atomic workload-exit evidence was created. Neither child run directory exists.",
+    "confirmed_not_wrapper_exit_race": true,
+    "confirmed_not_training_or_model_failure": true,
+    "confirmed_not_cache_scan_failure": true,
+    "confirmed_not_power_storage_gpu_or_gate_failure": true,
+    "immediate_cause_resolved": false,
+    "unresolved_immediate_causes": [
+      "wsl.exe or bash could not execute/open the Unicode absolute wrapper path in the Task Scheduler context",
+      "the wrapper failed before successful redirected runner execution, including cwd or /mnt/e output-path visibility/permission"
+    ],
+    "diagnostic_gap": "r16 did not redirect wsl.exe host stdout/stderr and the wrapper installed no pre-cd EXIT trap, so immutable evidence cannot distinguish the two pre-run bootstrap causes.",
+    "terminal_event": {
+      "timestamp": "2026-09-01T01:17:00.0066355+07:00",
+      "exit_code": 92,
+      "reason": "Atomic WSL exit evidence absent after Windows host exit"
+    },
+    "supervisor_path": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\supervise_paper_text_multiseed_smoke_r16.ps1",
+    "supervisor_sha256": "dc245b4eb642efc9ec3469841a410ce9a23b37888c94dde81c1aaecf36726dda",
+    "wrapper_path": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\run_paper_text_multiseed_smoke_r16_wrapper.sh",
+    "wrapper_sha256": "251ca0d93d51d5b541ab99c976dff4030e035a042f9e53195b7d66acf1b213cc",
+    "runner_sha256": "91686da85606d11cf9ed53f2fa7cd74a0e51e64bd1070cc8e582c5ffe43fc9a2"
+  },
+  "authoritative_runtime_evidence": [
+    {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r16-20260901.dispatch.lifecycle.jsonl",
+      "sha256": "af0667f542d82de2da796ebb730d9410016ded09d44980ae869e6891fdb54fd0",
+      "length": 956
+    },
+    {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r16-20260901.dispatch.json",
+      "sha256": "12543a2b399facfd93de012e279061b0bf90c98fba356ca798f1e9da36b38eb8",
+      "length": 1023
+    },
+    {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r16-20260901.supervisor-preflight.jsonl",
+      "sha256": "9e2e24b8f503241b1ee3413707817f77e6e32d6f0fb2d0732d3bb882c4586033",
+      "length": 3201
+    },
+    {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r16-20260901.lifecycle.jsonl",
+      "sha256": "2aad815342952f5f8f12c4373a054c0448f1dc7fadd35642c1c7332e833bfd47",
+      "length": 1302
+    }
+  ],
+  "absence_evidence": {
+    "workload_stdout_absent": true,
+    "workload_stderr_absent": true,
+    "atomic_workload_exit_evidence_absent": true,
+    "child42_directory_absent": true,
+    "child43_directory_absent": true,
+    "scheduler_task_removed_by_supervisor_finalizer": true,
+    "r16_processes_absent": true,
+    "gpu_training_process_absent": true
+  },
+  "resource_snapshot": {
+    "power_online": true,
+    "battery_percent": 100,
+    "battery_status": 2,
+    "critical": false,
+    "c_free_gib": 25.507,
+    "e_free_gib": 359.007,
+    "gpu_identity": "NVIDIA GeForce RTX 3050 6GB Laptop GPU, 610.47"
+  },
+  "recovery_boundary": {
+    "r16_retry_resume_relaunch_reuse_forbidden": true,
+    "next_version": "paper-text-v1-multiseed-cap128-r17-20260901",
+    "r17_engineering_and_exactly_once_launch_authorized_by_standing_user_authorization": true,
+    "r17_requires_fresh_source_identity_tests_independent_review_gate_and_hash_bound_delegated_authorization": true,
+    "required_fix": "Capture wsl.exe host stdout/stderr in Windows-visible files, install a wrapper EXIT trap before cwd and runner redirection, emit a structured atomic sidecar with exit code and stage, launch wsl.exe from a neutral Windows working directory, and pass a real Task Scheduler-owned Unicode-path WSL handoff canary before any r17 dispatch marker can be authorized."
+  }
+}

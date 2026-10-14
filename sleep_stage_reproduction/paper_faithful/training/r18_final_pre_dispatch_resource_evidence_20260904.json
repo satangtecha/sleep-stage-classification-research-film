@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "artifact_type": "r18_final_pre_dispatch_resource_evidence",
+  "status": "pass",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r18-20260902",
+  "power": {
+    "power_online": true,
+    "ac_line_status": 1,
+    "battery_flag": 1,
+    "battery_percent": 100,
+    "critical": false,
+    "unknown": false
+  },
+  "c_free_gib": 37.702,
+  "e_free_gib": 418.884,
+  "available_physical_memory_mb": 3349.0,
+  "commit_limit_mb": 33495.9,
+  "committed_mb": 19535.5,
+  "commit_headroom_mb": 13960.3,
+  "process_count": 332,
+  "windows_gpu_pids": [
+    2140
+  ],
+  "wsl_gpu_compute_idle": true,
+  "scheduled_r18_tasks": [],
+  "existing_r18_paths": [],
+  "wsl_training_processes": [],
+  "thresholds": {
+    "available_physical_memory_mb_min": 2048,
+    "commit_headroom_mb_min": 4096,
+    "c_free_gib_min": 10,
+    "e_free_gib_min": 20,
+    "power_online_required": true,
+    "power_critical_forbidden": false,
+    "gpu_windows_system_pid4_forbidden": true,
+    "wsl_compute_process_count_required": 0
+  },
+  "ready": true,
+  "created_at": "2026-09-04T22:19:49.9828845+07:00"
+}

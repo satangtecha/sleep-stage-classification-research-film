@@ -1,0 +1,49 @@
+{
+  "slides": [
+    {
+      "file": "outputs/final/chapters-synchronized/minute-01.mp4",
+      "rev_file": "outputs/final/chapters-synchronized/minute-01.mp4",
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1,
+      "notes": "โจทย์และข้อมูล"
+    },
+    {
+      "file": "outputs/final/chapters-synchronized/minute-02.mp4",
+      "rev_file": "outputs/final/chapters-synchronized/minute-02.mp4",
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1,
+      "notes": "Pipeline และการประเมิน"
+    },
+    {
+      "file": "outputs/final/chapters-synchronized/minute-03.mp4",
+      "rev_file": "outputs/final/chapters-synchronized/minute-03.mp4",
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1,
+      "notes": "ผลฐานและ R1"
+    },
+    {
+      "file": "outputs/final/chapters-synchronized/minute-04.mp4",
+      "rev_file": "outputs/final/chapters-synchronized/minute-04.mp4",
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1,
+      "notes": "Sensitivity และสิ่งที่ไม่ช่วย"
+    },
+    {
+      "file": "outputs/final/chapters-synchronized/minute-05.mp4",
+      "rev_file": "outputs/final/chapters-synchronized/minute-05.mp4",
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1,
+      "notes": "หลักฐานและขั้นต่อไป"
+    }
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "#081321"
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "artifact_type": "fresh_training_supervision_protocol",
+  "status": "pre_registered",
+  "design_id": "R15_WMI_FREE_BOUNDED_SCHEDULER_SUPERVISOR_V1",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r15-20260831",
+  "ordered_seeds": [42, 43],
+  "expected_children": [
+    "paper-text-v1-multiseed-cap128-r15-20260831-split42-model42",
+    "paper-text-v1-multiseed-cap128-r15-20260831-split43-model43"
+  ],
+  "scientific_protocol": {
+    "protocol_id": "PAPER_TEXT_V1",
+    "cap": 128,
+    "stages": ["stage1", "stage2", "stage3"],
+    "stage1_batch": 128,
+    "stage2_batch": 128,
+    "stage3_hardware_microbatch": 1,
+    "stage3_effective_batch": 128,
+    "stage3_gradient_accumulation_steps": 128,
+    "stage3_optimizer": "SGD",
+    "stage3_learning_rate": 0.1,
+    "stage3_stability_adaptation_id": "PAPER_TEXT_STAGE3_GLOBAL_NORM_CLIP_V1",
+    "stage3_gradient_clip_norm": 1,
+    "stage3_gradient_clip_application_point": "after_effective_batch_average_before_optimizer_step",
+    "single_strict_canonical_cache_load": true,
+    "sequential_children": true,
+    "halt_before_later_child_on_failure": true,
+    "resume_forbidden": true
+  },
+  "failure_predecessor": {
+    "run_id_prefix": "paper-text-v1-multiseed-cap128-r14-20260831",
+    "failure_class": "scheduler_context_pre_attempt_stall_before_handshake",
+    "local_evidence": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\r14_infrastructure_failure_evidence_20260831.json",
+    "canonical_evidence": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r14-infrastructure-failure-evidence-20260831.json",
+    "sha256": "45c21525c0adb3eb496294cf661dfb9c7eb4750b3a3659302b60a4a650740f8a",
+    "retriable": false,
+    "lineage_eligible": false
+  },
+  "scheduler_preflight": {
+    "windows_powershell": "5.1",
+    "wmi_forbidden": true,
+    "cim_forbidden": true,
+    "parent_probe": "NtQueryInformationProcess",
+    "power_probe": "GetSystemPowerStatus",
+    "source_gate_cache_and_storage_checks_before_attempt": true,
+    "storage_probe": "GetDiskFreeSpaceEx",
+    "get_psdrive_under_task_scheduler_forbidden": true,
+    "native_probe_delivery": "precompiled_hash_bound_dll",
+    "runtime_add_type_under_task_scheduler_forbidden": true,
+    "external_wsl_or_gpu_process_before_attempt": false,
+    "pre_attempt_deadline_seconds": 120,
+    "separate_create_new_preflight_lifecycle": true,
+    "bound_live_dispatch_record_required_immediately_before_attempt": true
+  },
+  "dispatcher_preflight": {
+    "bounded_wsl_process_collision_seconds": 45,
+    "bounded_windows_nvidia_smi_seconds": 30,
+    "bounded_wsl_gpu_seconds": 45,
+    "bounded_gpu_compute_idle_seconds": 30,
+    "native_power_required": true,
+    "source_cache_storage_and_namespace_checks_required": true
+  },
+  "foreground_wsl": {
+    "source_bound_wrapper_required": true,
+    "windows_supervisor_owns_wsl_exe_for_workload_lifetime": true,
+    "atomic_exit_evidence_required": true,
+    "windows_host_exit_required": true,
+    "missing_invalid_or_mismatched_exit_evidence_is_terminal_failure": true
+  },
+  "exactly_once": {
+    "dispatch_marker": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r15-20260831.dispatch.lock",
+    "attempt_marker": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r15-20260831.launch.lock",
+    "file_mode": "CreateNew",
+    "file_share": "None",
+    "both_markers_permanent": true,
+    "automatic_retry": false,
+    "automatic_resume": false,
+    "historical_namespace_reuse": false
+  },
+  "registered_canary": {
+    "actual_staged_supervisor_required": true,
+    "svchost_parent_required": true,
+    "native_parent_power_and_storage_stages_required": true,
+    "production_markers_forbidden": true,
+    "training_forbidden": true
+  },
+  "terminal_acceptance": {
+    "parent_terminal_validated_event_required": true,
+    "expected_child_count": 2,
+    "each_child_execution_status_required": "completed",
+    "each_child_standalone_verify_run_status_required": "verified",
+    "verification_python": "/home/techatat/.local/share/sleep-stage-paper/envs/tf24/bin/python",
+    "task_scheduler_state_alone_never_accepts_lineage": true
+  }
+}

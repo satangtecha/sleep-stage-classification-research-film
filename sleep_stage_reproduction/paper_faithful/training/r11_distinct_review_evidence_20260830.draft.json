@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "pending_final_review",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r11-20260830",
+  "pilot_launched": false,
+  "reviews": [
+    {
+      "review_id": "r11-durable-implementation-closure-20260830",
+      "agent_id": "01a05076-c569-72a3-8da8-f7a166f85162",
+      "role": "implementation_reviewer",
+      "status": "no_material_finding",
+      "all_prior_findings_closed": true,
+      "confirmed_findings_closed": [
+        "dispatch capability and Windows interop ownership",
+        "Windows and native WSL process collision handling",
+        "pre-dispatch immutable source and cache ordering",
+        "bounded lifecycle append retry and durable flush"
+      ],
+      "reviewed_source_sha256": {
+        "dispatcher_ps1": "ce8ea6c50d488b3f91a00866286705f64ffb6c4da7a8529b5a7ab86f7efc12fd",
+        "lockholder_ps1": "0660217cf9de58d1c64623a2a537494d271d36631d54cbea7ce2063a0e1763dd",
+        "supervisor_sh": "6fbcbc3fbfb0eccf2d4b99f8f3fc7dd3aa9ee376a18d4716a8c2f9e401ec20f5",
+        "runner_sh": "cedfaa44545b8934b786455d5b7040edb4d8f48cc9566e50622e08f5fc16e15d",
+        "lean_team_contract_json": "bc1027d1bed9016818db65d90f28042d75fdfa05d67544b71902ac95e6e669bc"
+      },
+      "launch_authorized": false
+    },
+    {
+      "review_id": "pending-r11-final-launch-gate-review",
+      "agent_id": "pending",
+      "role": "launch_gate_reviewer",
+      "status": "pending",
+      "launch_authorized": false
+    }
+  ]
+}

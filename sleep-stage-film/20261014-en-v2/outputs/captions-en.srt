@@ -1,0 +1,159 @@
+1
+00:00:00,000 --> 00:00:07,500
+Sleep staging assigns a label to each 30-second EEG epoch across a recorded night.
+
+2
+00:00:07,500 --> 00:00:15,000
+We present a simpler CNN + BiGRU study, not a replication of the original paper.
+
+3
+00:00:15,000 --> 00:00:22,500
+The evaluated subset contains 20 participants and 39 nights, with 42,307 retained epochs.
+
+4
+00:00:22,500 --> 00:00:30,000
+Participant separation matters because different nights from the same person are related.
+
+5
+00:00:30,000 --> 00:00:37,500
+The model predicts one of five labels. We evaluate every class, not only overall accuracy.
+
+6
+00:00:37,500 --> 00:00:45,000
+Macro-F1 gives each class equal weight. Accuracy counts all correctly classified epochs.
+
+7
+00:00:45,000 --> 00:00:52,500
+Each fold separates participants into training, validation and test sets without subject overlap.
+
+8
+00:00:52,500 --> 00:01:00,000
+Only two participants form each test fold. Small fold samples create substantial variability.
+
+9
+00:01:00,000 --> 00:01:07,500
+The short-time Fourier transform describes how frequency content changes within each EEG epoch.
+
+10
+00:01:07,500 --> 00:01:15,000
+The resulting log-spectrogram has 129 frequency bins and 29 time bins.
+
+11
+00:01:15,000 --> 00:01:22,500
+The CNN extracts local time-frequency patterns and compresses each epoch into a feature vector.
+
+12
+00:01:22,500 --> 00:01:30,000
+These are conceptual feature blocks. Their colors do not represent learned activations.
+
+13
+00:01:30,000 --> 00:01:37,500
+A bidirectional GRU reads the sequence in both directions and combines neighboring context.
+
+14
+00:01:37,500 --> 00:01:45,000
+Sequences stay within a single night. Bidirectional context makes this an offline model.
+
+15
+00:01:45,000 --> 00:01:52,500
+Validation and test use the same sliding-window inference path with stride five.
+
+16
+00:01:52,500 --> 00:02:00,000
+Evaluation mode disables dropout and uses saved BatchNorm statistics. Windows never cross nights.
+
+17
+00:02:00,000 --> 00:02:07,500
+The baseline had severe errors on particular nights, including one night predicted entirely as wakefulness.
+
+18
+00:02:07,500 --> 00:02:15,000
+Four diagnostic rounds found no confirmed pairing, timing, channel or label-alignment defect.
+
+19
+00:02:15,000 --> 00:02:22,500
+R1 standardizes every frequency bin using the retained epochs of that same night.
+
+20
+00:02:22,500 --> 00:02:30,000
+R1 is post-hoc and transductive. Retraining plus normalization prevents a model-only causal claim.
+
+21
+00:02:30,000 --> 00:02:37,500
+Subject-mean macro-F1 rose from 56.42% to 74.86%. Pooled accuracy rose from 65.00% to 80.99%.
+
+22
+00:02:37,500 --> 00:02:45,000
+The comparison combines changed normalization with retrained weights and access to unlabeled test-night signals.
+
+23
+00:02:45,000 --> 00:02:52,500
+The sensitivity run computes statistics across the complete signal without labels selecting the normalization range.
+
+24
+00:02:52,500 --> 00:03:00,000
+It scores 71.84% macro-F1. It still uses each evaluation night's unlabeled signal and remains transductive.
+
+25
+00:03:00,000 --> 00:03:07,500
+A paired participant-level bootstrap uses 1,000 resamples with fixed seed 20261011.
+
+26
+00:03:07,500 --> 00:03:15,000
+The run misses the 71.86% interpretation threshold by only 0.024 points. That threshold was not blind to R1.
+
+27
+00:03:15,000 --> 00:03:22,500
+A headline average hides fold variability. R1 improves fold macro-F1 in all ten paired folds.
+
+28
+00:03:22,500 --> 00:03:30,000
+These plotted values pool the two test participants within each fold. They are not the headline subject mean.
+
+29
+00:03:30,000 --> 00:03:37,500
+Per-class recall shows how many true epochs of each class the model recovers.
+
+30
+00:03:37,500 --> 00:03:45,000
+N1 remains the weakest class in both normalization runs, despite the overall improvement.
+
+31
+00:03:45,000 --> 00:03:52,500
+The confusion matrix separates correct classifications from the direction of each error.
+
+32
+00:03:52,500 --> 00:04:00,000
+N1 errors spread across adjacent or competing stages. This describes mistakes, not their biological cause.
+
+33
+00:04:00,000 --> 00:04:07,500
+Three bounded validation-only pilots tested class balance, the classifier head and transition decoding.
+
+34
+00:04:07,500 --> 00:04:15,000
+None reached the required one-point macro-F1 gain with the other safeguards. We kept the original settings.
+
+35
+00:04:15,000 --> 00:04:22,500
+A provenance audit separates known development exposure from participants with unresolved histories.
+
+36
+00:04:22,500 --> 00:04:30,000
+No participant cohort currently meets the evidence requirement for a certified independent evaluation.
+
+37
+00:04:30,000 --> 00:04:37,500
+R1 uses a single model seed and was selected after baseline test failures. Its confidence interval is conditional.
+
+38
+00:04:37,500 --> 00:04:45,000
+These results do not establish clinical validity, equivalence to another paper, or online performance.
+
+39
+00:04:45,000 --> 00:04:52,500
+The R1 package scored higher in this cohort. Normalization and retrained weights changed together.
+
+40
+00:04:52,500 --> 00:05:00,000
+The next scientific gate is a locked protocol and genuinely independent participants, after human approval.

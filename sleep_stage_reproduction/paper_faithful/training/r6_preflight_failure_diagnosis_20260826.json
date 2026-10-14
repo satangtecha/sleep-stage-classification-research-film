@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "created_at": "2026-08-26T23:22:02.6870479+07:00",
+  "attempted_run_id": "paper-text-v1-pilot-cap128-seed42-r6-20260826",
+  "attempt_reuse_forbidden": true,
+  "launch_attempt": {
+    "count": 1,
+    "launcher_process_id": 30792,
+    "canonical_gate_sha256": "0cc5c4f85022c0404ce2fb38c303de297e43ab044857929bb8ce55192a05df3d",
+    "launcher_sha256": "c1d32c9c4fc7ce5fcb8e6a3c2ba84e17938687333508a3e98cdb1a4d14ef693c",
+    "runner_sha256": "60cc50d9a18a622722ad0774ed622fc2a1489341690a84a36b88eda854e2e8eb",
+    "launcher_started_at_or_before": "2026-08-26T23:20:08.2454708+07:00",
+    "launcher_failed_at_or_before": "2026-08-26T23:20:10.6129007+07:00"
+  },
+  "failure": {
+    "phase": "launcher_preflight_before_lifecycle_publication",
+    "classification": "background_windows_powershell_hash_cmdlet_resolution_failure",
+    "message": "The term 'Get-FileHash' is not recognized as the name of a cmdlet, function, script file, or operable program.",
+    "failed_operation": "first Get-Sha256 call for the operator-supplied canonical gate trust anchor",
+    "training_started": false,
+    "strict_cache_validation_started": false,
+    "gpu_process_started": false,
+    "wsl_pilot_process_started": false
+  },
+  "immutable_evidence": {
+    "launcher_stdout": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-pilot-cap128-seed42-r6-20260826.launcher.stdout.log",
+    "launcher_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "launcher_stdout_bytes": 0,
+    "launcher_stderr": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-pilot-cap128-seed42-r6-20260826.launcher.stderr.log",
+    "launcher_stderr_sha256": "238a765b62e5409afe35e90a85d627e78bbb944f6d400d9c85e4e0e5960bc8a7",
+    "launcher_stderr_bytes": 595,
+    "launch_lock": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-pilot-cap128-seed42-r6-20260826.launch.lock",
+    "launch_lock_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lifecycle_absent": true,
+    "pilot_stdout_absent": true,
+    "pilot_stderr_absent": true,
+    "run_directory_absent": true,
+    "execution_manifest_absent": true
+  },
+  "root_cause_scope": {
+    "confirmed": "The versioned r6 launcher depended on the Get-FileHash cmdlet during hidden Windows PowerShell preflight, and that exact launched process could not resolve the cmdlet.",
+    "not_claimed": "The deeper reason for the child host's cmdlet-resolution difference is not required for recovery because a module-independent SHA-256 implementation removes the dependency.",
+    "interactive_control": "Windows PowerShell 5.1 can resolve Get-FileHash interactively, proving this is launcher-host compatibility rather than missing evidence or a changed gate.",
+    "not_windows_or_gpu_crash": true,
+    "not_training_failure": true,
+    "not_cache_or_model_failure": true
+  },
+  "corrective_contract": {
+    "replace_get_file_hash": "Use System.Security.Cryptography.SHA256 with an explicit read-only FileStream and lowercase hexadecimal output.",
+    "exact_hidden_host_smoke_required": true,
+    "wrong_gate_hash_must_fail_before_gate_parse": true,
+    "exclusive_launch_lock_required": true,
+    "fresh_run_id_required": "paper-text-v1-pilot-cap128-seed42-r7-20260826",
+    "automatic_retry_forbidden": true,
+    "r6_relaunch_forbidden": true,
+    "independent_review_required": true,
+    "new_canonical_gate_required": true
+  },
+  "recovery_state": {
+    "r7_launch_authorized": false
+  }
+}

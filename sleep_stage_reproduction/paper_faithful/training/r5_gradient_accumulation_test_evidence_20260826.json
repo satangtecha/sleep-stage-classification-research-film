@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-26T23:05:00+07:00",
+  "scope": "r5_stage3_gradient_accumulation_recovery",
+  "host_full_suite": {
+    "command": "python -m unittest discover -s .\\paper_faithful\\training\\tests -p test_*.py",
+    "status": "pass",
+    "exit_code": 0,
+    "tests_run": 45,
+    "tests_skipped": 4,
+    "elapsed_seconds": 14.032
+  },
+  "locked_wsl_tf24_focused_suite": {
+    "python": "/home/techatat/.local/share/sleep-stage-paper/envs/tf24/bin/python",
+    "python_version": "3.7.12",
+    "tensorflow_version": "2.4.0",
+    "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "driver": "610.47",
+    "command": "python -m unittest paper_faithful.training.tests.test_execution_corrections paper_faithful.training.tests.test_trainer_contract paper_faithful.training.tests.test_training_scaffold.SplitTests paper_faithful.training.tests.test_training_scaffold.ManifestAndStorageTests paper_faithful.training.tests.test_training_scaffold.TensorflowSmokeTests.test_gradient_accumulation_matches_one_nominal_batch_if_tensorflow_is_available paper_faithful.training.tests.test_training_scaffold.TensorflowSmokeTests.test_gradient_accumulation_model_fit_preserves_frozen_batchnorm_if_tensorflow_is_available",
+    "status": "pass",
+    "exit_code": 0,
+    "tests_run": 31,
+    "tests_skipped": 0,
+    "elapsed_seconds": 28.879,
+    "gradient_accumulation_equivalence_executed": true,
+    "model_fit_sequence_and_frozen_batchnorm_executed": true
+  },
+  "discarded_overbroad_confirmation": {
+    "status": "inconclusive",
+    "reason": "The first confirmation command included the unrelated full synthetic Stage1/2/3 GPU smoke, which spawned an additional Keras process and exceeded the bounded focused-test duration. Only that newly launched test session was interrupted before any test failure; the exact 31-test focused command was then run and passed.",
+    "pilot_or_run_artifacts_touched": false
+  },
+  "source_sha256": {
+    "trainer_py": "5e81de61c7394d728a8889cad0cc1e56e0d9344852e79b783721f9efb28023c0",
+    "cli_py": "4e7b10f39c6bbf126fa8ca82bad7c94fa7b46c19168d7af3cf2e85195be836d1",
+    "readme_md": "c0efd50171db3597e3e8ad8f82b5a8f9efed53d254a9d2f88d0232243e3ce456",
+    "stage3_stability_smoke_py": "ddd5fb3d8ec5ceaa065410151d6e3c32f4db93d7c3d8e38fe49604d20e959a5f",
+    "test_execution_corrections_py": "e36f4e261b0d00602974f34908644170aba6558889c5afc3a0aefbf00423dc27",
+    "test_trainer_contract_py": "8774bb60939adc8e5226c53a098ce9f1fc9116321bfeabbdcbe1149b0bebfc2c",
+    "test_training_scaffold_py": "88dff6e375c176a04e8a476b08d291d46bf4e6fc3a9beaa2e0056eb7efa99db1"
+  },
+  "status": "pass"
+}

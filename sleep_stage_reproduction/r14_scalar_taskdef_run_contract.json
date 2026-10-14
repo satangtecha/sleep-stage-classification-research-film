@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "objective": "Complete a fresh r14 exactly-once multi-seed training run whose Task Scheduler action is constructed only from bounded scalar trust anchors, prove both children independently verified, then continue to SUBJECT_GENERALIZATION_V1 and the final acceptance report.",
+  "scope": "large",
+  "risk": "high",
+  "phase": "executing",
+  "userApproval": "proceed",
+  "maxConcurrentAgents": 2,
+  "deliverables": [
+    "Immutable local and drive-E evidence for the non-retriable r13 Task Scheduler action-serialization failure",
+    "Fresh r14 dispatcher, E-staged supervisor, local supervisor template, runner, helper, protocol, and focused non-training tests",
+    "Production-shape registered handshake, scalar-action refusal, Windows PowerShell 5.1, import-closure, source-binding, power, GPU, cache, and namespace evidence",
+    "Independent implementation and launch-gate review with every confirmed material finding closed",
+    "A byte-identical local and drive-E canonical r14 gate and delegated-authorization confirmation grounded in exact user excerpts",
+    "Exactly one r14 invocation followed by parent terminal validation and locked TensorFlow 2.4 standalone verification of both children",
+    "SUBJECT_GENERALIZATION_V1 acceptance evidence and final report"
+  ],
+  "nonGoals": [
+    "Do not retry, resume, relaunch, or reuse r1 through r13",
+    "Do not remove or rewrite historical markers, lifecycle, confirmation, gates, logs, evidence, or child namespaces",
+    "Do not create r14 production markers during readiness engineering or tests",
+    "Do not weaken cache, power, storage, GPU, source-hash, numerical-stability, lineage, or terminal-validation gates",
+    "Do not treat Task Scheduler state alone as training or lineage evidence"
+  ],
+  "acceptance": [
+    "r13 failure evidence is byte-identical on C and E at SHA-256 24e10314118e17d6a116906583f0cea1766d0eb686960e4d0b36209506d489af and proves no attempt marker, supervisor handshake, WSL workload, training, or child execution occurred",
+    "The exact r14 action uses scalar gate and confirmation SHA-256 values exactly once, is bounded to at most 1024 characters, rejects object serialization, and is semantically validated before dispatch-marker creation",
+    "The E-staged production supervisor is byte-identical to its gate-bound C template and both paths are source-bound",
+    "A real Task Scheduler registration and RunEx canary exercises production-shaped arguments and publishes one svchost-owned bound handshake without production markers",
+    "Focused host, Windows PowerShell 5.1, and locked-runtime tests pass and an independent reviewer reports no material finding before canonical gate publication",
+    "r14 is invoked exactly once only after final preflight, both children complete and independently verify as verified, and the parent records terminal_validated",
+    "SUBJECT_GENERALIZATION_V1 and the final acceptance report satisfy the active goal"
+  ],
+  "workers": [
+    {
+      "id": "r14-main-integrator",
+      "role": "implementer",
+      "ownership": [
+        "r14 production sources, tests, protocol, evidence, confirmation, invocation, monitoring, and integration"
+      ],
+      "write": true,
+      "doneWhen": [
+        "All r14 readiness evidence passes and the final reviewed gate is published"
+      ]
+    },
+    {
+      "id": "r14-independent-reviewer",
+      "role": "reviewer",
+      "ownership": [
+        "Read-only r14 sources, tests, evidence, gate draft, delegated-authorization interpretation, and production namespace"
+      ],
+      "write": false,
+      "doneWhen": [
+        "Return evidence-backed findings or no material finding before launch"
+      ]
+    }
+  ],
+  "decisions": [
+    "r13 was invoked exactly once and failed before attempt-marker creation because PowerShell object interpolation serialized gate and confirmation objects into a 41169-character Task Scheduler action.",
+    "The r13 dispatch marker is permanently consumed; r13 remains inspect-only and cannot be retried, resumed, relaunched, or reused.",
+    "r14 preserves ordered seeds 42 and 43, PAPER_TEXT_STAGE3_GLOBAL_NORM_CLIP_V1, sequential children, strict cache loading, and foreground WSL terminal semantics.",
+    "r14 constructs action arguments through a scalar-only helper, validates exact persisted action text, stages the supervisor on E, and binds the staged file byte-for-byte to its local template.",
+    "The first immutable engineering-stage supervisor is rejected because Task Scheduler-owned Get-CimInstance hung; production uses the fresh v2 staged path and Windows PowerShell 5.1 Get-WmiObject probes validated by the registered canary.",
+    "The user's standing authorization permits in-scope progress without repeated approval prompts; the final confirmation artifact must quote the supplied authorization exactly and bind the reviewed r14 gate rather than inventing a user statement.",
+    "Delegated authorization schema v2 preserves both exact user excerpts, records that the user did not directly request the exact r14 identity, and labels the r14/gate/protocol/marker binding as an agent interpretation that is not a user quote.",
+    "Once either r14 permanent marker is consumed, no automatic or manual retry, resume, relaunch, or reuse is allowed."
+  ],
+  "evidence": [
+    "paper_faithful/training/r13_infrastructure_failure_evidence_20260831.json and E:/blp/sleep_stage_reproduction/runtime/driver-recovery/r13-infrastructure-failure-evidence-20260831.json are byte-identical SHA-256 24e10314118e17d6a116906583f0cea1766d0eb686960e4d0b36209506d489af.",
+    "Focused r14 static, exactly-once refusal, GPU refusal, r13-to-r14 supervisor semantic-diff, and production-action COM preflight tests pass without production markers.",
+    "The E-staged Task Scheduler production-shape v3 canary case 8fd0ceb068d2454980bb0379fab13a77 validated exact persisted scalar arguments, negative serialized-object refusal, and one svchost-owned bound handshake without launching training.",
+    "The first launch-test evidence SHA d2845fcad0759a8de632e605a08a2fd49536819c272a2c36c79c6d2aecad6e74 is superseded before gate publication by authorization-provenance schema v2 evidence."
+  ]
+}

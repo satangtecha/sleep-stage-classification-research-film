@@ -1,0 +1,416 @@
+{
+    "schema_version":  1,
+    "artifact_type":  "r16_canonical_launch_gate",
+    "status":  "pass",
+    "fresh_launch_authorized":  true,
+    "run_id_prefix":  "paper-text-v1-multiseed-cap128-r16-20260901",
+    "seeds":  [
+                  42,
+                  43
+              ],
+    "expected_children":  [
+                              "paper-text-v1-multiseed-cap128-r16-20260901-split42-model42",
+                              "paper-text-v1-multiseed-cap128-r16-20260901-split43-model43"
+                          ],
+    "protocol":  {
+                     "protocol_id":  "PAPER_TEXT_V1",
+                     "cap":  128,
+                     "stage3_stability_adaptation_id":  "PAPER_TEXT_STAGE3_GLOBAL_NORM_CLIP_V1",
+                     "stage3_gradient_clip_norm":  1,
+                     "stage3_gradient_accumulation_steps":  128,
+                     "stage3_gradient_clip_application_point":  "after_effective_batch_average_before_optimizer_step"
+                 },
+    "predecessor":  {
+                        "run_id_prefix":  "paper-text-v1-multiseed-cap128-r15-20260831",
+                        "status":  "failed_before_dispatch_marker_attempt_and_training",
+                        "retriable":  false,
+                        "sha256":  "76ffdba66a8346bbb7e4db422f523d949d93077f03deab6ac70154c31de90785"
+                    },
+    "durable_supervisor":  {
+                               "design_id":  "R16_BINARY_SAFE_SOURCE_LOCK_SUPERVISOR_V1",
+                               "pre_attempt_deadline_seconds":  120,
+                               "wmi_forbidden":  true,
+                               "cim_forbidden":  true,
+                               "get_psdrive_forbidden":  true,
+                               "runtime_add_type_forbidden":  true,
+                               "native_parent":  true,
+                               "native_power":  true,
+                               "native_storage":  true,
+                               "precompiled_native_probe_hash_bound":  true,
+                               "external_wsl_before_attempt":  false,
+                               "source_binding_content_types":  [
+                                                                    "utf8_text",
+                                                                    "binary"
+                                                                ],
+                               "native_probe_dll_content_type":  "binary",
+                               "all_other_source_binding_content_type":  "utf8_text",
+                               "raw_byte_sha256_for_all_content_types":  true,
+                               "strict_utf8_decode_only_for_utf8_text":  true,
+                               "binary_decode_forbidden":  true
+                           },
+    "cache_gate":  {
+                       "path":  "E:\\blp\\sleep_stage_reproduction\\sst_cache\\paper_faithful_v3_full_20260820\\sst_full_cohort_run_manifest.json",
+                       "sha256":  "a4512970c6023cd1dc727cad40c2352126fea46356b78bb6782055f9d0ce7ed2",
+                       "validator_log_path":  "E:\\blp\\sleep_stage_reproduction\\runtime\\integrity-logs\\full-cache-validation-v2.stdout.log",
+                       "validator_v2_log_sha256":  "8c52cc004fb134354d87a133d4bb85a0160563f65e361065fc2560256f517e07",
+                       "status":  "valid"
+                   },
+    "storage_gate":  {
+                         "c_minimum_gib":  10,
+                         "e_minimum_gib":  100,
+                         "c_observed_gib":  25.565,
+                         "e_observed_gib":  359.008
+                     },
+    "gpu_gate":  {
+                     "name":  "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+                     "nvidia_smi_driver_version":  "610.47",
+                     "compute_process_count":  0
+                 },
+    "launch_test_evidence":  {
+                                 "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\r16_binary_safe_launch_test_evidence_20260901.json",
+                                 "sha256":  "973d8f0ee2253bb0f2273f82b458f75678e1aaa48a9174b8d6b8d8a9e65a7980"
+                             },
+    "review":  {
+                   "status":  "pass",
+                   "no_material_finding":  true,
+                   "reviewer_thread_id":  "01a058fe-5757-7773-8fbc-94527ecf8cac",
+                   "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\r16_independent_launch_review_20260901.json",
+                   "sha256":  "d515eea93a3985f944c3a39bbf0cd874f0f963b8addbf117a8536e79492755a4"
+               },
+    "exactly_once":  {
+                         "dispatch_marker":  "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r16-20260901.dispatch.lock",
+                         "attempt_marker":  "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r16-20260901.launch.lock",
+                         "file_mode":  "CreateNew",
+                         "file_share":  "None",
+                         "automatic_retry":  false,
+                         "automatic_resume":  false,
+                         "historical_reuse":  false
+                     },
+    "source_bindings":  [
+                            {
+                                "name":  "dispatcher_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\launch_paper_text_multiseed_smoke_r16.ps1",
+                                "sha256":  "13c28a67b7ed0205ba3ccceb6bd6695d21f93772cd85821a2f595a0c0372f3b5",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "supervisor_ps1",
+                                "path":  "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r16-production-supervisor-v1.ps1",
+                                "sha256":  "dc245b4eb642efc9ec3469841a410ce9a23b37888c94dde81c1aaecf36726dda",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "supervisor_template_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\supervise_paper_text_multiseed_smoke_r16.ps1",
+                                "sha256":  "dc245b4eb642efc9ec3469841a410ce9a23b37888c94dde81c1aaecf36726dda",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "runner_sh",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\run_paper_text_multiseed_smoke_r16.sh",
+                                "sha256":  "91686da85606d11cf9ed53f2fa7cd74a0e51e64bd1070cc8e582c5ffe43fc9a2",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "foreground_wrapper_sh",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\run_paper_text_multiseed_smoke_r16_wrapper.sh",
+                                "sha256":  "251ca0d93d51d5b541ab99c976dff4030e035a042f9e53195b7d66acf1b213cc",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_exactly_once_helpers_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\r16_exactly_once_helpers.ps1",
+                                "sha256":  "8759f8e2d44b1dc2c714b84c65247c9179d7cc98f2d1e7eb986c34512e05e99e",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_native_probe_cs",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\r16_native_probe.cs",
+                                "sha256":  "0e2599cd0093dffdf4751e299b75b32f298969000f809ab1e536c79d57c31087",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_native_probe_dll",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\r16_native_probe.dll",
+                                "sha256":  "c48bee99fe34ca134e460549796a207dc6e041f8299021beb04b4b7fda8b1a03",
+                                "content_type":  "binary"
+                            },
+                            {
+                                "name":  "r16_protocol_json",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\r16_binary_safe_scheduler_protocol_20260901.json",
+                                "sha256":  "c3ee09ec3f019f488bb765752cad6b83d28cf0175b6e61089b1051acfdcb6f26",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_run_contract_json",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\r16_binary_safe_scheduler_run_contract.json",
+                                "sha256":  "f20945f9ebbacb85df730d4dde791b6402098eb9e4fd940fcd8e588fa443806f",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r15_failure_evidence_json",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\r15_pre_dispatch_failure_evidence_20260901.json",
+                                "sha256":  "76ffdba66a8346bbb7e4db422f523d949d93077f03deab6ac70154c31de90785",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_static_smoke_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\r16_static_fail_closed_smoke.ps1",
+                                "sha256":  "c83000e73b1614f3c402933e2dcf25a697e6d7c2b8f0c05062b3a68d17f88bf3",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_binary_lock_smoke_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\r16_binary_lock_smoke.ps1",
+                                "sha256":  "682f315c83f8b7386fcf722d25df0c1fc152b85572c1c811db3e47ba2d22ac2f",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_native_smoke_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\r16_native_preflight_smoke.ps1",
+                                "sha256":  "c9ec9ea94a0a37dc7d563dd3e4b8ad7c3f7a772d749c69edfe219a83b9b2b8d9",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_exactly_once_smoke_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\r16_exactly_once_refusal_smoke.ps1",
+                                "sha256":  "49a6a14c6b118108d9b5836a14b7f8aee27f03059b1c9ae3a7d1fb39b7cfb638",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_gpu_smoke_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\r16_gpu_compute_refusal_smoke.ps1",
+                                "sha256":  "c9c0ac1f2726d2061e24456aa2e46b604c77acf9370b2cfe92c21bf69c27c714",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_wrapper_smoke_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\r16_foreground_wrapper_smoke.ps1",
+                                "sha256":  "2f123cbf387ad7b9dbeba0dfbf2005d47fa16f91b2a380e3cda6332ca2ea7b7e",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_scheduler_canary_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\r16_task_scheduler_supervisor_canary.ps1",
+                                "sha256":  "4eb02bebcb9a847f46be43f9beab117e1f99b3f159120bbc75f43e507058e6df",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_import_smoke_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\r16_import_closure_smoke.ps1",
+                                "sha256":  "f7e5b9bcd9900e57f88394abb9135275560a7ee3f7c896021a321f6bca99f9ee",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_import_probe_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\r16_import_closure_probe.py",
+                                "sha256":  "1801cfe8481dba9145d6385c0bca3a25ddfe1ac45ef8977c7d65a4bd1c489d90",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_confirmation_refusal_smoke_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\r16_delegated_authorization_refusal_smoke.ps1",
+                                "sha256":  "aa89149bae5fe87d5d64d1ef38c4bd2c28bf5b87d61cb54b965938114236c02e",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_confirmation_builder_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\build_r16_delegated_authorization_confirmation.ps1",
+                                "sha256":  "3b2b63a6b74d82759b5210f14c9f45be38851389236adaa6ac7e334e593b5a4b",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_builder_parameter_smoke_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\r16_builder_parameter_smoke.ps1",
+                                "sha256":  "f9b0ab7be31b097096516c290bc3a4da48b084258ccccf300c31f28fec5547c5",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_launch_evidence_smoke_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\r16_launch_test_evidence_smoke.ps1",
+                                "sha256":  "9bff1fc7a4b31b166bfb315b69b36811fc8e9c3a9c53137b292acfd34ea5e209",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_launch_evidence_builder_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\build_r16_launch_test_evidence.ps1",
+                                "sha256":  "465aa1d0426841f6eec21b5869bfeb422e032693d0cb2e66b4d42d378466f1e0",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_gate_smoke_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\r16_canonical_gate_smoke.ps1",
+                                "sha256":  "9d8747f1b19d02f9cad9acfcecdc8bee19d2046817d7f91c31dd7d47b477bc78",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "r16_gate_builder_ps1",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\build_r16_canonical_gate.ps1",
+                                "sha256":  "13e3a2ca1afb4d70cdc59ebce4b6966c03e75dffec811019c27ae362ee01ef9c",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "test_multi_seed_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\tests\\test_multi_seed.py",
+                                "sha256":  "a3eb62650cbdb36803a3c7943be563b14d3c1bb1108b7efe8bb8308ac7d434e6",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "source_manifest_json",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\manifests\\source_manifest.json",
+                                "sha256":  "578fd3afec29e3d8ecdf9d142b8841e94d3b939624ca019f9d0701c94f544b50",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "environment_manifest_json",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\environment\\results\\wsl_tf24_probe.json",
+                                "sha256":  "5194d573abd019444f073fec3252125f290d70f44315627070abd5dac1084a79",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "cache_manifest_json",
+                                "path":  "E:\\blp\\sleep_stage_reproduction\\sst_cache\\paper_faithful_v3_full_20260820\\sst_full_cohort_run_manifest.json",
+                                "sha256":  "a4512970c6023cd1dc727cad40c2352126fea46356b78bb6782055f9d0ce7ed2",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "cache_validator_log",
+                                "path":  "E:\\blp\\sleep_stage_reproduction\\runtime\\integrity-logs\\full-cache-validation-v2.stdout.log",
+                                "sha256":  "8c52cc004fb134354d87a133d4bb85a0160563f65e361065fc2560256f517e07",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "canary_result_json",
+                                "path":  "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r16-supervisor-canaries\\550e252cdfd14944b1b2c534faafe245\\result.json",
+                                "sha256":  "9c74b60e14b830c3933ead1501df780785f5a6a891e9fdf64faf4632d54ba82c",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "canary_handshake_json",
+                                "path":  "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r16-supervisor-canaries\\550e252cdfd14944b1b2c534faafe245\\handshake.json",
+                                "sha256":  "4840d35ddedc2cb1ce3057fe15249e072ffbae10189933514a89761a6e0a5ff2",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "canary_preflight_jsonl",
+                                "path":  "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r16-supervisor-canaries\\550e252cdfd14944b1b2c534faafe245\\preflight.jsonl",
+                                "sha256":  "7a96aefa2114f8e29959647a921c54d7223a6fec5e71afe45af82686c3cbad9c",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "wrapper_result_json",
+                                "path":  "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r16-wrapper-smokes\\5455b39ad5b24bea9a31faa90a359638\\result.json",
+                                "sha256":  "3e38075ab682dbfd0ba45feaf125342800ece1af77df61ce0665635ec9f37d9f",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "sst_init_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\sst\\__init__.py",
+                                "sha256":  "9ccfadc07a64931fbea328a6b69535c18b3fe1a60d818c2488d1afc07d7bd155",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "sst_cache_manifest_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\sst\\cache_manifest.py",
+                                "sha256":  "6bebeb728637108a587fcda7b1ca929d34370179786cc2bc5c26e26ee0efb581",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "sst_cache_writer_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\sst\\cache_writer.py",
+                                "sha256":  "8a96c780471d1f18c8f423a34d58ea6ead8280ebaed88551f3214b831a84f31c",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "sst_cohort_cache_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\sst\\cohort_cache.py",
+                                "sha256":  "a3144976052a205181fb373b145e942f2c646eb758403bbff0ff19c061a6ff02",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "sst_storage_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\sst\\storage.py",
+                                "sha256":  "ab144bb725a1cc65e54e04f21043249f01980ff1578c3a84815a6ed48bf30ddd",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "sst_transform_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\sst\\transform.py",
+                                "sha256":  "c165aea2b212c4e799c25f94a16cab07c7707a8c8013164a75cf6bd60287c98f",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "sst_windowing_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\sst\\windowing.py",
+                                "sha256":  "69242e85197939bbad1809a70c579d70eb3e4f975ed89d6ef436c1b4adb8c2aa",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "training_init_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\__init__.py",
+                                "sha256":  "508254473f607fd6e154bfce0156d8b0cde297c6a77192988af407f7b14c9292",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "training_cache_loader_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\cache_loader.py",
+                                "sha256":  "da3a518bd599d58309ebe088948795008c750c88651590b3d9b5b042aaa84041",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "cli_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\cli.py",
+                                "sha256":  "ff284c53883a5fc082ba86a6465e2ece300d3f4907e34de77852efd9a9315b50",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "training_metrics_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\metrics.py",
+                                "sha256":  "4b4ba248b450147f623d9476c11309dae6cf10967bdcc9e06298f7f94d879baa",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "training_models_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\models.py",
+                                "sha256":  "17f37c00a680cf9f1e102fe14256de4b085b187f2dfe74195e89444b3189ef4f",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "training_protocols_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\protocols.py",
+                                "sha256":  "1c3ba57351cd3d35d56aad81d15cdd6528ad7e0001003ea5b9662b16df141d40",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "training_run_manifest_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\run_manifest.py",
+                                "sha256":  "b4af23373fb2273d8b8d768fdb889b39e4a11d177719976dc34262423e6dd91d",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "training_splits_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\splits.py",
+                                "sha256":  "f846bc8f969c4b03e5083a092a2f73c95786456ea1db95810fabc110a40163b5",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "training_storage_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\storage.py",
+                                "sha256":  "4a7f205b5d4705d5dd2acfd6c7345a4df82512ca26b41028dbff760591ab53f8",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "trainer_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\trainer.py",
+                                "sha256":  "3cad48aa46d3ec7d3501640980250b5c48d199bd9c19b663b482114e1a12c77f",
+                                "content_type":  "utf8_text"
+                            },
+                            {
+                                "name":  "verify_run_py",
+                                "path":  "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\verify_run.py",
+                                "sha256":  "b0da43b53f736434b037febe17071433b6b779d2d02074db8f17200e38140277",
+                                "content_type":  "utf8_text"
+                            }
+                        ],
+    "created_at":  "2026-09-01T01:11:19.3479992+07:00"
+}

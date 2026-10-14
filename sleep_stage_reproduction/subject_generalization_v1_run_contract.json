@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "objective": "Complete a leakage-resistant SUBJECT_GENERALIZATION_V1 six-subject held-out pilot using the locked PAPER_TEXT_V1 architecture and the finalized E-drive SST cache, with independently verifiable fold evidence.",
+  "scope": "large",
+  "risk": "high",
+  "phase": "executing",
+  "userApproval": "proceed",
+  "maxConcurrentAgents": 2,
+  "deliverables": [
+    "Immutable SUBJECT_GENERALIZATION_V1 protocol and fold-selection manifest",
+    "Versioned subject-held-out pilot runner with exactly-once fold markers and fail-closed resource and lineage gates",
+    "Six independently trained and verified fold artifacts, including subject-disjoint split hashes, checkpoints, metrics, and failure records",
+    "Independent read-only review and canonical acceptance gate",
+    "Final evidence-backed report separating paper reproduction from subject generalization"
+  ],
+  "nonGoals": [
+    "Do not alter or reuse r1 through r19 production runs",
+    "Do not compare subject-wise metrics directly with the manuscript's epoch-random-split 83 percent result",
+    "Do not claim full LOSO or multi-seed generalization from the six-subject pilot",
+    "Do not launch training when the live RAM, commit, power, storage, or GPU admission gate is unsafe",
+    "Do not download new data or require internet access when the finalized local cache is valid"
+  ],
+  "acceptance": [
+    "Protocol manifest binds SUBJECT_GENERALIZATION_V1, six deterministic held-out subjects, validation policy, model seed policy, cap 128, the subject-balanced round-robin cap policy, cache hash, source hash, environment hash, and exact run prefix",
+    "Every fold has pairwise-disjoint subject sets for train, validation, and test, and its split membership hashes are independently reproducible",
+    "Every fold uses the locked PAPER_TEXT_V1 architecture and stage configuration while recording SUBJECT_GENERALIZATION_V1 as the evaluation protocol; the protocol hashes/counts are the exact capped hashes used for execution",
+    "Every completed fold has finite metrics, a checkpoint hash, complete stage lineage, trainer TF2.4 identity, and locked TF2.4 standalone verification in a separate process",
+    "A failed fold stops later folds and records an immutable failure artifact; no retry, resume, relaunch, or reuse path is available",
+    "Independent review reports no unresolved material finding, the canonical gate binds exact evidence hashes, and the final report states pilot limitations"
+  ],
+  "workers": [
+    {
+      "id": "subject-generalization-main",
+      "role": "implementer",
+      "ownership": [
+        "subject-generalization protocol, runner, focused tests, evidence, gate, and final integration"
+      ],
+      "write": true,
+      "doneWhen": [
+        "All required pilot artifacts and acceptance checks are complete or the run is immutably blocked with root cause evidence"
+      ]
+    },
+    {
+      "id": "subject-generalization-reviewer",
+      "role": "reviewer",
+      "ownership": [
+        "read-only review of the protocol, split leakage controls, runner exact-once behavior, evidence bindings, and final gate"
+      ],
+      "write": false,
+      "doneWhen": [
+        "Return an evidence-backed no-material-finding result or specific confirmed findings"
+      ]
+    }
+  ],
+  "decisions": [
+    "The six-subject pilot is deliberately separate from PAPER_TEXT_V1 epoch-random-split training and is not a numerical replication claim.",
+    "The finalized local cache is reused as immutable input; prior r19 child runs remain evidence only and are not used as subject-generalization training checkpoints.",
+    "The pilot will use six deterministic subjects selected by a recorded seed, one test subject per fold, and one rotating validation subject; all other subjects are training subjects for that fold.",
+    "The per-split cap is 128 selected by sorted subject-balanced round-robin; this keeps all available training subjects represented when the cap permits and binds the resulting capped membership hashes in protocol and execution records.",
+    "A full cohort LOSO expansion remains a later phase and is not silently substituted for the six-subject pilot."
+  ],
+  "evidence": [
+    "E:/blp/sleep_stage_reproduction/sst_cache/paper_faithful_v3_full_20260820/sst_full_cohort_run_manifest.json",
+    "paper_faithful/manifests/protocols/SUBJECT_GENERALIZATION_V1.json",
+    "paper_faithful/training/splits.py",
+    "paper_faithful/training/subject_generalization.py",
+    "paper_faithful/training/subject_generalization_runner.py",
+    "paper_faithful/training/tests/test_subject_generalization.py",
+    "paper_faithful/training/trainer.py",
+    "paper_faithful/training/verify_run.py"
+  ]
+}

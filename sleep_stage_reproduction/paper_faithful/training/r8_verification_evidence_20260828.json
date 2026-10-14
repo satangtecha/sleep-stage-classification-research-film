@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "artifact_type": "standalone_run_verification_evidence",
+  "created_at": "2026-08-28T07:19:58.3586732+07:00",
+  "run_id": "paper-text-v1-pilot-cap128-seed42-r8-20260827",
+  "run_directory": "/mnt/e/blp/sleep_stage_reproduction/runs/paper-text-v1-pilot-cap128-seed42-r8-20260827",
+  "locked_python": "/home/techatat/.local/share/sleep-stage-paper/envs/tf24/bin/python",
+  "command": "/home/techatat/.local/share/sleep-stage-paper/envs/tf24/bin/python -m paper_faithful.training.verify_run --run-dir /mnt/e/blp/sleep_stage_reproduction/runs/paper-text-v1-pilot-cap128-seed42-r8-20260827",
+  "initial_refusal": {
+    "status": "refused",
+    "reason": "data_manifest provenance hash failed",
+    "diagnosis": "The completed execution persisted an immutable absolute Windows E-drive manifest path. The locked WSL verifier treated that provenance string as a POSIX path even though the safely translated /mnt/e file matched the pinned SHA-256.",
+    "run_or_artifact_failure": false
+  },
+  "verifier_correction": {
+    "path": "paper_faithful/training/verify_run.py",
+    "sha256": "b0da43b53f736434b037febe17071433b6b779d2d02074db8f17200e38140277",
+    "test_path": "paper_faithful/training/tests/test_verify_run.py",
+    "test_sha256": "44096072da3043b28c8a6feaa33f0c77f7acf07628e6041ad4d27735b6e87d2e",
+    "scope": "Translate only absolute E-drive provenance paths to /mnt/e on non-Windows hosts and continue to re-hash every resolved file.",
+    "fail_closed_rejections": [
+      "empty or non-string path",
+      "relative path",
+      "drive-relative path",
+      "UNC or device path",
+      "unsupported Windows drive on WSL",
+      "path traversal or resolved escape",
+      "missing translated file",
+      "SHA-256 mismatch"
+    ],
+    "run_artifacts_modified": false,
+    "training_relaunched": false
+  },
+  "tests": {
+    "host_focused": {
+      "command": "python -m unittest paper_faithful.training.tests.test_verify_run",
+      "exit_code": 0,
+      "tests_run": 10,
+      "skipped": 4,
+      "status": "passed"
+    },
+    "locked_wsl_focused": {
+      "command": "/home/techatat/.local/share/sleep-stage-paper/envs/tf24/bin/python -m unittest paper_faithful.training.tests.test_verify_run",
+      "exit_code": 0,
+      "tests_run": 10,
+      "skipped": 2,
+      "status": "passed",
+      "remaining_platform_skip": "The /mnt/e symlink-escape fixture requires a writable mount; production resolution still enforces resolved containment beneath /mnt/e."
+    }
+  },
+  "independent_review": {
+    "agent_id": "01a045b7-e425-7393-a29a-1c1947ccbf5b",
+    "result": "no_material_finding",
+    "confirmed_properties": [
+      "absolute E-drive translation is the only Windows-to-WSL translation",
+      "resolved paths must remain beneath /mnt/e",
+      "every translated provenance file is re-hashed",
+      "Phase-2 and data manifests must resolve to the same path",
+      "verification does not modify provenance or run artifacts"
+    ],
+    "recommended_negative_tests_added": true
+  },
+  "verification": {
+    "status": "verified",
+    "exit_code": 0,
+    "execution_status": "completed",
+    "execution_sha256": "6b1146052b7cf1521e4f85bcb2d2e51c275bf62fa125acfd37a1d44d84ad5d7f",
+    "immutable_config_hash": "a690c4d2c64210892af762739f0d42a829e403d09fa75f1f3cbbbcdfddba1987",
+    "protocol_id": "PAPER_TEXT_V1",
+    "mode": "pilot",
+    "seed": 42,
+    "verified_stages": [
+      "stage1",
+      "stage2",
+      "stage3"
+    ],
+    "terminal_checkpoint_sha256": "5e57458be5ee80fa520c7f5b0a915ad6ebb7fbe5ce0b7801e4227e064d432d0e",
+    "source_manifest_sha256": "578fd3afec29e3d8ecdf9d142b8841e94d3b939624ca019f9d0701c94f544b50",
+    "environment_manifest_sha256": "5194d573abd019444f073fec3252125f290d70f44315627070abd5dac1084a79",
+    "data_and_phase2_manifest_sha256": "a4a9fdfcd326cd4e990dac6b247b075bb2a30800906a8a67cf418ce1283825c2",
+    "cache_manifest_sha256": "a4512970c6023cd1dc727cad40c2352126fea46356b78bb6782055f9d0ce7ed2",
+    "split_hashes": {
+      "train": "8e55bcecf531e0edb420f3b5683cc8fa1b4374f00ec78d06adc082fda26983c5",
+      "validation": "05f7d28bf901a31f477f2865b1636a761bdf459a1550b47c5a99ecd89009059a",
+      "test": "0da1e09dc65b3efeae151ec17b9213da81ebd8699e71caffa2e15268cbf19c01"
+    }
+  },
+  "acceptance_status": "verified"
+}

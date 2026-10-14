@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "objective": "Create a five-minute Thai narrated scientific animation of the locked Sleep Staging research, using the attached video as style reference only, with minute-by-minute previews.",
+  "scope": "large",
+  "risk": "medium",
+  "phase": "done",
+  "userApproval": "proceed",
+  "maxConcurrentAgents": 2,
+  "deliverables": ["Five 60-second chapter previews", "300-second MP4 with Thai narration and captions", "Editable animation/storyboard sources and read-only research provenance", "Actual capability checks of Manim-Motion, Manim Slides and ecmanim"],
+  "nonGoals": ["No model training, inference, new research evaluation, changed scientific thresholds or archived artifacts", "No reuse of reference footage/audio, claim about its original software, or copyrighted asset extraction for output", "No protected PLAN/state/attempt changes, timers, push or merge"],
+  "acceptance": ["Exactly five minutes with legible 16:9 visuals and distinct one-minute chapters", "Historical test vs pilot validation separated; post-hoc/transductive/independence limits spoken and displayed", "MP4/audio streams, duration and representative frames verified", "One main writer and independent scientific-content review"],
+  "workers": [{"id":"content-review","role":"reviewer","ownership":["Read-only scientific content/storyboard review"],"write":false,"doneWhen":["Return factual/protocol risks with source-linked evidence"]}],
+  "decisions": ["Treat the last three repositories in the pasted request as the intended three; inspect earlier two as context", "Reference is visual style only; all scenes and narrative will be original", "Keep film deliverables in a separate directory, preserve locked research repository"],
+  "evidence": [
+    "Reference inspected as200.925567s portrait screen recording with embedded landscape scientific animation; no footage/audio reused",
+    "Manim-Motion engine62pass/0fail; real exporter generated verified labels and Manim CE rendered the result; full Docker UI/backend not run",
+    "Manim Slides5.7.0/CE0.22.0 incompatibility observed; isolated CE0.19.0 pin successfully rendered ThreeDSlide and offline HTML export",
+    "ecmanim npm0.1.0 Scene/ThreeDCamera used for original meshes and timeline; five60s previews rendered at1920x1080/24fps",
+    "Independent factual review removed an unsupported RAM-causal history sentence; corrected narration re-reviewed with no remaining material finding",
+    "Main visual QA inspected15scenes, corrected Thai bold glyphs and foreground zero-independent count, added visible dataset attribution",
+    "Audio PCM inspected and zero-padded to exact20s scene slots; all original PCM samples preserved; final video/audio streams300.000s,7200frames,5chapters;container300.020996s",
+    "Final file outputs/final/SleepStageResearch-5min-final.mp4 SHA256 d5e29ba8e5b1e328adad6adf43c86f38a9592da5eeb40a0bec61cab401a45fd2",
+    "Offline presentation-final.html generated with5 embedded MP4 assets and no CDN references; not tested in every browser or Qt player",
+    "Latest npm test:10passed/0failed/0skipped; research9 frozen source hashes unchanged and gitHEAD25f93f8 preserved",
+    "No model training/inference/new test evaluation, protected source/state/timer edits, research commit/push/merge; draft outputs retained"
+  ]
+}

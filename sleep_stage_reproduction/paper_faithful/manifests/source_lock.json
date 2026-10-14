@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "generated_for": "Phase 0 source lock",
+  "author_repository": {
+    "remote": "https://github.com/SadafAram/Sleep-Stage-Classification.git",
+    "tag": "v1.0",
+    "commit": "d99a312ce44844e7b782aa8bd0d9c498074434f1",
+    "working_tree_clean_at_lock": true,
+    "requirements_sha256": "c5c58e57fff710d5da9b490c9f3c268f5b6a34f81d19b7a5e2d1656810ea9abb"
+  },
+  "paper": {
+    "doi": "10.1038/s41598-026-62832-5",
+    "url": "https://www.nature.com/articles/s41598-026-62832-5",
+    "accepted_manuscript_url": "https://www.nature.com/articles/s41598-026-62832-5_reference.pdf",
+    "local_file_sha256": null,
+    "local_file_status": "not_downloaded"
+  },
+  "dataset": {
+    "canonical_release": "https://physionet.org/content/sleep-edfx/1.0.0/",
+    "release_version": "1.0.0",
+    "full_download_status": "not_started_by_phase_gate"
+  }
+}

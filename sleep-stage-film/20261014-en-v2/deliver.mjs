@@ -1,0 +1,20 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+import {ROOT,STORY,FACTS} from './film.mjs';
+const out=path.join(ROOT,'outputs'),sha=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
+const clips=Array.from({length:5},(_,i)=>path.join(out,'chapters',`minute-${String(i+1).padStart(2,'0')}.mp4`));
+for(const file of clips){const p=JSON.parse(execFileSync('ffprobe',['-v','error','-show_streams','-of','json',file],{encoding:'utf8'}));if(p.streams.length!==1||p.streams[0].codec_type!=='video'||+p.streams[0].nb_frames!==1440||+p.streams[0].duration!==60)throw Error('Invalid chapter '+file)}
+const list=path.join(out,'concat.txt'),metadata=path.join(out,'chapters.ffmetadata');
+fs.writeFileSync(list,clips.map(f=>`file '${f.replaceAll('\\','/')}'`).join('\n')+'\n',{flag:'wx'});
+fs.writeFileSync(metadata,';FFMETADATA1\ntitle=Sleep Stage Research - English Silent Film\n'+STORY.chapters.map((c,i)=>`[CHAPTER]\nTIMEBASE=1/1000\nSTART=${i*60000}\nEND=${(i+1)*60000}\ntitle=${c.title}\n`).join(''),{flag:'wx'});
+const movie=path.join(out,'SleepStage-English-Silent-5min.mp4');if(fs.existsSync(movie))throw Error('Refusing final overwrite');
+execFileSync('ffmpeg',['-hide_banner','-loglevel','error','-f','concat','-safe','0','-i',list,'-i',metadata,'-map','0:v','-map_metadata','1','-an','-c:v','copy','-movflags','+faststart',movie],{stdio:'inherit'});
+const probe=JSON.parse(execFileSync('ffprobe',['-v','error','-show_format','-show_streams','-show_chapters','-of','json',movie],{encoding:'utf8'}));
+const v=probe.streams.find(s=>s.codec_type==='video');if(probe.streams.some(s=>s.codec_type==='audio')||+v.duration!==300||+v.nb_frames!==7200||+v.width!==1920||+v.height!==1080||probe.chapters.length!==5)throw Error('Final media validation failed');
+fs.mkdirSync(path.join(ROOT,'slides'),{recursive:true});
+const config={slides:clips.map((f,i)=>({file:path.relative(ROOT,f).replaceAll('\\','/'),rev_file:path.relative(ROOT,f).replaceAll('\\','/'),auto_next:false,loop:false,notes:STORY.chapters[i].title+'\n'+STORY.chapters[i].scenes.map(s=>s.title+'\n'+s.captions.join('\n')+'\n'+s.note).join('\n\n')})),resolution:[1920,1080],background_color:'#080F1C'};
+fs.writeFileSync(path.join(ROOT,'slides/SleepStageEnglish.json'),JSON.stringify(config,null,2)+'\n',{flag:'wx'});
+const evidence={final_file:movie,sha256:sha(movie),video_seconds:+v.duration,container_seconds:+probe.format.duration,frames:+v.nb_frames,fps:v.avg_frame_rate,width:+v.width,height:+v.height,audio_streams:0,chapters:probe.chapters,clips:clips.map(f=>({file:f,sha256:sha(f)})),source_sha256:Object.fromEntries(['story.json','facts.json','film.mjs','deliver.mjs','motion-bridge.mjs'].map(f=>[f,sha(path.join(ROOT,f))])),research_source_sha256:FACTS.source_sha256,training:false,new_inference:false,new_test_evaluation:false,source_commit:FACTS.source_commit,closeout_result_commit:FACTS.closeout_result_commit};
+fs.writeFileSync(path.join(out,'verification.json'),JSON.stringify(evidence,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify(evidence,null,2));

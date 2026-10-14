@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "artifact_type": "r15_independent_launch_review",
+  "status": "pass",
+  "reviewer_thread_id": "01a058c5-074d-7ac0-8886-4254b0a11a2c",
+  "reviewer_role": "lean_reviewer",
+  "read_only": true,
+  "no_material_finding": true,
+  "highest_confirmed_severity": null,
+  "reviewed_launch_evidence_path": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\r15_wmi_free_launch_test_evidence_20260831.json",
+  "reviewed_launch_evidence_canonical_path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r15-wmi-free-launch-test-evidence-20260831.json",
+  "reviewed_launch_evidence_sha256": "f84ced5d010f4546a6f14e5fa727141a5bdb05cfbdc6abd86b6be6e5f5b04a8c",
+  "reviewed_source_binding_count": 55,
+  "checks": {
+    "all_bound_sources_exist_and_match": true,
+    "r14_failure_provenance_matches": true,
+    "windows_powershell_5_1_parse": true,
+    "scheduler_path_wmi_cim_absent": true,
+    "source_locks_and_pre_dispatch_order": true,
+    "pre_attempt_deadline_and_marker_order": true,
+    "foreground_wsl_after_attempt": true,
+    "wrapper_atomic_exit": true,
+    "registered_actual_supervisor_canary": true,
+    "numerical_protocol_preserved": true,
+    "production_gate_absent_during_review": true,
+    "production_authorization_absent_during_review": true,
+    "production_markers_tasks_and_children_absent_during_review": true
+  },
+  "uncertainty": [
+    "Reviewer did not rerun scheduler, wrapper, or WSL tests and relied on immutable evidence plus direct hash/source verification.",
+    "Reviewer could not independently re-read historical chat provenance; exact excerpts, hashes, and refusal checks were structurally verified in the reviewed helper."
+  ],
+  "changes": [],
+  "created_at": "2026-09-01T00:07:16.2663383+07:00"
+}

@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "objective": "Complete one fresh r18 multi-seed training run through a bounded WMI-free Task Scheduler supervisor, independently verify both children, then continue to SUBJECT_GENERALIZATION_V1 and the final acceptance report.",
+  "scope": "large",
+  "risk": "high",
+  "phase": "executing",
+  "userApproval": "proceed",
+  "maxConcurrentAgents": 2,
+  "deliverables": [
+    "Immutable r17 pre-attempt scheduler-start timeout evidence",
+    "Fresh r18 dispatcher, supervisor, foreground WSL wrapper, runner, helper, protocol, tests, launch evidence, gate, and delegated authorization",
+    "One reviewed exactly-once r18 dispatch with permanent dispatch and attempt markers",
+    "Parent terminal validation and locked TensorFlow 2.4 standalone verification of both children",
+    "SUBJECT_GENERALIZATION_V1 acceptance evidence and final report"
+  ],
+  "nonGoals": [
+    "Do not retry, resume, relaunch, or reuse r1 through r17",
+    "Do not use WMI or CIM in the r18 scheduler-owned supervisor",
+    "Do not create r18 production markers or child directories during readiness testing",
+    "Do not weaken cache, source-hash, power, storage, GPU, numerical-stability, lineage, or terminal-validation gates"
+  ],
+  "acceptance": [
+    "The r17 pre-attempt failure evidence remains byte-identical on C and E at SHA-256 3aa7195e0ad142a70c3b047ee00835583be5395fe226b04904296ed000c57891",
+    "Every source binding declares content_type; the native DLL is binary and every other binding is strict utf8_text, with raw-byte SHA-256 and stable read locks retained for both kinds",
+    "The scheduler-owned r18 supervisor uses native parent and power probes, contains no WMI/CIM call, publishes bounded pre-attempt lifecycle evidence, and passes a registered non-training Unicode-path WSL handoff canary within its deadline",
+    "The foreground WSL workload uses a source-bound wrapper, neutral Windows working directory, captured host stdout/stderr, and a structured stage-bearing atomic exit sidecar",
+    "Before every child stage model.fit, the locked workload acquires the sole TensorFlow GPU context and completes a fail-closed R17_DEDICATED_HOST_OBSERVED_IDLE_GPU_ADMISSION_V1 request/approval handshake; an injected concurrent Windows GPU PID is refused and fit is not called",
+    "GPU evidence is reported honestly as dedicated-host observed-idle admission under WDDM/WSL; absolute third-party exclusivity is not claimed and the residual post-approval race is recorded",
+    "Focused Windows PowerShell 5.1, host, locked-runtime, import-closure, exactly-once, and failure-path tests pass",
+    "An independent reviewer reports no material finding before canonical gate publication",
+    "r18 is dispatched exactly once, both children complete, the parent records terminal_validated, and locked standalone verify_run reports verified for each child",
+    "SUBJECT_GENERALIZATION_V1 and the final report satisfy the active research goal"
+  ],
+  "workers": [
+    {
+      "id": "r18-main-integrator",
+      "role": "implementer",
+      "ownership": [
+        "All r18 source, tests, protocol, evidence, publication, dispatch, monitoring, verification, and integration"
+      ],
+      "write": true,
+      "doneWhen": [
+        "The reviewed canonical r18 gate is published and the exactly-once dispatch is accepted by the supervisor"
+      ]
+    },
+    {
+      "id": "r18-independent-reviewer",
+      "role": "reviewer",
+      "ownership": [
+        "Read-only integrated r18 sources, tests, evidence, gate draft, authorization provenance, and production namespace"
+      ],
+      "write": false,
+      "doneWhen": [
+        "Return evidence-backed findings or explicitly report no material finding"
+      ]
+    }
+  ],
+  "decisions": [
+    "r17 is permanently inspect-only because its scheduler-owned PowerShell engine entered 207.652 seconds after RunEx, beyond the 180-second dispatcher handshake window; only the dispatch marker was consumed and no attempt marker, WSL host, child, or training process was created.",
+    "r18 preserves PAPER_TEXT_STAGE3_GLOBAL_NORM_CLIP_V1, global norm 1.0 after averaging 128 gradients, ordered seeds 42 and 43, and fresh sequential children.",
+    "Scheduler-owned r18 preflight forbids WMI/CIM and uses native parent/power APIs plus local source/cache/storage validation under a hard deadline.",
+    "All WSL and NVIDIA process probes before dispatch are bounded and run in the interactive dispatcher; the supervisor starts WSL only after permanent attempt-marker creation and captures host diagnostics from a neutral Windows working directory.",
+    "The user's standing authorization permits fresh in-scope versions without repeated approval prompts; authorization artifacts preserve exact user excerpts and label version-specific bindings as agent interpretation, not a fabricated user quote.",
+    "A staged-v2 resource-pressure canary remained fail-closed because scheduler-created Windows PowerShell 5.1, PowerShell 7, and CPython processes stalled before application entry while the host had only 354 MB physical memory and 2178 MB commit available; cmd.exe completed and the production namespace remained untouched.",
+    "Staged-v4 design R17_BOOTSTRAP_DIAGNOSTIC_SCHEDULER_SUPERVISOR_V3 rechecks GPU compute idleness immediately after the permanent attempt marker and before starting the workload WSL host, closing the dispatcher-to-supervisor contention window without permitting retry.",
+    "Staged-v4 permits cleanup of only the exact scheduler-owned wsl.exe PID after a valid atomic runner_complete sidecar and a 10-second natural-exit grace period; lifecycle and canary evidence must record whether cleanup was forced.",
+    "Staged-v5 design R17_BOOTSTRAP_DIAGNOSTIC_SCHEDULER_SUPERVISOR_V4 adds R17_DEDICATED_HOST_OBSERVED_IDLE_GPU_ADMISSION_V1: capture a Windows GPU baseline before workload start, require the workload to acquire /GPU:0 before each model.fit, and approve only when the sole post-context addition is WDDM System PID 4 while every baseline PID remains present.",
+    "r18 design R18_SCHEDULER_HANDSHAKE_SUPERVISOR_V1 preserves the r17 scientific, source-lock, supervisor-preflight, and GPU-admission controls while extending only the dispatcher-owned post-RunEx handshake deadline to 600 seconds.",
+    "The dispatcher keeps the exclusive dispatch-marker handle through an identity-bound supervisor_started handshake, emits rate-limited handshake lifecycle evidence, and remains fail-closed without retry if 600 seconds expires.",
+    "The r18 GPU admission is a bounded observed-idle gate, not an absolute exclusivity guarantee: WDDM does not expose the Linux guest PID and an uncooperative process can start after approval; this residual risk is explicit and cloud remains a contingency only if the local gate cannot pass reproducibly.",
+    "Independent review finding P1 is closed by making admission mandatory whenever run_dir has either exact r18 child identity, even when admission environment variables are absent; direct module/CLI execution must fail before model.fit.",
+    "Once an r18 permanent marker is consumed, r18 cannot be retried, resumed, relaunched, or reused."
+  ],
+  "evidence": [
+    "paper_faithful/training/r17_pre_attempt_scheduler_start_timeout_evidence_20260902.json and E:/blp/sleep_stage_reproduction/runtime/driver-recovery/r17-pre-attempt-scheduler-start-timeout-evidence-20260902.json are byte-identical SHA-256 3aa7195e0ad142a70c3b047ee00835583be5395fe226b04904296ed000c57891.",
+    "Read-only design reviewer 01a05de9-45bb-78e3-8dc3-129c2f25f7fd confirmed the minimum recovery is a fresh r18 namespace, a bounded 600-second dispatcher handshake with rate-limited lifecycle evidence, unchanged exclusive marker semantics, and the unchanged 120-second post-entry supervisor preflight budget."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "pending_final_review",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r11-20260830",
+  "pilot_launched": false,
+  "prior_rejected_draft": {
+    "review_id": "r11-final-launch-gate-review-20260830-01a014bc",
+    "assigned_agent_id": "01a05097-05af-7bc1-a266-369e57066174",
+    "draft_sha256": "671305eae8231c9b9c626159a794d734374ba9cd4ebfcd0014d35486e59267c6",
+    "status": "material_finding",
+    "finding": "GPU gate schema mismatch and lock-holder GPU validation after permanent attempt marker",
+    "mechanical_finalization_safe": false,
+    "superseded": true
+  },
+  "reviews": [
+    {
+      "review_id": "r11-durable-implementation-closure-20260830-v2",
+      "agent_id": "01a05076-c569-72a3-8da8-f7a166f85162",
+      "role": "implementation_reviewer",
+      "status": "no_material_finding",
+      "all_prior_findings_closed": true,
+      "closed_findings": [
+        "GPU schema and all lock-holder resource gates before permanent attempt marker",
+        "dispatch capability and Windows interop ownership",
+        "Windows and native WSL process collision handling",
+        "pre-dispatch immutable source and cache ordering",
+        "bounded lifecycle append retry and durable flush"
+      ],
+      "reviewed_source_sha256": {
+        "dispatcher_ps1": "67f3c5e89d474f0ead17df521f6820758ed90dcf7e262cd9823e02777855d626",
+        "lockholder_ps1": "f6014915cf6aedb28cdf8a4ad05f851ff29f161b0e41d6e2f1af7d0e85fa2dd4",
+        "supervisor_sh": "6fbcbc3fbfb0eccf2d4b99f8f3fc7dd3aa9ee376a18d4716a8c2f9e401ec20f5",
+        "runner_sh": "cedfaa44545b8934b786455d5b7040edb4d8f48cc9566e50622e08f5fc16e15d",
+        "static_smoke_ps1": "003bcce6b447abf7d08999ba18749682bab46185a240f37fb19af29248cdcb5f",
+        "canonical_gate_smoke_ps1": "0bbe8825e85b5a7b2a8a3c7d2b95386a3e8e4d382d3204dc77237bb8b2eebacb",
+        "lean_team_contract_json": "a2c2ef135d8d4cdfee10463c3ac3378bf155b6c5fe23d00f1a80b02b9efd10a8",
+        "launch_test_evidence_v2_json": "e2930dc5a8f7f17aa21c85681fde85927d95003cf3af4da1e8e48f9558af9c39"
+      },
+      "launch_authorized": false
+    },
+    {
+      "review_id": "pending-r11-final-launch-gate-review-v2",
+      "agent_id": "pending",
+      "role": "launch_gate_reviewer",
+      "status": "pending",
+      "launch_authorized": false
+    }
+  ]
+}

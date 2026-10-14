@@ -1,0 +1,329 @@
+{
+  "status": "complete",
+  "duration_seconds": 300.020996,
+  "video_duration_seconds": 300,
+  "frames": 7200,
+  "fps": "24/1",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "sha256": "d5e29ba8e5b1e328adad6adf43c86f38a9592da5eeb40a0bec61cab401a45fd2",
+  "chapter_previews": [
+    {
+      "minute": 1,
+      "file": "minute-01.mp4",
+      "sha256": "a11dabe6004115ec61f23caf12eea480449c31d25b78e493d4b7d7238a9e61e9",
+      "duration": 60,
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "frames": 1440,
+      "resolution": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "minute": 2,
+      "file": "minute-02.mp4",
+      "sha256": "0aca5ddfbad427e3862d954b1aa9edd11aed24b7d69917b9d4622b8167f3603b",
+      "duration": 60,
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "frames": 1440,
+      "resolution": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "minute": 3,
+      "file": "minute-03.mp4",
+      "sha256": "a2b88cb037cc5c8ca67a670ad320dbb34ce704b82ade011e58a12da70b9cb87c",
+      "duration": 60,
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "frames": 1440,
+      "resolution": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "minute": 4,
+      "file": "minute-04.mp4",
+      "sha256": "dd1a25e334a9cc44558cb915bdbef9fe826d213a130958ab4d178d028dcf04bb",
+      "duration": 60,
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "frames": 1440,
+      "resolution": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "minute": 5,
+      "file": "minute-05.mp4",
+      "sha256": "34e0c07a6c250fbcb54a702ed0faa43d57bac59a8c1c5f68fe824b6a2a27d700",
+      "duration": 60,
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "frames": 1440,
+      "resolution": [
+        1920,
+        1080
+      ]
+    }
+  ],
+  "chapters": [
+    {
+      "id": 0,
+      "time_base": "1/1000",
+      "start": 0,
+      "start_time": "0.000000",
+      "end": 60000,
+      "end_time": "60.000000",
+      "tags": {
+        "title": "1. โจทย์และข้อมูล"
+      }
+    },
+    {
+      "id": 1,
+      "time_base": "1/1000",
+      "start": 60000,
+      "start_time": "60.000000",
+      "end": 120000,
+      "end_time": "120.000000",
+      "tags": {
+        "title": "2. Pipeline และการประเมิน"
+      }
+    },
+    {
+      "id": 2,
+      "time_base": "1/1000",
+      "start": 120000,
+      "start_time": "120.000000",
+      "end": 180000,
+      "end_time": "180.000000",
+      "tags": {
+        "title": "3. ผลฐานและ R1"
+      }
+    },
+    {
+      "id": 3,
+      "time_base": "1/1000",
+      "start": 180000,
+      "start_time": "180.000000",
+      "end": 240000,
+      "end_time": "240.000000",
+      "tags": {
+        "title": "4. Sensitivity และสิ่งที่ไม่ช่วย"
+      }
+    },
+    {
+      "id": 4,
+      "time_base": "1/1000",
+      "start": 240000,
+      "start_time": "240.000000",
+      "end": 300000,
+      "end_time": "300.000000",
+      "tags": {
+        "title": "5. หลักฐานและขั้นต่อไป"
+      }
+    }
+  ],
+  "source_sha256": {
+    "evidence.json": "49e978d68aeb8eac31f7e424830227b6114b662d612392d24ba37bfc2a4e33ec",
+    "participant_exposure.json": "e0d3fd892df2b591ee4d384f58a7ddd96a257f40e339c0f24da366a7134054f1"
+  },
+  "source_code_sha256": {
+    "story.json": "cbe39d2d057b0209dca597530ad5bf8a0e392fe4be0311eb0875974143771b6f",
+    "facts.json": "bfe50fa0afdc9967c3574343456a3c240e51ea0d0107f7d68859ad2245fd4114",
+    "film.mjs": "e61b405d8dfc7d5ed57b19eb5a96d4ddba4e3da5558db2d9a8f4a13ad2435c2e",
+    "narrate.ps1": "e6a03b04a75749b2c3ecd3fb8d2aba2f684977792315642f1b403c0052b0ec80",
+    "sync-audio.mjs": "ab09b065375b835fd7db01a0a263690a13bbd8cde1ad8bdfccdb97b50251e922",
+    "deliver.mjs": "da419730a2dea16e1033c073b3223e8d219b35066d1d8d362934dae76e8fe501"
+  },
+  "narration": {
+    "language": "th-TH",
+    "voice": "Microsoft Pattara",
+    "type": "synthesized",
+    "reference_audio_reused": false
+  },
+  "reference_footage_reused": false,
+  "training": false,
+  "new_inference": false,
+  "new_test_evaluation": false,
+  "independent_confirmation_claimed": false,
+  "reverse_presentation_animations_generated": false,
+  "audio_duration_seconds": 300,
+  "video_start_seconds": 0.020996,
+  "audio_start_seconds": 0,
+  "synchronized_chapters": [
+    {
+      "file": "outputs/final/chapters-synchronized/minute-01.mp4",
+      "sha256": "4b9c01ae0001826958a2a28570659eb5892dd9f13cd7a599fa436098ef57c740",
+      "duration": 60
+    },
+    {
+      "file": "outputs/final/chapters-synchronized/minute-02.mp4",
+      "sha256": "7faf763aa107d697f30bf8e53c03ff86b8e337132408d46e59a31ecaa84eb27b",
+      "duration": 60
+    },
+    {
+      "file": "outputs/final/chapters-synchronized/minute-03.mp4",
+      "sha256": "f5edfd97abbd00dd66a288ea57408de14b78c947a939e1dee86ed9d6e5af6c8a",
+      "duration": 60
+    },
+    {
+      "file": "outputs/final/chapters-synchronized/minute-04.mp4",
+      "sha256": "1211011fa28eb1eb45fecd3b25b0c1daf5300c6aabf9adbafbb8e5ad05825ad9",
+      "duration": 60
+    },
+    {
+      "file": "outputs/final/chapters-synchronized/minute-05.mp4",
+      "sha256": "dd6fc40038bb932c25f5273306aa658a28a61c5bd4241b010aed4c54aac07847",
+      "duration": 60
+    }
+  ],
+  "audio_alignment": [
+    {
+      "scene": "01-question",
+      "source_sha256": "79d41a2d8c1b52131b9a943ff28bf38993d44b29dd9a0200a7c7abfdfaf18047",
+      "source_seconds": 19.842916666666667,
+      "zero_padding_seconds": 0.15708333333333258,
+      "final_seconds": 20
+    },
+    {
+      "scene": "02-scope",
+      "source_sha256": "1bfada28dc825d553888a1900cc30d60e3043e8cb82060c63443bdf35c5ddeb8",
+      "source_seconds": 19.842916666666667,
+      "zero_padding_seconds": 0.15708333333333258,
+      "final_seconds": 20
+    },
+    {
+      "scene": "03-data",
+      "source_sha256": "31a980581601285d6b8e78c74469b4d484b66974559fac74b1f29a913ea3f14b",
+      "source_seconds": 19.842916666666667,
+      "zero_padding_seconds": 0.15708333333333258,
+      "final_seconds": 20
+    },
+    {
+      "scene": "04-spectrogram",
+      "source_sha256": "af940af3a28c35d51d8cde0dcc1ab0d5ebce1bcd46ffd6dc7d702729b4e7be7c",
+      "source_seconds": 19.842916666666667,
+      "zero_padding_seconds": 0.15708333333333258,
+      "final_seconds": 20
+    },
+    {
+      "scene": "05-network",
+      "source_sha256": "9fa5d155ef762d2b2c27f64044c25b597fbed17c50a39ba2685f162b37edd3e2",
+      "source_seconds": 19.842916666666667,
+      "zero_padding_seconds": 0.15708333333333258,
+      "final_seconds": 20
+    },
+    {
+      "scene": "06-split",
+      "source_sha256": "afcf58107e9ea5c17d64634d1a8b435b6d5b5b3b3c07eb125581236e33ceb814",
+      "source_seconds": 19.842916666666667,
+      "zero_padding_seconds": 0.15708333333333258,
+      "final_seconds": 20
+    },
+    {
+      "scene": "07-baseline",
+      "source_sha256": "4e2e7319c6846c1aaedadbec2443af1d421994a099eaf62c12273a875ab0008c",
+      "source_seconds": 19.842916666666667,
+      "zero_padding_seconds": 0.15708333333333258,
+      "final_seconds": 20
+    },
+    {
+      "scene": "08-normalization",
+      "source_sha256": "e27767bebcaa8eb844b491fb8ffd1b7d7a92d6bc8da6cc63b5c49347ffcb32e6",
+      "source_seconds": 19.842916666666667,
+      "zero_padding_seconds": 0.15708333333333258,
+      "final_seconds": 20
+    },
+    {
+      "scene": "09-r1-results",
+      "source_sha256": "6bdfe91a8548ce82854d88bd6fb5654c4b5774ba3923b14a62e3f3e5aa97a948",
+      "source_seconds": 19.842916666666667,
+      "zero_padding_seconds": 0.15708333333333258,
+      "final_seconds": 20
+    },
+    {
+      "scene": "10-fullnight",
+      "source_sha256": "771b873f11058a10b9e7af3938c3bdec84341f1001a8cd004ecf5a125d72786b",
+      "source_seconds": 19.842916666666667,
+      "zero_padding_seconds": 0.15708333333333258,
+      "final_seconds": 20
+    },
+    {
+      "scene": "11-uncertainty",
+      "source_sha256": "014f4f84bbe324e7dbceffe7ce198b84d0fd91cc5bf487c310dc57835d4fb505",
+      "source_seconds": 19.842916666666667,
+      "zero_padding_seconds": 0.15708333333333258,
+      "final_seconds": 20
+    },
+    {
+      "scene": "12-pilots",
+      "source_sha256": "2cf978dd8828dd3f658d51ada0295bf54f965dccd607415bfe0e9e37e4e8b758",
+      "source_seconds": 19.842916666666667,
+      "zero_padding_seconds": 0.15708333333333258,
+      "final_seconds": 20
+    },
+    {
+      "scene": "13-audit",
+      "source_sha256": "653f9ac0bb23a1bd8d2ffad77a5e203b6c00fd7b3dcedc22c65cce06ebf0c278",
+      "source_seconds": 19.842916666666667,
+      "zero_padding_seconds": 0.15708333333333258,
+      "final_seconds": 20
+    },
+    {
+      "scene": "14-gate",
+      "source_sha256": "f024406dc0331c748cf3197740d465927bf31be32ce81b7ff099c1a681d0ffbd",
+      "source_seconds": 19.842916666666667,
+      "zero_padding_seconds": 0.15708333333333258,
+      "final_seconds": 20
+    },
+    {
+      "scene": "15-close",
+      "source_sha256": "111f4444cc41a1516fa14748b4df84551d097bba4be6d5188a54a86795edfd53",
+      "source_seconds": 19.842916666666667,
+      "zero_padding_seconds": 0.15708333333333258,
+      "final_seconds": 20
+    }
+  ],
+  "audio_signal_policy": "Only zero-sample padding added after each complete scene narration; no original PCM sample changed or removed.",
+  "voice_pcm_seconds": 300,
+  "final_file": "outputs\\final\\SleepStageResearch-5min-final.mp4",
+  "delivery_chapters": [
+    {
+      "minute": 1,
+      "file": "outputs/final/chapters-synchronized/minute-01.mp4",
+      "sha256": "4b9c01ae0001826958a2a28570659eb5892dd9f13cd7a599fa436098ef57c740"
+    },
+    {
+      "minute": 2,
+      "file": "outputs/final/chapters-synchronized/minute-02.mp4",
+      "sha256": "7faf763aa107d697f30bf8e53c03ff86b8e337132408d46e59a31ecaa84eb27b"
+    },
+    {
+      "minute": 3,
+      "file": "outputs/final/chapters-synchronized/minute-03.mp4",
+      "sha256": "f5edfd97abbd00dd66a288ea57408de14b78c947a939e1dee86ed9d6e5af6c8a"
+    },
+    {
+      "minute": 4,
+      "file": "outputs/final/chapters-synchronized/minute-04.mp4",
+      "sha256": "1211011fa28eb1eb45fecd3b25b0c1daf5300c6aabf9adbafbb8e5ad05825ad9"
+    },
+    {
+      "minute": 5,
+      "file": "outputs\\final\\credited\\minute-05-synchronized.mp4",
+      "sha256": "ddc2fb316dab88b65431de9d2e065c62e940dc200fdd5fe8b3bf72ba2637148d"
+    }
+  ],
+  "visible_dataset_credit": true,
+  "qa_last_chapter_changes": "Moved zero-independent count above meshes and added visible dataset attribution; numbers/narration unchanged."
+}

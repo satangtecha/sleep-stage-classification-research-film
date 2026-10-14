@@ -1,0 +1,116 @@
+{
+  "status": "pass",
+  "not_a_training_run": true,
+  "pilot_launched": false,
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r9-20260828",
+  "seeds": [
+    42,
+    43
+  ],
+  "expected_children": [
+    "paper-text-v1-multiseed-cap128-r9-20260828-split42-model42",
+    "paper-text-v1-multiseed-cap128-r9-20260828-split43-model43"
+  ],
+  "powershell_parser": {
+    "status": "pass"
+  },
+  "git_bash_syntax": {
+    "status": "pass",
+    "runner_sh": {
+      "status": "pass",
+      "exit_code": 0
+    },
+    "probe_pilot_process_sh": {
+      "status": "pass",
+      "exit_code": 0
+    }
+  },
+  "r9_smokes": {
+    "power_gate": {
+      "status": "pass",
+      "refused_failure_classes": 14,
+      "accepted_statuses": [
+        2,
+        3,
+        6,
+        7,
+        8,
+        11
+      ],
+      "pilot_launched": false
+    },
+    "user_confirmation_gate": {
+      "status": "pass",
+      "refused_launch_critical_fields": 21,
+      "valid_confirmation_accepted": true,
+      "external_anchors_precede_parse": true,
+      "marker_ordered": true,
+      "pilot_launched": false
+    },
+    "review_binding": {
+      "status": "pass",
+      "refused_launch_critical_fields": 27,
+      "two_distinct_reviews_accepted": true,
+      "launch_test_evidence_sha256_refused": true,
+      "pilot_launched": false
+    },
+    "lifecycle_failure": {
+      "status": "pass",
+      "static_collision_precedes_marker": true,
+      "attempt_evidence_immediate": true,
+      "prelaunch_failure_recorded": true,
+      "raw_exit_precedes_validation": true,
+      "terminal_failure_recorded": true,
+      "pilot_launched": false
+    },
+    "probe_progress": {
+      "status": "pass",
+      "multiseed_phase": "training_or_evaluation",
+      "multiseed_execution_status": "running",
+      "single_pilot_phase": "strict_cache_scan",
+      "pilot_launched": false
+    },
+    "live_hidden_host_refusal": {
+      "status": "pass",
+      "accepted": true,
+      "refusal": null,
+      "pilot_launched": false
+    }
+  },
+  "host_test_multi_seed": {
+    "status": "pass",
+    "tests_run": 7,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  "locked_wsl_test_multi_seed": {
+    "status": "pass",
+    "tests_run": 7,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  "launch_artifact_check": {
+    "status": "pass",
+    "checked": 9,
+    "present": 0
+  },
+  "source_sha256": {
+    "launcher_ps1": "a8477d86dd5c7c2b9a147ef31b20c6a09a78d066108f06c5a65bad28856e575c",
+    "runner_sh": "b4c52ed31bb19f406ad6394bf2f07c7fe348eedc7ac827c0d98b27da560495b5",
+    "cli_py": "f9c8ae1d6ccda83ad2c208d93201057dab99664f45d3f3c12dbdc7df5050807f",
+    "trainer_py": "52efe2311f10f221babab06ed743f9feae0279519bac49a2bb0cdb0d799b65ae",
+    "test_multi_seed_py": "62674cfa139b1cc764b82e9c230934aecf2d0a4bcf6d2b58dc8f7b646b785e40",
+    "probe_pilot_progress_ps1": "771b56a2547208b7846de36a00ce3d98461cded437f287da3a98b5207493e17b",
+    "probe_pilot_process_sh": "76c1f0bf911b8cc57622ebae8b1d28d6879b56ea90b4356fd3afe91926370450",
+    "r9_power_gate_smoke_ps1": "0dcb63c445b273653d0ad8d66d8c4e55e004aed370d2392fbe55122d7fe66160",
+    "r9_user_confirmation_gate_smoke_ps1": "e278b560acf542b91ebc03626f3bd95b1861106fd5c85781471d66c5f5fdd9cf",
+    "r9_review_binding_smoke_ps1": "bd631fef1840378faf73cee0b59a31dd0effb3e27dbbdfaabb848ed1472662f3",
+    "r9_lifecycle_failure_smoke_ps1": "79d91a0d080b6ea1542b7dda83ac14429ffd2fcd1ae48f52adf6929eda557cf2",
+    "r9_probe_progress_smoke_ps1": "6fb9b22b4fca46ca309cf14a3ca2dd8aeb5554ae747ee2932a9f758ea4b96461",
+    "r9_live_power_gate_probe_ps1": "dc17b9dc35c2c317fb32272fc86831d53ec03e60d0e602ae345016b86e39105c",
+    "r9_launch_test_evidence_smoke_ps1": "82ca3ab017a5cbc9e000d6345c60db1052b692814004a529d1fff0e9409646b9",
+    "lean_team_contract_json": "fb7257e6d363201c87702b8acd163f296f79ce7bed46533f4502071eefb3d877",
+    "r8_verification_evidence_json": "1224d035e117b39368270ef52358b4c8b64c9bd81558ee88b0a30f1577fe0d17",
+    "multi_seed_implementation_evidence_json": "a53dfd37056fd0ea3ceeee41d25a2d953160411ac15d31df89e418e3b1b7ff97"
+  }
+}

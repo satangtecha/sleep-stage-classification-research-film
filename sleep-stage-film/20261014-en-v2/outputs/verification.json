@@ -1,0 +1,106 @@
+{
+  "final_file": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep-stage-film\\20261014-en-v2\\outputs\\SleepStage-English-Silent-5min.mp4",
+  "sha256": "ba6ca9245d268d42e78dcf1931733421ed74c04a06763a486affbaa012293a74",
+  "video_seconds": 300,
+  "container_seconds": 300,
+  "frames": 7200,
+  "fps": "24/1",
+  "width": 1920,
+  "height": 1080,
+  "audio_streams": 0,
+  "chapters": [
+    {
+      "id": 0,
+      "time_base": "1/1000",
+      "start": 0,
+      "start_time": "0.000000",
+      "end": 60000,
+      "end_time": "60.000000",
+      "tags": {
+        "title": "The question and the data"
+      }
+    },
+    {
+      "id": 1,
+      "time_base": "1/1000",
+      "start": 60000,
+      "start_time": "60.000000",
+      "end": 120000,
+      "end_time": "120.000000",
+      "tags": {
+        "title": "How the model reads a night"
+      }
+    },
+    {
+      "id": 2,
+      "time_base": "1/1000",
+      "start": 120000,
+      "start_time": "120.000000",
+      "end": 180000,
+      "end_time": "180.000000",
+      "tags": {
+        "title": "The normalization intervention"
+      }
+    },
+    {
+      "id": 3,
+      "time_base": "1/1000",
+      "start": 180000,
+      "start_time": "180.000000",
+      "end": 240000,
+      "end_time": "240.000000",
+      "tags": {
+        "title": "What the evidence does and does not show"
+      }
+    },
+    {
+      "id": 4,
+      "time_base": "1/1000",
+      "start": 240000,
+      "start_time": "240.000000",
+      "end": 300000,
+      "end_time": "300.000000",
+      "tags": {
+        "title": "Rejected pilots and the next evidence gate"
+      }
+    }
+  ],
+  "clips": [
+    {
+      "file": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep-stage-film\\20261014-en-v2\\outputs\\chapters\\minute-01.mp4",
+      "sha256": "658e9a2d3a40b7eb783a896369c5664ba9907c952c834e9b22640d35e1eecb1e"
+    },
+    {
+      "file": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep-stage-film\\20261014-en-v2\\outputs\\chapters\\minute-02.mp4",
+      "sha256": "2723437bb766343ad56e725ab21428c8233d8665fe13d76d3a6f53f807c1536a"
+    },
+    {
+      "file": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep-stage-film\\20261014-en-v2\\outputs\\chapters\\minute-03.mp4",
+      "sha256": "ba826ed5271b68e29c2833298f1e9a9d17c44659918f756bb84a66c1222fac77"
+    },
+    {
+      "file": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep-stage-film\\20261014-en-v2\\outputs\\chapters\\minute-04.mp4",
+      "sha256": "ba5e8299c36919ff675589e3e407fa8c6b2e68e16760dba0317e3d4456791b31"
+    },
+    {
+      "file": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep-stage-film\\20261014-en-v2\\outputs\\chapters\\minute-05.mp4",
+      "sha256": "cb2e9be280f9c77cfc052a9775d30e9c2df8f104c6cc86009a0dd8c344bd7b31"
+    }
+  ],
+  "source_sha256": {
+    "story.json": "4ff8bbf8452ca36e7059a721ae5fd8dc45c2eef183a016b2287baf9754c37191",
+    "facts.json": "655bc12e619b039d08df94fbd6beb585cbd2a4c0c1785d254610a57e06729133",
+    "film.mjs": "20a6c7ccbd56208d207c5e5da4c1e34a85d16ecedd312faeaa063fb73231837e",
+    "deliver.mjs": "5a020017af335c929a7b997d637659c8e92278a42fbe36fb9f950d4143e289e8",
+    "motion-bridge.mjs": "3a8647e2446beb1eb68c97c0e435d1c4835af3bff92f0df232f2f4d6864b89c2"
+  },
+  "research_source_sha256": {
+    "evidence.json": "49e978d68aeb8eac31f7e424830227b6114b662d612392d24ba37bfc2a4e33ec",
+    "participant_exposure.json": "e0d3fd892df2b591ee4d384f58a7ddd96a257f40e339c0f24da366a7134054f1"
+  },
+  "training": false,
+  "new_inference": false,
+  "new_test_evaluation": false,
+  "source_commit": "5f5965d8a69627271651c80ddb6d6546f0006a51",
+  "closeout_result_commit": "25f93f893e5977a61c9aa9e6911e30b361184101"
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "status": "fail_closed_before_dispatch",
+  "timestamp": "2026-09-01T16:11:27.1141860+07:00",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r17-20260901",
+  "r17_dispatched": false,
+  "production_namespace_absent": true,
+  "production_task_absent": true,
+  "training_gpu_process_absent": true,
+  "power": {
+    "online": true,
+    "unknown": false,
+    "critical": false,
+    "battery_percent": 100
+  },
+  "staged_supervisor_v2": {
+    "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r17-production-supervisor-v2.ps1",
+    "sha256": "ad5c9a05afa3e4bcf04bd41501582b54ddfed440fd45e309d45a6a3c4200a1c5",
+    "byte_identical_to_template": true
+  },
+  "scheduler_canaries": [
+    {
+      "case_id": "0af81277925f4286a802a61950afe9e1",
+      "supervisor_version": "v1",
+      "result": "failed_after_supervisor_entry",
+      "confirmed_cause": "mixed Windows/WSL wrapper path caused by replacing two-backslash sequences instead of each backslash",
+      "host_exit_code": 127,
+      "preflight_path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r17-supervisor-canaries\\0af81277925f4286a802a61950afe9e1\\preflight.jsonl",
+      "host_stderr_path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r17-supervisor-canaries\\0af81277925f4286a802a61950afe9e1\\wsl-host.stderr.log"
+    },
+    {
+      "case_id": "336a24dfeddf4b068d24356357c394f6",
+      "supervisor_version": "v2",
+      "result": "timeout_before_supervisor_entry",
+      "task_state_at_timeout": 4,
+      "last_task_result": 267009,
+      "canary_directory_created": false
+    },
+    {
+      "case_id": "781de40d06eb49598372b51b5fbf85a3",
+      "supervisor_version": "v2",
+      "result": "timeout_before_supervisor_entry",
+      "task_state_at_timeout": 4,
+      "last_task_result": 267009,
+      "canary_directory_created": false,
+      "scheduler_powershell_pid": 80228,
+      "scheduler_powershell_thread_count": 1,
+      "scheduler_powershell_working_set_bytes": 49152,
+      "scheduler_powershell_private_bytes": 495616,
+      "scheduler_powershell_cpu_seconds": 0.015625
+    }
+  ],
+  "scheduler_engine_probes": [
+    {
+      "case_id": "f5ba27898e154f2f9f742b6cbd18f6d8",
+      "result_path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r17-scheduler-engine-probes\\f5ba27898e154f2f9f742b6cbd18f6d8\\result.json",
+      "cmd": {
+        "output_created": true,
+        "elapsed_seconds": 18.789,
+        "last_task_result": 0
+      },
+      "windows_powershell": {
+        "output_created": false,
+        "elapsed_seconds": 30.262,
+        "task_state": 4,
+        "last_task_result": 267009
+      }
+    },
+    {
+      "case_id": "8d9fc8e33d3c4c9abc77a6f902810b33",
+      "host": "PowerShell 7",
+      "output_created": false,
+      "elapsed_seconds": 30.463,
+      "task_state": 4,
+      "last_task_result": 267009,
+      "result_path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r17-scheduler-engine-probes\\8d9fc8e33d3c4c9abc77a6f902810b33\\result.json"
+    },
+    {
+      "case_id": "35f2534561014e5abef778fb15a9f9b6",
+      "host": "CPython 3.14",
+      "output_created": false,
+      "elapsed_seconds": 30.224,
+      "task_state": 4,
+      "last_task_result": 267009,
+      "result_path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r17-scheduler-engine-probes\\35f2534561014e5abef778fb15a9f9b6\\result.json"
+    }
+  ],
+  "host_resource_probe": {
+    "total_physical_memory_mb": 16088,
+    "available_physical_memory_mb": 354,
+    "virtual_memory_max_mb": 50160,
+    "virtual_memory_available_mb": 2178,
+    "virtual_memory_in_use_mb": 47982,
+    "process_count_first_probe": 500,
+    "process_count_namespace_probe": 496
+  },
+  "conclusion": "Task Scheduler itself can execute cmd.exe, but Windows PowerShell 5.1, PowerShell 7, and CPython scheduler instances remained in running state before their first application-level write while host physical and commit availability were critically low. The r17 production namespace remained untouched. Readiness remains fail-closed until a fresh resource probe and the real Unicode-path WSL handoff canary pass.",
+  "automatic_next_action": "Re-probe memory, power, GPU, storage, processes, and r17 namespace. When host resources are noncritical, rerun the staged-v2 scheduler canary. Continue to tests, immutable launch evidence, independent review, gate, standing authorization, and exactly-once dispatch only after the canary passes."
+}

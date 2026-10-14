@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "artifact_type": "r18_terminal_validation_failure_evidence",
+  "status": "failed",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r18-20260902",
+  "terminal_validation": false,
+  "r18_retriable": false,
+  "r18_retry_resume_relaunch_reuse_forbidden": true,
+  "exit_evidence": {
+    "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r18-20260902.workload-exit.json",
+    "sha256": "92ae7c7d6b5b9c095f8547a410bdaa22c69ab7bf27b12c944e13f46a3ce74f51",
+    "exit_code": 2,
+    "stage": "runner_complete"
+  },
+  "terminal_failure": {
+    "reason": "Runner/Windows host exit mismatch: atomic=2 stage=runner_complete host=2 forced_cleanup=False",
+    "supervisor_exit_code": 92,
+    "windows_host_forced_cleanup": false
+  },
+  "children": {
+    "paper-text-v1-multiseed-cap128-r18-20260902-split42-model42": {
+      "status": "completed",
+      "standalone_verify_status": "verified",
+      "terminal_checkpoint_sha256": "fc5b125b7171e304837f04db17885a9b69bb5871eeb653bb1677193dc2d76728"
+    },
+    "paper-text-v1-multiseed-cap128-r18-20260902-split43-model43": {
+      "status": "failed",
+      "standalone_verify_status": "not_run_fail_closed",
+      "failure_type": "TrainingContractError",
+      "failure_message": "r17 GPU admission approval timed out",
+      "failure_fingerprint": "23a9ae638e29fe099cc490d850727193cd6c8c3b8a507e6703bce63b275a4298",
+      "stage3_checkpoint_created": false
+    }
+  },
+  "root_cause": {
+    "kind": "bounded_gpu_admission_timeout_boundary_race",
+    "child": "paper-text-v1-multiseed-cap128-r18-20260902-split43-model43",
+    "stage": "stage3",
+    "request_created_at": "2026-09-05T09:02:47.1897389+07:00",
+    "approval_created_at": "2026-09-05T09:04:47.2670211+07:00",
+    "elapsed_seconds": 120.0772822,
+    "configured_timeout_seconds": 120,
+    "approval_identity_validated": true,
+    "model_fit_started_after_timeout": false,
+    "fix_scope": "Fresh r19 widens only the bounded admission wait to 240 seconds; the scientific protocol, exact six-admission order, observed-idle GPU semantics, and fail-closed behavior are unchanged."
+  },
+  "evidence_paths": [
+    "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r18-20260902.lifecycle.jsonl",
+    "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r18-20260902.gpu-admission\\paper-text-v1-multiseed-cap128-r18-20260902-split43-model43.stage3.request.json",
+    "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r18-20260902.gpu-admission\\paper-text-v1-multiseed-cap128-r18-20260902-split43-model43.stage3.approval.json"
+  ]
+}

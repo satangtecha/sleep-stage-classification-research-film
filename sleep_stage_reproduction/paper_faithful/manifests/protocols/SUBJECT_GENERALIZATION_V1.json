@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "SUBJECT_GENERALIZATION_V1",
+  "title": "Subject-generalization evaluation protocol",
+  "comparison_scope": "grouped_subject_split",
+  "may_compare_to_reported_83_percent": false,
+  "sources": ["TASK_CONTRACT_2026_08_19"],
+  "provenance": {
+    "status": "assumption",
+    "ref": "TASK_CONTRACT_2026_08_19",
+    "note": "This protocol is a required evaluation design derived from the supplied contract, not a claimed manuscript setting."
+  },
+  "split": {
+    "unit": "subject",
+    "method": "grouped",
+    "group_key": "subject_id",
+    "require_disjoint_subjects": true
+  },
+  "comparison_guard": {
+    "reported_metric": "83%",
+    "rule": "never_compare_directly",
+    "reason": "The reported value is associated with epoch-level random splitting, while this protocol evaluates held-out subjects."
+  },
+  "conflicts": [
+    {
+      "field": "split.unit/split.method",
+      "other_protocol": "PAPER_TEXT_V1",
+      "other_value": "epoch / random",
+      "provenance": "source",
+      "resolution": "Report separately; direct comparison with the reported 83% is prohibited."
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "split_fractions_and_seed",
+      "provenance": "unknown",
+      "reason": "The supplied subjectwise requirement specifies grouped subjects but no proportions or seed."
+    }
+  ]
+}

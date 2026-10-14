@@ -1,0 +1,23 @@
+{
+  "all_gradients_finite": true,
+  "author_model_path": "/mnt/c/Users/Acer/OneDrive/Documents/\u0e40\u0e1b\u0e49\u0e32\u0e46\u0e23\u0e27\u0e22\u0e46\u0e46\u0e46/sleep_stage_reproduction/paper_faithful/vendor/Sleep-Stage-Classification-v1.0/Source/model/model.py",
+  "batch_shape": [
+    2,
+    256,
+    256,
+    2
+  ],
+  "gpu_devices": [
+    "/physical_device:GPU:0"
+  ],
+  "loss": 2.414372682571411,
+  "non_none_gradients": 30,
+  "optimizer_step_applied": true,
+  "output_shape": [
+    2,
+    5
+  ],
+  "status": "pass",
+  "tensorflow": "2.4.0",
+  "trainable_variables": 30
+}

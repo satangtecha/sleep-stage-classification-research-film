@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "artifact_type": "explicit_user_launch_confirmation",
+  "confirmation_id": "r8-user-confirmation-20260828T002140+0700",
+  "status": "confirmed",
+  "run_id": "paper-text-v1-pilot-cap128-seed42-r8-20260827",
+  "source_thread_id": "01a014bc-7bc1-7590-bd2b-029c8a84285b",
+  "received_at": "2026-08-28T00:21:40.7939569+07:00",
+  "exact_user_excerpt": "launch fresh r8 exactly once",
+  "user_message_hash_encoding": "utf-8-no-bom-of-json-decoded-exact_user_excerpt",
+  "user_message_sha256": "61fb9b7d978a49449b666b247a610d7030607591872bfe6169c2da5633766856",
+  "recovery_gate_sha256": "bbad197aa0ab0e21872253ae89563270eedec7014d3e59b1bc039f3ac8dc9419",
+  "source_sha256": {
+    "launcher_ps1": "ebac2f6c38863d019b845c28303386c4cde6968823e25247b87876a0448bd284",
+    "runner_sh": "2f059bb13fd3694376c19b7bd4513724c5dd7428ad410d0bd2d981276b00105c",
+    "lean_team_contract_json": "d706184014be79230ff4a9deac71af33afa4e3f5a1fa15fb780d449d2a5ba40c"
+  },
+  "user_explicitly_requested_fresh_r8_exactly_once": true,
+  "exactly_once_launch_authorized": true,
+  "no_resume_or_reuse": true,
+  "confirmation_revoked": false
+}

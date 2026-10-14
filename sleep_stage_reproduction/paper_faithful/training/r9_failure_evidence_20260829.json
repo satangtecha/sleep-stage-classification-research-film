@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "status": "terminal_failure_frozen",
+  "created_at": "2026-08-29T20:15:21.3740251+07:00",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r9-20260828",
+  "launch_contract": {
+    "canonical_gate_sha256": "12fd61eb5c5558fcbb4979d58b12a0326f5c24bd28502cf0bfe645e60a983ae6",
+    "explicit_confirmation_sha256": "f35b96365fafda9b66ab0947ddbbab3b493bd306ffedaf32325bec71e00940d7",
+    "seeds": [
+      42,
+      43
+    ],
+    "invoked_exactly_once": true,
+    "attempt_marker_permanent": true,
+    "retry_forbidden": true,
+    "resume_forbidden": true,
+    "reuse_forbidden": true
+  },
+  "terminal_state": {
+    "process_exited_at": "2026-08-29T18:48:25.9156443+07:00",
+    "terminal_validation_failed_at": "2026-08-29T18:48:27.7241978+07:00",
+    "terminal_validation_reason": "Runner did not return a completed two-child terminal JSON",
+    "parent_completed": false,
+    "terminal_validated": false
+  },
+  "children": {
+    "paper-text-v1-multiseed-cap128-r9-20260828-split42-model42": {
+      "execution_status": "completed",
+      "standalone_verification_status": "verified",
+      "standalone_verification_repeated_read_only_at": "2026-08-29T20:15:21.3740251+07:00",
+      "standalone_verification_python": "/home/techatat/.local/share/sleep-stage-paper/envs/tf24/bin/python",
+      "immutable_config_hash": "145d84422e91b13402da37cce28a2b49363b9786a4aec7631b450326435701cb",
+      "terminal_checkpoint_sha256": "1c1a96c5ce80cbd09347e807a8fae363e47e1ec799ab1513643d20d1ab5378f0",
+      "lineage_eligible_for_r9_result": true
+    },
+    "paper-text-v1-multiseed-cap128-r9-20260828-split43-model43": {
+      "execution_status_stale_due_to_uncaught_tensorflow_exception": "running",
+      "recorded_stage": "stage3",
+      "recorded_inflight": true,
+      "last_completed_stage": "stage2",
+      "immutable_config_hash": "635b627ad9259bad5f089f996877f1c4e980f246b5d664bb4501657d6f2597b3",
+      "failure_type": "tensorflow.python.framework.errors_impl.InvalidArgumentError",
+      "failure_message": "non-finite microbatch gradient: Tensor had NaN values",
+      "first_detected_non_finite_location": "paper_faithful/training/trainer.py:204",
+      "partial_stage3_checkpoint_present": true,
+      "stage3_metrics_present": false,
+      "lineage_eligible_for_r9_result": false
+    }
+  },
+  "seed43_stage3_training_trajectory": [
+    {
+      "epoch": 1,
+      "loss": 320.5503,
+      "validation_loss": 66464595968.0
+    },
+    {
+      "epoch": 2,
+      "loss": 34785634296.062,
+      "validation_loss": 1.6992071364703256e+32
+    },
+    {
+      "epoch": 3,
+      "loss": 1.9526075359640715e+32,
+      "validation_loss": "NaN"
+    },
+    {
+      "epoch": 4,
+      "result": "InvalidArgumentError before epoch completion"
+    }
+  ],
+  "causal_assessment": {
+    "confirmed_mechanism": "Stage3 weights or activations diverged under the locked SGD learning rate 0.1 recipe until a microbatch gradient became non-finite.",
+    "gradient_accumulation_sum_scale_defect": "contradicted_by_source_and_prior_locked_equivalence_evidence",
+    "general_gradient_accumulation_failure": "not_confirmed; child42 completed with the same 128-step accumulation contract",
+    "optimizer_model_numerical_instability": "strongly_supported",
+    "remaining_discriminator": "real Stage3 graph must pass explicit 128-microbatch arithmetic and post-average clipping regressions in locked TensorFlow 2.4",
+    "test_metrics_used_for_recovery_decision": false
+  },
+  "corrective_boundary": {
+    "r9_artifacts_are_evidence_only": true,
+    "r9_checkpoints_must_not_seed_a_recovery_run": true,
+    "fresh_versioned_run_required": true,
+    "automatic_retry_forbidden": true,
+    "pre_registered_candidate_adaptation": {
+      "id": "PAPER_TEXT_STAGE3_GLOBAL_NORM_CLIP_V1",
+      "stage": "stage3",
+      "global_norm": 1.0,
+      "application_point": "after averaging the complete effective-batch gradient and before the SGD update",
+      "optimizer": "SGD",
+      "learning_rate": 0.1,
+      "microbatch": 1,
+      "accumulation_steps": 128,
+      "effective_batch": 128,
+      "no_automatic_learning_rate_change": true
+    }
+  },
+  "immutable_artifacts": {
+    "attempt_marker": {
+      "path": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-multiseed-cap128-r9-20260828.launch.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "lifecycle": {
+      "path": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-multiseed-cap128-r9-20260828.lifecycle.jsonl",
+      "sha256": "b374b44ed1e8d7bd2d338fd2c0ee8cc04eeff6b39453426b7007bc495cf664f6",
+      "bytes": 59690
+    },
+    "stdout": {
+      "path": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-multiseed-cap128-r9-20260828.stdout.log",
+      "sha256": "49dd5a577637d8b46110a5a8b3c30ac2af8056cc70ac725fcf71cd8df59d120a",
+      "bytes": 434087
+    },
+    "stderr": {
+      "path": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-multiseed-cap128-r9-20260828.stderr.log",
+      "sha256": "c3e124eb054db58a51947191ecfaeb290520a3d9e78fa9ffcc0607d2ba5e9633",
+      "bytes": 7801
+    },
+    "launcher_stderr": {
+      "path": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-multiseed-cap128-r9-20260828.launcher.stderr.log",
+      "sha256": "f8a31c107251bf9525f09d5af1fca4252ef56bd7abbcb28d95475b8cb3b6f8ce",
+      "bytes": 598
+    },
+    "child42_execution": {
+      "path": "E:/blp/sleep_stage_reproduction/runs/paper-text-v1-multiseed-cap128-r9-20260828-split42-model42/execution.json",
+      "sha256": "e18f9edd801df85760d20d08bc1a6251c3543da816d71fb4250cfc64e1d94e86",
+      "bytes": 6199
+    },
+    "child42_stage3_checkpoint": {
+      "path": "E:/blp/sleep_stage_reproduction/runs/paper-text-v1-multiseed-cap128-r9-20260828-split42-model42/stage3.weights.h5",
+      "sha256": "1c1a96c5ce80cbd09347e807a8fae363e47e1ec799ab1513643d20d1ab5378f0",
+      "bytes": 13421848
+    },
+    "child42_stage3_metrics": {
+      "path": "E:/blp/sleep_stage_reproduction/runs/paper-text-v1-multiseed-cap128-r9-20260828-split42-model42/stage3.metrics.json",
+      "sha256": "f417169aa9bc09253f13f19b4ac06b071e37eb82e732afba3ff3d0f875af3f21",
+      "bytes": 6270
+    },
+    "child43_execution": {
+      "path": "E:/blp/sleep_stage_reproduction/runs/paper-text-v1-multiseed-cap128-r9-20260828-split43-model43/execution.json",
+      "sha256": "42e037343656d4857f8322b6b5ef425e8de01d0aea6d4993a5a55f341fba37b1",
+      "bytes": 5311
+    },
+    "child43_stage2_checkpoint": {
+      "path": "E:/blp/sleep_stage_reproduction/runs/paper-text-v1-multiseed-cap128-r9-20260828-split43-model43/stage2.weights.h5",
+      "sha256": "71f70b6797db5df81b5194dabaa6960351ae49eedc1b136c94d2a809be31ec57",
+      "bytes": 6867656
+    },
+    "child43_partial_stage3_checkpoint": {
+      "path": "E:/blp/sleep_stage_reproduction/runs/paper-text-v1-multiseed-cap128-r9-20260828-split43-model43/stage3.weights.h5",
+      "sha256": "6d73c9e8f5258175f34e7fa3e6d9161757f86f92993bbc69cb505a963caeaffb",
+      "bytes": 13421848,
+      "accepted_lineage": false
+    },
+    "child43_stage3_metrics": {
+      "path": "E:/blp/sleep_stage_reproduction/runs/paper-text-v1-multiseed-cap128-r9-20260828-split43-model43/stage3.metrics.json",
+      "present": false
+    }
+  },
+  "independent_read_only_assessment": {
+    "agent_id": "01a04da1-0e23-7df2-a575-4e01737adf9c",
+    "role": "lean_explorer",
+    "finding": "optimizer/model numerical instability is more consistent with the evidence than a confirmed accumulation implementation defect",
+    "changes_made": false
+  }
+}

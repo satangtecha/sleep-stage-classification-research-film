@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "status": "pending_final_review",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r13-20260830",
+  "pilot_launched": false,
+  "launch_test_evidence_sha256": "f217e62135908d6032220899eb72b7809e0fb6c1297a22dd7c61a020f4f8c5c3",
+  "reviews": [
+    {
+      "review_id": "r13-preflighted-taskdef-implementation-closure-20260830-v5",
+      "agent_id": "01a052b3-47e9-77c2-aa86-b6b5e8fe6bb3",
+      "role": "implementation_reviewer",
+      "status": "no_material_finding",
+      "all_prior_findings_closed": true,
+      "closed_findings": [
+        "bound helper execution before source hash validation and lock",
+        "concurrent marker and lifecycle collision mapped to ordinary failure instead of refusal",
+        "live dispatcher and supervisor did not refuse concurrent GPU compute processes",
+        "nvidia-smi failure could be masked by a Bash pipeline without pipefail"
+      ],
+      "windows_powershell_5_1_checks": {
+        "static_fail_closed": "pass",
+        "exactly_once_refusal": "pass",
+        "gpu_compute_refusal": "pass",
+        "gpu_wrapper_pipefail_failure": "pass",
+        "supervisor_semantic_diff": "pass",
+        "task_definition_preflight": "pass",
+        "launch_test_evidence_validator": "pass"
+      },
+      "eligible_canary_case_id": "09fbf45bfb594b12bbed7fc946ec273a",
+      "reviewed_source_sha256": {
+        "dispatcher_ps1": "f50bcb3e67f786c3d465ab3f95da674553d3083ae1c02d71ac8c6dc91d20141d",
+        "supervisor_ps1": "bc65c8e0bfa7cb1e3b40d95740e12cd787ad1d25a9018546dff61bfaa96503ba",
+        "runner_sh": "4934e358aec694aba432ff69e8c3ac9e58b69508b375a3aa3afcf634ba87e2e7",
+        "exactly_once_helpers_ps1": "da05cd2ba4844b094687af3b7b89c2fa8c4896bd3cad734a0e33900f8f3ec2e2",
+        "static_fail_closed_test_ps1": "8cd36b31c9ebadf885bdc65c2100464b79ddda5dcd4781569b85d07c96e89b88",
+        "exactly_once_refusal_test_ps1": "64a32620af31406aca6065f7e7f4de16b143fdfb14bb05f707821885df1e59d5",
+        "gpu_compute_refusal_test_ps1": "74be583481f269d49cf0fbc2411332e5d222a5544279272f5eaf4932cca7f3e2",
+        "supervisor_semantic_diff_test_ps1": "fa5bf1a5845deb4b7770f549e9ea4e09d9cbf077b11720c2dff0a1cb3ff8de9a",
+        "launch_test_evidence_validator_ps1": "861fa0031569f40cead42461e13f8a082fcd1210c67c5421eab6bf0ac59d0a17",
+        "launch_test_evidence_v5_json": "f217e62135908d6032220899eb72b7809e0fb6c1297a22dd7c61a020f4f8c5c3"
+      },
+      "publication_is_not_launch": true,
+      "launch_authorized": false
+    },
+    {
+      "review_id": "r13-final-canonical-gate-review-20260830-v2",
+      "agent_id": null,
+      "role": "launch_gate_reviewer",
+      "status": "pending",
+      "publication_is_not_launch": true,
+      "launch_authorized": false
+    }
+  ]
+}

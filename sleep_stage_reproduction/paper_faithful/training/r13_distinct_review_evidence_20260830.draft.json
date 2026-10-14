@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "pending_final_review",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r13-20260830",
+  "pilot_launched": false,
+  "launch_test_evidence_sha256": "af9e7514410765d7a3b85f1b91acb7cb87b19cb90ac3ceb4dfa0ea1bdd4107ec",
+  "reviews": [
+    {
+      "review_id": "r13-preflighted-taskdef-implementation-closure-20260830-v3",
+      "agent_id": "01a052b3-47e9-77c2-aa86-b6b5e8fe6bb3",
+      "role": "implementation_reviewer",
+      "status": "no_material_finding",
+      "all_prior_findings_closed": true,
+      "closed_findings": [
+        "bound helper execution before source hash validation and lock",
+        "concurrent marker and lifecycle collision mapped to ordinary failure instead of refusal"
+      ],
+      "windows_powershell_5_1_checks": {
+        "static_fail_closed": "pass",
+        "exactly_once_refusal": "pass",
+        "supervisor_semantic_diff": "pass",
+        "task_definition_preflight": "pass",
+        "launch_test_evidence_validator": "pass"
+      },
+      "eligible_canary_case_id": "09fbf45bfb594b12bbed7fc946ec273a",
+      "reviewed_source_sha256": {
+        "dispatcher_ps1": "0741bb505320502aa6ad7e1c03df8c897bb075be8ddefebfa8f6d5a312311377",
+        "supervisor_ps1": "eb4118049ee705bd05f08b9af29e7555c37444625d1de0fcf63edd79fb3064ac",
+        "runner_sh": "4934e358aec694aba432ff69e8c3ac9e58b69508b375a3aa3afcf634ba87e2e7",
+        "exactly_once_helpers_ps1": "3d47f2a6156b3147fd151628384b00f3315663b69bece684cb9da8a1ac7a6dff",
+        "static_fail_closed_test_ps1": "cf313fb9a51f06cf503fb62f86d093817c1eb5ba49e4f3d5c861e26f95030e8e",
+        "exactly_once_refusal_test_ps1": "64a32620af31406aca6065f7e7f4de16b143fdfb14bb05f707821885df1e59d5",
+        "supervisor_semantic_diff_test_ps1": "183f3358585523844ce212a16f9af77c149be3b675fc5514da7e0efe0c22fcdc",
+        "launch_test_evidence_validator_ps1": "68de32bac09c6685f8d0f6a6a36198065b57a76fa90e86a2719c577ae638a5a5",
+        "launch_test_evidence_v3_json": "af9e7514410765d7a3b85f1b91acb7cb87b19cb90ac3ceb4dfa0ea1bdd4107ec"
+      },
+      "publication_is_not_launch": true,
+      "launch_authorized": false
+    },
+    {
+      "review_id": "r13-final-canonical-gate-review-20260830",
+      "agent_id": null,
+      "role": "launch_gate_reviewer",
+      "status": "pending",
+      "publication_is_not_launch": true,
+      "launch_authorized": false
+    }
+  ]
+}

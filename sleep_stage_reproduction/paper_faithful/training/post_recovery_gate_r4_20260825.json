@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-08-25T22:35:43.7830238+07:00",
+  "run_id": "paper-text-v1-pilot-cap128-seed42-r4-20260825",
+  "fresh_evidence_required": true,
+  "resume_forbidden": [
+    "paper-text-v1-pilot-cap128-seed42-20260824",
+    "paper-text-v1-pilot-cap128-seed42-r2-20260824",
+    "paper-text-v1-pilot-cap128-seed42-r3-20260825"
+  ],
+  "failed_predecessor": {
+    "run_id": "paper-text-v1-pilot-cap128-seed42-r3-20260825",
+    "exit_code": 1,
+    "exit_timestamp": "2026-08-25T22:16:20.6200610+07:00",
+    "failure_type": "TypeError",
+    "failure_message": "Object of type float32 is not JSON serializable",
+    "completed_training": "stage1_epochs_20_of_20",
+    "relaunch_forbidden": true
+  },
+  "recovery_manifest": {
+    "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\driver_recovery_manifest.json",
+    "sha256": "c0cb50d1258be2e7dc69301385777dbc49a6211ba4e6f8c5557f3f47e2ebc9ad"
+  },
+  "cache_gate": {
+    "manifest": "E:\\blp\\sleep_stage_reproduction\\sst_cache\\paper_faithful_v3_full_20260820\\sst_full_cohort_run_manifest.json",
+    "sha256": "a4512970c6023cd1dc727cad40c2352126fea46356b78bb6782055f9d0ce7ed2",
+    "validator_v2_status": "valid"
+  },
+  "windows": {
+    "last_boot": "2026-08-25T15:11:57.5000000+07:00",
+    "bugcheck_or_nvidia_event_at_r3_exit": false
+  },
+  "driver": {
+    "cim_version": "32.0.16.1047",
+    "nvidia_version": "610.47",
+    "status": "OK",
+    "host_nvidia_smi": "NVIDIA GeForce RTX 3050 6GB Laptop GPU, 610.47, 6144 MiB",
+    "wsl_nvidia_smi": "NVIDIA GeForce RTX 3050 6GB Laptop GPU, 610.47, 6144 MiB"
+  },
+  "tensorflow_gate": {
+    "python": "3.7.12",
+    "tensorflow": "2.4.0",
+    "built_with_cuda": true,
+    "gpus": [
+      "/physical_device:GPU:0"
+    ]
+  },
+  "paper_text_v1_smoke": {
+    "status": "pass",
+    "synthetic_only": true,
+    "losses_finite": {
+      "stage1": true,
+      "stage2": true,
+      "stage3": true
+    },
+    "gradient_non_none": {
+      "stage1": 30,
+      "stage2": 26,
+      "stage3": 14
+    },
+    "gradients_all_finite": {
+      "stage1": true,
+      "stage2": true,
+      "stage3": true
+    },
+    "stage3_parameter_counts": {
+      "total": 3340885,
+      "trainable": 1764229,
+      "non_trainable": 1576656
+    }
+  },
+  "serialization_recovery": {
+    "cli_sha256": "f33b63a30568832097da32a27056cade4a77c496466af45548899e992fd2385c",
+    "trainer_sha256": "825f94208efc764bc4269df229df16fdfcbbf2b2b33dd5c991df49f39452055e",
+    "regression_test_sha256": "1e5108f84e38a22dc7436be4cf67a748cd8c9af5fc1b4daeaf847aa4dd843d75",
+    "host_focused_tests": {
+      "status": "pass",
+      "count": 25
+    },
+    "locked_wsl_python37_focused_tests": {
+      "status": "pass",
+      "count": 25
+    },
+    "independent_review": {
+      "status": "no_material_finding",
+      "agent_id": "01a03985-9c70-7570-a690-3e3353509727",
+      "fresh_run_authorized": true
+    }
+  },
+  "runner": {
+    "path": "paper_faithful/training/run_paper_text_pilot_r4.sh",
+    "sha256": "e67f2ae9975cd5b3d1466aee68b1f793253fb39585bc56b52087aad9ce652a97"
+  },
+  "launcher": {
+    "path": "paper_faithful/training/launch_paper_text_pilot_r4.ps1",
+    "sha256": "88aa31f0781902d0abc837a343376247a3bac8b459429db9b451d64f0ee38034"
+  },
+  "storage_gate": {
+    "c_free_gib": 3.072,
+    "c_minimum_gib": 2.5,
+    "e_free_gib": 407.187,
+    "e_minimum_gib": 50.0,
+    "bulk_root": "E:\\blp\\sleep_stage_reproduction",
+    "status": "pass"
+  },
+  "contract_gate": {
+    "status": "valid",
+    "scope": "large",
+    "risk": "high",
+    "phase": "executing",
+    "workers": 0,
+    "max_concurrent_agents": 2,
+    "contract_sha256": "39d1ed922548d3c5a70ed55cd3118f3ae4601e32e670a158e986a3b9d9aa0d05"
+  },
+  "status": "pass",
+  "fresh_launch_authorized": true
+}

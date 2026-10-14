@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "created_at": "2026-08-28T07:48:28.7339898+07:00",
+  "scope": "PAPER_TEXT_V1 narrow sequential multi-seed pilot orchestration before any real GPU smoke",
+  "real_training_launched": false,
+  "r8_verification_anchor": {
+    "path": "paper_faithful/training/r8_verification_evidence_20260828.json",
+    "sha256": "1224d035e117b39368270ef52358b4c8b64c9bd81558ee88b0a30f1577fe0d17"
+  },
+  "implementation": {
+    "command": "multi-seed-pilot",
+    "properties": [
+      "one strict CanonicalCache load per process",
+      "two or more strictly increasing unique unsigned 32-bit seeds",
+      "independent child run IDs and immutable split/model seed bindings",
+      "PAPER_TEXT_V1 all-stage cap-128 children with stage microbatches 128/128/1",
+      "Stage3 averaged gradient accumulation to effective batch 128",
+      "no resume path",
+      "standalone verifier subprocess for every completed child",
+      "TensorFlow session and garbage-collection cleanup at every child boundary",
+      "fail-closed stop before later children on collision, training failure, verifier refusal, or cleanup failure"
+    ],
+    "files": {
+      "paper_faithful/training/cli.py": "f9c8ae1d6ccda83ad2c208d93201057dab99664f45d3f3c12dbdc7df5050807f",
+      "paper_faithful/training/trainer.py": "52efe2311f10f221babab06ed743f9feae0279519bac49a2bb0cdb0d799b65ae",
+      "paper_faithful/training/tests/test_trainer_contract.py": "9503269aa647e8b950c1540f5b4665650affdaafb0f60b940bcb4667303ff590",
+      "paper_faithful/training/tests/test_multi_seed.py": "62674cfa139b1cc764b82e9c230934aecf2d0a4bcf6d2b58dc8f7b646b785e40"
+    }
+  },
+  "verification": {
+    "host_focused_suite": {
+      "command": "python -m unittest paper_faithful.training.tests.test_cache_loader paper_faithful.training.tests.test_trainer_contract paper_faithful.training.tests.test_multi_seed paper_faithful.training.tests.test_verify_run",
+      "result": "34 passed, 5 skipped",
+      "exit_code": 0
+    },
+    "locked_wsl_tf24_focused_suite": {
+      "python": "/home/techatat/.local/share/sleep-stage-paper/envs/tf24/bin/python",
+      "result": "34 passed, 3 skipped",
+      "exit_code": 0
+    },
+    "host_mock_multi_seed_smoke": {
+      "command": "python -m unittest -v paper_faithful.training.tests.test_multi_seed",
+      "result": "7 passed",
+      "exit_code": 0
+    },
+    "locked_wsl_mock_multi_seed_smoke": {
+      "result": "7 passed",
+      "exit_code": 0
+    },
+    "host_py_compile": {
+      "result": "pass",
+      "exit_code": 0
+    },
+    "lean_contract_validation": {
+      "result": "VALID: scope=large risk=high phase=executing workers=1 maxConcurrentAgents=2",
+      "exit_code": 0
+    }
+  },
+  "independent_review": {
+    "agent_id": "01a045d3-9b0c-7892-97da-fa6c33f74f6a",
+    "result": "no material implementation defect confirmed",
+    "changes": "none",
+    "residual_uncertainty": "No real TensorFlow/GPU training, production cache load, or real verifier subprocess was run in this gate."
+  },
+  "next_gate": "Design and independently review a versioned host power and exactly-once gate before any real two-child GPU smoke."
+}

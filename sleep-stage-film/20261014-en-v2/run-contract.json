@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "objective": "Deliver an English-only silent five-minute scientific animation with legible non-overlapping content and unchanged research evidence.",
+  "scope": "large",
+  "risk": "medium",
+  "phase": "done",
+  "userApproval": "proceed",
+  "maxConcurrentAgents": 2,
+  "deliverables": ["outputs/SleepStage-English-Silent-5min.mp4", "outputs/presentation.html", "English storyboard, source, captions and verification"],
+  "nonGoals": ["No training, inference, test evaluation, timer, research edits, git push or merge", "No audio, copied reference footage, or invented measurements"],
+  "acceptance": ["300 seconds, 1920x1080, 24 fps, 7200 frames, zero audio streams", "Five 60-second chapter previews", "English captions and visible scientific caveats", "Text bounds/collision tests and visual review", "Frozen source hashes unchanged"],
+  "workers": [{"id":"01a134b6-9d8c-7b32-ad36-9c0d3876caeb","role":"reviewer","ownership":["story.json", "film.mjs", "outputs/frames"],"write":false,"doneWhen":["Return confirmed scientific or readability findings only"]}],
+  "decisions": ["Reference is visual inspiration only", "Reuse pinned ecmanim timeline, Manim-Motion exporter and Manim Slides converter", "Quantitative evidence uses flat precise plots, with conceptual 3D scenes in a separate visual viewport"],
+  "evidence": ["outputs/verification.json: 300s,7200 frames,1920x1080,24fps,0 audio streams", "16 tests passed,0 failed,0 skipped", "outputs/layout-audit.json:40 stills,0 text bounds/collision issues", "Full-size independent scientific/layout review: no remaining confirmed material findings", "Five HTML chapter videos played without error in Codex in-app browser", "All9 frozen research source hashes verified"]
+}

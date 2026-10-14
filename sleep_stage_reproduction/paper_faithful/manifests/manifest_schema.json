@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "paper_faithful_manifest_schema_v1",
+  "title": "Paper alignment protocol manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "protocol_id", "title", "comparison_scope", "may_compare_to_reported_83_percent", "sources", "provenance", "conflicts", "unknowns"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "protocol_id": {"enum": ["PAPER_TEXT_V1", "AUTHOR_CODE_V1", "SUBJECT_GENERALIZATION_V1"]},
+    "title": {"type": "string", "minLength": 1},
+    "comparison_scope": {"type": "string", "minLength": 1},
+    "may_compare_to_reported_83_percent": {"type": "boolean"},
+    "sources": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "provenance": {"$ref": "#/$defs/provenance"},
+    "dataset": {"type": "object"},
+    "split": {"type": "object"},
+    "model": {"type": "object"},
+    "preprocessing": {"type": "object"},
+    "downstream": {"type": "object"},
+    "comparison_guard": {"type": "object"},
+    "conflicts": {"type": "array", "items": {"$ref": "#/$defs/conflict"}},
+    "unknowns": {"type": "array", "items": {"$ref": "#/$defs/unknown"}}
+  },
+  "$defs": {
+    "provenance": {
+      "type": "object",
+      "required": ["status", "ref", "note"],
+      "properties": {"status": {"enum": ["source", "assumption", "unknown"]}, "ref": {"type": "string", "minLength": 1}, "note": {"type": "string", "minLength": 1}}
+    },
+    "conflict": {
+      "type": "object",
+      "required": ["field", "other_protocol", "other_value", "provenance", "resolution"],
+      "properties": {"field": {"type": "string"}, "other_protocol": {"type": "string"}, "other_value": {"type": "string"}, "provenance": {"enum": ["source", "assumption", "unknown"]}, "resolution": {"type": "string"}}
+    },
+    "unknown": {
+      "type": "object",
+      "required": ["field", "provenance", "reason"],
+      "properties": {"field": {"type": "string"}, "provenance": {"const": "unknown"}, "reason": {"type": "string", "minLength": 1}}
+    }
+  }
+}

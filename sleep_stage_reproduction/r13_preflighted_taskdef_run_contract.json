@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "objective": "Produce an evidence-backed fresh-r13 launch package that preserves the r12 Task Scheduler COM foreground-WSL design while constructing and validating the exact TaskDefinition before consuming the permanent dispatch marker, then stop at a new canonical approval gate without launching training.",
+  "scope": "large",
+  "risk": "high",
+  "phase": "executing",
+  "userApproval": "proceed",
+  "maxConcurrentAgents": 2,
+  "deliverables": [
+    "Immutable local and drive-E evidence for the non-retriable r12 pre-training COM property failure",
+    "Fresh r13 dispatcher/supervisor/runner files with AllowDemandStart and complete pre-marker TaskDefinition construction/validation",
+    "Windows PowerShell 5.1 exact TaskDefinition, static, fail-closed, regression, import-closure, source-binding, power, GPU, cache, and namespace evidence",
+    "Independent implementation and launch-gate reviews with every confirmed material finding closed",
+    "A byte-identical local and drive-E canonical r13 gate requiring a new exact user confirmation before training launch"
+  ],
+  "nonGoals": [
+    "Do not retry, resume, relaunch, or reuse r1 through r12",
+    "Do not create or remove historical r12 markers, tasks, lifecycle, confirmation, gate, evidence, logs, or child namespaces",
+    "Do not launch r13 or consume its production dispatch or attempt marker during readiness engineering or tests",
+    "Do not weaken cache, power, storage, GPU, source-hash, confirmation, numerical-stability, reviewer, or terminal-validation gates"
+  ],
+  "acceptance": [
+    "r12 failure evidence is valid, byte-identical on C and E, binds its gate, confirmation, dispatcher, permanent dispatch marker, and lifecycle, and proves no attempt/task/WSL/training/child execution occurred",
+    "The exact r13 production TaskDefinition is completely constructed and semantically validated under Windows PowerShell 5.1 before the permanent dispatch marker",
+    "The r13 dispatcher uses Settings.AllowDemandStart=true and no source contains the invalid Settings.AllowStartOnDemand assignment",
+    "Focused non-training COM tests prove the exact TaskDefinition can be constructed, registered in a canary namespace, RunEx started with a harmless action, and unregistered without production markers",
+    "The accepted r12 long canary remains applicable to the unchanged foreground-WSL supervisor semantics, with source-diff evidence for r13 version-only changes",
+    "All focused host and locked-runtime tests pass and two distinct reviewers report no material finding before canonical gate publication"
+  ],
+  "workers": [
+    {
+      "id": "r13-preflighted-taskdef-implementer",
+      "role": "implementer",
+      "ownership": [
+        "New r13 dispatcher, supervisor, runner, and r13-only focused tests"
+      ],
+      "write": true,
+      "doneWhen": [
+        "PS5.1 exact TaskDefinition and static/fail-closed tests pass without creating production r13 artifacts"
+      ]
+    },
+    {
+      "id": "r13-implementation-reviewer",
+      "role": "reviewer",
+      "ownership": [
+        "Read-only integrated r13 sources, test evidence, source closure, and failure-boundary review"
+      ],
+      "write": false,
+      "doneWhen": [
+        "Return evidence-backed findings or no material finding"
+      ]
+    },
+    {
+      "id": "r13-launch-gate-reviewer",
+      "role": "reviewer",
+      "ownership": [
+        "Read-only final canonical r13 gate draft and production-namespace review"
+      ],
+      "write": false,
+      "doneWhen": [
+        "Return no material finding before mechanical publication"
+      ]
+    }
+  ],
+  "decisions": [
+    "r12 was invoked exactly once and failed before Task registration, attempt marker, WSL, training, or child creation because TaskDefinition.Settings exposes AllowDemandStart, not AllowStartOnDemand.",
+    "The r12 dispatch marker is permanently consumed; r12 is inspect-only and cannot be retried, resumed, relaunched, or reused.",
+    "r13 preserves ordered seeds 42 and 43, PAPER_TEXT_STAGE3_GLOBAL_NORM_CLIP_V1, sequential children, and the accepted Task Scheduler COM foreground-WSL terminal barrier.",
+    "r13 moves complete TaskDefinition construction and validation before permanent dispatch-marker creation; only registration and RunEx remain after the marker.",
+    "r13 engineering and non-training tests are authorized; production training requires a fresh final canonical gate SHA and a new exact user confirmation."
+  ],
+  "evidence": [
+    "paper_faithful/training/r12_infrastructure_failure_evidence_20260830.json and E:/blp/sleep_stage_reproduction/runtime/driver-recovery/r12-infrastructure-failure-evidence-20260830.json are byte-identical SHA-256 60b3f6b82d5de2dfa69249feede52f50f07c750bcf6662dc9c52decbc7490caa.",
+    "r12 dispatch lifecycle records dispatch_created at 2026-08-30T19:10:55.2463824+07:00 and dispatch_failed at 2026-08-30T19:10:55.5710109+07:00 with the exact missing AllowStartOnDemand property error.",
+    "PowerShell 5.1 COM introspection confirms AllowStartOnDemand is absent, AllowDemandStart is present and defaults true.",
+    "r12 attempt marker, task, dispatcher success record, workload lifecycle/logs/exit evidence, WSL training processes, and both child directories are absent."
+  ]
+}

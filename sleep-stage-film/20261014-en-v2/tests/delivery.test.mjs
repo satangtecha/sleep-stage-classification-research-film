@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+import {ROOT} from '../film.mjs';
+const out=path.join(ROOT,'outputs'),sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+test('final MP4 is exactly five minutes and 7200 silent HD frames',()=>{const file=path.join(out,'SleepStage-English-Silent-5min.mp4');const p=JSON.parse(execFileSync('ffprobe',['-v','error','-show_streams','-show_format','-show_chapters','-of','json',file],{encoding:'utf8'}));const v=p.streams.find(s=>s.codec_type==='video');assert.equal(+v.duration,300);assert.equal(+p.format.duration,300);assert.equal(+v.nb_frames,7200);assert.equal(v.avg_frame_rate,'24/1');assert.equal(+v.width,1920);assert.equal(+v.height,1080);assert.equal(p.streams.filter(s=>s.codec_type==='audio').length,0);assert.equal(p.chapters.length,5)});
+test('chapter files and source hashes match verification receipt',()=>{const r=JSON.parse(fs.readFileSync(path.join(out,'verification.json')));assert.equal(sha(r.final_file),r.sha256);for(const c of r.clips){assert.equal(sha(c.file),c.sha256);const s=JSON.parse(execFileSync('ffprobe',['-v','error','-show_streams','-of','json',c.file],{encoding:'utf8'})).streams;assert.equal(s.length,1);assert.equal(+s[0].duration,60);assert.equal(+s[0].nb_frames,1440)}for(const [f,hash] of Object.entries(r.source_sha256))assert.equal(sha(path.join(ROOT,f)),hash);assert.equal(r.new_test_evaluation,false)});
+test('offline HTML has five embedded MP4 assets and no remote CDN scripts',()=>{const html=fs.readFileSync(path.join(out,'presentation.html'),'utf8');assert.equal((html.match(/data:video\/mp4;base64,/g)||[]).length,5);assert.doesNotMatch(html,/<script[^>]+src=["']https?:\/\//i);assert.doesNotMatch(html,/<link[^>]+href=["']https?:\/\//i);assert.ok(html.includes('Sleep Stage Research'))});
+test('SRT has forty English caption windows spanning exactly 300 seconds',()=>{const srt=fs.readFileSync(path.join(out,'captions-en.srt'),'utf8');assert.equal((srt.match(/ --> /g)||[]).length,40);assert.ok(srt.includes('00:00:00,000 --> 00:00:07,500'));assert.ok(srt.includes('00:04:52,500 --> 00:05:00,000'));assert.doesNotMatch(srt,/[\u0E00-\u0E7F]/)});

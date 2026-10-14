@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "SST_WINDOWING_ENGINEERING_GATE_V1",
+  "scope": "single record-bounded preprocessed epoch/window conversion; no full-cohort cache or training",
+  "source": [
+    {"field": "paper_windowing", "ref": "../manifests/protocols/PAPER_TEXT_V1.json", "value": "12 windows, width 256, overlap 7"},
+    {"field": "author_windowing", "ref": "../manifests/protocols/AUTHOR_CODE_V1.json and ../vendor/Sleep-Stage-Classification-v1.0/Source/notebooks/3_Preprocessing-final.ipynb", "value": "15 windows, width 256, overlap 64"},
+    {"field": "paper_transform", "ref": "accepted manuscript Methods 2.2 and Appendix A", "value": "ssq_stft result slot 0 (Tx, synchrosqueezed transform); first 256 frequency rows; independent real/imag min-max normalization"},
+    {"field": "author_transform", "ref": "../vendor/Sleep-Stage-Classification-v1.0/Source/notebooks/4_Downstream-task.ipynb", "value": "ssq_stft result slot 1 (Sx, ordinary STFT coefficients); n_fft=512; first 256 frequency rows; independent real/imag min-max normalization"},
+    {"field": "bulk_root", "ref": "../data/drive_layout_manifest.json", "value": "E:\\blp\\sleep_stage_reproduction"}
+  ],
+  "assumption": [
+    {"field": "selected_pin", "value": "ssqueezepy==0.6.6", "reason": "The vendor requirements leave ssqueezepy unpinned. Version 0.6.6 was available before the source-locked July 2026 author commit and produced a byte-identical SC4001 tensor to 0.6.5."},
+    {"field": "version_sensitivity", "value": ["ssqueezepy==0.6.5", "ssqueezepy==0.6.6"], "result": "SC4001 first-window tensors were byte-identical across versions within each route: AUTHOR_CODE_V1/Sx SHA-256 4044636c1374a880a32ff4bec5a70d9b86e5b9f1929faae00fdcd9a1ef5ffd19; PAPER_TEXT_V1/Tx SHA-256 3bcd41f7b9a621b2b48af7aaa6602aec687ca05b0e5a62fa4c946fda3400231d."},
+    {"field": "constant_component_normalization", "value": "all zeros", "reason": "Prevents NaN/Inf where vendor min-max division has zero range."},
+    {"field": "storage_estimate", "value": "uncompressed tensor payload only", "reason": "Excludes filesystem, archive, manifest, and temporary-write overhead."}
+  ],
+  "unknown": [
+    {"field": "author_exact_ssqueezepy_version", "reason": "Vendor requirements file is unpinned."},
+    {"field": "author_exact_resize_to_64_operation", "reason": "The inspected downstream notebook allocates 256x256 tensors; an exact 64x64 resize implementation is not evidenced there."},
+    {"field": "author_exact_numerical_compatibility", "reason": "Candidate-version sensitivity passed one fixed window, but no author reference tensor or checkpoint is published for absolute comparison."}
+  ]
+}

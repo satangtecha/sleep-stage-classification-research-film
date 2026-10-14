@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-08-26T14:28:39.4778032+07:00",
+  "run_id": "paper-text-v1-pilot-cap128-seed42-r5-20260826",
+  "fresh_evidence_required": true,
+  "resume_forbidden": [
+    "paper-text-v1-pilot-cap128-seed42-20260824",
+    "paper-text-v1-pilot-cap128-seed42-r2-20260824",
+    "paper-text-v1-pilot-cap128-seed42-r3-20260825",
+    "paper-text-v1-pilot-cap128-seed42-r4-20260825"
+  ],
+  "failed_predecessor": {
+    "run_id": "paper-text-v1-pilot-cap128-seed42-r4-20260825",
+    "exit_code": 1,
+    "exit_timestamp": "2026-08-26T13:39:16.7759676+07:00",
+    "completed_training": "stage1_epochs_20_of_20_and_stage2_epochs_20_of_20",
+    "failure_path": "stage2_post_fit_silhouette_evaluation_memory_exhaustion",
+    "diagnosis": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r4-memory-failure-diagnosis-20260826.json",
+    "diagnosis_sha256": "c86c8a6bcf060c318f06402e8e15f83d53c3954c0b12f5b180143c1aabcb9ea2",
+    "relaunch_forbidden": true
+  },
+  "driver_recovery_manifest": {
+    "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\driver_recovery_manifest.json",
+    "sha256": "c0cb50d1258be2e7dc69301385777dbc49a6211ba4e6f8c5557f3f47e2ebc9ad"
+  },
+  "cache_gate": {
+    "manifest": "E:\\blp\\sleep_stage_reproduction\\sst_cache\\paper_faithful_v3_full_20260820\\sst_full_cohort_run_manifest.json",
+    "sha256": "a4512970c6023cd1dc727cad40c2352126fea46356b78bb6782055f9d0ce7ed2",
+    "validator_v2_status": "valid"
+  },
+  "windows": {
+    "last_boot": "2026-08-25T15:11:57.5001140+07:00",
+    "reboot_during_r4": false,
+    "bugcheck_display_nvlddmkm_or_kernel_power_event_at_r4_exit": false
+  },
+  "driver": {
+    "cim_version": "32.0.16.1047",
+    "nvidia_version": "610.47",
+    "status": "OK",
+    "host_nvidia_smi": "NVIDIA GeForce RTX 3050 6GB Laptop GPU, 610.47, 6144 MiB",
+    "wsl_nvidia_smi": "NVIDIA GeForce RTX 3050 6GB Laptop GPU, 610.47, 6144 MiB"
+  },
+  "tensorflow_gate": {
+    "python": "3.7.12",
+    "tensorflow": "2.4.0",
+    "built_with_cuda": true,
+    "gpus": [
+      "/physical_device:GPU:0"
+    ]
+  },
+  "paper_text_v1_smoke": {
+    "status": "pass",
+    "synthetic_only": true,
+    "losses_finite": {
+      "stage1": true,
+      "stage2": true,
+      "stage3": true
+    },
+    "gradient_non_none": {
+      "stage1": 30,
+      "stage2": 26,
+      "stage3": 14
+    },
+    "gradients_all_finite": {
+      "stage1": true,
+      "stage2": true,
+      "stage3": true
+    },
+    "stage3_parameter_counts": {
+      "total": 3340885,
+      "trainable": 1764229,
+      "non_trainable": 1576656
+    }
+  },
+  "metric_memory_recovery": {
+    "cli_sha256": "f33b63a30568832097da32a27056cade4a77c496466af45548899e992fd2385c",
+    "trainer_sha256": "825f94208efc764bc4269df229df16fdfcbbf2b2b33dd5c991df49f39452055e",
+    "metrics_sha256": "4b4ba248b450147f623d9476c11309dae6cf10967bdcc9e06298f7f94d879baa",
+    "regression_test_sha256": "8774bb60939adc8e5226c53a098ce9f1fc9116321bfeabbdcbe1149b0bebfc2c",
+    "host_full_tests": {
+      "status": "pass",
+      "passed": 41,
+      "skipped": 2
+    },
+    "host_focused_tests": {
+      "status": "pass",
+      "count": 21
+    },
+    "locked_wsl_python37_focused_tests": {
+      "status": "pass",
+      "count": 21
+    },
+    "locked_wsl_scale_smoke": {
+      "status": "pass",
+      "shape": [1536, 256],
+      "elapsed_seconds": 3.92,
+      "max_rss_kib": 56244,
+      "exit_status": 0
+    },
+    "independent_review": {
+      "status": "no_material_finding",
+      "agent_id": "01a03cda-c05b-7c81-90ec-23add0987684",
+      "all_prior_findings_closed": true,
+      "fresh_run_authorized": true
+    }
+  },
+  "drive_c_recovery": {
+    "manifest": "E:\\blp\\sleep_stage_reproduction\\runtime\\c-session-relocation-20260826\\relocation_manifest.json",
+    "manifest_sha256": "d3dd7ea6acac0515ce91e66abecc9502b68858f4a4bb3d80edd6d7466792d538",
+    "files_preserved": 50,
+    "bytes_preserved": 29479709790,
+    "source_replaced_by_junction": true,
+    "status": "pass"
+  },
+  "runner": {
+    "path": "paper_faithful/training/run_paper_text_pilot_r5.sh",
+    "sha256": "d8a52fc3b2a25a6cb854d5eaa70d8be66f493d31e4171a052f8e1431999f6ec6"
+  },
+  "launcher": {
+    "path": "paper_faithful/training/launch_paper_text_pilot_r5.ps1",
+    "sha256": "e660128a8270083fd45efc48e5936e911e9585294ad44207afdccab482dbc8f4"
+  },
+  "storage_gate": {
+    "c_free_gib": 28.22,
+    "c_minimum_gib": 10.0,
+    "e_free_gib": 373.365,
+    "e_minimum_gib": 50.0,
+    "bulk_root": "E:\\blp\\sleep_stage_reproduction",
+    "status": "pass"
+  },
+  "contract_gate": {
+    "status": "valid",
+    "scope": "large",
+    "risk": "high",
+    "phase": "executing",
+    "workers": 0,
+    "max_concurrent_agents": 2,
+    "contract_sha256": "71af5c27bdcd9ffa5191bfd3e4675c0b7e9ab0efcd56a06344e989078e144481"
+  },
+  "launch_review": {
+    "status": "no_material_finding",
+    "agent_id": "01a03cf3-f7e9-74f3-aa58-a3a39ecb0190",
+    "concurrent_launch_race_closed": true,
+    "fresh_run_authorized": true
+  },
+  "status": "pass",
+  "fresh_launch_authorized": true
+}

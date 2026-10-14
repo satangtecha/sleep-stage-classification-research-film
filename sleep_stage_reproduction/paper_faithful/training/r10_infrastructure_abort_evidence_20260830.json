@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "artifact_type": "non_retriable_training_attempt_failure_evidence",
+  "status": "failed",
+  "failure_class": "abrupt_external_supervisor_termination_before_terminal_lifecycle",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r10-20260829",
+  "seeds": [
+    42,
+    43
+  ],
+  "expected_children": [
+    "paper-text-v1-multiseed-cap128-r10-20260829-split42-model42",
+    "paper-text-v1-multiseed-cap128-r10-20260829-split43-model43"
+  ],
+  "observed_at": "2026-08-30T07:46:35.2302130+07:00",
+  "attempt_consumed": true,
+  "training_completion_claimed": false,
+  "terminal_validation_passed": false,
+  "retry_resume_relaunch_reuse_prohibited": true,
+  "immutable_launch_bindings": {
+    "canonical_gate_sha256": "9c41e2d62ddb16d5d97bd6b35e2075278b9291675fdf85d1e4e085037e812499",
+    "user_confirmation_sha256": "aa2c38cd8b69e9c7d3d94083a32147d5485106d8d5422cc718dbb5c3a0d3a5a4",
+    "launcher_sha256": "76363ba5fff2af2c6fb1a9af57f2f6ab327a2497e61baa688db957a5b2e77726",
+    "runner_sha256": "5e90b9410ff6cf76802edac57fc57ed38745d9c9341e7821ec6559201063a98e",
+    "lean_team_contract_sha256": "8592ab2d823ac73855e41c985674962510d7a4c69237f339f3f512ff7b727716"
+  },
+  "attempt_artifacts": {
+    "marker": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r10-20260829.launch.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "created_at": "2026-08-29T22:27:08.3868447+07:00",
+      "lock_was_free_at_observation": true
+    },
+    "lifecycle": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r10-20260829.lifecycle.jsonl",
+      "sha256": "c8347665fa24dbd8cceff00b6b54654a81fe3db53f3a6dcabca5c5a7d4338bf3",
+      "bytes": 58659,
+      "last_write_at": "2026-08-29T22:27:14.6495332+07:00",
+      "event_sequence": [
+        {
+          "event": "attempt_created",
+          "timestamp": "2026-08-29T22:27:08.3956772+07:00"
+        },
+        {
+          "event": "launch_requested",
+          "timestamp": "2026-08-29T22:27:14.5649393+07:00"
+        },
+        {
+          "event": "process_started",
+          "timestamp": "2026-08-29T22:27:14.6475341+07:00",
+          "windows_wsl_host_pid": 40812
+        }
+      ],
+      "process_exited_event_present": false,
+      "terminal_validated_event_present": false,
+      "terminal_validation_failed_event_present": false
+    },
+    "stdout": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r10-20260829.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stderr": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r10-20260829.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "observed_terminal_state": {
+    "windows_training_process_count": 0,
+    "wsl_training_process_count": 0,
+    "wsl_distribution_state_before_diagnostic_probe": "Stopped",
+    "child_state": [
+      {
+        "run_id": "paper-text-v1-multiseed-cap128-r10-20260829-split42-model42",
+        "directory_exists": false,
+        "execution_exists": false
+      },
+      {
+        "run_id": "paper-text-v1-multiseed-cap128-r10-20260829-split43-model43",
+        "directory_exists": false,
+        "execution_exists": false
+      }
+    ],
+    "windows_last_boot_up_time": "2026-08-28T17:40:11.5000000+07:00",
+    "windows_local_time": "2026-08-30T07:46:26.0370000+07:00",
+    "reboot_between_launch_and_observation": false
+  },
+  "root_cause_assessment": {
+    "confirmed": "The r10 Windows supervisor and its WSL child disappeared without executing the launcher's process-exit or terminal-validation recording paths, before any runner output or child namespace was published.",
+    "excluded_by_evidence": [
+      "successful or terminally validated r10 completion",
+      "a recorded TensorFlow or trainer failure",
+      "a Windows reboot between launch and observation",
+      "either child reaching execution.json publication"
+    ],
+    "inference": "The process tree was terminated externally while it remained coupled to the finite lifetime of the invoking execution session. The exact external actor is not directly logged.",
+    "required_remediation": "A fresh versioned launcher must transfer supervision to an operating-system-owned no-restart host, prove survival after invoker exit with a non-training canary, and preserve immutable lifecycle and terminal validation evidence."
+  },
+  "next_run_constraints": {
+    "minimum_fresh_version": "r11",
+    "new_prefix_required": true,
+    "new_children_required": true,
+    "new_permanent_marker_required": true,
+    "new_confirmation_required": true,
+    "new_canonical_gate_required": true,
+    "automatic_retry_allowed": false,
+    "automatic_resume_allowed": false,
+    "historical_namespace_reuse_allowed": false
+  },
+  "r11_readiness_contract_sha256": "de769c0855d09f0dfde6ef28277c639ca7b548b2a27ec3e0f5b8832bb0a73740"
+}

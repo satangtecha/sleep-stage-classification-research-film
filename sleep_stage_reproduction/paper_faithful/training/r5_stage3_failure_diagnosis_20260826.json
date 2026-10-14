@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "created_at": "2026-08-26T21:56:00+07:00",
+  "updated_at": "2026-08-26T22:55:24+07:00",
+  "failed_run_id": "paper-text-v1-pilot-cap128-seed42-r5-20260826",
+  "failed_run_reuse_forbidden": true,
+  "exit": {
+    "timestamp": "2026-08-26T21:29:02.9987713+07:00",
+    "exit_code": 2,
+    "execution_status": "failed",
+    "failure_type": "TrainingContractError",
+    "failure_message": "best validation checkpoint was not written",
+    "failure_fingerprint": "a45bd30448e1516f6300946b28075e0192c416480e14a6419cfa42fccb1a7807"
+  },
+  "root_cause": {
+    "classification": "missing_nominal_batch_gradient_accumulation",
+    "summary": "Stage 3 used hardware microbatch 1 with the paper SGD learning rate 0.1 but performed one optimizer update per microbatch instead of averaging 128 microbatches into the declared nominal batch 128.",
+    "direct_loss_trajectory": [
+      0.5019,
+      120.7289,
+      1370534.4217,
+      369871518.7374,
+      564320068.2811,
+      2.654772934330774e+27,
+      "NaN"
+    ],
+    "first_nan_batch": 8,
+    "all_epoch_loss_non_finite": true,
+    "all_epoch_validation_loss_non_finite": true,
+    "paper_nominal_batch": 128,
+    "failed_hardware_microbatch": 1,
+    "failed_gradient_accumulation_steps": 1,
+    "failed_optimizer_updates_per_pilot_epoch": 128,
+    "required_gradient_accumulation_steps": 128,
+    "required_optimizer_updates_per_pilot_epoch": 1,
+    "vendor_stage3_learning_rate": 0.1,
+    "vendor_stage3_optimizer": "SGD",
+    "vendor_stage3_batch": 128,
+    "vendor_config_sha256": "77b543c868065dd221473a04e82d5688e49b75b78dad9555ca4e946019cc071d"
+  },
+  "excluded_causes": {
+    "cache_non_finite": "excluded by strict loader validation of every float32 tensor before training",
+    "stage2_checkpoint_missing_or_unbound": "excluded; Stage 2 checkpoint, metrics, and Stage1-to-Stage2 lineage were persisted before Stage 3",
+    "stage2_embedding_non_finite": "excluded by finite exact blockwise silhouette evaluation and Stage 2 metric publication",
+    "windows_or_gpu_crash": "excluded; process returned controlled exit code 2, Windows System log had no BugCheck, Display, nvlddmkm, WHEA, or Kernel-Power error in the exit window, and driver 610.47 remained healthy",
+    "previous_r4_silhouette_oom": "excluded; r5 completed Stage 2 silhouette metrics and advanced to Stage 3"
+  },
+  "immutable_evidence": {
+    "stdout_path": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-pilot-cap128-seed42-r5-20260826.stdout.log",
+    "stdout_sha256": "ce2cba4ecbc2b09304e1b839f63d9b7d4d7995584ba790963d401804ad1a9d16",
+    "stderr_path": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-pilot-cap128-seed42-r5-20260826.stderr.log",
+    "stderr_sha256": "b7038671edd30cfe7d2c213af2b3112ddf736f4f1bcac70cbb0934f221242503",
+    "lifecycle_path": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-pilot-cap128-seed42-r5-20260826.lifecycle.jsonl",
+    "lifecycle_sha256": "c5608dae361340c7a8dfc6c5f88f6bf79254028380f04e2346eb291ca89c1e69",
+    "execution_path": "E:/blp/sleep_stage_reproduction/runs/paper-text-v1-pilot-cap128-seed42-r5-20260826/execution.json",
+    "execution_sha256": "6ecf8465103ebcee49141b7e278175e1aa5aa8579b0bc0198cc0354ccbcafe08",
+    "stage2_checkpoint_path": "E:/blp/sleep_stage_reproduction/runs/paper-text-v1-pilot-cap128-seed42-r5-20260826/stage2.weights.h5",
+    "stage2_checkpoint_sha256": "c07eef06ad0f42dc4fc3c6e5b4ad1908dd150418b74a79fbd3aa911b1e225800"
+  },
+  "corrective_contract": {
+    "stage1_stage3_microbatch_must_divide_128": true,
+    "gradient_accumulation": "average microbatch gradients and apply exactly once per complete nominal batch",
+    "effective_batch": 128,
+    "drop_incomplete_nominal_batch": true,
+    "terminate_on_nan": true,
+    "refuse_incomplete_history": true,
+    "refuse_non_finite_history": true,
+    "record_strategy_and_accumulation_steps_in_immutable_config": true,
+    "fresh_run_required": true,
+    "automatic_retry_forbidden": true
+  },
+  "verification_state": {
+    "host_full": "45 passed, 4 environment-dependent skipped",
+    "host_focused": "28 passed, 2 TensorFlow-dependent skipped",
+    "locked_wsl_tf24_focused": "31 passed in 19.517 seconds",
+    "real_stage3_stability_smoke": {
+      "status": "pass",
+      "accepted_artifact": "E:/blp/sleep_stage_reproduction/runtime/diagnostics/paper-text-v1-stage3-accumulation-r5ckpt-20260826-v2.json",
+      "accepted_artifact_sha256": "10ba7ae869835759410ae11a76794d7dbe01c89ff83341530c898cdc457968a4",
+      "superseded_artifact": "E:/blp/sleep_stage_reproduction/runtime/diagnostics/paper-text-v1-stage3-accumulation-r5ckpt-20260826.json",
+      "execution_path": "model.fit(tf.keras.utils.Sequence)",
+      "microbatches": 128,
+      "optimizer_iterations_before": 0,
+      "optimizer_iterations_after": 1,
+      "effective_batch": 128,
+      "losses_and_validation_finite": true,
+      "trainable_weights_changed": true,
+      "non_trainable_weights_unchanged": true,
+      "stage2_checkpoint_unchanged": true,
+      "selected_samples": 136,
+      "selected_chunks": 135,
+      "selected_source_records": 81,
+      "sidecar_tensor_source_and_cohort_hashes_verified": true
+    },
+    "independent_review": {
+      "status": "no_material_finding",
+      "agent_id": "01a03ec2-f0e1-7301-bd05-8dd173a21e9c",
+      "provenance_binding_closed": true,
+      "exclusive_create_publication_closed": true,
+      "model_fit_and_frozen_batchnorm_evidence_closed": true,
+      "r6_gate_creation_authorized": true
+    },
+    "r6_launch_authorized": false
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "status": "pre_registered",
+  "created_at": "2026-08-29T20:15:21.3740251+07:00",
+  "publication_is_not_launch": true,
+  "launch_authorized": false,
+  "objective": "Complete the locked PAPER_TEXT_V1 cap-128 two-seed pilot without reusing any r9 training artifact, while preserving the paper SGD learning rate and effective batch and adding one explicit numerical-stability adaptation.",
+  "failed_predecessor_evidence": {
+    "run_id_prefix": "paper-text-v1-multiseed-cap128-r9-20260828",
+    "evidence_path": "E:/blp/sleep_stage_reproduction/runtime/driver-recovery/r9-failure-evidence-20260829.json",
+    "evidence_sha256": "d6b39f398b09b8198007feefd0f1c09b9f78c143d7adbee1568356b3d5863e79",
+    "checkpoints_are_ineligible_lineage": true,
+    "retry_forbidden": true,
+    "resume_forbidden": true,
+    "reuse_forbidden": true
+  },
+  "candidate_run": {
+    "run_id_prefix": "paper-text-v1-multiseed-cap128-r10-20260829",
+    "ordered_seeds": [
+      42,
+      43
+    ],
+    "expected_children": [
+      "paper-text-v1-multiseed-cap128-r10-20260829-split42-model42",
+      "paper-text-v1-multiseed-cap128-r10-20260829-split43-model43"
+    ],
+    "protocol_id": "PAPER_TEXT_V1",
+    "cap_per_split": 128,
+    "fresh_all_stages_per_child": true,
+    "sequential_children": true,
+    "standalone_verify_each_completed_child": true
+  },
+  "locked_stage3_recipe": {
+    "optimizer": "SGD",
+    "learning_rate": 0.1,
+    "nominal_batch": 128,
+    "hardware_microbatch": 1,
+    "gradient_accumulation_steps": 128,
+    "effective_batch": 128,
+    "epochs": 20,
+    "scheduler": {
+      "name": "ReduceLROnPlateau",
+      "factor": 0.2,
+      "patience": 1,
+      "min_learning_rate": 0.0001
+    }
+  },
+  "single_new_adaptation": {
+    "id": "PAPER_TEXT_STAGE3_GLOBAL_NORM_CLIP_V1",
+    "method": "global_norm_gradient_clipping",
+    "global_norm": 1.0,
+    "application_point": "after averaging all 128 microbatch gradients and before the single SGD optimizer update",
+    "per_microbatch_clipping_forbidden": true,
+    "learning_rate_change_forbidden": true,
+    "automatic_tuning_forbidden": true,
+    "must_be_recorded_in_immutable_config_and_stage_metrics_provenance": true
+  },
+  "pre_launch_verification": {
+    "host_tests": [
+      "stage specification rejects absent, mismatched, non-finite, zero, and negative stability bindings",
+      "TensorFlow-style exceptions persist the active child as failed and halt later children",
+      "existing execution, lineage, metrics, and multi-seed regressions pass"
+    ],
+    "locked_tensorflow_2_4_tests": [
+      "one explicit averaged-gradient update matches the accumulation implementation",
+      "global-norm clipping matches an explicit post-average reference and differs from per-microbatch clipping",
+      "the real Stage3 graph completes one 128-microbatch effective update with finite loss, gradients, and weights under the registered adaptation",
+      "all focused and regression tests pass"
+    ],
+    "independent_review_required": true,
+    "canonical_launch_gate_required": true,
+    "exact_new_user_confirmation_required_after_gate_publication": true
+  },
+  "decision_data_boundary": {
+    "training_loss_and_validation_loss_may_be_used_for_failure_detection": true,
+    "test_metrics_must_not_be_used_to_select_or_change_the_adaptation": true,
+    "r9_partial_stage3_checkpoint_must_not_be_loaded": true,
+    "no_hyperparameter_search": true
+  },
+  "terminal_acceptance": {
+    "parent_terminal_validated": true,
+    "both_children_completed": true,
+    "both_children_standalone_verified_with_locked_tensorflow_2_4_python": true,
+    "only_verified_children_eligible_for_subject_generalization_lineage": true
+  },
+  "failure_rule": {
+    "record_failed_child_state_for_any_exception_subclass": true,
+    "halt_before_later_child": true,
+    "no_automatic_retry": true,
+    "no_resume": true,
+    "no_reuse": true,
+    "new_versioned_protocol_and_explicit_approval_required_for_any_further_attempt": true
+  }
+}

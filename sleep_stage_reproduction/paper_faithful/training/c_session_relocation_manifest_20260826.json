@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-08-26T14:11:21+07:00",
+  "reason": "Restore the drive-C safety margin required by the sleep-stage training gate without deleting Codex task history.",
+  "source": "C:\\Users\\Acer\\.codex\\sessions\\2026\\08\\22",
+  "destination": "E:\\blp\\sleep_stage_reproduction\\runtime\\c-session-relocation-20260826\\sessions-2026-08-22",
+  "source_replaced_by_junction": true,
+  "junction_target": "E:\\blp\\sleep_stage_reproduction\\runtime\\c-session-relocation-20260826\\sessions-2026-08-22",
+  "before_files": 50,
+  "after_files": 50,
+  "before_bytes": 29479709790,
+  "after_bytes": 29479709790,
+  "bytes_preserved": true,
+  "recoverable": true,
+  "drive_c_free_gib_after": 28.264
+}

@@ -1,0 +1,14 @@
+name: sleep-stage-paper-tf29
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - cudatoolkit=11.2
+  - cudnn=8.1
+  - pip
+  - pip:
+      - tensorflow==2.9.3
+      - tensorflow-addons==0.17.1
+      - numpy==1.23.5
+      - h5py==3.7.0
+      - protobuf==3.19.6

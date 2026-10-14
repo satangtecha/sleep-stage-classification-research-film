@@ -1,0 +1,159 @@
+{
+  "status": "pass",
+  "not_a_training_run": true,
+  "pilot_launched": false,
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r9-20260828",
+  "seeds": [42, 43],
+  "expected_children": [
+    "paper-text-v1-multiseed-cap128-r9-20260828-split42-model42",
+    "paper-text-v1-multiseed-cap128-r9-20260828-split43-model43"
+  ],
+  "powershell_parser": {
+    "status": "pass"
+  },
+  "git_bash_syntax": {
+    "status": "pass",
+    "runner_sh": {
+      "status": "pass",
+      "exit_code": 0
+    },
+    "probe_pilot_process_sh": {
+      "status": "pass",
+      "exit_code": 0
+    }
+  },
+  "r9_smokes": {
+    "power_gate": {
+      "status": "pass",
+      "refused_failure_classes": 14,
+      "accepted_statuses": [2, 3, 6, 7, 8, 11],
+      "pilot_launched": false
+    },
+    "user_confirmation_gate": {
+      "status": "pass",
+      "refused_launch_critical_fields": 21,
+      "valid_confirmation_accepted": true,
+      "external_anchors_precede_parse": true,
+      "marker_ordered": true,
+      "pilot_launched": false
+    },
+    "review_binding": {
+      "status": "pass",
+      "refused_launch_critical_fields": 27,
+      "two_distinct_reviews_accepted": true,
+      "launch_test_evidence_sha256_refused": true,
+      "pilot_launched": false
+    },
+    "lifecycle_failure": {
+      "status": "pass",
+      "static_collision_precedes_marker": true,
+      "attempt_evidence_immediate": true,
+      "prelaunch_failure_recorded": true,
+      "raw_exit_precedes_validation": true,
+      "terminal_failure_recorded": true,
+      "pilot_launched": false
+    },
+    "probe_progress": {
+      "status": "pass",
+      "multiseed_phase": "training_or_evaluation",
+      "multiseed_execution_status": "running",
+      "single_pilot_phase": "strict_cache_scan",
+      "pilot_launched": false
+    },
+    "live_hidden_host_refusal": {
+      "status": "pass",
+      "accepted": false,
+      "refusal": "Battery is not stable AC/noncritical",
+      "pilot_launched": false
+    },
+    "stable_read_race": {
+      "status": "pass",
+      "c_drive": {
+        "drive": "C",
+        "same_bytes_hashed_and_parsed": true,
+        "windows_read_succeeded": true,
+        "windows_write_refused": true,
+        "windows_replace_refused": true,
+        "wsl_read_succeeded": true,
+        "wsl_write_refused": true,
+        "wsl_replace_refused": true
+      },
+      "e_drive": {
+        "drive": "E",
+        "same_bytes_hashed_and_parsed": true,
+        "windows_read_succeeded": true,
+        "windows_write_refused": true,
+        "windows_replace_refused": true,
+        "wsl_read_succeeded": true,
+        "wsl_write_refused": true,
+        "wsl_replace_refused": true
+      },
+      "pilot_launched": false
+    },
+    "import_closure": {
+      "status": "pass",
+      "entry_modules": [
+        "paper_faithful.training.cli",
+        "paper_faithful.training.verify_run"
+      ],
+      "reachable_repository_modules": 18,
+      "bound_repository_modules": 18,
+      "omission_refused": true,
+      "pilot_launched": false
+    }
+  },
+  "host_test_multi_seed": {
+    "status": "pass",
+    "tests_run": 7,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  "locked_wsl_test_multi_seed": {
+    "status": "pass",
+    "tests_run": 7,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  "launch_artifact_check": {
+    "status": "pass",
+    "checked": 9,
+    "present": 0
+  },
+  "source_sha256": {
+    "launcher_ps1": "912a9429a7a37293c6f8a4761bec02ca8e86e2bc70661a954f80946b1c51373a",
+    "runner_sh": "b4c52ed31bb19f406ad6394bf2f07c7fe348eedc7ac827c0d98b27da560495b5",
+    "training_init_py": "508254473f607fd6e154bfce0156d8b0cde297c6a77192988af407f7b14c9292",
+    "training_cache_loader_py": "da3a518bd599d58309ebe088948795008c750c88651590b3d9b5b042aaa84041",
+    "cli_py": "f9c8ae1d6ccda83ad2c208d93201057dab99664f45d3f3c12dbdc7df5050807f",
+    "training_metrics_py": "4b4ba248b450147f623d9476c11309dae6cf10967bdcc9e06298f7f94d879baa",
+    "training_models_py": "17f37c00a680cf9f1e102fe14256de4b085b187f2dfe74195e89444b3189ef4f",
+    "training_protocols_py": "1c3ba57351cd3d35d56aad81d15cdd6528ad7e0001003ea5b9662b16df141d40",
+    "training_run_manifest_py": "b4af23373fb2273d8b8d768fdb889b39e4a11d177719976dc34262423e6dd91d",
+    "training_splits_py": "f846bc8f969c4b03e5083a092a2f73c95786456ea1db95810fabc110a40163b5",
+    "training_storage_py": "4a7f205b5d4705d5dd2acfd6c7345a4df82512ca26b41028dbff760591ab53f8",
+    "trainer_py": "52efe2311f10f221babab06ed743f9feae0279519bac49a2bb0cdb0d799b65ae",
+    "verify_run_py": "b0da43b53f736434b037febe17071433b6b779d2d02074db8f17200e38140277",
+    "sst_init_py": "9ccfadc07a64931fbea328a6b69535c18b3fe1a60d818c2488d1afc07d7bd155",
+    "sst_cache_manifest_py": "6bebeb728637108a587fcda7b1ca929d34370179786cc2bc5c26e26ee0efb581",
+    "sst_cache_writer_py": "8a96c780471d1f18c8f423a34d58ea6ead8280ebaed88551f3214b831a84f31c",
+    "sst_cohort_cache_py": "a3144976052a205181fb373b145e942f2c646eb758403bbff0ff19c061a6ff02",
+    "sst_storage_py": "ab144bb725a1cc65e54e04f21043249f01980ff1578c3a84815a6ed48bf30ddd",
+    "sst_transform_py": "c165aea2b212c4e799c25f94a16cab07c7707a8c8013164a75cf6bd60287c98f",
+    "sst_windowing_py": "69242e85197939bbad1809a70c579d70eb3e4f975ed89d6ef436c1b4adb8c2aa",
+    "test_multi_seed_py": "62674cfa139b1cc764b82e9c230934aecf2d0a4bcf6d2b58dc8f7b646b785e40",
+    "probe_pilot_progress_ps1": "771b56a2547208b7846de36a00ce3d98461cded437f287da3a98b5207493e17b",
+    "probe_pilot_process_sh": "76c1f0bf911b8cc57622ebae8b1d28d6879b56ea90b4356fd3afe91926370450",
+    "r9_power_gate_smoke_ps1": "0dcb63c445b273653d0ad8d66d8c4e55e004aed370d2392fbe55122d7fe66160",
+    "r9_user_confirmation_gate_smoke_ps1": "864bcf6baa50b86fe7ed9319422dd58194f1da7127a82ec85b8b45f5e5369922",
+    "r9_review_binding_smoke_ps1": "bd631fef1840378faf73cee0b59a31dd0effb3e27dbbdfaabb848ed1472662f3",
+    "r9_lifecycle_failure_smoke_ps1": "79d91a0d080b6ea1542b7dda83ac14429ffd2fcd1ae48f52adf6929eda557cf2",
+    "r9_probe_progress_smoke_ps1": "6fb9b22b4fca46ca309cf14a3ca2dd8aeb5554ae747ee2932a9f758ea4b96461",
+    "r9_live_power_gate_probe_ps1": "dc17b9dc35c2c317fb32272fc86831d53ec03e60d0e602ae345016b86e39105c",
+    "r9_launch_test_evidence_smoke_ps1": "61d6ff669fd4ffdb80821f28fd45b254ce91baaa7550aa200e8205165f41c8a4",
+    "r9_stable_read_lock_smoke_ps1": "9c3c9471f88a2753da1b4f6d9e779e505a31642448d2448c017fdbd8e63415f3",
+    "r9_import_closure_smoke_ps1": "84ce72ea30b7c1dedbb02196d14634a5c8a60799bd6afd28cd88da77e2242383",
+    "lean_team_contract_json": "47f7deac58adca28da0f382b8b6e7979c43828e76ad3c423bb2d141beba6a707",
+    "r8_verification_evidence_json": "1224d035e117b39368270ef52358b4c8b64c9bd81558ee88b0a30f1577fe0d17",
+    "multi_seed_implementation_evidence_json": "a53dfd37056fd0ea3ceeee41d25a2d953160411ac15d31df89e418e3b1b7ff97"
+  }
+}

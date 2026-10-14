@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Description>r14 one-shot production supervisor</Description>
+    <URI>\SleepStagePaper-r14-COM-1fcf416ceebc4deeaf2b11886cbd3584</URI>
+  </RegistrationInfo>
+  <Triggers />
+  <Principals>
+    <Principal id="Author">
+      <UserId>S-1-5-21-2211581476-2993798441-1233354785-1001</UserId>
+      <LogonType>InteractiveToken</LogonType>
+      <RunLevel>LeastPrivilege</RunLevel>
+    </Principal>
+  </Principals>
+  <Settings>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <DisallowStartIfOnBatteries>true</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>true</StopIfGoingOnBatteries>
+    <AllowHardTerminate>true</AllowHardTerminate>
+    <StartWhenAvailable>false</StartWhenAvailable>
+    <RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>
+    <IdleSettings>
+      <Duration>PT10M</Duration>
+      <WaitTimeout>PT1H</WaitTimeout>
+      <StopOnIdleEnd>true</StopOnIdleEnd>
+      <RestartOnIdle>false</RestartOnIdle>
+    </IdleSettings>
+    <AllowStartOnDemand>true</AllowStartOnDemand>
+    <Enabled>true</Enabled>
+    <Hidden>false</Hidden>
+    <RunOnlyIfIdle>false</RunOnlyIfIdle>
+    <WakeToRun>false</WakeToRun>
+    <ExecutionTimeLimit>PT0S</ExecutionTimeLimit>
+    <Priority>7</Priority>
+  </Settings>
+  <Actions Context="Author">
+    <Exec>
+      <Command>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</Command>
+      <Arguments>-NoProfile -NonInteractive -ExecutionPolicy Bypass -File "E:\blp\sleep_stage_reproduction\runtime\driver-recovery\r14-production-supervisor-v3.ps1" -ExpectedCanonicalGateSha256 fc3be390e3cba6e2b021cba5433361428b9ae58eb896acd7a6514eea7c224346 -ExpectedUserConfirmationSha256 ac329def33552204680cdf74557ed3c2a1466873c1881ddd1233a9cdfb085c2c -TaskName SleepStagePaper-r14-COM-1fcf416ceebc4deeaf2b11886cbd3584</Arguments>
+      <WorkingDirectory>E:\blp\sleep_stage_reproduction\runtime\driver-recovery</WorkingDirectory>
+    </Exec>
+  </Actions>
+</Task>

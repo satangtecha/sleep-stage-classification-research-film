@@ -1,0 +1,9 @@
+# Add-ons for running and validating the VS Code walkthrough notebooks.
+# The project's base requirements already provide NumPy, Matplotlib, and MNE.
+ipykernel>=7,<8
+nbformat>=5,<6
+nbclient>=0.11,<1
+# Static Quant OS reader export (does not execute notebooks).
+mistune==3.2.0
+bleach==6.3.0
+Pygments==2.21.0

@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "status": "confirmed",
+  "created_at": "2026-08-27T08:03:06.5928576+07:00",
+  "attempted_run_id": "paper-text-v1-pilot-cap128-seed42-r7-20260826",
+  "attempt_reuse_forbidden": true,
+  "launch_attempt": {
+    "count": 1,
+    "launch_requested_at": "2026-08-26T23:41:18.4589223+07:00",
+    "launcher_process_id": 32120,
+    "process_started_at": "2026-08-26T23:41:18.5636926+07:00",
+    "canonical_gate_sha256": "b60f5cb6f08d6e22e8e8601313bdfa7d44e7f2d60e0de7eb5c766faf4bb72598",
+    "launcher_sha256": "e2f82e9fff9d14aff1e4e9621dd5b70d56bbb2708bcdb64f722a822bad714465",
+    "runner_sha256": "05535c8aa474bb76f094d9623d97e77f79918b49a85803b88e4c5d4fbb20f931"
+  },
+  "interruption": {
+    "phase": "strict_cache_scan_before_run_directory_publication",
+    "classification": "orderly_windows_critical_battery_shutdown",
+    "critical_battery_trigger_at": "2026-08-27T02:05:13.0525322+07:00",
+    "power_off_initiated_at": "2026-08-27T02:05:31.0206938+07:00",
+    "os_shutdown_at": "2026-08-27T02:05:38.4549436+07:00",
+    "next_os_boot_at": "2026-08-27T07:47:22.5000000+07:00",
+    "training_started": false,
+    "run_directory_created": false,
+    "execution_manifest_created": false,
+    "gpu_process_started": false,
+    "process_exited_event_absent_due_to_host_shutdown": true
+  },
+  "windows_event_evidence": [
+    {
+      "log": "System",
+      "record_id": 159551,
+      "provider": "Microsoft-Windows-Kernel-Power",
+      "event_id": 524,
+      "time_created": "2026-08-27T02:05:13.0525322+07:00",
+      "message": "Critical Battery Trigger Met"
+    },
+    {
+      "log": "System",
+      "record_id": 159557,
+      "provider": "User32",
+      "event_id": 1074,
+      "time_created": "2026-08-27T02:05:31.0206938+07:00",
+      "message": "winlogon.exe initiated power off on behalf of NT AUTHORITY/SYSTEM; reason code 0x500ff"
+    },
+    {
+      "log": "System",
+      "record_id": 159573,
+      "provider": "Microsoft-Windows-Kernel-Power",
+      "event_id": 109,
+      "time_created": "2026-08-27T02:05:36.1604164+07:00",
+      "message": "Kernel power manager initiated Power Action Shutdown Off; Reason: Kernel API"
+    },
+    {
+      "log": "System",
+      "record_id": 159574,
+      "provider": "Microsoft-Windows-Kernel-Power",
+      "event_id": 577,
+      "time_created": "2026-08-27T02:05:38.3202319+07:00",
+      "message": "System prepared for a system-initiated reboot from Active"
+    },
+    {
+      "log": "System",
+      "record_id": 159575,
+      "provider": "Microsoft-Windows-Kernel-General",
+      "event_id": 13,
+      "time_created": "2026-08-27T02:05:38.4549436+07:00",
+      "message": "Operating system shutdown"
+    }
+  ],
+  "immutable_evidence": {
+    "lifecycle": {
+      "path": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-pilot-cap128-seed42-r7-20260826.lifecycle.jsonl",
+      "sha256": "599205eac3318c05bf76e7d3022f9e1e1861bee36953bf97d890be5e2943780f",
+      "bytes": 1658,
+      "events": [
+        "launch_requested",
+        "process_started"
+      ],
+      "process_exited_absent": true
+    },
+    "pilot_stdout": {
+      "path": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-pilot-cap128-seed42-r7-20260826.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "pilot_stderr": {
+      "path": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-pilot-cap128-seed42-r7-20260826.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "launcher_stdout": {
+      "path": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-pilot-cap128-seed42-r7-20260826.launcher.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "launcher_stderr": {
+      "path": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-pilot-cap128-seed42-r7-20260826.launcher.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "launch_lock": {
+      "path": "E:/blp/sleep_stage_reproduction/runtime/training-logs/paper-text-v1-pilot-cap128-seed42-r7-20260826.launch.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "persistent_attempt_marker": true,
+      "exclusive_handle_released_after_reboot": true
+    },
+    "run_directory_absent": true,
+    "execution_manifest_absent": true
+  },
+  "root_cause_scope": {
+    "confirmed": "Windows reached the critical-battery trigger and performed an orderly system power-off while r7 was still in strict cache validation.",
+    "not_windows_crash": true,
+    "not_wsl_oom": true,
+    "not_gpu_or_driver_crash": true,
+    "not_training_failure": true,
+    "not_cache_or_model_failure": true
+  },
+  "post_boot_observation": {
+    "timestamp": "2026-08-27T08:00:28.1245402+07:00",
+    "ac_power_online": false,
+    "battery_percent": 81,
+    "charging": false,
+    "discharging": true,
+    "critical": false,
+    "nvidia_driver": "610.47",
+    "gpu_memory_used_mib": 0
+  },
+  "corrective_contract": {
+    "fresh_run_id_required": "paper-text-v1-pilot-cap128-seed42-r8-20260827",
+    "automatic_retry_forbidden": true,
+    "r7_relaunch_forbidden": true,
+    "power_gate_required": {
+      "ac_power_online": true,
+      "battery_critical": false,
+      "fail_closed_if_power_telemetry_missing": true,
+      "checked_immediately_before_launch": true
+    },
+    "operator_supplied_gate_sha256_required_before_gate_parse": true,
+    "permanent_create_new_attempt_marker_required": true,
+    "independent_review_required": true,
+    "new_canonical_gate_required": true,
+    "explicit_user_launch_confirmation_required": true
+  },
+  "recovery_state": {
+    "r8_launch_authorized": false,
+    "blocked_on_ac_power": true,
+    "blocked_on_user_confirmation": true
+  }
+}

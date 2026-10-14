@@ -1,0 +1,23 @@
+param([string]$WrapperPath=(Join-Path $PSScriptRoot '..\run_paper_text_multiseed_smoke_r19_wrapper.sh'),[int]$TimeoutSeconds=120)
+$ErrorActionPreference='Stop'
+$helper=(Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..\r19_exactly_once_helpers.ps1')).Path;. $helper
+$prefix='paper-text-v1-multiseed-cap128-r19-20260905';$production=@("E:\blp\sleep_stage_reproduction\runtime\training-logs\$prefix.dispatch.lock","E:\blp\sleep_stage_reproduction\runtime\training-logs\$prefix.launch.lock")
+if(@($production|?{Test-Path -LiteralPath $_}).Count){throw 'r19 production marker exists before wrapper smoke'}
+$id=[Guid]::NewGuid().ToString('N');$root="E:\blp\sleep_stage_reproduction\runtime\driver-recovery\r19-wrapper-smokes\$id";[IO.Directory]::CreateDirectory($root)|Out-Null
+$runner=Join-Path $root 'runner.sh';$stdout=Join-Path $root 'stdout.log';$stderr=Join-Path $root 'stderr.log';$hostStdout=Join-Path $root 'host.stdout.log';$hostStderr=Join-Path $root 'host.stderr.log';$exitFile=Join-Path $root 'exit.json'
+$runnerText=@'
+#!/usr/bin/env bash
+printf '{"status":"canary"}\n'
+printf 'canary-stderr\n' >&2
+exit 17
+'@
+[IO.File]::WriteAllText($runner,$runnerText,[Text.UTF8Encoding]::new($false));$capabilityToken=New-R19SupervisorCapabilityToken
+function Wsl([string]$p){$f=[IO.Path]::GetFullPath($p);if($f-notmatch'^([A-Za-z]):\\(.*)$'){throw 'unsupported path'};'/mnt/'+$Matches[1].ToLowerInvariant()+'/'+$Matches[2].Replace('\','/')}
+$args=@('-d','Ubuntu','-e','env','PAPER_FAITHFUL_R19_CAPABILITY_TOKEN_FROM_STDIN=1','bash','--noprofile','--norc',(Wsl (Resolve-Path -LiteralPath $WrapperPath).Path),(Wsl $runner),(Wsl $stdout),(Wsl $stderr),(Wsl $exitFile));foreach($arg in $args){if($arg-match'[\s"'']'){throw "unsafe smoke arg: $arg"};if($arg -match [regex]::Escape($capabilityToken)){throw 'wrapper capability token appeared in WSL command line'}}
+$psi=New-Object Diagnostics.ProcessStartInfo;$psi.FileName="$env:SystemRoot\System32\wsl.exe";$psi.Arguments=$args-join' ';$psi.WorkingDirectory="$env:SystemRoot\System32";$psi.UseShellExecute=$false;$psi.CreateNoWindow=$true;$psi.RedirectStandardInput=$true;$psi.RedirectStandardOutput=$true;$psi.RedirectStandardError=$true;$p=New-Object Diagnostics.Process;$p.StartInfo=$psi;if(!$p.Start()){throw 'wrapper smoke could not start WSL'};$p.StandardInput.Write($capabilityToken+[char]10);$p.StandardInput.Close();$hostOutTask=$p.StandardOutput.ReadToEndAsync();$hostErrTask=$p.StandardError.ReadToEndAsync();$deadline=(Get-Date).AddSeconds($TimeoutSeconds);while(!$p.HasExited-and(Get-Date)-lt$deadline){Start-Sleep -Milliseconds 250;$p.Refresh()};if(!$p.HasExited){try{$p.Kill()}catch{};throw 'wrapper smoke timed out'}
+$p.WaitForExit();[IO.File]::WriteAllText($hostStdout,[string]$hostOutTask.GetAwaiter().GetResult(),[Text.UTF8Encoding]::new($false));[IO.File]::WriteAllText($hostStderr,[string]$hostErrTask.GetAwaiter().GetResult(),[Text.UTF8Encoding]::new($false));$p.Refresh();if(!(Test-Path -LiteralPath $exitFile)){throw "wrapper sidecar absent host=$($p.ExitCode) host_stderr=$(Get-Content -LiteralPath $hostStderr -Raw -ErrorAction SilentlyContinue)"};$atomic=Get-Content -LiteralPath $exitFile -Raw|ConvertFrom-Json;if($p.ExitCode-ne17-or[int]$atomic.schema_version-ne1-or[int]$atomic.exit_code-ne17-or[string]$atomic.stage-ne'runner_complete'){throw "wrapper exit mismatch host=$($p.ExitCode) atomic=$($atomic.exit_code) stage=$($atomic.stage)"}
+if((Get-Content -LiteralPath $stdout -Raw).Trim()-ne'{"status":"canary"}'-or(Get-Content -LiteralPath $stderr -Raw).Trim()-ne'canary-stderr'){throw 'wrapper redirection failed'}
+if(@($production|?{Test-Path -LiteralPath $_}).Count){throw 'r19 production marker appeared during wrapper smoke'}
+$result=[ordered]@{schema_version=1;status='pass';pilot_launched=$false;case_id=$id;wrapper_path=(Resolve-Path -LiteralPath $WrapperPath).Path;wrapper_sha256=(Get-FileHash -LiteralPath $WrapperPath -Algorithm SHA256).Hash.ToLowerInvariant();root=$root;windows_host_exit_code=17;atomic_exit_code=17;atomic_stage='runner_complete';structured_atomic_sidecar=$true;neutral_windows_working_directory=$true;host_diagnostics_captured=$true;capability_token_transport='stdin_pipe';capability_token_not_in_wsl_command_line=$true;stdout_exact=$true;stderr_exact=$true;production_markers_created=$false;timestamp=(Get-Date).ToString('o')}
+$resultPath=Join-Path $root 'result.json';$bytes=[Text.UTF8Encoding]::new($false).GetBytes(($result|ConvertTo-Json -Compress));$s=[IO.File]::Open($resultPath,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::None);try{$s.Write($bytes,0,$bytes.Length);$s.Flush($true)}finally{$s.Dispose()};$result|Add-Member result_path $resultPath -PassThru|ConvertTo-Json -Compress
+

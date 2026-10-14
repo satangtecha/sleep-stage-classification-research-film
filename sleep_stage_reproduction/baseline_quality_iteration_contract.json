@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "objective": "After v11 reaches a terminal verified state, diagnose class- and subject-level errors, run a CPU-only spectral logistic-regression baseline on the identical six-subject held-out folds, select at most two pre-registered improvements from evidence, run one fresh version, and compare it fairly with v9, v11, and the baseline.",
+  "scope": "large",
+  "risk": "high",
+  "phase": "executing",
+  "userApproval": "proceed",
+  "maxConcurrentAgents": 2,
+  "deliverables": [
+    "A v11 terminal-validation and locked-TF2.4 child-verification record.",
+    "An immutable error analysis covering pooled and per-subject/class support, confusion matrices, and uncertainty limits for v9 and v11.",
+    "A CPU-only spectral logistic-regression baseline that reconstructs and verifies the exact v11 membership hashes before fitting.",
+    "A written decision record selecting no more than two training changes using only train/validation evidence.",
+    "One fresh, exactly-once improved run with its own protocol, preflight evidence, review, and terminal validation.",
+    "A final comparison that labels v9/v11/baseline/improved results as fixed-cohort preliminary evidence rather than a manuscript-equivalence claim."
+  ],
+  "nonGoals": [
+    "Do not interrupt, modify, retry, resume, or relaunch v11 while it is live.",
+    "Do not select hyperparameters from held-out test subjects.",
+    "Do not make an 83 percent or manuscript-equivalence claim from the six-subject pilot.",
+    "Do not reuse an existing run namespace after a terminal outcome."
+  ],
+  "acceptance": [
+    "Every baseline fold proves equality of reconstructed and v11 split membership hashes before model fitting.",
+    "Baseline features, standardization, class weights, model selection, and metrics are train/validation-only until the single test evaluation.",
+    "The improvement decision records the evidence and a fixed maximum of two modifications before its fresh launch.",
+    "Each result table includes per-class support and makes missing-class limitations explicit.",
+    "Fresh-run terminal validation and locked-TF2.4 standalone verification pass for every child, or a non-retried failure record explains why this objective cannot advance."
+  ],
+  "workers": [
+    {
+      "id": "main",
+      "role": "implementer",
+      "ownership": ["v11 verification", "error analysis", "baseline implementation", "improvement decision", "fresh-run evidence", "comparison"],
+      "write": true,
+      "doneWhen": ["all acceptance evidence is complete"]
+    }
+  ],
+  "decisions": [
+    "v11 must complete before its metrics are treated as evidence or any follow-on GPU training is admitted.",
+    "The baseline is a deterministic, CPU-only spectral logistic model so it does not contend with the live GPU run.",
+    "Feature standardization and model selection use training and validation partitions only; held-out test partitions are never used to choose the improvement."
+  ],
+  "evidence": [
+    "E:/blp/sleep_stage_reproduction/runtime/protocols/subject-generalization-quality-plan16-v11-cap64-e12-cohort43-model45-20261006.json",
+    "E:/blp/sleep_stage_reproduction/runtime/subject-generalization-quality-plan16-v9-cap64-e12-seed43-20261006/summary.json",
+    "C:/Users/Acer/OneDrive/Documents/เป้าๆรวยๆๆๆ/sleep_stage_reproduction/paper_faithful/training/metrics.py"
+  ]
+}

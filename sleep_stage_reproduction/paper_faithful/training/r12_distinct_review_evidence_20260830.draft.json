@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "pending_final_review",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r12-20260830",
+  "pilot_launched": false,
+  "launch_test_evidence_sha256": "3338dea287daed23566ceeecfad7dffbe766e728ada76cbcacf636226ed81558",
+  "reviews": [
+    {
+      "review_id": "r12-task-scheduler-com-implementation-closure-20260830-v4",
+      "agent_id": "01a0522f-93a0-7be3-ade4-a280305edc86",
+      "role": "implementation_reviewer",
+      "status": "no_material_finding",
+      "windows_powershell_5_1_validator_exit_code": 0,
+      "eligible_canary_case_id": "32682db47f0c41f7b0410bc064414245",
+      "all_prior_findings_closed": true,
+      "closed_findings": [
+        "scalar refusal count under Windows PowerShell 5.1",
+        "raw timestamped runtime-probe derivation",
+        "top-level task-policy array handling under Windows PowerShell 5.1",
+        "atomic exit plus Windows PID absence terminal barrier"
+      ],
+      "reviewed_source_sha256": {
+        "dispatcher_ps1": "9e63326212d9740c6c1e5a006f690268870ece311e95b5e7d44d139312ab30c4",
+        "supervisor_ps1": "289f73ed0b9138a2de49cdc66c635eb98b560974c08a7674f40dc77730999f82",
+        "runner_sh": "93adfaca91feba8da6be6ec406aae064cd24e4f16c8c9b5639504e4a85dcef0f",
+        "launch_test_evidence_v4_json": "3338dea287daed23566ceeecfad7dffbe766e728ada76cbcacf636226ed81558",
+        "launch_test_evidence_validator_ps1": "0a857201755556dcc21c04f1e6fe518932ceff35fabb84865b634250c0b9d024"
+      },
+      "publication_is_not_launch": true,
+      "launch_authorized": false
+    },
+    {
+      "review_id": "r12-final-canonical-gate-review-20260830",
+      "agent_id": null,
+      "role": "launch_gate_reviewer",
+      "status": "pending",
+      "publication_is_not_launch": true,
+      "launch_authorized": false
+    }
+  ]
+}

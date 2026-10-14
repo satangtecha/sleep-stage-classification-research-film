@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "environment_id": "WSL2_TF29_PAPER_V1",
+  "purpose": "Reproduce the accepted manuscript's stated Python 3.9 and TensorFlow 2.9 execution stack separately from the released repository's Python 3.7/TensorFlow 2.4 stack.",
+  "primary_source": "Accepted manuscript Methods 2.5, lines 281-282",
+  "reference_stack": {
+    "python": "3.9",
+    "tensorflow": "2.9.3",
+    "tensorflow_addons": "0.17.1",
+    "cuda_toolkit": "11.2",
+    "cudnn": "8.1",
+    "numpy": "1.23.5",
+    "h5py": "3.7.0",
+    "protobuf": "3.19.6"
+  },
+  "isolation": {
+    "manager": "micromamba",
+    "prefix": "/mnt/e/blp/sleep_stage_reproduction/envs/tf29-paper",
+    "package_cache_root": "/mnt/e/blp/sleep_stage_reproduction/mamba-root",
+    "bulk_drive": "E"
+  },
+  "provenance_notes": [
+    "The manuscript states TensorFlow 2.9 but not a patch release; 2.9.3 is selected as the final 2.9 patch and is not claimed author-exact.",
+    "TensorFlow 2.9.3 requires protobuf below 3.20; protobuf 3.19.6 is an explicit solver-compatibility pin, replacing the initially declared incompatible 3.20.3.",
+    "TensorFlow Addons is needed only for compatibility checks against released optimizer/loss semantics; the corrected scaffold implements the verified N-pairs formula directly.",
+    "The paper reports an RTX 3060 and batch size 128. This machine has an RTX 3050 6GB; microbatching or gradient accumulation will be an explicitly labelled hardware adaptation if batch 128 does not fit."
+  ],
+  "verification": {
+    "verified_on": "2026-08-20",
+    "python": "3.9.23",
+    "tensorflow": "2.9.3",
+    "tensorflow_addons": "0.17.1",
+    "numpy": "1.23.5",
+    "gpu_devices": [],
+    "outcome": "imports_passed_cpu_only"
+  },
+  "status": "built_cpu_only_gpu_not_visible"
+}

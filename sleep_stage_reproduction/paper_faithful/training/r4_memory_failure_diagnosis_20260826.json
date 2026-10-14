@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-08-26T14:04:17.6295200+07:00",
+  "run_id": "paper-text-v1-pilot-cap128-seed42-r4-20260825",
+  "status": "failed",
+  "relaunch_or_resume_forbidden": true,
+  "lifecycle": {
+    "launch_timestamp": "2026-08-25T22:46:44.0871631+07:00",
+    "exit_timestamp": "2026-08-26T13:39:16.7759676+07:00",
+    "exit_code": 1,
+    "sha256": "68deba9ea96b2ac3ede28ea7b3d570278b5f74c786fb5ec7fd2cb7053c70ee9c"
+  },
+  "execution": {
+    "status": "running",
+    "stage_progress_next_stage": "stage2",
+    "stage_progress_inflight": true,
+    "stage1_artifact_persisted": true,
+    "stage2_epochs_completed": 20,
+    "stage2_checkpoint_persisted": true,
+    "stage2_metrics_persisted": false,
+    "stage3_started": false,
+    "sha256": "2d052484dcfdcced3089f0f762cfa12ab1096b0067d27f629a60b6cd59e6dfb1"
+  },
+  "artifacts": {
+    "stage2_checkpoint": "E:\\blp\\sleep_stage_reproduction\\runs\\paper-text-v1-pilot-cap128-seed42-r4-20260825\\stage2.weights.h5",
+    "stage2_checkpoint_sha256": "876afcb35df577ac8445e4892e20d233785b95a68a9eb4363d6f9d7a98aecdb7",
+    "stdout_sha256": "5e2dcd583449bd8e1dd0d9cd4fd7cc438cb28a448b6d609af75ae7622516e33e",
+    "stderr_sha256": "740e0fce8cfd14bcef96e6eb90021ae5e0f351441851d9020b612ae3702ef208"
+  },
+  "negative_evidence": {
+    "python_traceback_after_stage2": false,
+    "new_tensorflow_fatal_error_after_stage2": false,
+    "windows_reboot_during_run": false,
+    "windows_bugcheck_display_nvlddmkm_or_kernel_power_failure_in_exit_window": false,
+    "driver_changed": false,
+    "host_and_wsl_nvidia_smi_after_failure": "pass_610.47"
+  },
+  "memory_failure_path": {
+    "validation_sample_count": 1536,
+    "stage2_embedding_dimensions": 256,
+    "old_expression": "sqrt(maximum(0, ((values[:,None,:] - values[None,:,:]) ** 2).sum(2)))",
+    "dtype_after_conversion": "float64",
+    "one_pairwise_rank3_tensor_gib": 4.5,
+    "subtract_plus_square_tensor_gib": 9.0,
+    "wsl_total_memory_gib": 7.6,
+    "conclusion": "The abrupt signal-like exit occurred in the only post-fit path capable of exceeding WSL memory: Stage2 silhouette evaluation. The old broadcast expression required more memory than the VM before TensorFlow/model/cache residency. This is an evidence-backed OOM inference; the old WSL kernel log was unavailable after the VM stopped."
+  },
+  "recovery": {
+    "implementation": "Exact Euclidean distances accumulated from direct coordinate differences in bounded row and feature blocks; non-finite pairwise distances fail closed.",
+    "metrics_sha256": "4b4ba248b450147f623d9476c11309dae6cf10967bdcc9e06298f7f94d879baa",
+    "regression_test_sha256": "8774bb60939adc8e5226c53a098ce9f1fc9116321bfeabbdcbe1149b0bebfc2c",
+    "host_full_tests": {
+      "passed": 41,
+      "skipped": 2
+    },
+    "host_focused_tests": 21,
+    "locked_wsl_python37_focused_tests": 21,
+    "locked_wsl_scale_smoke": {
+      "shape": [1536, 256],
+      "elapsed_seconds": 3.92,
+      "max_rss_kib": 56244,
+      "exit_status": 0
+    },
+    "independent_review": {
+      "agent_id": "01a03cda-c05b-7c81-90ec-23add0987684",
+      "status": "no_material_finding",
+      "all_prior_findings_closed": true
+    }
+  }
+}

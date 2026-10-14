@@ -1,0 +1,10 @@
+# Required SST-runtime environment: the selected isolated Python 3.12.x environment
+# on E:, e.g. E:\blp\sleep_stage_reproduction\envs\ssqueezepy-0.6.6\Scripts\python.exe.
+# This is not claimed to be the unpublished author environment. Python 3.7 is only
+# for the separate AUTHOR_CODE_V1 TensorFlow training compatibility environment;
+# it does not support this full SST dependency stack.
+ssqueezepy==0.6.6
+numpy==2.5.2
+numba==0.67.0
+llvmlite==0.49.0
+scipy==1.18.0

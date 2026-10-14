@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "objective": "Complete one fresh r16 multi-seed training run through a bounded WMI-free Task Scheduler supervisor, independently verify both children, then continue to SUBJECT_GENERALIZATION_V1 and the final acceptance report.",
+  "scope": "large",
+  "risk": "high",
+  "phase": "executing",
+  "userApproval": "proceed",
+  "maxConcurrentAgents": 2,
+  "deliverables": [
+    "Immutable r15 pre-dispatch source-lock failure evidence",
+    "Fresh r16 dispatcher, supervisor, foreground WSL wrapper, runner, helper, protocol, tests, launch evidence, gate, and delegated authorization",
+    "One reviewed exactly-once r16 dispatch with permanent dispatch and attempt markers",
+    "Parent terminal validation and locked TensorFlow 2.4 standalone verification of both children",
+    "SUBJECT_GENERALIZATION_V1 acceptance evidence and final report"
+  ],
+  "nonGoals": [
+    "Do not retry, resume, relaunch, or reuse r1 through r15",
+    "Do not use WMI or CIM in the r16 scheduler-owned supervisor",
+    "Do not create r16 production markers or child directories during readiness testing",
+    "Do not weaken cache, source-hash, power, storage, GPU, numerical-stability, lineage, or terminal-validation gates"
+  ],
+  "acceptance": [
+    "The r15 pre-dispatch failure evidence remains byte-identical on C and E at SHA-256 76ffdba66a8346bbb7e4db422f523d949d93077f03deab6ac70154c31de90785",
+    "Every source binding declares content_type; the native DLL is binary and every other binding is strict utf8_text, with raw-byte SHA-256 and stable read locks retained for both kinds",
+    "The scheduler-owned r16 supervisor uses native parent and power probes, contains no WMI/CIM call, publishes bounded pre-attempt lifecycle evidence, and reaches a registered non-training canary handshake within its deadline",
+    "The foreground WSL workload uses a source-bound wrapper with unambiguous arguments and atomic exit evidence",
+    "Focused Windows PowerShell 5.1, host, locked-runtime, import-closure, exactly-once, and failure-path tests pass",
+    "An independent reviewer reports no material finding before canonical gate publication",
+    "r16 is dispatched exactly once, both children complete, the parent records terminal_validated, and locked standalone verify_run reports verified for each child",
+    "SUBJECT_GENERALIZATION_V1 and the final report satisfy the active research goal"
+  ],
+  "workers": [
+    {
+      "id": "r16-main-integrator",
+      "role": "implementer",
+      "ownership": [
+        "All r16 source, tests, protocol, evidence, publication, dispatch, monitoring, verification, and integration"
+      ],
+      "write": true,
+      "doneWhen": [
+        "The reviewed canonical r16 gate is published and the exactly-once dispatch is accepted by the supervisor"
+      ]
+    },
+    {
+      "id": "r16-independent-reviewer",
+      "role": "reviewer",
+      "ownership": [
+        "Read-only integrated r16 sources, tests, evidence, gate draft, authorization provenance, and production namespace"
+      ],
+      "write": false,
+      "doneWhen": [
+        "Return evidence-backed findings or explicitly report no material finding"
+      ]
+    }
+  ],
+  "decisions": [
+    "r15 is permanently inspect-only because its dispatcher strict-decoded a gate-bound native DLL as UTF-8 and failed before creating any marker, task, child, or training process.",
+    "r16 preserves PAPER_TEXT_STAGE3_GLOBAL_NORM_CLIP_V1, global norm 1.0 after averaging 128 gradients, ordered seeds 42 and 43, and fresh sequential children.",
+    "Scheduler-owned r16 preflight forbids WMI/CIM and uses native parent/power APIs plus local source/cache/storage validation under a hard deadline.",
+    "All WSL and NVIDIA process probes before dispatch are bounded and run in the interactive dispatcher; the supervisor starts WSL only for the actual foreground workload after permanent attempt-marker creation.",
+    "The user's standing authorization permits fresh in-scope versions without repeated approval prompts; authorization artifacts preserve exact user excerpts and label version-specific bindings as agent interpretation, not a fabricated user quote.",
+    "Once an r16 permanent marker is consumed, r16 cannot be retried, resumed, relaunched, or reused."
+  ],
+  "evidence": [
+    "paper_faithful/training/r15_pre_dispatch_failure_evidence_20260901.json and E:/blp/sleep_stage_reproduction/runtime/driver-recovery/r15-pre-dispatch-failure-evidence-20260901.json are byte-identical SHA-256 76ffdba66a8346bbb7e4db422f523d949d93077f03deab6ac70154c31de90785.",
+    "Explorer 01a058e2-ce9b-7da3-b07d-4fdd8f52a526 confirmed unconditional strict UTF-8 decoding in both r15 production stable-lock routines and required explicit utf8_text/binary binding metadata for r16."
+  ]
+}

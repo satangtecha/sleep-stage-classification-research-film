@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "id": "TASK_CONTRACT_2026_08_19",
+      "kind": "user_supplied_contract",
+      "ref": "conversation://current-task",
+      "label": "Phase-0 paper-alignment implementation contract",
+      "provenance": "source",
+      "notes": "Records the approved execution scope and the requirement to keep manuscript, author-code, and subject-generalization protocols separate."
+    },
+    {
+      "id": "PAPER_NATURE_2026",
+      "kind": "primary_paper",
+      "ref": "https://doi.org/10.1038/s41598-026-62832-5",
+      "label": "Scientific Reports article s41598-026-62832-5",
+      "provenance": "source",
+      "notes": "Primary manuscript source for PAPER_TEXT_V1. Accepted-manuscript PDF: https://www.nature.com/articles/s41598-026-62832-5_reference.pdf"
+    },
+    {
+      "id": "PHYSIONET_SLEEP_EDFX_1_0_0",
+      "kind": "dataset_release",
+      "ref": "https://physionet.org/content/sleep-edfx/1.0.0/",
+      "label": "Sleep-EDF Database Expanded v1.0.0",
+      "provenance": "source",
+      "notes": "Official PhysioNet release selected as the canonical raw-data source."
+    },
+    {
+      "id": "ZENODO_21302907",
+      "kind": "research_artifact",
+      "ref": "https://doi.org/10.5281/zenodo.21302907",
+      "label": "Associated Zenodo research artifact",
+      "provenance": "source",
+      "notes": "Recorded separately from the canonical PhysioNet dataset release."
+    },
+    {
+      "id": "AUTHOR_CODE_V1_0",
+      "kind": "repository_release",
+      "ref": "https://github.com/SadafAram/Sleep-Stage-Classification/tree/d99a312ce44844e7b782aa8bd0d9c498074434f1",
+      "label": "SadafAram/Sleep-Stage-Classification v1.0 (commit d99a312)",
+      "provenance": "source",
+      "notes": "Repository-specific preprocessing and downstream settings are recorded separately from manuscript claims."
+    }
+  ]
+}

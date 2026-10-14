@@ -1,0 +1,41 @@
+{
+  "test_command": "node --test tests/*.test.mjs",
+  "node": "v24.16.0",
+  "pass": 16,
+  "fail": 0,
+  "skipped": 0,
+  "video_full_decode": {
+    "command": "ffmpeg -hide_banner -loglevel error -i outputs/SleepStage-English-Silent-5min.mp4 -map 0:v -f null -",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  "frozen_research_hashes_verified": 9,
+  "browser_check": {
+    "evidence_kind": "recorded manual CUA observations during this film task, not re-executed by this script",
+    "browser": "Codex in-app browser",
+    "presentation": "outputs/presentation.html",
+    "chapters_checked": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "each_duration_seconds": 60,
+    "each_ready_state": 4,
+    "each_media_error": null,
+    "navigation_verified": true,
+    "preview": "outputs/browser-preview.jpg",
+    "temporary_tab_closed": true
+  },
+  "review": {
+    "evidence_kind": "recorded independent reviewer findings",
+    "storyboard_findings_repaired": 2,
+    "render_finding_retracted_after_full_size_check": true,
+    "remaining_material_findings": 0
+  },
+  "ffmpeg": "ffmpeg version 8.1.1-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers\r",
+  "sha256_final": "ba6ca9245d268d42e78dcf1931733421ed74c04a06763a486affbaa012293a74",
+  "training": false,
+  "new_inference": false
+}

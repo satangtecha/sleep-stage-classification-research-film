@@ -1,0 +1,20 @@
+{
+  "date_local": "2026-10-13",
+  "timezone": "Asia/Bangkok",
+  "node": "24.16.0",
+  "ffmpeg_windows": "8.1.1 essentials_build",
+  "production_animation_package": "@johnhenry/ecmanim 0.1.0",
+  "manim_community": "0.19.0",
+  "manim_slides": "5.7.0",
+  "narration": "Microsoft Pattara th-TH, synthesized locally through System.Speech in PowerShell 7",
+  "project_tests": {"command":"npm test","passed":10,"failed":0,"skipped":0},
+  "motion_engine_tests": {"command":"node vendor/Manim-Motion/services/web/tests/engine.test.mjs","passed":62,"failed":0,"skipped_count_not_reported_by_upstream":true},
+  "capability_checks": {
+    "motion": "Actual exporter generated project JSON/Python with result labels; standalone CE render passed. Docker unavailable; full stack not launched.",
+    "slides": "Actual ThreeDSlide rendered and converted to HTML; final five chapters exported as offline one-file HTML. CE0.22 compatibility failed before isolated pin to0.19.",
+    "ecmanim": "Scene timeline and ThreeDCamera used for all original scene rendering, with custom low-poly meshes and native canvas. Not an upstream full-suite audit."
+  },
+  "research_integrity": {"unchanged_frozen_source_sha256_count":9,"head":"25f93f893e5977a61c9aa9e6911e30b361184101","new_training":false,"new_inference":false,"new_test_evaluation":false,"timer_enabled":false,"push_or_merge":false},
+  "final": {"file":"outputs/final/SleepStageResearch-5min-final.mp4","video_seconds":300,"audio_seconds":300,"container_seconds":300.020996,"frames":7200,"chapters":5,"sha256":"d5e29ba8e5b1e328adad6adf43c86f38a9592da5eeb40a0bec61cab401a45fd2"},
+  "limits": ["Synthetic Thai narration; no claim of listening to every spoken segment", "HTML generation/embedded assets checked, not all-browser playback", "No reverse animations or Qt presentation playback check", "All signal/model meshes are illustrative; only archived aggregate charts use measured results"]
+}

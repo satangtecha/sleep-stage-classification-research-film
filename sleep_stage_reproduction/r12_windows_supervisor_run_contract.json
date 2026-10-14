@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "objective": "Produce an evidence-backed fresh-r12 launch package whose Task Scheduler COM-owned Windows supervisor keeps one foreground WSL workload alive through invoker exit, records exact terminal evidence, and stops at an immutable canonical approval gate without launching training.",
+  "scope": "large",
+  "risk": "high",
+  "phase": "executing",
+  "userApproval": "proceed",
+  "maxConcurrentAgents": 2,
+  "deliverables": [
+    "Immutable local and drive-E evidence for the non-retriable r11 WSL/systemd infrastructure failure",
+    "A fresh r12 Task Scheduler COM supervision protocol and exactly-once dispatcher/supervisor/runner implementation",
+    "A 180-to-300-second non-training survival canary with periodic WSL boot-bound heartbeats, exact success and forced-failure exits, and dual marker refusals",
+    "Focused Windows PowerShell 5.1, WSL, lifecycle, power, stable-lock, source-binding, and namespace tests",
+    "Independent implementation and launch-gate reviews with every confirmed material finding closed",
+    "A byte-identical local and drive-E canonical r12 gate that requires a new exact user confirmation before training launch"
+  ],
+  "nonGoals": [
+    "Do not retry, resume, relaunch, or reuse r1 through r11",
+    "Do not launch r12 or consume its production dispatch or attempt marker during readiness engineering or tests",
+    "Do not treat Task Scheduler task state as terminal training evidence without hash-bound lifecycle, exact WSL exit evidence, child execution state, and terminal validation",
+    "Do not weaken cache, power, storage, GPU, source-hash, confirmation, numerical-stability, reviewer, or terminal-validation gates",
+    "Do not overwrite historical scripts, confirmations, evidence, logs, markers, run directories, or canary roots"
+  ],
+  "acceptance": [
+    "r11 failure evidence is valid JSON, binds every immutable launch and runtime artifact, and is byte-identical on drives C and E",
+    "The long canary proves the dispatcher exits while a Task Scheduler COM-owned PowerShell supervisor and its foreground wsl.exe remain alive for at least 180 seconds",
+    "The long canary records one stable WSL boot ID and heartbeats no more than 10 seconds apart through terminal success, plus a forced nonzero exit path",
+    "Both dispatch and supervisor attempt markers use FileMode.CreateNew plus FileShare.None and permanently refuse second invocation",
+    "The Task Scheduler task is triggerless, MultipleInstances IgnoreNew, RestartCount zero, ExecutionTimeLimit zero, and is unregistered after terminal evidence without deleting immutable evidence",
+    "The r12 production dispatcher consumes its permanent dispatch marker only after gate, confirmation, source, namespace, process, cache, power, storage, and GPU checks pass",
+    "The r12 supervisor records exact WSL exit evidence, refuses automatic restart, and validates both child terminal states before parent terminal_validated",
+    "All focused host and locked-runtime tests pass and an independent reviewer reports no material finding before canonical gate publication"
+  ],
+  "workers": [
+    {
+      "id": "r12-supervisor-evidence-explorer",
+      "role": "explorer",
+      "ownership": [
+        "Read-only comparison of r11 Task Scheduler, Task Scheduler COM, WMI, and breakaway canary scripts and evidence roots"
+      ],
+      "write": false,
+      "doneWhen": [
+        "Identify the strongest confirmed Windows-owned supervision mechanism, exact evidence, and unresolved durability gap"
+      ]
+    },
+    {
+      "id": "r12-long-canary-implementer",
+      "role": "implementer",
+      "ownership": [
+        "paper_faithful/training/tests/r12_task_scheduler_com_long_child.sh",
+        "paper_faithful/training/tests/r12_task_scheduler_com_long_worker.ps1",
+        "paper_faithful/training/tests/r12_task_scheduler_com_long_survival_smoke.ps1"
+      ],
+      "write": true,
+      "doneWhen": [
+        "Implement a PowerShell 5.1-compatible 210-second canary with stable boot-bound heartbeats, exact terminal evidence, forced failure, and dual permanent refusals"
+      ]
+    },
+    {
+      "id": "r12-independent-reviewer",
+      "role": "reviewer",
+      "ownership": [
+        "Read-only review of the integrated r12 dispatcher, supervisor, runner, canary evidence, bindings, and canonical gate"
+      ],
+      "write": false,
+      "doneWhen": [
+        "Return evidence-backed findings ranked by materiality, or explicitly report no material finding"
+      ]
+    }
+  ],
+  "decisions": [
+    "The user authorized continued recovery engineering after reconnecting AC power; production training still requires a fresh exact confirmation bound to the final r12 canonical gate SHA-256.",
+    "r11 is permanently consumed and is inspect-only; its dispatch and attempt markers remain permanent and no r11 process or child namespace may be created.",
+    "Task Scheduler COM through Schedule.Service and IRegisteredTask.RunEx is selected because the r11 evidence proves svchost-owned supervision, dispatcher-exit survival, exact success and failure exits, and dual marker refusal.",
+    "Plain Task Scheduler is weaker because its inspected canary lacks a dispatcher-level permanent marker; WMI lacks complete terminal success evidence; CREATE_BREAKAWAY_FROM_JOB lacks completed terminal evidence.",
+    "The r12 long canary must last at least 180 seconds because the accepted r11 systemd canary did not cover the 31-second production reset window.",
+    "Task Scheduler task state is not authoritative for scientific lineage; append-only lifecycle, atomic WSL exit evidence, exact child execution state, and terminal validation remain authoritative.",
+    "The proposed fresh production namespace is paper-text-v1-multiseed-cap128-r12-20260830 with ordered seeds 42 and 43; publication of that namespace in a gate is not launch authorization."
+  ],
+  "evidence": [
+    "paper_faithful/training/r11_infrastructure_failure_evidence_20260830.json and E:/blp/sleep_stage_reproduction/runtime/driver-recovery/r11-infrastructure-failure-evidence-20260830.json are byte-identical SHA-256 c60e72592e1e139b4e184c06897a86fa451e509d5eacfcd9725f9d8d5cde7cc8.",
+    "The r11 journal records its transient systemd unit starting at 2026-08-30T16:16:00+07:00, WSL Exception at 16:16:31, and a new WSL kernel at 16:16:58.",
+    "The r11 lifecycle stops at stable_locks_ready, stdout and stderr are empty, both children are absent, post-failure phase is process_missing, and neither process_exited nor terminal validation exists.",
+    "The r11 Task Scheduler COM success canary records a svchost-owned supervisor, WSL exit 0, terminal_validated, permanent dispatch and attempt refusal; its forced-failure case records WSL exit 23 and terminal_validation_failed."
+  ]
+}

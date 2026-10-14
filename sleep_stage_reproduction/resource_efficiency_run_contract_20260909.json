@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "objective": "Apply reversible workstation memory settings and bounded training-input improvements, then measure a fresh diagnostic workload without changing the scientific objective.",
+  "scope": "large",
+  "risk": "high",
+  "phase": "verified",
+  "userApproval": "proceed",
+  "maxConcurrentAgents": 2,
+  "deliverables": ["Reversible WSL memory/swap profile with before/after evidence", "Lower-transient-memory CacheSequence and bounded Keras queue with regression tests", "Fresh bounded real-cache/GPU diagnostic measurements", "Independent review and an honest next training decision"],
+  "nonGoals": ["No changing historical r1-r19 artifacts", "No killing user apps, disabling security, repartitioning disks or replacing Windows", "No paid cloud or upload", "No arbitrary lowering of scientific or production safety checks", "Diagnostic timings are not full reproduction results"],
+  "acceptance": ["WSL profile applies without interrupting existing work and rollback is documented", "Input batching preserves exact values/labels/order and releases shard views promptly", "Focused host and locked TensorFlow tests pass with explicit limitations", "Diagnostic results include resource use and real outcomes; failures are retained", "Confirmed material review findings are resolved or disclosed"],
+  "workers": [],
+  "decisions": ["The user's latest request authorizes reversible system settings and code modifications; no need for another exact-text launch ritual for in-scope diagnostics.", "Keep system pagefiles, security, GPU clocks and historical experiments untouched.", "WSL 6GiB/4GiB swap is applied. Supported diagnostic launcher uses a fresh 2GiB RAM/2GiB swap scope, TF allocator3GiB and explicit bounded runtime flags.", "Stage1, Stage2 and Stage3 real-cache GPU diagnostics passed, each exit0; this verifies the resource phase only, not full research acceptance.", "Independent review has no material open finding in the supported launcher; direct CLI with a smaller manual cgroup remains a documented low-priority limitation.", "Keep all failed/interrupted diagnostic evidence. No full-cohort ETA or historical seed43 NaN resolution is inferred from repeated small samples.", "Input worker and independent reviewer are closed after completing their bounded assignments."],
+  "evidence": ["RECOVERY_VALIDATION_20260909.md", "RESOURCE_EFFICIENCY_20260909_TH.md", "E:/blp/sleep_stage_reproduction/runtime/resource-profile-20260909/resource-efficiency-summary-20260909.json", "E:/blp/sleep_stage_reproduction/runtime/resource-profile-20260909/io-v2-2017/result.json", "E:/blp/sleep_stage_reproduction/runtime/resource-profile-20260909/gpu-stage1-compact-20260909-205632-de43bbde/result.json", "E:/blp/sleep_stage_reproduction/runtime/resource-profile-20260909/gpu-stage2-compact-20260909-205857-59146a73/result.json", "E:/blp/sleep_stage_reproduction/runtime/resource-profile-20260909/gpu-stage3-compact-20260909-210034-85a758ea/result.json"]
+}

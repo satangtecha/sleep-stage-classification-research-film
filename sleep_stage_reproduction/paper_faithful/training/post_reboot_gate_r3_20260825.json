@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-08-25T15:37:18.6591514+07:00",
+  "run_id": "paper-text-v1-pilot-cap128-seed42-r3-20260825",
+  "recovery_manifest": {
+    "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\driver_recovery_manifest.json",
+    "sha256": "c0cb50d1258be2e7dc69301385777dbc49a6211ba4e6f8c5557f3f47e2ebc9ad",
+    "timestamp": "2026-08-25T09:24:22.2905973+07:00"
+  },
+  "windows": {
+    "last_boot": "2026-08-25T15:11:57.5000000+07:00",
+    "rebooted_after_recovery": true
+  },
+  "driver": {
+    "cim_version": "32.0.16.1047",
+    "nvidia_version": "610.47",
+    "status": "OK",
+    "host_nvidia_smi": "NVIDIA GeForce RTX 3050 6GB Laptop GPU, 610.47, 6144 MiB",
+    "wsl_nvidia_smi": "NVIDIA GeForce RTX 3050 6GB Laptop GPU, 610.47, 6144 MiB"
+  },
+  "tensorflow_gate": {
+    "python": "3.7.12",
+    "tensorflow": "2.4.0",
+    "built_with_cuda": true,
+    "gpus": [
+      "/physical_device:GPU:0"
+    ]
+  },
+  "paper_text_v1_smoke": {
+    "status": "pass",
+    "synthetic_only": true,
+    "losses_finite": {
+      "stage1": true,
+      "stage2": true,
+      "stage3": true
+    },
+    "gradient_non_none": {
+      "stage1": 30,
+      "stage2": 26,
+      "stage3": 14
+    },
+    "gradients_all_finite": {
+      "stage1": true,
+      "stage2": true,
+      "stage3": true
+    },
+    "stage3_parameter_counts": {
+      "total": 3340885,
+      "trainable": 1764229,
+      "non_trainable": 1576656
+    }
+  },
+  "storage_gate": {
+    "c_free_gib": 6.297,
+    "e_free_gib": 477.537,
+    "bulk_root": "E:\\blp\\sleep_stage_reproduction"
+  },
+  "contract_gate": {
+    "status": "valid",
+    "scope": "large",
+    "risk": "high",
+    "phase": "executing",
+    "workers": 0,
+    "max_concurrent_agents": 2
+  },
+  "status": "pass",
+  "pilot_relaunch_authorized": true
+}

@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "artifact_type": "fresh_training_supervision_protocol",
+  "status": "pre_registered",
+  "design_id": "R13_WINDOWS_TASK_SCHEDULER_COM_PREFLIGHTED_TASKDEF_V1",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r13-20260830",
+  "ordered_seeds": [
+    42,
+    43
+  ],
+  "expected_children": [
+    "paper-text-v1-multiseed-cap128-r13-20260830-split42-model42",
+    "paper-text-v1-multiseed-cap128-r13-20260830-split43-model43"
+  ],
+  "scientific_protocol": {
+    "protocol_id": "PAPER_TEXT_V1",
+    "cap": 128,
+    "stages": [
+      "stage1",
+      "stage2",
+      "stage3"
+    ],
+    "stage1_batch": 128,
+    "stage2_batch": 128,
+    "stage3_hardware_microbatch": 1,
+    "stage3_effective_batch": 128,
+    "stage3_gradient_accumulation_steps": 128,
+    "stage3_optimizer": "SGD",
+    "stage3_learning_rate": 0.1,
+    "stage3_stability_adaptation_id": "PAPER_TEXT_STAGE3_GLOBAL_NORM_CLIP_V1",
+    "stage3_gradient_clip_norm": 1,
+    "stage3_gradient_clip_application_point": "after_effective_batch_average_before_optimizer_step",
+    "single_strict_canonical_cache_load": true,
+    "sequential_children": true,
+    "halt_before_later_child_on_failure": true,
+    "resume_forbidden": true
+  },
+  "failure_predecessor": {
+    "run_id_prefix": "paper-text-v1-multiseed-cap128-r12-20260830",
+    "failure_class": "task_scheduler_com_property_name_mismatch_before_task_registration",
+    "local_evidence": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\r12_infrastructure_failure_evidence_20260830.json",
+    "canonical_evidence": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r12-infrastructure-failure-evidence-20260830.json",
+    "sha256": "60b3f6b82d5de2dfa69249feede52f50f07c750bcf6662dc9c52decbc7490caa",
+    "retriable": false,
+    "lineage_eligible": false
+  },
+  "windows_owner": {
+    "api": "Schedule.Service IRegisteredTask.RunEx",
+    "task_has_triggers": false,
+    "multiple_instances": "IgnoreNew",
+    "restart_count": 0,
+    "execution_time_limit": "PT0S",
+    "logon_type": "Interactive",
+    "run_level": "Limited",
+    "automatic_restart_forbidden": true,
+    "task_state_authoritative": false,
+    "task_unregistered_after_terminal_evidence": true,
+    "evidence_and_markers_preserved_after_task_unregistration": true,
+    "task_definition_constructed_before_dispatch_marker": true,
+    "task_definition_semantically_validated_before_dispatch_marker": true,
+    "allow_demand_start": true,
+    "invalid_allow_start_on_demand_forbidden": true
+  },
+  "foreground_wsl_contract": {
+    "windows_supervisor_owns_foreground_wsl_exe_for_full_workload_lifetime": true,
+    "wsl_distribution": "Ubuntu",
+    "wsl_user": "techatat",
+    "locked_python": "/home/techatat/.local/share/sleep-stage-paper/envs/tf24/bin/python",
+    "atomic_wsl_exit_evidence_required": true,
+    "windows_host_exit_recorded": true,
+    "wsl_exit_evidence_authoritative": true,
+    "missing_or_invalid_exit_evidence_is_terminal_failure": true
+  },
+  "exactly_once": {
+    "dispatch_marker": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r13-20260830.dispatch.lock",
+    "attempt_marker": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r13-20260830.launch.lock",
+    "file_mode": "CreateNew",
+    "file_share": "None",
+    "both_markers_permanent": true,
+    "all_gate_confirmation_source_namespace_process_cache_power_storage_gpu_checks_before_dispatch_marker": true,
+    "attempt_marker_requires_valid_dispatch_record": true,
+    "second_dispatch_exit_code": 91,
+    "second_supervisor_exit_code": 91,
+    "automatic_retry": false,
+    "automatic_resume": false,
+    "historical_namespace_reuse": false,
+    "complete_task_definition_before_dispatch_marker": true
+  },
+  "long_canary_gate": {
+    "training_launched": false,
+    "fresh_canary_namespace_required": true,
+    "success_duration_seconds_min": 180,
+    "success_duration_seconds_default": 210,
+    "success_duration_seconds_max": 300,
+    "heartbeat_interval_seconds_max": 10,
+    "stable_wsl_boot_id_required": true,
+    "dispatcher_exit_before_terminal_required": true,
+    "scheduler_owned_supervisor_alive_after_dispatcher_exit_required": true,
+    "foreground_wsl_host_alive_after_dispatcher_exit_required": true,
+    "stable_input_write_and_replace_refusal_required": true,
+    "success_exit_code": 0,
+    "forced_failure_exit_code": 23,
+    "success_terminal_validated_required": true,
+    "failure_terminal_validation_failed_required": true,
+    "second_dispatch_refusal_required": true,
+    "second_supervisor_refusal_required": true,
+    "automatic_restart_observed": false,
+    "accepted_predecessor_case_id": "32682db47f0c41f7b0410bc064414245",
+    "accepted_predecessor_evidence_sha256": "3338dea287daed23566ceeecfad7dffbe766e728ada76cbcacf636226ed81558",
+    "r13_requires_version_only_supervisor_semantic_diff": true
+  },
+  "terminal_acceptance": {
+    "parent_process_exited_event_required": true,
+    "parent_terminal_validated_event_required": true,
+    "parent_execution_status_required": "completed",
+    "expected_child_count": 2,
+    "each_child_execution_status_required": "completed",
+    "each_child_standalone_verify_run_status_required": "verified",
+    "verification_python": "/home/techatat/.local/share/sleep-stage-paper/envs/tf24/bin/python",
+    "partial_or_missing_child_is_failure": true,
+    "task_scheduler_state_alone_never_accepts_lineage": true
+  },
+  "approval_boundary": {
+    "implementation_and_non_training_tests_authorized": true,
+    "canonical_gate_publication_is_not_launch": true,
+    "fresh_exact_user_confirmation_bound_to_final_gate_sha256_required": true,
+    "training_launch_authorized": false
+  }
+}

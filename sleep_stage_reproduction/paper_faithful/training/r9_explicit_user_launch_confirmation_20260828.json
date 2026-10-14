@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "artifact_type": "explicit_user_launch_confirmation",
+  "confirmation_id": "r9-user-confirmation-20260829T121106+0700",
+  "status": "confirmed",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r9-20260828",
+  "source_thread_id": "01a014bc-7bc1-7590-bd2b-029c8a84285b",
+  "received_at": "2026-08-29T12:11:06.8740824+07:00",
+  "seeds": [
+    42,
+    43
+  ],
+  "expected_children": [
+    "paper-text-v1-multiseed-cap128-r9-20260828-split42-model42",
+    "paper-text-v1-multiseed-cap128-r9-20260828-split43-model43"
+  ],
+  "exact_user_excerpt": "ยืนยัน launch fresh r9 exactly once: prefix paper-text-v1-multiseed-cap128-r9-20260828, seeds 42,43, children paper-text-v1-multiseed-cap128-r9-20260828-split42-model42 และ paper-text-v1-multiseed-cap128-r9-20260828-split43-model43, canonical gate SHA-256 12fd61eb5c5558fcbb4979d58b12a0326f5c24bd28502cf0bfe645e60a983ae6; ยอมรับ permanent FileMode.CreateNew+FileShare.None marker, no retry, no resume, no reuse.",
+  "user_message_hash_encoding": "utf-8-no-bom-of-json-decoded-exact_user_excerpt",
+  "user_message_sha256": "1dfbeb4e88386ca510fb297523f068318abc2fbe9b12492260f718de9a68c1eb",
+  "canonical_gate_sha256": "12fd61eb5c5558fcbb4979d58b12a0326f5c24bd28502cf0bfe645e60a983ae6",
+  "source_sha256": {
+    "launcher_ps1": "912a9429a7a37293c6f8a4761bec02ca8e86e2bc70661a954f80946b1c51373a",
+    "runner_sh": "b4c52ed31bb19f406ad6394bf2f07c7fe348eedc7ac827c0d98b27da560495b5",
+    "lean_team_contract_json": "47f7deac58adca28da0f382b8b6e7979c43828e76ad3c423bb2d141beba6a707"
+  },
+  "user_explicitly_requested_fresh_r9_exactly_once": true,
+  "exactly_once_launch_authorized": true,
+  "permanent_attempt_marker_consumption_accepted": true,
+  "no_retry_after_marker_consumption_accepted": true,
+  "no_resume_or_reuse": true,
+  "confirmation_revoked": false
+}

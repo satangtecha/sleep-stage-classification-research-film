@@ -1,0 +1,44 @@
+{
+  "slides": [
+    {
+      "file": "outputs/chapters/minute-01.mp4",
+      "rev_file": "outputs/chapters/minute-01.mp4",
+      "auto_next": false,
+      "loop": false,
+      "notes": "The question and the data\nSleep staging from one EEG channel\nSleep staging assigns a label to each 30-second EEG epoch across a recorded night.\nWe present a simpler CNN + BiGRU study, not a replication of the original paper.\nConceptual EEG scene. The trace is illustrative, not a recorded signal.\n\nThe evaluated cohort\nThe evaluated subset contains 20 participants and 39 nights, with 42,307 retained epochs.\nParticipant separation matters because different nights from the same person are related.\nEach figure represents one participant. Counts come from the archived closeout.\n\nFive sleep-stage labels\nThe model predicts one of five labels. We evaluate every class, not only overall accuracy.\nMacro-F1 gives each class equal weight. Accuracy counts all correctly classified epochs.\nStage colors identify categories. The animated timeline is illustrative.\n\nSubject-wise evaluation\nEach fold separates participants into training, validation and test sets without subject overlap.\nOnly two participants form each test fold. Small fold samples create substantial variability.\nSubject-wise protocol differs from the paper; test < 10 subjects per fold (20 total)"
+    },
+    {
+      "file": "outputs/chapters/minute-02.mp4",
+      "rev_file": "outputs/chapters/minute-02.mp4",
+      "auto_next": false,
+      "loop": false,
+      "notes": "How the model reads a night\nEEG becomes a time-frequency image\nThe short-time Fourier transform describes how frequency content changes within each EEG epoch.\nThe resulting log-spectrogram has 129 frequency bins and 29 time bins.\nThe example trace and spectrogram illustrate the transform. They are not measured data.\n\nThe CNN encodes each epoch\nThe CNN extracts local time-frequency patterns and compresses each epoch into a feature vector.\nThese are conceptual feature blocks. Their colors do not represent learned activations.\nArchitecture from src/model.py. Feature maps and filters are conceptual.\n\nBiGRU adds within-night context\nA bidirectional GRU reads the sequence in both directions and combines neighboring context.\nSequences stay within a single night. Bidirectional context makes this an offline model.\nIllustrative sequence. Connections show architecture, not estimated causal effects.\n\nOne inference path for validation and test\nValidation and test use the same sliding-window inference path with stride five.\nEvaluation mode disables dropout and uses saved BatchNorm statistics. Windows never cross nights.\nWindow placement is illustrative. The stride and averaging rule come from the code."
+    },
+    {
+      "file": "outputs/chapters/minute-03.mp4",
+      "rev_file": "outputs/chapters/minute-03.mp4",
+      "auto_next": false,
+      "loop": false,
+      "notes": "The normalization intervention\nThe baseline failed on specific nights\nThe baseline had severe errors on particular nights, including one night predicted entirely as wakefulness.\nFour diagnostic rounds found no confirmed pairing, timing, channel or label-alignment defect.\nArchived test results informed this diagnosis. Later R1 selection was post-hoc.\n\nR1 changes the normalization rule\nR1 standardizes every frequency bin using the retained epochs of that same night.\nR1 is post-hoc and transductive. Retraining plus normalization prevents a model-only causal claim.\nR1 uses retained epochs whose selection includes hypnogram-based trimming. Waves are illustrative.\n\nArchived results improved with R1\nSubject-mean macro-F1 rose from 56.42% to 74.86%. Pooled accuracy rose from 65.00% to 80.99%.\nThe comparison combines changed normalization with retrained weights and access to unlabeled test-night signals.\nHistorical test results. R1 and full-night sensitivity use offline, transductive normalization.\n\nSensitivity uses the complete PSG signal\nThe sensitivity run computes statistics across the complete signal without labels selecting the normalization range.\nIt scores 71.84% macro-F1. It still uses each evaluation night's unlabeled signal and remains transductive.\nReport R1 and full-night sensitivity together. Do not choose the better result as a new winner."
+    },
+    {
+      "file": "outputs/chapters/minute-04.mp4",
+      "rev_file": "outputs/chapters/minute-04.mp4",
+      "auto_next": false,
+      "loop": false,
+      "notes": "What the evidence does and does not show\nThe difference from R1 remains uncertain\nA paired participant-level bootstrap uses 1,000 resamples with fixed seed 20261011.\nThe run misses the 71.86% interpretation threshold by only 0.024 points. That threshold was not blind to R1.\nThresholds preceded this run but followed baseline and R1 results. CI omits model-selection uncertainty.\n\nResults vary across held-out folds\nA headline average hides fold variability. R1 improves fold macro-F1 in all ten paired folds.\nThese plotted values pool the two test participants within each fold. They are not the headline subject mean.\nSaved fold results only. Training sets overlap across folds, so folds are not independent samples.\n\nN1 remains the hardest class\nPer-class recall shows how many true epochs of each class the model recovers.\nN1 remains the weakest class in both normalization runs, despite the overall improvement.\nPooled recall from archived test confusion matrices. Bar values are percentages.\n\nWhere R1's N1 errors go\nThe confusion matrix separates correct classifications from the direction of each error.\nN1 errors spread across adjacent or competing stages. This describes mistakes, not their biological cause.\nR1 pooled confusion counts. Cell intensity uses within-row percentages, not raw counts."
+    },
+    {
+      "file": "outputs/chapters/minute-05.mp4",
+      "rev_file": "outputs/chapters/minute-05.mp4",
+      "auto_next": false,
+      "loop": false,
+      "notes": "Rejected pilots and the next evidence gate\nSmall validation pilots did not pass\nThree bounded validation-only pilots tested class balance, the classifier head and transition decoding.\nNone reached the required one-point macro-F1 gain with the other safeguards. We kept the original settings.\nValidation deltas only, not new test gains. Head-only comparison uses its matched FP32 baseline.\n\nIndependent confirmation is not ready\nA provenance audit separates known development exposure from participants with unresolved histories.\nNo participant cohort currently meets the evidence requirement for a certified independent evaluation.\nMetadata-only audit. Availability is not proof of independence.\n\nLimits on the scientific claim\nR1 uses a single model seed and was selected after baseline test failures. Its confidence interval is conditional.\nThese results do not establish clinical validity, equivalence to another paper, or online performance.\nSubject-wise protocol differs from the paper; test < 10 subjects per fold (20 total)\n\nA useful result with a clear evidence boundary\nThe R1 package scored higher in this cohort. Normalization and retrained weights changed together.\nThe next scientific gate is a locked protocol and genuinely independent participants, after human approval.\nSleep-EDF Expanded 1.0.0. Kemp et al. 2000. Goldberger et al. 2000. ODC-By 1.0."
+    }
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "#080F1C"
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "objective": "Run one fresh, exactly-once SUBJECT_GENERALIZATION_V1 quality replicate that keeps the v9 six-subject cohort and sampled data fixed (selection seed 43) while changing only the model seed to 44.",
+  "scope": "large",
+  "risk": "high",
+  "phase": "executing",
+  "userApproval": "proceed",
+  "maxConcurrentAgents": 2,
+  "deliverables": [
+    "A reviewed v10 protocol whose six subjects, folds, cap, and stage settings equal v9 while model_seed equals 44.",
+    "Fresh exactly-once dispatch evidence, resource admission, source snapshot binding, and terminal validation for v10.",
+    "Locked-TF2.4 standalone verification for the parent runtime and every v10 child.",
+    "A seed-43/seed-44 fixed-cohort comparison that reports per-fold and aggregate test metrics without comparing to the manuscript's random-split accuracy."
+  ],
+  "nonGoals": [
+    "Do not retry, resume, relaunch, or reuse any prior run namespace.",
+    "Do not change the six selected subjects, fold pairing, cache receipt, cap, epochs, or stage specifications between v9 and v10.",
+    "Do not claim paper-exact replication or compare subject-held-out results to the manuscript's 83% random-split value."
+  ],
+  "acceptance": [
+    "Plan-only protocol proves selection_seed=43, model_seed=44, identical pilot subjects and test/validation pairs to v9, cap=64, and 12 epochs per stage.",
+    "Focused plan16 quality tests pass before dispatch.",
+    "Fresh resource, launch-binding, independent-review, and canonical-gate evidence pass before the one production invocation.",
+    "Parent terminal-validation and standalone locked-TF2.4 verification pass for all six child runs.",
+    "The comparison explicitly treats v9/v10 as the first same-cohort two-seed evidence, not a final multi-seed conclusion."
+  ],
+  "workers": [
+    {
+      "id": "main",
+      "role": "implementer",
+      "ownership": [
+        "protocol, gating artifacts, dispatch decision, verification, and final comparison"
+      ],
+      "write": true,
+      "doneWhen": [
+        "All acceptance evidence is present or a failure is recorded without retrying v10."
+      ]
+    }
+  ],
+  "decisions": [
+    "Standing authorization allows a fresh in-scope v10 but does not waive exactly-once gates.",
+    "selection_seed remains 43 so cohort selection and capped sampled members remain comparable to v9.",
+    "model_seed changes from 43 to 44 to measure initialization/training variability.",
+    "No production launch occurs before a new versioned review and canonical gate pass."
+  ],
+  "evidence": [
+    "E:/blp/sleep_stage_reproduction/runtime/subject-generalization-quality-plan16-v9-cap64-e12-seed43-20261006/summary.json",
+    "E:/blp/sleep_stage_reproduction/runtime/subject-generalization-quality-plan16-v9-cap64-e12-seed43-20261006/terminal-validation.json",
+    "E:/blp/sleep_stage_reproduction/runtime/protocols/subject-generalization-quality-plan16-v10-cap64-e12-cohort43-model44-20261006.json"
+  ]
+}

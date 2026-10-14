@@ -1,0 +1,25 @@
+# Raw or licensed data and local training products
+**/data/sleep-edf/
+**/data/dodh/
+**/runtime/
+**/.venv/
+**/node_modules/
+**/vendor/
+**/__pycache__/
+**/.pytest_cache/
+**/.ipynb_checkpoints/
+**/.codex-staging/
+*.edf
+*.h5
+*.deflate
+*.whl
+*.ckpt
+*.pt
+*.pth
+*.bin
+
+# Local settings and secrets
+.env
+.env.*
+*.pem
+*.key

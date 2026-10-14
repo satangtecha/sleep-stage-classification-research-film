@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "objective": "Repair verified implementation defects and establish an honest, executable four-week sleep-stage research recovery plan ending 2026-10-07.",
+  "scope": "large",
+  "risk": "high",
+  "phase": "verified",
+  "userApproval": "proceed",
+  "maxConcurrentAgents": 2,
+  "deliverables": ["Bounded-memory cache access with regression tests", "Subject-generalization plan/execution consistency and admission repairs", "Independent code review", "Dated research gap audit and four-week delivery plan"],
+  "nonGoals": ["No rewriting historical r1-r19 artifacts or results", "No claiming cap128 smoke tests are a full reproduction", "No unapproved cloud expenditure or dataset upload", "No production training in this repair pass before corrected admission and protocol review"],
+  "acceptance": ["Existing valid cache data remain numerically unchanged and corrupt data fail validation", "Subject planning and execution share the same sampling and protocol bindings", "Invalid or stale admission evidence fails before expensive cache loading", "Focused tests run with explicit outcomes and independent review findings are resolved or disclosed", "Roadmap separates required deliverables, optional expansion, compute decision and scientific limitations"],
+  "workers": [
+    {"id": "cache-worker", "role": "implementer", "ownership": ["paper_faithful/training/cache_loader.py", "paper_faithful/training/tests/test_cache_loader.py"], "write": true, "doneWhen": ["Safe bounded-memory access implemented and focused synthetic tests pass"]},
+    {"id": "recovery-reviewer", "role": "reviewer", "ownership": ["Read-only integrated recovery changes"], "write": false, "doneWhen": ["Return confirmed correctness findings with evidence"]}
+  ],
+  "decisions": ["The user's 2026-09-09 authorization replaces repetitive exact-text approval rituals for in-scope repairs, not scientific provenance or safe resource admission.", "A failed experiment is retained as evidence; a future recovery may use documented checkpoint/resume semantics only if validated and scientifically compatible, never silently relabel an old result.", "Conservative memory thresholds may be replaced by measured workload budgets in a future reviewed change, not arbitrarily reduced to force a launch."],
+  "evidence": ["RECOVERY_VALIDATION_20260909.md", "RECOVERY_PLAN_20260909_TH.md", "paper_alignment_plan_TH.md", "subject_generalization_v1_run_contract.json", "paper_faithful/training/subject_generalization_runner.py", "paper_faithful/training/cache_loader.py"],
+  "result": "Repair pass verified by focused host and locked-WSL tests and independent review; no production training launched. Research reproduction and full held-out evaluation remain incomplete."
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "artifact_type": "r17_pre_attempt_scheduler_start_timeout_evidence",
+  "status": "failed_before_attempt_marker",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r17-20260901",
+  "retriable": false,
+  "resume_allowed": false,
+  "reuse_allowed": false,
+  "task_name": "SleepStagePaper-r17-COM-2051372107c74e9499fd9993b404e28e",
+  "supervisor_pid": 24164,
+  "dispatcher_exit_code": 92,
+  "failure_reason": "Task Scheduler COM supervisor did not publish its bound handshake before the 180-second dispatcher deadline; the PowerShell engine entered the supervisor after the dispatcher released the exclusive dispatch marker, and the late supervisor then refused itself.",
+  "timeline": {
+    "dispatch_created_at": "2026-09-02T00:47:43.8009822+07:00",
+    "scheduler_runex_requested_at": "2026-09-02T00:47:45.9668387+07:00",
+    "dispatcher_failed_at": "2026-09-02T00:50:48.0676773+07:00",
+    "supervisor_entered_at": "2026-09-02T00:51:13.6188134+07:00",
+    "pre_attempt_failed_at": "2026-09-02T00:51:21.1408464+07:00",
+    "scheduler_to_supervisor_entry_seconds": 207.652,
+    "supervisor_entered_after_dispatcher_failed_seconds": 25.551,
+    "supervisor_entry_to_bound_dispatch_refusal_seconds": 7.522
+  },
+  "terminal_state": {
+    "dispatch_marker_exists": true,
+    "dispatch_marker_permanent": true,
+    "attempt_marker_exists": false,
+    "workload_lifecycle_exists": false,
+    "wsl_host_started": false,
+    "training_started": false,
+    "child_directories_exist": false,
+    "scheduler_task_exists_after_supervisor_exit": false,
+    "late_supervisor_refusal": "r17 dispatch marker is not exclusively held by the live dispatcher"
+  },
+  "root_cause": {
+    "class": "scheduler_owned_powershell_engine_startup_latency_exceeded_dispatcher_handshake_window",
+    "scientific_protocol_failure": false,
+    "trainer_failure": false,
+    "gpu_failure": false,
+    "power_failure": false,
+    "storage_failure": false,
+    "exactly_once_gate_worked_as_designed": true
+  },
+  "trust_anchors": {
+    "canonical_gate_sha256": "9a0d4766a3e1ea74b3c200a49fc8687b8238ad0a101f89617e8b9d1e2439bbeb",
+    "delegated_authorization_sha256": "a1187869464c437722d021d8984d1e4e7871f956b5786f6cf9c682b3bd467fab",
+    "launch_evidence_sha256": "e0d9d643fd79dc687c70c65e84cacb0a46e0507aaa59ab237bfe25b6869ec259",
+    "independent_review_sha256": "47c388bd5ee9eca7eca09f47c47f71bb478cc9c89949be9b13626a7773bf7a80"
+  },
+  "runtime_evidence": {
+    "dispatch_lifecycle_path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r17-20260901.dispatch.lifecycle.jsonl",
+    "dispatch_lifecycle_sha256": "2617a849763d04ba2ff0c616968088723b9d60ee10a34cc607890d8df61e2257",
+    "supervisor_preflight_path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r17-20260901.supervisor-preflight.jsonl",
+    "supervisor_preflight_sha256": "d91f2726738913ca1adf6ba20d6ffc8e526a48dcf118c8a4d0f7ec86b31765ea"
+  },
+  "required_next_action": "Use a fresh versioned run identity with a reviewed bounded dispatcher handshake long enough to cover observed scheduler-owned PowerShell engine startup latency; do not retry, resume, relaunch, or reuse r17.",
+  "created_at": "2026-09-02T00:52:50.8787878+07:00"
+}

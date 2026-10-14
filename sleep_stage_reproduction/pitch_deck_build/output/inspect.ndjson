@@ -1,0 +1,151 @@
+{"kind":"slide","id":"sl/pyi5t9","slide":1,"title":"RESEARCH IDEA","textShapes":18}
+{"kind":"textbox","id":"sh/43ahor2t","slide":1,"text":"RESEARCH IDEA","textPreview":"RESEARCH IDEA","textChars":13,"textLines":1,"bbox":[76,64,300,24]}
+{"kind":"shape","id":"sh/3210vm18","slide":1,"bbox":[76,104,84,4]}
+{"kind":"textbox","id":"sh/i1szmhkn","slide":1,"text":"Can one EEG channel\nclassify sleep stages?","textPreview":"Can one EEG channel | classify sleep stages?","textChars":42,"textLines":2,"bbox":[76,150,630,150]}
+{"kind":"textbox","id":"sh/h0jitwj2","slide":1,"text":"A reproducible deep-learning pipeline for\nautomatic sleep staging","textPreview":"A reproducible deep-learning pipeline for | automatic sleep staging","textChars":65,"textLines":2,"bbox":[80,340,520,68]}
+{"kind":"textbox","id":"sh/gzahkr2h","slide":1,"text":"SINGLE-CHANNEL EEG","textPreview":"SINGLE-CHANNEL EEG","textChars":18,"textLines":1,"bbox":[80,470,230,22]}
+{"kind":"textbox","id":"sh/vy10rm1c","slide":1,"text":"5 SLEEP STAGES","textPreview":"5 SLEEP STAGES","textChars":14,"textLines":1,"bbox":[330,470,220,22]}
+{"kind":"textbox","id":"sh/ux8zihkr","slide":1,"text":"30-SECOND EPOCHS","textPreview":"30-SECOND EPOCHS","textChars":16,"textLines":1,"bbox":[80,510,260,22]}
+{"kind":"textbox","id":"sh/1w3i5gjm","slide":1,"text":"A simpler input, a transparent evaluation,\nand a research-ready prototype.","textPreview":"A simpler input, a transparent evaluation, | and a research-ready prototype.","textChars":74,"textLines":2,"bbox":[80,582,520,48]}
+{"kind":"shape","id":"sh/0vu1wbi1","slide":1,"bbox":[760,96,420,500]}
+{"kind":"textbox","id":"sh/el8zqtsj","slide":1,"text":"FROM ONE SIGNAL","textPreview":"FROM ONE SIGNAL","textChars":15,"textLines":1,"bbox":[800,130,300,22]}
+{"kind":"shape","id":"sh/zmhgzy94","slide":1,"bbox":[900,218,140,140]}
+{"kind":"textbox","id":"sh/0nqhs3ap","slide":1,"text":"EEG","textPreview":"EEG","textChars":3,"textLines":1,"bbox":[900,260,140,28]}
+{"kind":"textbox","id":"sh/1ozi18ra","slide":1,"text":"Fpz-Cz","textPreview":"Fpz-Cz","textChars":6,"textLines":1,"bbox":[900,297,140,24]}
+{"kind":"shape","id":"sh/qxozmtsn","slide":1,"bbox":[1035,399,72,22]}
+{"kind":"shape","id":"sh/ryxgve98","slide":1,"bbox":[1035,439,72,22]}
+{"kind":"shape","id":"sh/czqhojat","slide":1,"bbox":[1035,479,72,22]}
+{"kind":"shape","id":"sh/dkzyxory","slide":1,"bbox":[1035,519,72,22]}
+{"kind":"shape","id":"sh/atszydsr","slide":1,"bbox":[1035,559,72,22]}
+{"kind":"shape","id":"sh/bu107i9c","slide":1,"bbox":[1110,398,54,30]}
+{"kind":"textbox","id":"sh/7ytwjapo","slide":1,"text":"Wake","textPreview":"Wake","textChars":4,"textLines":1,"bbox":[1110,406,54,18]}
+{"kind":"shape","id":"sh/6xkvq583","slide":1,"bbox":[1110,438,54,30]}
+{"kind":"textbox","id":"sh/t0velk7u","slide":1,"text":"N1","textPreview":"N1","textChars":2,"textLines":1,"bbox":[1110,446,54,18]}
+{"kind":"shape","id":"sh/8zmdsfq9","slide":1,"bbox":[1110,478,54,30]}
+{"kind":"textbox","id":"sh/v2dwnup0","slide":1,"text":"N2","textPreview":"N2","textChars":2,"textLines":1,"bbox":[1110,486,54,18]}
+{"kind":"shape","id":"sh/u14fup8f","slide":1,"bbox":[1110,518,54,30]}
+{"kind":"textbox","id":"sh/h4vepk7q","slide":1,"text":"N3","textPreview":"N3","textChars":2,"textLines":1,"bbox":[1110,526,54,18]}
+{"kind":"shape","id":"sh/g3mxwfql","slide":1,"bbox":[1110,558,54,30]}
+{"kind":"textbox","id":"sh/3qdwrupw","slide":1,"text":"REM","textPreview":"REM","textChars":3,"textLines":1,"bbox":[1110,566,54,18]}
+{"kind":"textbox","id":"sh/i54fyp8b","slide":1,"text":"one 30-second epoch","textPreview":"one 30-second epoch","textChars":19,"textLines":1,"bbox":[845,380,250,22]}
+{"kind":"shape","id":"sh/0v6doz6p","slide":1,"bbox":[70,680,1140,1]}
+{"kind":"textbox","id":"sh/1wfeh4na","slide":1,"text":"Concept inspired by recent single-channel EEG sleep-staging research","textPreview":"Concept inspired by recent single-channel EEG sleep-staging research","textChars":68,"textLines":1,"bbox":[70,690,980,18]}
+{"kind":"textbox","id":"sh/etovmpoj","slide":1,"text":"01 / 04","textPreview":"01 / 04","textChars":7,"textLines":1,"bbox":[1110,690,100,18]}
+{"kind":"notes","id":"nt/pyi5t9","slide":1,"text":"Hello everyone. My project is about automatic sleep stage classification from EEG.\nThe key idea is to investigate whether one EEG channel can provide enough information to classify five sleep stages automatically.\n[Sources]\n- https://www.nature.com/articles/s41598-026-62832-5\n- https://physionet.org/content/sleep-edfx/1.0.0/"}
+{"kind":"slide","id":"sl/67yvyp","slide":2,"title":"The research idea is focused and testable","textShapes":18}
+{"kind":"textbox","id":"sh/5cfalwni","slide":2,"text":"The research idea is focused and testable","textPreview":"The research idea is focused and testable","textChars":41,"textLines":1,"bbox":[70,52,930,50]}
+{"kind":"textbox","id":"sh/i9orqho7","slide":2,"text":"Reduce the input, preserve the signal information, and evaluate generalization.","textPreview":"Reduce the input, preserve the signal information, and evaluate generalization.","textChars":79,"textLines":1,"bbox":[72,115,900,28]}
+{"kind":"shape","id":"sh/jaxsjm5c","slide":2,"bbox":[70,205,340,360]}
+{"kind":"textbox","id":"sh/szqtwb69","slide":2,"text":"CORE QUESTION","textPreview":"CORE QUESTION","textChars":13,"textLines":1,"bbox":[105,245,260,22]}
+{"kind":"textbox","id":"sh/t0zapgnu","slide":2,"text":"Can one channel\nsupport reliable\nsleep staging?","textPreview":"Can one channel | support reliable | sleep staging?","textChars":47,"textLines":3,"bbox":[105,300,275,130]}
+{"kind":"textbox","id":"sh/6dobu1o3","slide":2,"text":"without relying on a\nfull multi-sensor PSG setup","textPreview":"without relying on a | full multi-sensor PSG setup","textChars":48,"textLines":2,"bbox":[105,488,245,48]}
+{"kind":"textbox","id":"sh/rehsn65o","slide":2,"text":"PROJECT OBJECTIVES","textPreview":"PROJECT OBJECTIVES","textChars":18,"textLines":1,"bbox":[495,205,300,22]}
+{"kind":"shape","id":"sh/g3qt0bm5","slide":2,"bbox":[536,334,2,64]}
+{"kind":"shape","id":"sh/14zatgnq","slide":2,"bbox":[500,260,56,56]}
+{"kind":"textbox","id":"sh/dgnmd8by","slide":2,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[500,277,56,20]}
+{"kind":"textbox","id":"sh/cfel43ad","slide":2,"text":"Build","textPreview":"Build","textChars":5,"textLines":1,"bbox":[590,258,220,28]}
+{"kind":"textbox","id":"sh/re54byts","slide":2,"text":"A single-channel EEG sleep-staging pipeline","textPreview":"A single-channel EEG sleep-staging pipeline","textChars":43,"textLines":1,"bbox":[590,295,510,32]}
+{"kind":"shape","id":"sh/qdw32tc7","slide":2,"bbox":[536,444,2,64]}
+{"kind":"shape","id":"sh/l47mhsbu","slide":2,"bbox":[500,370,56,56]}
+{"kind":"textbox","id":"sh/03y58na9","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[500,387,56,20]}
+{"kind":"textbox","id":"sh/z2p4fit4","slide":2,"text":"Compare","textPreview":"Compare","textChars":7,"textLines":1,"bbox":[590,368,220,28]}
+{"kind":"textbox","id":"sh/ehgn6dsj","slide":2,"text":"Baseline CNN vs. the full representation + sequence model","textPreview":"Baseline CNN vs. the full representation + sequence model","textChars":57,"textLines":1,"bbox":[590,405,510,32]}
+{"kind":"shape","id":"sh/h83m5obq","slide":2,"bbox":[500,480,56,56]}
+{"kind":"textbox","id":"sh/g7ulwju5","slide":2,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[500,497,56,20]}
+{"kind":"textbox","id":"sh/8ry5cj21","slide":2,"text":"Evaluate","textPreview":"Evaluate","textChars":8,"textLines":1,"bbox":[590,478,220,28]}
+{"kind":"textbox","id":"sh/ts7mlojm","slide":2,"text":"Class imbalance, unseen subjects, and per-stage performance","textPreview":"Class imbalance, unseen subjects, and per-stage performance","textChars":59,"textLines":1,"bbox":[590,515,510,32]}
+{"kind":"shape","id":"sh/6pg3atkv","slide":2,"bbox":[500,590,630,45]}
+{"kind":"textbox","id":"sh/7qp4jy1g","slide":2,"text":"Research prototype — not a medical diagnostic device","textPreview":"Research prototype — not a medical diagnostic device","textChars":52,"textLines":1,"bbox":[520,603,590,20]}
+{"kind":"shape","id":"sh/gvi5g32x","slide":2,"bbox":[70,680,1140,1]}
+{"kind":"textbox","id":"sh/hwrmp8ji","slide":2,"text":"Research objective: reproducible modeling and honest evaluation","textPreview":"Research objective: reproducible modeling and honest evaluation","textChars":63,"textLines":1,"bbox":[70,690,980,18]}
+{"kind":"textbox","id":"sh/utgnetk7","slide":2,"text":"02 / 04","textPreview":"02 / 04","textChars":7,"textLines":1,"bbox":[1110,690,100,18]}
+{"kind":"notes","id":"nt/67yvyp","slide":2,"text":"The core idea is simple: take a 30-second segment of single-channel EEG, learn its time-frequency patterns, and predict one of five sleep stages.\nThe project objectives are to build the pipeline, compare model components, and evaluate generalization to unseen subjects.\n[Sources]\n- https://www.nature.com/articles/s41598-026-62832-5\n- https://physionet.org/content/sleep-edfx/1.0.0/"}
+{"kind":"slide","id":"sl/776g7s","slide":3,"title":"The proposed workflow turns EEG into five labels","textShapes":23}
+{"kind":"textbox","id":"sh/nq5grylw","slide":3,"text":"The proposed workflow turns EEG into five labels","textPreview":"The proposed workflow turns EEG into five labels","textChars":48,"textLines":1,"bbox":[70,52,1000,50]}
+{"kind":"textbox","id":"sh/orexk3mh","slide":3,"text":"Each step has a specific role: normalize, represent, learn, and classify.","textPreview":"Each step has a specific role: normalize, represent, learn, and classify.","textChars":73,"textLines":1,"bbox":[72,115,900,28]}
+{"kind":"shape","id":"sh/ps7yt83m","slide":3,"bbox":[208,333,24,26]}
+{"kind":"shape","id":"sh/atgfmt47","slide":3,"bbox":[378,333,24,26]}
+{"kind":"shape","id":"sh/bupgvyls","slide":3,"bbox":[548,333,24,26]}
+{"kind":"shape","id":"sh/cvyxo3md","slide":3,"bbox":[718,333,24,26]}
+{"kind":"shape","id":"sh/xw7yx83y","slide":3,"bbox":[888,333,24,26]}
+{"kind":"shape","id":"sh/qxcfa943","slide":3,"bbox":[1058,333,24,26]}
+{"kind":"shape","id":"sh/rylgjelo","slide":3,"bbox":[70,275,130,146]}
+{"kind":"shape","id":"sh/bm5o3ul4","slide":3,"bbox":[70,275,130,11]}
+{"kind":"textbox","id":"sh/alcnap4j","slide":3,"text":"30s EEG","textPreview":"30s EEG","textChars":7,"textLines":1,"bbox":[78,309,114,28]}
+{"kind":"textbox","id":"sh/xon6543u","slide":3,"text":"Fpz-Cz\n3,000 samples","textPreview":"Fpz-Cz | 3,000 samples","textChars":20,"textLines":2,"bbox":[78,355,114,50]}
+{"kind":"shape","id":"sh/wne5czmp","slide":3,"bbox":[240,275,130,146]}
+{"kind":"shape","id":"sh/nilozuls","slide":3,"bbox":[240,275,130,11]}
+{"kind":"textbox","id":"sh/mhcn6p47","slide":3,"text":"Normalize","textPreview":"Normalize","textChars":9,"textLines":1,"bbox":[248,309,114,28]}
+{"kind":"textbox","id":"sh/9k36143y","slide":3,"text":"clean\nand scale","textPreview":"clean | and scale","textChars":15,"textLines":2,"bbox":[248,355,114,50]}
+{"kind":"shape","id":"sh/oju58zmd","slide":3,"bbox":[410,275,130,146]}
+{"kind":"shape","id":"sh/ze1ovalw","slide":3,"bbox":[410,275,130,11]}
+{"kind":"textbox","id":"sh/etsn254b","slide":3,"text":"SST map","textPreview":"SST map","textChars":7,"textLines":1,"bbox":[418,309,114,28]}
+{"kind":"textbox","id":"sh/2ps7e5o3","slide":3,"text":"T–F\nmap","textPreview":"T–F | map","textChars":7,"textLines":2,"bbox":[418,355,114,50]}
+{"kind":"shape","id":"sh/3q1o7apo","slide":3,"bbox":[580,275,130,146]}
+{"kind":"shape","id":"sh/4rapgf69","slide":3,"bbox":[580,275,130,11]}
+{"kind":"textbox","id":"sh/psj69k7u","slide":3,"text":"CNN","textPreview":"CNN","textChars":3,"textLines":1,"bbox":[588,309,114,28]}
+{"kind":"textbox","id":"sh/qds7ipof","slide":3,"text":"local\nfeatures","textPreview":"local | features","textChars":14,"textLines":2,"bbox":[588,355,114,50]}
+{"kind":"shape","id":"sh/re1obup0","slide":3,"bbox":[750,275,130,146]}
+{"kind":"shape","id":"sh/cfupkz65","slide":3,"bbox":[750,275,130,11]}
+{"kind":"textbox","id":"sh/dg36dk7q","slide":3,"text":"Contrastive","textPreview":"Contrastive","textChars":11,"textLines":1,"bbox":[758,309,114,28]}
+{"kind":"textbox","id":"sh/ehc7mpob","slide":3,"text":"robust\nfeatures","textPreview":"robust | features","textChars":15,"textLines":2,"bbox":[758,355,114,50]}
+{"kind":"shape","id":"sh/zil8fupw","slide":3,"bbox":[920,275,130,146]}
+{"kind":"shape","id":"sh/9o7i1sva","slide":3,"bbox":[920,275,130,11]}
+{"kind":"textbox","id":"sh/8ny1snup","slide":3,"text":"GRU × 2","textPreview":"GRU × 2","textChars":7,"textLines":1,"bbox":[928,309,114,28]}
+{"kind":"textbox","id":"sh/nmp0zid4","slide":3,"text":"ordered\ncontext","textPreview":"ordered | context","textChars":15,"textLines":2,"bbox":[928,355,114,50]}
+{"kind":"shape","id":"sh/mlgjqdcj","slide":3,"bbox":[1090,275,130,146]}
+{"kind":"shape","id":"sh/xsri5sv6","slide":3,"bbox":[1090,275,130,11]}
+{"kind":"textbox","id":"sh/wry1w7u1","slide":3,"text":"5 stages","textPreview":"5 stages","textChars":8,"textLines":1,"bbox":[1098,309,114,28]}
+{"kind":"textbox","id":"sh/vqp032dg","slide":3,"text":"Wake · N1\nN2 · N3 · REM","textPreview":"Wake · N1 | N2 · N3 · REM","textChars":23,"textLines":2,"bbox":[1098,355,114,50]}
+{"kind":"textbox","id":"sh/apgjuxcv","slide":3,"text":"WHY THIS COMBINATION?","textPreview":"WHY THIS COMBINATION?","textChars":21,"textLines":1,"bbox":[70,500,300,22]}
+{"kind":"shape","id":"sh/5gri9cvi","slide":3,"bbox":[70,538,540,2]}
+{"kind":"textbox","id":"sh/4fi107ux","slide":3,"text":"SST preserves time–frequency detail.\nCNN learns local patterns. GRU preserves the order of feature windows.","textPreview":"SST preserves time–frequency detail. | CNN learns local patterns. GRU preserves the order of feature windows.","textChars":107,"textLines":2,"bbox":[70,560,600,52]}
+{"kind":"shape","id":"sh/gbmlsbe5","slide":3,"bbox":[770,500,410,120]}
+{"kind":"textbox","id":"sh/1cvm1gfq","slide":3,"text":"PRIMARY METRIC","textPreview":"PRIMARY METRIC","textChars":14,"textLines":1,"bbox":[795,520,160,22]}
+{"kind":"textbox","id":"sh/e9k3q1wz","slide":3,"text":"Macro-F1 + per-stage F1","textPreview":"Macro-F1 + per-stage F1","textChars":23,"textLines":1,"bbox":[795,556,350,26]}
+{"kind":"textbox","id":"sh/fat4z6xk","slide":3,"text":"because the classes are imbalanced","textPreview":"because the classes are imbalanced","textChars":34,"textLines":1,"bbox":[795,588,350,20]}
+{"kind":"shape","id":"sh/s72lore9","slide":3,"bbox":[70,680,1140,1]}
+{"kind":"textbox","id":"sh/t8bmxwfe","slide":3,"text":"Model structure adapted from the selected recent research protocol","textPreview":"Model structure adapted from the selected recent research protocol","textChars":66,"textLines":1,"bbox":[70,690,980,18]}
+{"kind":"textbox","id":"sh/6lk3m1w3","slide":3,"text":"03 / 04","textPreview":"03 / 04","textChars":7,"textLines":1,"bbox":[1110,690,100,18]}
+{"kind":"notes","id":"nt/776g7s","slide":3,"text":"The workflow begins with a 30-second Fpz-Cz epoch, normalizes the signal, creates a time-frequency representation, and learns features with CNN.\nContrastive learning improves robustness, and a two-layer GRU processes the ordered feature windows before predicting the five labels.\nMacro-F1 is the primary metric because the classes are imbalanced.\n[Sources]\n- https://www.nature.com/articles/s41598-026-62832-5\n- https://physionet.org/content/sleep-edfx/1.0.0/"}
+{"kind":"slide","id":"sl/68pp69","slide":4,"title":"Data, evaluation, and expected contribution","textShapes":27}
+{"kind":"textbox","id":"sh/nq14nal8","slide":4,"text":"Data, evaluation, and expected contribution","textPreview":"Data, evaluation, and expected contribution","textChars":43,"textLines":1,"bbox":[70,52,1000,50]}
+{"kind":"textbox","id":"sh/oralwfmt","slide":4,"text":"The proposal ends with a reproducible experiment, not only a model score.","textPreview":"The proposal ends with a reproducible experiment, not only a model score.","textChars":73,"textLines":1,"bbox":[72,115,900,28]}
+{"kind":"shape","id":"sh/psjmpk3e","slide":4,"bbox":[70,205,480,360]}
+{"kind":"textbox","id":"sh/el83q54r","slide":4,"text":"DATASET","textPreview":"DATASET","textChars":7,"textLines":1,"bbox":[105,240,220,22]}
+{"kind":"textbox","id":"sh/fmh4jqlc","slide":4,"text":"Sleep-EDF Expanded","textPreview":"Sleep-EDF Expanded","textChars":18,"textLines":1,"bbox":[105,282,370,32]}
+{"kind":"textbox","id":"sh/gnqlsvmx","slide":4,"text":"197 whole-night PSG recordings\nEEG + expert-scored hypnograms","textPreview":"197 whole-night PSG recordings | EEG + expert-scored hypnograms","textChars":61,"textLines":2,"bbox":[105,330,360,54]}
+{"kind":"shape","id":"sh/1ozml032","slide":4,"bbox":[105,420,370,2]}
+{"kind":"shape","id":"sh/6xo3ml4f","slide":4,"bbox":[106,452,16,16]}
+{"kind":"textbox","id":"sh/ryh4fql0","slide":4,"text":"Input","textPreview":"Input","textChars":5,"textLines":1,"bbox":[140,449,80,20]}
+{"kind":"textbox","id":"sh/bal0n61g","slide":4,"text":"Fpz-Cz EEG","textPreview":"Fpz-Cz EEG","textChars":10,"textLines":1,"bbox":[240,449,250,20]}
+{"kind":"shape","id":"sh/a9czu10v","slide":4,"bbox":[106,490,16,16]}
+{"kind":"textbox","id":"sh/xc3ipwjm","slide":4,"text":"Labels","textPreview":"Labels","textChars":6,"textLines":1,"bbox":[140,487,80,20]}
+{"kind":"textbox","id":"sh/wbuhwbi1","slide":4,"text":"Wake / N1 / N2 / N3 / REM","textPreview":"Wake / N1 / N2 / N3 / REM","textChars":25,"textLines":1,"bbox":[240,487,250,20]}
+{"kind":"shape","id":"sh/je50r61c","slide":4,"bbox":[106,528,16,16]}
+{"kind":"textbox","id":"sh/ydwzy107","slide":4,"text":"Split","textPreview":"Split","textChars":5,"textLines":1,"bbox":[140,525,80,20]}
+{"kind":"textbox","id":"sh/lgnitgji","slide":4,"text":"subject-wise train / test","textPreview":"subject-wise train / test","textChars":25,"textLines":1,"bbox":[240,525,250,20]}
+{"kind":"shape","id":"sh/kfeh0bix","slide":4,"bbox":[600,205,610,360]}
+{"kind":"textbox","id":"sh/fi1gfm18","slide":4,"text":"EVALUATION PLAN","textPreview":"EVALUATION PLAN","textChars":15,"textLines":1,"bbox":[640,240,260,22]}
+{"kind":"shape","id":"sh/ehszmhkn","slide":4,"bbox":[640,292,36,36]}
+{"kind":"textbox","id":"sh/ix03upkb","slide":4,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[640,301,36,16]}
+{"kind":"textbox","id":"sh/3y9knulw","slide":4,"text":"Baseline","textPreview":"Baseline","textChars":8,"textLines":1,"bbox":[700,290,160,24]}
+{"kind":"textbox","id":"sh/4zilwf2h","slide":4,"text":"Majority class + CNN","textPreview":"Majority class + CNN","textChars":20,"textLines":1,"bbox":[860,290,305,24]}
+{"kind":"shape","id":"sh/50r2pk32","slide":4,"bbox":[640,352,36,36]}
+{"kind":"textbox","id":"sh/u9g3q5kf","slide":4,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[640,361,36,16]}
+{"kind":"textbox","id":"sh/vapkjalk","slide":4,"text":"Ablation","textPreview":"Ablation","textChars":8,"textLines":1,"bbox":[700,350,160,24]}
+{"kind":"textbox","id":"sh/gbylsf25","slide":4,"text":"SST / contrastive / GRU / class weighting","textPreview":"SST / contrastive / GRU / class weighting","textChars":41,"textLines":1,"bbox":[860,350,305,24]}
+{"kind":"shape","id":"sh/hcr2lk3q","slide":4,"bbox":[640,412,36,36]}
+{"kind":"textbox","id":"sh/65gjm543","slide":4,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[640,421,36,16]}
+{"kind":"textbox","id":"sh/76pkfalo","slide":4,"text":"Metrics","textPreview":"Metrics","textChars":7,"textLines":1,"bbox":[700,410,160,24]}
+{"kind":"textbox","id":"sh/p0v6l8n6","slide":4,"text":"Accuracy, macro-F1, kappa, confusion matrix","textPreview":"Accuracy, macro-F1, kappa, confusion matrix","textChars":43,"textLines":1,"bbox":[860,410,305,24]}
+{"kind":"shape","id":"sh/ozm5s3ml","slide":4,"bbox":[640,472,36,36]}
+{"kind":"textbox","id":"sh/nydojy50","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[640,481,36,16]}
+{"kind":"textbox","id":"sh/2x4nqt4f","slide":4,"text":"Generalization","textPreview":"Generalization","textChars":14,"textLines":1,"bbox":[700,470,160,24]}
+{"kind":"textbox","id":"sh/1wv6hona","slide":4,"text":"Unseen subjects, then external dataset","textPreview":"Unseen subjects, then external dataset","textChars":38,"textLines":1,"bbox":[860,470,305,24]}
+{"kind":"shape","id":"sh/0vm5ojmp","slide":4,"bbox":[70,600,1140,45]}
+{"kind":"textbox","id":"sh/futofe54","slide":4,"text":"EXPECTED CONTRIBUTION: a transparent, reproducible single-channel EEG sleep-staging pipeline","textPreview":"EXPECTED CONTRIBUTION: a transparent, reproducible single-channel EEG sleep-staging pipeline","textChars":92,"textLines":1,"bbox":[95,613,1090,20]}
+{"kind":"shape","id":"sh/etknmt4j","slide":4,"bbox":[70,680,1140,1]}
+{"kind":"textbox","id":"sh/dsbmdony","slide":4,"text":"Dataset: PhysioNet Sleep-EDF · evaluation designed for reproducibility","textPreview":"Dataset: PhysioNet Sleep-EDF · evaluation designed for reproducibility","textChars":70,"textLines":1,"bbox":[70,690,980,18]}
+{"kind":"textbox","id":"sh/sr25kjmd","slide":4,"text":"04 / 04","textPreview":"04 / 04","textChars":7,"textLines":1,"bbox":[1110,690,100,18]}
+{"kind":"notes","id":"nt/68pp69","slide":4,"text":"The primary dataset will be Sleep-EDF Expanded, which contains whole-night polysomnography recordings and expert-scored hypnograms.\nThe final experiment will use subject-wise splits, compare baselines and ablations, and report both overall and per-stage metrics.\nThe expected contribution is a reproducible research pipeline and an honest analysis of generalization.\n[Sources]\n- https://physionet.org/content/sleep-edfx/1.0.0/\n- https://www.nature.com/articles/s41598-026-62832-5"}

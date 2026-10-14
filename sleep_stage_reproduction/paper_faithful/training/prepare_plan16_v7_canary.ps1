@@ -1,0 +1,4 @@
+param([Parameter(Mandatory=$true)][string]$SourceCanary,[Parameter(Mandatory=$true)][string]$OutputCanary,[Parameter(Mandatory=$true)][string]$OldPrefix,[Parameter(Mandatory=$true)][string]$NewPrefix,[Parameter(Mandatory=$true)][string]$ProtocolSha256)
+$ErrorActionPreference='Stop';$o=Get-Content -LiteralPath $SourceCanary -Raw|ConvertFrom-Json
+foreach($p in $o.PSObject.Properties){if($p.Value -is [string]){$p.Value=$p.Value.Replace($OldPrefix,$NewPrefix)}};$o.protocol_sha256=$ProtocolSha256;$o.resource_profile='QUALITY_BALANCED_CAP64_E12_V7_STAGE3_FOCAL_C10';$o.created_at=[DateTimeOffset]::UtcNow.ToString('o')
+$b=[Text.UTF8Encoding]::new($false).GetBytes(($o|ConvertTo-Json -Depth 30)+"`n");$s=[IO.File]::Open($OutputCanary,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::None);try{$s.Write($b,0,$b.Length);$s.Flush($true)}finally{$s.Dispose()};Get-FileHash -LiteralPath $OutputCanary -Algorithm SHA256|Select-Object -ExpandProperty Hash

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "AUTHOR_CODE_V1",
+  "title": "Author repository v1.0 reproduction protocol",
+  "comparison_scope": "repository_implementation",
+  "may_compare_to_reported_83_percent": true,
+  "sources": ["AUTHOR_CODE_V1_0"],
+  "provenance": {
+    "status": "source",
+    "ref": "AUTHOR_CODE_V1_0",
+    "note": "Repository v1.0 settings supplied in the task contract."
+  },
+  "preprocessing": {
+    "transform": "ssqueezepy.ssq_stft",
+    "n_fft": 512,
+    "components": ["real", "imag"],
+    "frequency_bins": 256,
+    "normalization": "min-max each component",
+    "resize": 64
+  },
+  "downstream": {
+    "windows": 15,
+    "overlap": 64,
+    "stage3_epochs": 50
+  },
+  "conflicts": [
+    {
+      "field": "downstream.windows/downstream.overlap",
+      "other_protocol": "PAPER_TEXT_V1",
+      "other_value": "12 windows / overlap 7",
+      "provenance": "source",
+      "resolution": "Do not substitute repository values into the manuscript-text protocol."
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "split_indices",
+      "provenance": "unknown",
+      "reason": "Author v1.0 does not provide split indices."
+    },
+    {
+      "field": "checkpoints",
+      "provenance": "unknown",
+      "reason": "Author v1.0 does not provide checkpoints."
+    }
+  ]
+}

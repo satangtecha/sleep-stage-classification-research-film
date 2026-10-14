@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "artifact_type": "non_retriable_training_attempt_failure_evidence",
+  "status": "failed",
+  "failure_class": "wsl_systemd_instance_reset_before_terminal_lifecycle",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r11-20260830",
+  "seeds": [
+    42,
+    43
+  ],
+  "expected_children": [
+    "paper-text-v1-multiseed-cap128-r11-20260830-split42-model42",
+    "paper-text-v1-multiseed-cap128-r11-20260830-split43-model43"
+  ],
+  "launcher_invoked_exactly_once_at": "2026-08-30T16:15:46.7160402+07:00",
+  "observed_at": "2026-08-30T16:27:30.9477887+07:00",
+  "attempt_consumed": true,
+  "training_started": false,
+  "training_completion_claimed": false,
+  "terminal_validation_passed": false,
+  "retry_resume_relaunch_reuse_prohibited": true,
+  "immutable_launch_bindings": {
+    "canonical_gate_sha256": "6f5a153ee2d8194319ae4f11e120dd3f2a9d1d8b0523ec908f842a5d32ca2b86",
+    "user_confirmation_sha256": "385e838d30bcdc3d60607eb8e94d8372a7453acbb4da1b232b0c79193d167d42",
+    "launcher_sha256": "67f3c5e89d474f0ead17df521f6820758ed90dcf7e262cd9823e02777855d626",
+    "runner_sha256": "cedfaa44545b8934b786455d5b7040edb4d8f48cc9566e50622e08f5fc16e15d",
+    "systemd_supervisor_sha256": "6fbcbc3fbfb0eccf2d4b99f8f3fc7dd3aa9ee376a18d4716a8c2f9e401ec20f5",
+    "windows_lockholder_sha256": "f6014915cf6aedb28cdf8a4ad05f851ff29f161b0e41d6e2f1af7d0e85fa2dd4",
+    "r11_durable_launch_contract_sha256": "a2c2ef135d8d4cdfee10463c3ac3378bf155b6c5fe23d00f1a80b02b9efd10a8",
+    "lean_team_contract_sha256": "8592ab2d823ac73855e41c985674962510d7a4c69237f339f3f512ff7b727716"
+  },
+  "attempt_artifacts": {
+    "dispatch_capability": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r11-20260830.dispatch-capability.json",
+      "sha256": "e5fdaf950af750525bc7680a5cabca6c996310cd63a46bf4fe5ef394bd8969f4",
+      "bytes": 482
+    },
+    "dispatch_marker": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r11-20260830.dispatch.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "created_at": "2026-08-30T16:16:00.0160555+07:00",
+      "lock_was_free_at_observation": true
+    },
+    "attempt_marker": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r11-20260830.launch.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "created_at": "2026-08-30T16:16:03.7553747+07:00",
+      "lock_was_free_at_observation": true
+    },
+    "dispatch_lifecycle": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r11-20260830.dispatch.lifecycle.jsonl",
+      "sha256": "1fbf059d003f6a0a854c01ffae1573b19c8a786d303297fe621f5711511ff1e5",
+      "bytes": 55836,
+      "last_write_at": "2026-08-30T16:16:04.6336351+07:00",
+      "event_sequence": [
+        {
+          "event": "dispatch_created",
+          "timestamp": "2026-08-30T16:16:00.0586254+07:00"
+        },
+        {
+          "event": "systemd_dispatch_requested",
+          "timestamp": "2026-08-30T16:16:01.1804314+07:00"
+        },
+        {
+          "event": "lockholder_handshake_validated",
+          "timestamp": "2026-08-30T16:16:04.6326429+07:00",
+          "lockholder_pid": 54484
+        }
+      ]
+    },
+    "dispatch_record": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r11-20260830.dispatch.json",
+      "sha256": "8e1e4bc0f5fd9027c5a87d91d004baede2dc7390072829af2099a4b79f71d28e",
+      "bytes": 834,
+      "reported_active_state": "active",
+      "reported_main_pid": 527,
+      "systemd_restart": "no",
+      "timestamp": "2026-08-30T16:16:04.5812435+07:00"
+    },
+    "workload_lifecycle": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r11-20260830.lifecycle.jsonl",
+      "sha256": "112da2c6b3b14e2d6268ca99947319b63271a6b3cef871b54876327fd7bdabda",
+      "bytes": 116268,
+      "last_write_at": "2026-08-30T16:16:03.8657098+07:00",
+      "event_sequence": [
+        {
+          "event": "attempt_created",
+          "timestamp": "2026-08-30T16:16:03.7643747+07:00"
+        },
+        {
+          "event": "launch_requested",
+          "timestamp": "2026-08-30T16:16:03.8436206+07:00"
+        },
+        {
+          "event": "stable_locks_ready",
+          "timestamp": "2026-08-30T16:16:03.8646138+07:00",
+          "lockholder_pid": 54484
+        }
+      ],
+      "process_started_event_present": false,
+      "process_exited_event_present": false,
+      "terminal_validated_event_present": false,
+      "terminal_validation_failed_event_present": false
+    },
+    "lockholder_ready": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r11-20260830.lockholder-ready.json",
+      "sha256": "d5a53f4bf2c0414388a421a07b7b6df41f9d15479caf72dcc1676bf67977ab85",
+      "bytes": 235,
+      "lockholder_pid": 54484,
+      "timestamp": "2026-08-30T16:16:03.8536054+07:00"
+    },
+    "stdout": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r11-20260830.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stderr": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r11-20260830.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "systemd_run_stdout": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r11-20260830.systemd-run.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "systemd_run_stderr": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r11-20260830.systemd-run.stderr.log",
+      "sha256": "79691b063e7fbea862d0c5124228e049ee4e86b85c621a62e5bbd2df16428440",
+      "bytes": 1212,
+      "contains_systemd_unit_started_message": true
+    }
+  },
+  "wsl_journal_evidence": {
+    "retrieval_command": "journalctl --no-pager -o short-iso --since '2026-08-30 16:15:00' --until '2026-08-30 16:18:30'",
+    "timeline": [
+      {
+        "timestamp": "2026-08-30T16:15:24+07:00",
+        "event": "wsl_kernel_started"
+      },
+      {
+        "timestamp": "2026-08-30T16:15:44+07:00",
+        "event": "wsl_exception"
+      },
+      {
+        "timestamp": "2026-08-30T16:15:50+07:00",
+        "event": "wsl_kernel_started"
+      },
+      {
+        "timestamp": "2026-08-30T16:16:00+07:00",
+        "event": "r11_systemd_unit_started"
+      },
+      {
+        "timestamp": "2026-08-30T16:16:31+07:00",
+        "event": "wsl_exception"
+      },
+      {
+        "timestamp": "2026-08-30T16:16:58+07:00",
+        "event": "wsl_kernel_started"
+      },
+      {
+        "timestamp": "2026-08-30T16:16:59+07:00",
+        "event": "wsl_exception"
+      },
+      {
+        "timestamp": "2026-08-30T16:17:55+07:00",
+        "event": "wsl_kernel_started_and_exception"
+      }
+    ],
+    "current_unit_observation": {
+      "load_state": "not-found",
+      "active_state": "inactive",
+      "sub_state": "dead",
+      "result_field": "success",
+      "exec_main_status": 0,
+      "interpretation": "The result fields belong to the current WSL systemd instance and are not accepted as workload terminal evidence because the original transient unit and its lifecycle vanished across the instance reset."
+    }
+  },
+  "post_failure_probe": {
+    "timestamp": "2026-08-30T16:25:46.4894225+07:00",
+    "phase": "process_missing",
+    "process_missing": true,
+    "stdout_bytes": 0,
+    "stderr_bytes": 0,
+    "parent_run_directory_exists": false,
+    "child_state": [
+      {
+        "run_id": "paper-text-v1-multiseed-cap128-r11-20260830-split42-model42",
+        "directory_exists": false,
+        "execution_exists": false
+      },
+      {
+        "run_id": "paper-text-v1-multiseed-cap128-r11-20260830-split43-model43",
+        "directory_exists": false,
+        "execution_exists": false
+      }
+    ],
+    "training_gpu_process_present": false
+  },
+  "power_and_hardware_at_failure_evidence_publication": {
+    "timestamp": "2026-08-30T16:27:30.9477887+07:00",
+    "power_online": true,
+    "charging": false,
+    "discharging": false,
+    "critical": false,
+    "estimated_charge_remaining_percent": 100,
+    "battery_status": 2,
+    "gpu_name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "gpu_driver_version": "32.0.16.1047",
+    "gpu_status": "OK"
+  },
+  "root_cause_assessment": {
+    "confirmed": "The r11 transient systemd unit, Windows lockholder, and WSL Python process disappeared after a WSL Exception and before any process-exit or terminal-validation event, runner output, parent run directory, or child namespace was published.",
+    "excluded_by_evidence": [
+      "successful or terminally validated r11 completion",
+      "a recorded TensorFlow, trainer, gradient, or NaN failure",
+      "either child reaching execution.json publication",
+      "an automatic systemd restart of the workload"
+    ],
+    "inference": "The evidence identifies the failure class as a WSL/systemd instance reset. The journal does not identify the lower-level actor that emitted the bare WSL Exception record.",
+    "canary_gap": "The accepted r11 systemd-interop canary exercised only a short survival interval and did not cover the approximately 31-second production failure window plus repeated WSL instance resets.",
+    "required_remediation": "A fresh versioned launcher must be owned by Windows Task Scheduler through the COM API, keep one foreground wsl.exe workload for its full lifetime, preserve exact exit-code and terminal evidence, and pass a 180-to-300-second no-foreground-client canary before a launch gate can be published."
+  },
+  "next_run_constraints": {
+    "minimum_fresh_version": "r12",
+    "new_prefix_required": true,
+    "new_children_required": true,
+    "new_permanent_dispatch_marker_required": true,
+    "new_permanent_attempt_marker_required": true,
+    "new_confirmation_required": true,
+    "new_canonical_gate_required": true,
+    "task_scheduler_com_owner_required": true,
+    "task_restart_count_required": 0,
+    "task_multiple_instances_policy": "IgnoreNew",
+    "long_no_foreground_client_canary_min_seconds": 180,
+    "long_no_foreground_client_canary_max_seconds": 300,
+    "automatic_retry_allowed": false,
+    "automatic_resume_allowed": false,
+    "historical_namespace_reuse_allowed": false
+  }
+}

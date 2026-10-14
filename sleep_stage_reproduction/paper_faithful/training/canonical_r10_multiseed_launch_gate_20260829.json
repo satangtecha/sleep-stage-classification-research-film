@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "fresh_launch_authorized": true,
+  "publication_is_not_launch": true,
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r10-20260829",
+  "seeds": [
+    42,
+    43
+  ],
+  "expected_children": [
+    "paper-text-v1-multiseed-cap128-r10-20260829-split42-model42",
+    "paper-text-v1-multiseed-cap128-r10-20260829-split43-model43"
+  ],
+  "protocol": {
+    "protocol_id": "PAPER_TEXT_V1",
+    "command": "multi-seed-pilot",
+    "cap": 128,
+    "stages": [
+      "stage1",
+      "stage2",
+      "stage3"
+    ],
+    "stage1_batch": 128,
+    "stage2_batch": 128,
+    "stage3_hardware_microbatch": 1,
+    "stage3_effective_batch": 128,
+    "stage3_gradient_accumulation_steps": 128,
+    "stage3_optimizer": "SGD",
+    "stage3_learning_rate": 0.1,
+    "stage3_stability_adaptation_id": "PAPER_TEXT_STAGE3_GLOBAL_NORM_CLIP_V1",
+    "stage3_gradient_clip_norm": 1.0,
+    "stage3_gradient_clip_application_point": "after_effective_batch_average_before_optimizer_step",
+    "single_strict_canonical_cache_load": true,
+    "sequential_children": true,
+    "standalone_verify_run_per_completed_child": true,
+    "halt_before_later_child_on_failure": true,
+    "resume_forbidden": true
+  },
+  "no_reuse": {
+    "forbidden_predecessors": [
+      "paper-text-v1-pilot-cap128-seed42-20260824",
+      "paper-text-v1-pilot-cap128-seed42-r2-20260824",
+      "paper-text-v1-pilot-cap128-seed42-r3-20260825",
+      "paper-text-v1-pilot-cap128-seed42-r4-20260825",
+      "paper-text-v1-pilot-cap128-seed42-r5-20260826",
+      "paper-text-v1-pilot-cap128-seed42-r6-20260826",
+      "paper-text-v1-pilot-cap128-seed42-r7-20260826",
+      "paper-text-v1-pilot-cap128-seed42-r8-20260827",
+      "paper-text-v1-multiseed-cap128-r9-20260828"
+    ],
+    "prior_r8_confirmation_ineligible": true,
+    "prior_r9_confirmation_ineligible": true,
+    "automatic_retry_forbidden": true,
+    "r9_retry_resume_reuse_forbidden": true
+  },
+  "source_sha256": {
+    "launcher_ps1": "76363ba5fff2af2c6fb1a9af57f2f6ab327a2497e61baa688db957a5b2e77726",
+    "runner_sh": "5e90b9410ff6cf76802edac57fc57ed38745d9c9341e7821ec6559201063a98e",
+    "training_init_py": "508254473f607fd6e154bfce0156d8b0cde297c6a77192988af407f7b14c9292",
+    "training_cache_loader_py": "da3a518bd599d58309ebe088948795008c750c88651590b3d9b5b042aaa84041",
+    "cli_py": "ff284c53883a5fc082ba86a6465e2ece300d3f4907e34de77852efd9a9315b50",
+    "training_metrics_py": "4b4ba248b450147f623d9476c11309dae6cf10967bdcc9e06298f7f94d879baa",
+    "training_models_py": "17f37c00a680cf9f1e102fe14256de4b085b187f2dfe74195e89444b3189ef4f",
+    "training_protocols_py": "1c3ba57351cd3d35d56aad81d15cdd6528ad7e0001003ea5b9662b16df141d40",
+    "training_run_manifest_py": "b4af23373fb2273d8b8d768fdb889b39e4a11d177719976dc34262423e6dd91d",
+    "training_splits_py": "f846bc8f969c4b03e5083a092a2f73c95786456ea1db95810fabc110a40163b5",
+    "training_storage_py": "4a7f205b5d4705d5dd2acfd6c7345a4df82512ca26b41028dbff760591ab53f8",
+    "trainer_py": "3cad48aa46d3ec7d3501640980250b5c48d199bd9c19b663b482114e1a12c77f",
+    "verify_run_py": "b0da43b53f736434b037febe17071433b6b779d2d02074db8f17200e38140277",
+    "sst_init_py": "9ccfadc07a64931fbea328a6b69535c18b3fe1a60d818c2488d1afc07d7bd155",
+    "sst_cache_manifest_py": "6bebeb728637108a587fcda7b1ca929d34370179786cc2bc5c26e26ee0efb581",
+    "sst_cache_writer_py": "8a96c780471d1f18c8f423a34d58ea6ead8280ebaed88551f3214b831a84f31c",
+    "sst_cohort_cache_py": "a3144976052a205181fb373b145e942f2c646eb758403bbff0ff19c061a6ff02",
+    "sst_storage_py": "ab144bb725a1cc65e54e04f21043249f01980ff1578c3a84815a6ed48bf30ddd",
+    "sst_transform_py": "c165aea2b212c4e799c25f94a16cab07c7707a8c8013164a75cf6bd60287c98f",
+    "sst_windowing_py": "69242e85197939bbad1809a70c579d70eb3e4f975ed89d6ef436c1b4adb8c2aa",
+    "test_multi_seed_py": "a3eb62650cbdb36803a3c7943be563b14d3c1bb1108b7efe8bb8308ac7d434e6",
+    "probe_pilot_progress_ps1": "771b56a2547208b7846de36a00ce3d98461cded437f287da3a98b5207493e17b",
+    "probe_pilot_process_sh": "76c1f0bf911b8cc57622ebae8b1d28d6879b56ea90b4356fd3afe91926370450",
+    "r10_power_gate_smoke_ps1": "f4d4fa67c644e0db3837d017220ff3b9e708c81173f603d573196f746dc14982",
+    "r10_user_confirmation_gate_smoke_ps1": "fd88effc73bd2e4b01db8883afa7f38ec8b189764aa020a3af5b614939ce9023",
+    "r10_review_binding_smoke_ps1": "42f985375095284b8b7cc0cd1e2edde00f2895125edc12593d8ea9fcecf43fa6",
+    "r10_lifecycle_failure_smoke_ps1": "80f0771cb66c3b75fa5182a7c9e33c6d01c813cfbe3b3ea67def0c46cd1d867a",
+    "r10_probe_progress_smoke_ps1": "475490d699e92ee0193b7e1ee8c1a0597bf2c93a229df8b81f3b6d902281bf2e",
+    "r10_live_power_gate_probe_ps1": "f5ac34dee70c8b4d388da90ea2872a535ff17a9c9bb82a67c858e0fafb5c35a8",
+    "r10_launch_test_evidence_smoke_ps1": "45ba80f7d5ec90adcb57d7dfe94fd8a6a14318b4323e80bc53bc86e314bd3034",
+    "r10_stable_read_lock_smoke_ps1": "d4f3362c6a1f7d09e4a00bc58a91b28d4866461204fc4ce74c796ffe243dec33",
+    "r10_import_closure_smoke_ps1": "fb7cc396ca8eb52040790e5e6f8b14afe368f0cd4adea3e33c1f3857923a7c88",
+    "lean_team_contract_json": "8592ab2d823ac73855e41c985674962510d7a4c69237f339f3f512ff7b727716",
+    "r8_verification_evidence_json": "1224d035e117b39368270ef52358b4c8b64c9bd81558ee88b0a30f1577fe0d17",
+    "multi_seed_implementation_evidence_json": "a53dfd37056fd0ea3ceeee41d25a2d953160411ac15d31df89e418e3b1b7ff97",
+    "r9_failure_evidence_json": "d6b39f398b09b8198007feefd0f1c09b9f78c143d7adbee1568356b3d5863e79",
+    "r10_stability_protocol_json": "295b943ac77145ef06cda25c76ab3113045204f8729ead6a909ef382082004b2",
+    "r10_stability_implementation_evidence_json": "6e7250312834d66e0a0f92223b4648b8e3c96b291b0897963adf063cf391e2ba",
+    "source_manifest_json": "578fd3afec29e3d8ecdf9d142b8841e94d3b939624ca019f9d0701c94f544b50",
+    "environment_manifest_json": "5194d573abd019444f073fec3252125f290d70f44315627070abd5dac1084a79"
+  },
+  "source_and_environment": {
+    "source_manifest": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\manifests\\source_manifest.json",
+    "source_manifest_sha256": "578fd3afec29e3d8ecdf9d142b8841e94d3b939624ca019f9d0701c94f544b50",
+    "environment_manifest": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\environment\\results\\wsl_tf24_probe.json",
+    "environment_manifest_sha256": "5194d573abd019444f073fec3252125f290d70f44315627070abd5dac1084a79",
+    "locked_tf24_python": "/home/techatat/.local/share/sleep-stage-paper/envs/tf24/bin/python"
+  },
+  "cache_gate": {
+    "manifest": "E:\\blp\\sleep_stage_reproduction\\sst_cache\\paper_faithful_v3_full_20260820\\sst_full_cohort_run_manifest.json",
+    "sha256": "a4512970c6023cd1dc727cad40c2352126fea46356b78bb6782055f9d0ce7ed2",
+    "validator_v2_log": "E:\\blp\\sleep_stage_reproduction\\runtime\\integrity-logs\\full-cache-validation-v2.stdout.log",
+    "validator_v2_log_sha256": "8c52cc004fb134354d87a133d4bb85a0160563f65e361065fc2560256f517e07",
+    "validator_v2_status": "valid",
+    "epochs": 194655,
+    "route_epoch_entries": 583965
+  },
+  "launch_test_evidence": {
+    "local_path": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\r10_launch_gate_test_evidence_20260829_v1.json",
+    "canonical_path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r10-launch-gate-test-evidence-20260829-v1.json",
+    "sha256": "652d52755bb343af267a2de9268446a615284929f6c47823fb493b4768337a44",
+    "byte_identical": true,
+    "validated_by_windows_powershell_5_1": true,
+    "status": "pass",
+    "pilot_launched": false
+  },
+  "prior_verified_run": {
+    "run_id": "paper-text-v1-pilot-cap128-seed42-r8-20260827",
+    "verification_evidence": "E:\\blp\\sleep_stage_reproduction\\runtime\\verification\\r8-verification-evidence-20260828.json",
+    "verification_evidence_sha256": "1224d035e117b39368270ef52358b4c8b64c9bd81558ee88b0a30f1577fe0d17",
+    "status": "verified"
+  },
+  "multi_seed_implementation": {
+    "evidence": "E:\\blp\\sleep_stage_reproduction\\runtime\\verification\\multi-seed-pilot-implementation-test-evidence-20260828.json",
+    "evidence_sha256": "a53dfd37056fd0ea3ceeee41d25a2d953160411ac15d31df89e418e3b1b7ff97",
+    "status": "pass"
+  },
+  "predecessor_failure": {
+    "run_id_prefix": "paper-text-v1-multiseed-cap128-r9-20260828",
+    "local_evidence": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\r9_failure_evidence_20260829.json",
+    "canonical_evidence": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r9-failure-evidence-20260829.json",
+    "evidence_sha256": "d6b39f398b09b8198007feefd0f1c09b9f78c143d7adbee1568356b3d5863e79",
+    "child42_standalone_verified": true,
+    "child43_stage3_failed_nonfinite_gradient": true,
+    "terminal_validated": false,
+    "retry_resume_reuse_forbidden": true
+  },
+  "stability_recovery": {
+    "pre_registration_local": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\r10_stage3_stability_protocol_20260829.json",
+    "pre_registration_canonical": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r10-stage3-stability-protocol-20260829.json",
+    "pre_registration_sha256": "295b943ac77145ef06cda25c76ab3113045204f8729ead6a909ef382082004b2",
+    "implementation_evidence_local": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\r10_stability_implementation_evidence_20260829.json",
+    "implementation_evidence_canonical": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r10-stability-implementation-evidence-20260829.json",
+    "implementation_evidence_sha256": "6e7250312834d66e0a0f92223b4648b8e3c96b291b0897963adf063cf391e2ba",
+    "status": "pass",
+    "automatic_tuning": false,
+    "test_metrics_used_for_tuning": false
+  },
+  "storage_gate": {
+    "bulk_root": "E:\\blp\\sleep_stage_reproduction",
+    "c_minimum_gib": 10,
+    "e_minimum_gib": 50,
+    "c_observed_free_gib": 18.376,
+    "e_observed_free_gib": 370.819,
+    "status": "pass",
+    "recheck_immediately_before_launch": true
+  },
+  "gpu_gate": {
+    "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "driver_version": "32.0.16.1047",
+    "nvidia_version": "610.47",
+    "status": "OK",
+    "recheck_immediately_before_launch": true
+  },
+  "power_gate": {
+    "observed_at": "2026-08-29T21:12:41.8574725+07:00",
+    "active": true,
+    "power_online": true,
+    "critical": false,
+    "charging": false,
+    "discharging": false,
+    "win32_battery_status": 2,
+    "estimated_charge_remaining": 100,
+    "status": "pass_current_online",
+    "recheck_after_attempt_marker_immediately_before_launch": true
+  },
+  "exactly_once_gate": {
+    "attempt_marker": "E:\\blp\\sleep_stage_reproduction\\runtime\\training-logs\\paper-text-v1-multiseed-cap128-r10-20260829.launch.lock",
+    "file_mode": "CreateNew",
+    "file_share": "None",
+    "static_collisions_checked_before_marker": true,
+    "single_and_multi_seed_process_collisions_refused": true,
+    "append_only_lifecycle_required_after_marker": true,
+    "attempt_count": 0,
+    "attempt_marker_absent": true,
+    "child_run_directories_absent": true
+  },
+  "explicit_user_confirmation": {
+    "required": true,
+    "canonical_path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r10-explicit-user-launch-confirmation-20260829.json",
+    "source_thread_id": "01a014bc-7bc1-7590-bd2b-029c8a84285b",
+    "must_bind_exact_prefix_seeds_children_gate_launcher_runner_contract_and_message_digest": true,
+    "must_accept_permanent_marker_and_no_retry_semantics": true,
+    "prior_r8_and_r9_confirmations_ineligible": true,
+    "artifact_currently_absent": true,
+    "confirmation_is_not_launch": true
+  },
+  "reviewer_bindings": {
+    "implementation_review": {
+      "review_id": "r10-stability-implementation-closure-20260829",
+      "agent_id": "01a04dc0-b28a-7321-9728-cf206788d6a9",
+      "role": "implementation_reviewer",
+      "status": "no_material_finding",
+      "run_id_prefix": "paper-text-v1-multiseed-cap128-r10-20260829",
+      "reviewed_source_sha256": {
+        "launcher_ps1": "76363ba5fff2af2c6fb1a9af57f2f6ab327a2497e61baa688db957a5b2e77726",
+        "runner_sh": "5e90b9410ff6cf76802edac57fc57ed38745d9c9341e7821ec6559201063a98e",
+        "lean_team_contract_json": "8592ab2d823ac73855e41c985674962510d7a4c69237f339f3f512ff7b727716"
+      },
+      "all_findings_closed": true,
+      "multi_seed_implementation_reviewed": true,
+      "stage3_stability_implementation_reviewed": true,
+      "two_child_contract_reviewed": true,
+      "launch_authorized": false
+    },
+    "launch_gate_review": {
+      "review_id": "r10-final-launch-gate-review-20260829-v1",
+      "agent_id": "01a04dde-caa9-7cf2-9368-3edfdffe93f1",
+      "role": "launch_gate_reviewer",
+      "status": "no_material_finding",
+      "run_id_prefix": "paper-text-v1-multiseed-cap128-r10-20260829",
+      "reviewed_source_sha256": {
+        "launcher_ps1": "76363ba5fff2af2c6fb1a9af57f2f6ab327a2497e61baa688db957a5b2e77726",
+        "runner_sh": "5e90b9410ff6cf76802edac57fc57ed38745d9c9341e7821ec6559201063a98e",
+        "lean_team_contract_json": "8592ab2d823ac73855e41c985674962510d7a4c69237f339f3f512ff7b727716"
+      },
+      "all_findings_closed": true,
+      "exactly_once_launch_gate_reviewed": true,
+      "lifecycle_failure_evidence_reviewed": true,
+      "fresh_launch_authorized": true,
+      "launch_test_evidence_sha256": "652d52755bb343af267a2de9268446a615284929f6c47823fb493b4768337a44",
+      "reviewed_gate_draft_sha256": "b4f3490dedab1be830e62f07eca2e9c4ce3570dcbfaf1bbb78cb8c2c0c86bc83"
+    }
+  },
+  "canonical_publication": {
+    "target": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\canonical-r10-multiseed-launch-gate-20260829.json",
+    "published": true,
+    "requires_distinct_final_reviewer": true,
+    "mechanical_finalization_only_after_no_material_finding": true
+  }
+}

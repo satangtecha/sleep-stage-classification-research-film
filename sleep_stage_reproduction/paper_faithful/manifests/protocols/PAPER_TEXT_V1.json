@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "protocol_id": "PAPER_TEXT_V1",
+  "title": "Manuscript-text reproduction protocol",
+  "comparison_scope": "epoch_random_split",
+  "may_compare_to_reported_83_percent": true,
+  "sources": ["PAPER_NATURE_2026", "PHYSIONET_SLEEP_EDFX_1_0_0"],
+  "provenance": {
+    "status": "source",
+    "ref": "PAPER_NATURE_2026",
+    "note": "Values transcribed from the primary manuscript; raw-data identity is anchored to the official PhysioNet release."
+  },
+  "dataset": {
+    "recordings": 153,
+    "subjects": 78,
+    "epochs": 194655,
+    "signal": "Fpz-Cz",
+    "sampling_hz": 100,
+    "labels": ["W", "N1", "N2", "N3", "REM"]
+  },
+  "split": {
+    "unit": "epoch",
+    "method": "random",
+    "train_fraction": 0.8,
+    "validation_fraction": 0.1,
+    "test_fraction": 0.1,
+    "seed": 42
+  },
+  "model": {
+    "pretraining_windows": 12,
+    "width": 256,
+    "overlap": 7,
+    "stage3_windows": 15,
+    "stage3_overlap": 64,
+    "stage3_overlap_provenance": "inferred from AUTHOR_CODE_V1 because the manuscript states 15 overlapping Stage-3 segments but does not state their overlap",
+    "stages": [20, 20, 20]
+  },
+  "conflicts": [
+    {
+      "field": "model.pretraining_windows/model.overlap",
+      "other_protocol": "AUTHOR_CODE_V1",
+      "other_value": "15 windows / overlap 64",
+      "provenance": "source",
+      "resolution": "Keep manuscript and author-code configurations as separate, named protocols."
+    },
+    {
+      "field": "model.pretraining_windows/model.stage3_windows",
+      "other_protocol": "AUTHOR_CODE_V1",
+      "other_value": "12 pretraining windows / 15 Stage-3 segments",
+      "provenance": "source",
+      "resolution": "Use 12 only for Stage-1/2 window derivation and 15 for Stage-3 sequence input; use overlap 64 as an explicitly labelled author-code inference."
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "model.stage3_overlap",
+      "provenance": "unknown",
+      "reason": "The manuscript states 15 overlapping Stage-3 segments but does not give the overlap value; 64 is inherited from released code."
+    }
+  ]
+}

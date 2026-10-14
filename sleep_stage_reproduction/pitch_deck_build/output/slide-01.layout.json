@@ -1,0 +1,1480 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/pyi5t9",
+    "id": "pyi5t9",
+    "slide": 1,
+    "layoutId": "59f81a3d-e752-432f-87a4-55a96b102064",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "7f78abe5-4888-49a1-bcaf-2cbafea630b4",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#0B1220",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "59f81a3d-e752-432f-87a4-55a96b102064",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "7f78abe5-4888-49a1-bcaf-2cbafea630b4",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "7f78abe5-4888-49a1-bcaf-2cbafea630b4",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/43ahor2t",
+      "id": "1",
+      "bbox": [
+        76,
+        64,
+        300,
+        24
+      ],
+      "geometry": "rect",
+      "text": "RESEARCH IDEA",
+      "textPreview": "RESEARCH IDEA",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#38BDF8",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "RESEARCH IDEA"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "RESEARCH IDEA",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#38BDF8",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "RESEARCH IDEA",
+              "fontSize": 16,
+              "color": "#38BDF8",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3210vm18",
+      "id": "2",
+      "bbox": [
+        76,
+        104,
+        84,
+        4
+      ],
+      "geometry": "rect",
+      "fillColor": "#38BDF8",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/i1szmhkn",
+      "id": "3",
+      "bbox": [
+        76,
+        150,
+        630,
+        150
+      ],
+      "geometry": "rect",
+      "text": "Can one EEG channel\nclassify sleep stages?",
+      "textPreview": "Can one EEG channel | classify sleep stages?",
+      "resolvedFontSize": 50,
+      "resolvedTextStyle": {
+        "fontSize": 50,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Can one EEG channel"
+          },
+          {
+            "index": 2,
+            "text": "classify sleep stages?"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Can one EEG channel",
+          "resolvedTextStyle": {
+            "fontSize": 50,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Can one EEG channel",
+              "fontSize": 50,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "classify sleep stages?",
+          "resolvedTextStyle": {
+            "fontSize": 50,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "classify sleep stages?",
+              "fontSize": 50,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h0jitwj2",
+      "id": "4",
+      "bbox": [
+        80,
+        340,
+        520,
+        68
+      ],
+      "geometry": "rect",
+      "text": "A reproducible deep-learning pipeline for\nautomatic sleep staging",
+      "textPreview": "A reproducible deep-learning pipeline for | automatic sleep staging",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "color": "#D6E5F5",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "A reproducible deep-learning pipeline for"
+          },
+          {
+            "index": 2,
+            "text": "automatic sleep staging"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "A reproducible deep-learning pipeline for",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "color": "#D6E5F5",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "A reproducible deep-learning pipeline for",
+              "fontSize": 24,
+              "color": "#D6E5F5",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "automatic sleep staging",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "color": "#D6E5F5",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "automatic sleep staging",
+              "fontSize": 24,
+              "color": "#D6E5F5",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gzahkr2h",
+      "id": "5",
+      "bbox": [
+        80,
+        470,
+        230,
+        22
+      ],
+      "geometry": "rect",
+      "text": "SINGLE-CHANNEL EEG",
+      "textPreview": "SINGLE-CHANNEL EEG",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#24C6D9",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "SINGLE-CHANNEL EEG"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "SINGLE-CHANNEL EEG",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#24C6D9",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "SINGLE-CHANNEL EEG",
+              "fontSize": 16,
+              "color": "#24C6D9",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vy10rm1c",
+      "id": "6",
+      "bbox": [
+        330,
+        470,
+        220,
+        22
+      ],
+      "geometry": "rect",
+      "text": "5 SLEEP STAGES",
+      "textPreview": "5 SLEEP STAGES",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#2DB7A3",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "5 SLEEP STAGES"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "5 SLEEP STAGES",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#2DB7A3",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "5 SLEEP STAGES",
+              "fontSize": 16,
+              "color": "#2DB7A3",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ux8zihkr",
+      "id": "7",
+      "bbox": [
+        80,
+        510,
+        260,
+        22
+      ],
+      "geometry": "rect",
+      "text": "30-SECOND EPOCHS",
+      "textPreview": "30-SECOND EPOCHS",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#F3B545",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "30-SECOND EPOCHS"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "30-SECOND EPOCHS",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#F3B545",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "30-SECOND EPOCHS",
+              "fontSize": 16,
+              "color": "#F3B545",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1w3i5gjm",
+      "id": "8",
+      "bbox": [
+        80,
+        582,
+        520,
+        48
+      ],
+      "geometry": "rect",
+      "text": "A simpler input, a transparent evaluation,\nand a research-ready prototype.",
+      "textPreview": "A simpler input, a transparent evaluation, | and a research-ready prototype.",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "fontSize": 19,
+        "typeface": "+mn-lt",
+        "color": "#AFC4DB",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "A simpler input, a transparent evaluation,"
+          },
+          {
+            "index": 2,
+            "text": "and a research-ready prototype."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "A simpler input, a transparent evaluation,",
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "color": "#AFC4DB",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "A simpler input, a transparent evaluation,",
+              "fontSize": 19,
+              "color": "#AFC4DB",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "and a research-ready prototype.",
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "color": "#AFC4DB",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "and a research-ready prototype.",
+              "fontSize": 19,
+              "color": "#AFC4DB",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0vu1wbi1",
+      "id": "9",
+      "bbox": [
+        760,
+        96,
+        420,
+        500
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#14233A",
+      "lineColor": "#2D4865",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/el8zqtsj",
+      "id": "10",
+      "bbox": [
+        800,
+        130,
+        300,
+        22
+      ],
+      "geometry": "rect",
+      "text": "FROM ONE SIGNAL",
+      "textPreview": "FROM ONE SIGNAL",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#AFC4DB",
+        "bold": true,
+        "alignment": "center",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "FROM ONE SIGNAL"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "FROM ONE SIGNAL",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#AFC4DB",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "FROM ONE SIGNAL",
+              "fontSize": 16,
+              "color": "#AFC4DB",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zmhgzy94",
+      "id": "11",
+      "bbox": [
+        900,
+        218,
+        140,
+        140
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#38BDF8",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0nqhs3ap",
+      "id": "12",
+      "bbox": [
+        900,
+        260,
+        140,
+        28
+      ],
+      "geometry": "rect",
+      "text": "EEG",
+      "textPreview": "EEG",
+      "resolvedFontSize": 27,
+      "resolvedTextStyle": {
+        "fontSize": 27,
+        "typeface": "+mn-lt",
+        "color": "#0B1220",
+        "bold": true,
+        "alignment": "center",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "EEG"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "EEG",
+          "resolvedTextStyle": {
+            "fontSize": 27,
+            "color": "#0B1220",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "EEG",
+              "fontSize": 27,
+              "color": "#0B1220",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1ozi18ra",
+      "id": "13",
+      "bbox": [
+        900,
+        297,
+        140,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Fpz-Cz",
+      "textPreview": "Fpz-Cz",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "+mn-lt",
+        "color": "#0B1220",
+        "alignment": "center",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Fpz-Cz"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Fpz-Cz",
+          "resolvedTextStyle": {
+            "fontSize": 17,
+            "color": "#0B1220",
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Fpz-Cz",
+              "fontSize": 17,
+              "color": "#0B1220",
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qxozmtsn",
+      "id": "14",
+      "bbox": [
+        1035,
+        399,
+        72,
+        22
+      ],
+      "geometry": "rightArrow",
+      "fillColor": "#38BDF8",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ryxgve98",
+      "id": "15",
+      "bbox": [
+        1035,
+        439,
+        72,
+        22
+      ],
+      "geometry": "rightArrow",
+      "fillColor": "#8A7CF4",
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/czqhojat",
+      "id": "16",
+      "bbox": [
+        1035,
+        479,
+        72,
+        22
+      ],
+      "geometry": "rightArrow",
+      "fillColor": "#24C6D9",
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dkzyxory",
+      "id": "17",
+      "bbox": [
+        1035,
+        519,
+        72,
+        22
+      ],
+      "geometry": "rightArrow",
+      "fillColor": "#2DB7A3",
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/atszydsr",
+      "id": "18",
+      "bbox": [
+        1035,
+        559,
+        72,
+        22
+      ],
+      "geometry": "rightArrow",
+      "fillColor": "#F3B545",
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bu107i9c",
+      "id": "19",
+      "bbox": [
+        1110,
+        398,
+        54,
+        30
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#38BDF8",
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7ytwjapo",
+      "id": "20",
+      "bbox": [
+        1110,
+        406,
+        54,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Wake",
+      "textPreview": "Wake",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "center",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Wake"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Wake",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Wake",
+              "fontSize": 14,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6xkvq583",
+      "id": "21",
+      "bbox": [
+        1110,
+        438,
+        54,
+        30
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#8A7CF4",
+      "lineWidth": 0
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/t0velk7u",
+      "id": "22",
+      "bbox": [
+        1110,
+        446,
+        54,
+        18
+      ],
+      "geometry": "rect",
+      "text": "N1",
+      "textPreview": "N1",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "center",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "N1"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "N1",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "N1",
+              "fontSize": 14,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8zmdsfq9",
+      "id": "23",
+      "bbox": [
+        1110,
+        478,
+        54,
+        30
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#24C6D9",
+      "lineWidth": 0
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/v2dwnup0",
+      "id": "24",
+      "bbox": [
+        1110,
+        486,
+        54,
+        18
+      ],
+      "geometry": "rect",
+      "text": "N2",
+      "textPreview": "N2",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "center",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "N2"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "N2",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "N2",
+              "fontSize": 14,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u14fup8f",
+      "id": "25",
+      "bbox": [
+        1110,
+        518,
+        54,
+        30
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#2DB7A3",
+      "lineWidth": 0
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h4vepk7q",
+      "id": "26",
+      "bbox": [
+        1110,
+        526,
+        54,
+        18
+      ],
+      "geometry": "rect",
+      "text": "N3",
+      "textPreview": "N3",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "center",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "N3"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "N3",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "N3",
+              "fontSize": 14,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/g3mxwfql",
+      "id": "27",
+      "bbox": [
+        1110,
+        558,
+        54,
+        30
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#F3B545",
+      "lineWidth": 0
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3qdwrupw",
+      "id": "28",
+      "bbox": [
+        1110,
+        566,
+        54,
+        18
+      ],
+      "geometry": "rect",
+      "text": "REM",
+      "textPreview": "REM",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "center",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "REM"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "REM",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "REM",
+              "fontSize": 14,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/i54fyp8b",
+      "id": "29",
+      "bbox": [
+        845,
+        380,
+        250,
+        22
+      ],
+      "geometry": "rect",
+      "text": "one 30-second epoch",
+      "textPreview": "one 30-second epoch",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "+mn-lt",
+        "color": "#D6E5F5",
+        "alignment": "center",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "one 30-second epoch"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "one 30-second epoch",
+          "resolvedTextStyle": {
+            "fontSize": 17,
+            "color": "#D6E5F5",
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "one 30-second epoch",
+              "fontSize": 17,
+              "color": "#D6E5F5",
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 30,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0v6doz6p",
+      "id": "30",
+      "bbox": [
+        70,
+        680,
+        1140,
+        1
+      ],
+      "geometry": "rect",
+      "fillColor": "#314A66",
+      "lineWidth": 0
+    },
+    {
+      "order": 31,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1wfeh4na",
+      "id": "31",
+      "bbox": [
+        70,
+        690,
+        980,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Concept inspired by recent single-channel EEG sleep-staging research",
+      "textPreview": "Concept inspired by recent single-channel EEG sleep-staging research",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "fontSize": 13,
+        "typeface": "+mn-lt",
+        "color": "#A9BCD2",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Concept inspired by recent single-channel EEG sleep-staging research"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Concept inspired by recent single-channel EEG sleep-staging research",
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "color": "#A9BCD2",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Concept inspired by recent single-channel EEG sleep-staging research",
+              "fontSize": 13,
+              "color": "#A9BCD2",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 32,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/etovmpoj",
+      "id": "32",
+      "bbox": [
+        1110,
+        690,
+        100,
+        18
+      ],
+      "geometry": "rect",
+      "text": "01 / 04",
+      "textPreview": "01 / 04",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "fontSize": 13,
+        "typeface": "+mn-lt",
+        "color": "#A9BCD2",
+        "bold": true,
+        "alignment": "right",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "01 / 04"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "01 / 04",
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "color": "#A9BCD2",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "01 / 04",
+              "fontSize": 13,
+              "color": "#A9BCD2",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

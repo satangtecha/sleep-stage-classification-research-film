@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "environment_id": "WSL2_TF24_REFERENCE_V1",
+  "purpose": "Run the author v1.0 TensorFlow model in an isolated legacy environment without changing the Windows project environment.",
+  "host_probe": {
+    "operating_system": "Windows with Ubuntu 24.04 under WSL2",
+    "cpu": "Intel Core i5-13420H",
+    "ram_gib_windows_approx": 16,
+    "ram_gib_wsl_visible_approx": 7.6,
+    "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "driver": "546.18",
+    "gpu_visible_in_wsl": true
+  },
+  "reference_stack": {
+    "python": "3.7.12",
+    "pip": "20.3.4",
+    "tensorflow_gpu": "2.4.0",
+    "tensorflow_addons": "0.12.0",
+    "cuda_toolkit": "11.0.3",
+    "cudnn": "8.0.5.39",
+    "numpy": "1.19.5",
+    "h5py": "2.10.0",
+    "protobuf": "3.20.3",
+    "transitive_lock": "requirements-resolved.txt"
+  },
+  "isolation": {
+    "manager": "micromamba 2.9.0",
+    "prefix": "/home/techatat/.local/share/sleep-stage-paper/envs/tf24",
+    "mutates_windows_environment": false
+  },
+  "unresolved_dependencies": [
+    {
+      "name": "ssqueezepy",
+      "status": "unknown",
+      "reason": "The author requirements file does not pin a version; selecting one silently could change the SST representation. It is deferred to the Phase-2 preprocessing lock."
+    }
+  ],
+  "runtime_notes": [
+    "The authoritative WSL distribution identity comes from /etc/os-release (Ubuntu 24.04). Python 3.7 platform.platform() reports a Debian trixie/sid compatibility suffix because /etc/debian_version contains trixie/sid; the probe labels this as non-authoritative compatibility metadata.",
+    "WSL2 reports a missing NUMA-node sysfs entry; TensorFlow defaults the GPU to NUMA node 0 and the smoke test passes.",
+    "The environment has CUDA runtime libraries but no ptxas compiler, so TensorFlow 2.4 falls back to NVIDIA driver PTX JIT; first-process startup is slow but execution passes.",
+    "The successful synthetic smoke batch uses batch size 2 and does not establish that the paper batch size 128 fits in 6 GB VRAM."
+  ],
+  "comparison_guard": "Passing this environment smoke test establishes executable compatibility only; it does not reproduce the reported 83 percent result."
+}

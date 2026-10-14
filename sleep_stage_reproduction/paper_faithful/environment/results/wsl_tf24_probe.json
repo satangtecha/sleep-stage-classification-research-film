@@ -1,0 +1,283 @@
+{
+  "conda_packages": [
+    {
+      "build": "20_gnu",
+      "channel": "conda-forge",
+      "name": "_openmp_mutex",
+      "version": "4.5"
+    },
+    {
+      "build": "hbd8a1cb_0",
+      "channel": "conda-forge",
+      "name": "ca-certificates",
+      "version": "2026.7.22"
+    },
+    {
+      "build": "h7761cd4_13",
+      "channel": "conda-forge",
+      "name": "cudatoolkit",
+      "version": "11.0.3"
+    },
+    {
+      "build": "ha5ca753_1",
+      "channel": "conda-forge",
+      "name": "cudnn",
+      "version": "8.0.5.39"
+    },
+    {
+      "build": "py310h44b86e0_2",
+      "channel": "conda-forge",
+      "name": "icu",
+      "version": "78.3"
+    },
+    {
+      "build": "default_hbd61a6d_102",
+      "channel": "conda-forge",
+      "name": "ld_impl_linux-64",
+      "version": "2.46.1"
+    },
+    {
+      "build": "h2dba641_1",
+      "channel": "conda-forge",
+      "name": "libffi",
+      "version": "3.4.6"
+    },
+    {
+      "build": "ha9f2e26_1",
+      "channel": "conda-forge",
+      "name": "libgcc",
+      "version": "16.1.0"
+    },
+    {
+      "build": "h69a702a_1",
+      "channel": "conda-forge",
+      "name": "libgcc-ng",
+      "version": "16.1.0"
+    },
+    {
+      "build": "he0feb66_1",
+      "channel": "conda-forge",
+      "name": "libgomp",
+      "version": "16.1.0"
+    },
+    {
+      "build": "hb03c661_1",
+      "channel": "conda-forge",
+      "name": "liblzma",
+      "version": "5.8.3"
+    },
+    {
+      "build": "hb03c661_1",
+      "channel": "conda-forge",
+      "name": "liblzma-devel",
+      "version": "5.8.3"
+    },
+    {
+      "build": "hb9d3cd8_1",
+      "channel": "conda-forge",
+      "name": "libnsl",
+      "version": "2.0.1"
+    },
+    {
+      "build": "h13e7031_1",
+      "channel": "conda-forge",
+      "name": "libsqlite",
+      "version": "3.53.4"
+    },
+    {
+      "build": "h934c35e_1",
+      "channel": "conda-forge",
+      "name": "libstdcxx",
+      "version": "16.1.0"
+    },
+    {
+      "build": "hdf11a46_1",
+      "channel": "conda-forge",
+      "name": "libstdcxx-ng",
+      "version": "16.1.0"
+    },
+    {
+      "build": "h25fd6f3_3",
+      "channel": "conda-forge",
+      "name": "libzlib",
+      "version": "1.3.2"
+    },
+    {
+      "build": "hdb14827_1",
+      "channel": "conda-forge",
+      "name": "ncurses",
+      "version": "6.6"
+    },
+    {
+      "build": "h35e630c_1",
+      "channel": "conda-forge",
+      "name": "openssl",
+      "version": "3.6.3"
+    },
+    {
+      "build": "pyhd8ed1ab_0",
+      "channel": "conda-forge",
+      "name": "pip",
+      "version": "20.3.4"
+    },
+    {
+      "build": "hf930737_100_cpython",
+      "channel": "conda-forge",
+      "name": "python",
+      "version": "3.7.12"
+    },
+    {
+      "build": "hd6e31c0_1",
+      "channel": "conda-forge",
+      "name": "readline",
+      "version": "8.3"
+    },
+    {
+      "build": "pyhd8ed1ab_0",
+      "channel": "conda-forge",
+      "name": "setuptools",
+      "version": "69.0.3"
+    },
+    {
+      "build": "h9ffa6c4_1",
+      "channel": "conda-forge",
+      "name": "sqlite",
+      "version": "3.53.4"
+    },
+    {
+      "build": "noxft_hd70dff1_3",
+      "channel": "conda-forge",
+      "name": "tk",
+      "version": "8.6.13"
+    },
+    {
+      "build": "pyhd8ed1ab_0",
+      "channel": "conda-forge",
+      "name": "wheel",
+      "version": "0.42.0"
+    },
+    {
+      "build": "ha02ee65_1",
+      "channel": "conda-forge",
+      "name": "xz",
+      "version": "5.8.3"
+    },
+    {
+      "build": "ha02ee65_1",
+      "channel": "conda-forge",
+      "name": "xz-gpl-tools",
+      "version": "5.8.3"
+    },
+    {
+      "build": "hb03c661_1",
+      "channel": "conda-forge",
+      "name": "xz-tools",
+      "version": "5.8.3"
+    },
+    {
+      "build": "hb78ec9c_7",
+      "channel": "conda-forge",
+      "name": "zstd",
+      "version": "1.5.7"
+    }
+  ],
+  "cpu_count": 12,
+  "debian_compatibility_version": "trixie/sid",
+  "kernel": {
+    "machine": "x86_64",
+    "release": "6.6.87.2-microsoft-standard-WSL2",
+    "system": "Linux",
+    "version": "#1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025"
+  },
+  "legacy_platform_interpretation": "Python 3.7 platform.platform() derives its distro suffix from /etc/debian_version on this system. It is retained as compatibility metadata, not as the authoritative WSL distribution identity.",
+  "legacy_python37_platform_string": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-debian-trixie-sid",
+  "machine": "x86_64",
+  "memory": {
+    "MemAvailable_kib": 7429900,
+    "MemTotal_kib": 7980244,
+    "SwapTotal_kib": 2097152
+  },
+  "nvidia_smi": "NVIDIA GeForce RTX 3050 6GB Laptop GPU, 6144 MiB, 546.18",
+  "os_identity_source": "/etc/os-release",
+  "os_release": {
+    "BUG_REPORT_URL": "https://bugs.launchpad.net/ubuntu/",
+    "HOME_URL": "https://www.ubuntu.com/",
+    "ID": "ubuntu",
+    "ID_LIKE": "debian",
+    "LOGO": "ubuntu-logo",
+    "NAME": "Ubuntu",
+    "PRETTY_NAME": "Ubuntu 24.04.4 LTS",
+    "PRIVACY_POLICY_URL": "https://www.ubuntu.com/legal/terms-and-policies/privacy-policy",
+    "SUPPORT_URL": "https://help.ubuntu.com/",
+    "UBUNTU_CODENAME": "noble",
+    "VERSION": "24.04.4 LTS (Noble Numbat)",
+    "VERSION_CODENAME": "noble",
+    "VERSION_ID": "24.04"
+  },
+  "pip_freeze": [
+    "absl-py==0.15.0",
+    "astunparse==1.6.3",
+    "cachetools==5.5.2",
+    "certifi==2026.7.22",
+    "charset-normalizer==3.5.1",
+    "flatbuffers==1.12",
+    "gast==0.3.3",
+    "google-auth==2.45.0",
+    "google-auth-oauthlib==0.4.6",
+    "google-pasta==0.2.0",
+    "grpcio==1.32.0",
+    "h5py==2.10.0",
+    "idna==3.10",
+    "importlib-metadata==6.7.0",
+    "Keras-Preprocessing==1.1.2",
+    "Markdown==3.4.4",
+    "MarkupSafe==2.1.5",
+    "numpy==1.19.5",
+    "oauthlib==3.2.2",
+    "opt-einsum==3.3.0",
+    "protobuf==3.20.3",
+    "pyasn1==0.5.1",
+    "pyasn1-modules==0.3.0",
+    "requests==2.31.0",
+    "requests-oauthlib==2.0.0",
+    "rsa==4.9.1",
+    "six==1.15.0",
+    "tensorboard==2.11.2",
+    "tensorboard-data-server==0.6.1",
+    "tensorboard-plugin-wit==1.8.1",
+    "tensorflow-addons==0.12.0",
+    "tensorflow-estimator==2.4.0",
+    "tensorflow-gpu==2.4.0",
+    "termcolor==1.1.0",
+    "typeguard==2.13.3",
+    "typing-extensions==3.7.4.3",
+    "urllib3==2.0.7",
+    "Werkzeug==2.2.3",
+    "wrapt==1.12.1",
+    "zipp==3.15.0"
+  ],
+  "processor": "x86_64",
+  "python": "3.7.12 | packaged by conda-forge | (default, Oct 26 2021, 06:08:21) \n[GCC 9.4.0]",
+  "python_executable": "/home/techatat/.local/share/sleep-stage-paper/envs/tf24/bin/python",
+  "tensorflow": "2.4.0",
+  "tensorflow_addons": "0.12.0",
+  "tensorflow_build_info": {
+    "cpu_compiler": "/usr/bin/gcc-5",
+    "cuda_compute_capabilities": [
+      "sm_35",
+      "sm_50",
+      "sm_60",
+      "sm_70",
+      "sm_75",
+      "compute_80"
+    ],
+    "cuda_version": "11.0",
+    "cudnn_version": "8",
+    "is_cuda_build": true,
+    "is_rocm_build": false
+  },
+  "tensorflow_built_with_cuda": true,
+  "tensorflow_gpu_devices": [
+    "/physical_device:GPU:0"
+  ]
+}

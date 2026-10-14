@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "objective": "Produce a reproducible and evidence-backed next-stage study plan for Sleep-EDF sleep-stage classification, covering subject-independent evaluation, REM/N1 imbalance handling, baselines, and final reporting without claiming exact replication of the reference paper.",
+  "scope": "medium",
+  "risk": "medium",
+  "phase": "planning",
+  "userApproval": "pending",
+  "maxConcurrentAgents": 2,
+  "deliverables": [
+    "A bounded work plan with phases, ownership, dependencies, and stop/acceptance criteria",
+    "A proposed subject-independent evaluation protocol using the existing 6-subject Sleep-EDF subset",
+    "A proposed REM/N1 imbalance experiment matrix with metrics and decision rules",
+    "A final verification and reporting checklist linked to the current project artifacts"
+  ],
+  "nonGoals": [
+    "Do not claim exact weight-level replication of the 2026 reference paper",
+    "Do not download a large external dataset or publish results during the planning phase",
+    "Do not change implementation files or start long-running experiments before explicit approval",
+    "Do not select a final imbalance strategy from a single held-out subject or a single seed"
+  ],
+  "acceptance": [
+    "Plan keeps train, validation, and test subjects disjoint and specifies how subject-level leakage is checked",
+    "Plan includes at least 3 model seeds or a leave-one-subject-out design and reports mean, sample standard deviation, and per-stage F1",
+    "Plan compares a conservative baseline with at least one REM/N1-targeted imbalance strategy using fixed split seeds",
+    "Plan defines reproducibility checks: py_compile, JSON schema/config validation, dataset integrity, and report update",
+    "Plan identifies remaining compute, dataset-size, and generalization risks explicitly"
+  ],
+  "workers": [
+    {
+      "id": "explore-evaluation",
+      "role": "explorer",
+      "ownership": [
+        "sleep_stage_reproduction/run_sst_gru.py",
+        "sleep_stage_reproduction/real_sst_gru_*_fixedsplit.json",
+        "sleep_stage_reproduction/progress_update_2026-08-19.md"
+      ],
+      "write": false,
+      "doneWhen": [
+        "Return a compact evaluation protocol, compute estimate, and leakage/acceptance checks"
+      ]
+    },
+    {
+      "id": "explore-imbalance",
+      "role": "explorer",
+      "ownership": [
+        "sleep_stage_reproduction/run_sst_gru.py",
+        "sleep_stage_reproduction/research_report_TH.md",
+        "sleep_stage_reproduction/real_sst_gru_balanced_*_fixedsplit.json",
+        "sleep_stage_reproduction/real_sst_gru_softbalanced_*_fixedsplit.json"
+      ],
+      "write": false,
+      "doneWhen": [
+        "Return an imbalance experiment matrix, metric thresholds, and a decision rule for REM/N1"
+      ]
+    }
+  ],
+  "decisions": [
+    "Planning only until the user explicitly approves with proceed or equivalent wording",
+    "Use the existing 6-subject Sleep-EDF subset first; external validation is a later phase",
+    "Keep split_seed fixed when comparing model seeds or imbalance strategies",
+    "Treat REM and N1 per-stage F1 as first-class metrics alongside accuracy and macro-F1"
+  ],
+  "evidence": [
+    "sleep_stage_reproduction/real_sst_gru_seed*_fixedsplit.json",
+    "sleep_stage_reproduction/real_sst_gru_balanced_seed*_fixedsplit.json",
+    "sleep_stage_reproduction/real_sst_gru_softbalanced_seed*_fixedsplit.json",
+    "sleep_stage_reproduction/run_sst_gru.py",
+    "sleep_stage_reproduction/research_report_TH.md"
+  ]
+}

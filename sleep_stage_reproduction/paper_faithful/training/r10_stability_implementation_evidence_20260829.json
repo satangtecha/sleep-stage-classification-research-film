@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "publication_is_not_launch": true,
+  "launch_authorized": false,
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r10-20260829",
+  "seeds": [42, 43],
+  "expected_children": [
+    "paper-text-v1-multiseed-cap128-r10-20260829-split42-model42",
+    "paper-text-v1-multiseed-cap128-r10-20260829-split43-model43"
+  ],
+  "predecessor_failure": {
+    "run_id_prefix": "paper-text-v1-multiseed-cap128-r9-20260828",
+    "evidence_sha256": "d6b39f398b09b8198007feefd0f1c09b9f78c143d7adbee1568356b3d5863e79",
+    "retry_resume_reuse_forbidden": true
+  },
+  "pre_registration": {
+    "protocol_id": "PAPER_TEXT_STAGE3_GLOBAL_NORM_CLIP_V1",
+    "evidence_sha256": "295b943ac77145ef06cda25c76ab3113045204f8729ead6a909ef382082004b2",
+    "global_norm": 1.0,
+    "application_point": "after_effective_batch_average_before_optimizer_step",
+    "gradient_accumulation_steps": 128,
+    "stage3_hardware_microbatch": 1,
+    "stage3_effective_batch": 128,
+    "stage3_optimizer": "SGD",
+    "stage3_learning_rate": 0.1
+  },
+  "implementation": {
+    "raw_microbatch_gradients_accumulated": true,
+    "microbatch_finite_check": true,
+    "single_average_at_effective_batch_boundary": true,
+    "single_post_average_global_norm_clip": true,
+    "single_optimizer_update_per_128_microbatches": true,
+    "applied_gradient_finite_check": true,
+    "failed_child_state_persisted_before_reraise": true,
+    "later_seeds_halt_after_failure": true,
+    "automatic_retry_resume_reuse": false,
+    "metrics_schema_preserved": ["validation", "test"]
+  },
+  "source_sha256": {
+    "trainer_py": "3cad48aa46d3ec7d3501640980250b5c48d199bd9c19b663b482114e1a12c77f",
+    "cli_py": "ff284c53883a5fc082ba86a6465e2ece300d3f4907e34de77852efd9a9315b50",
+    "test_trainer_contract_py": "8720f67c49497c661d31ca4e2065c798a7be0aabd778d65af8e6387a5bd06e80",
+    "test_multi_seed_py": "a3eb62650cbdb36803a3c7943be563b14d3c1bb1108b7efe8bb8308ac7d434e6",
+    "test_training_scaffold_py": "a78fadfd6ae323be650ec9500dc65f90a70b6fb78bd71d6ca7bd55da1f9455d5",
+    "test_verify_run_py": "2b8348423fb8311b6d4a829951378a10d966127b6a35e48b2f0cfc36dd9660c1",
+    "verify_run_py": "b0da43b53f736434b037febe17071433b6b779d2d02074db8f17200e38140277",
+    "lean_team_contract_json": "8592ab2d823ac73855e41c985674962510d7a4c69237f339f3f512ff7b727716"
+  },
+  "verification": [
+    {"environment": "host", "suite": "full_training", "tests_run": 65, "skipped": 11, "status": "pass", "duration_seconds": 6.585},
+    {"environment": "host", "suite": "exact_binding_targeted", "tests_run": 30, "skipped": 4, "status": "pass"},
+    {"environment": "locked_tf24", "suite": "exact_binding_targeted", "tests_run": 30, "skipped": 2, "status": "pass"},
+    {"environment": "host", "suite": "multi_seed", "tests_run": 10, "skipped": 0, "status": "pass"},
+    {"environment": "locked_tf24", "suite": "multi_seed", "tests_run": 10, "skipped": 0, "status": "pass"},
+    {"environment": "locked_tf24", "suite": "verify_trainer_multi_seed_small_clip", "tests_run": 31, "skipped": 2, "status": "pass", "duration_seconds": 17.709},
+    {"environment": "locked_tf24", "suite": "real_stage3_explicit_128_microbatch_reference", "tests_run": 1, "skipped": 0, "status": "pass", "duration_seconds": 328.734},
+    {"environment": "locked_tf24", "suite": "real_stage3_seed43_dropout_active_finite_state", "tests_run": 1, "skipped": 0, "status": "pass", "duration_seconds": 156.012}
+  ],
+  "independent_review": {
+    "agent_id": "01a04dc0-b28a-7321-9728-cf206788d6a9",
+    "role": "stability_implementation_reviewer",
+    "initial_finding": "arbitrary positive clip norms were accepted despite exact pre-registration",
+    "repair": "stage_spec now requires exact protocol, Stage3, adaptation ID, and global norm 1.0; tests reject 0.5 and 2.0",
+    "final_status": "no_material_finding",
+    "all_findings_closed": true
+  }
+}

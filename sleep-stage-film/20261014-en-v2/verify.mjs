@@ -1,0 +1,18 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {spawnSync,execFileSync} from 'node:child_process';
+import {ROOT} from './film.mjs';
+const files=fs.readdirSync(path.join(ROOT,'tests')).filter(f=>f.endsWith('.test.mjs')).map(f=>path.join(ROOT,'tests',f));
+const suffix=process.argv[2]||'';
+if(!/^[a-z0-9-]*$/.test(suffix))throw Error('Invalid evidence suffix');
+const tag=suffix?'-'+suffix:'';
+const run=spawnSync(process.execPath,['--test',...files],{encoding:'utf8',cwd:ROOT});
+const output=run.stdout+run.stderr;fs.writeFileSync(path.join(ROOT,`outputs/tests${tag}-raw.txt`),output,{flag:'wx'});
+if(run.status!==0)throw Error('Test suite failed: see outputs/tests-raw.txt');
+const count=name=>{const found=output.match(new RegExp('(?:# |ℹ )'+name+' (\\d+)'));if(!found)throw Error('Missing test count '+name);return Number(found[1])};
+const decode=spawnSync('ffmpeg',['-hide_banner','-loglevel','error','-i',path.join(ROOT,'outputs/SleepStage-English-Silent-5min.mp4'),'-map','0:v','-f','null','-'],{encoding:'utf8'});
+if(decode.status!==0)throw Error('Final decode failed: '+decode.stderr);
+const frozen=execFileSync('wsl',['-d','Ubuntu','--','bash','-lc','cd /home/techatat/evidence-first-quant-research-os/sleep_stage_simple && /home/techatat/.venvs/sleep-stage-simple-py311/bin/python -c "from pathlib import Path; from scripts.research_closeout import load_frozen; import json; e,p=load_frozen(Path.cwd()); print(json.dumps(dict(frozen_hashes_verified=len(p))))"'],{encoding:'utf8'});
+const result={test_command:'node --test tests/*.test.mjs',node:process.version,pass:count('pass'),fail:count('fail'),skipped:count('skipped'),video_full_decode:{command:'ffmpeg -hide_banner -loglevel error -i outputs/SleepStage-English-Silent-5min.mp4 -map 0:v -f null -',exit_code:decode.status,stderr:decode.stderr},frozen_research_hashes_verified:JSON.parse(frozen).frozen_hashes_verified,browser_check:{evidence_kind:'recorded manual CUA observations during this film task, not re-executed by this script',browser:'Codex in-app browser',presentation:'outputs/presentation.html',chapters_checked:[1,2,3,4,5],each_duration_seconds:60,each_ready_state:4,each_media_error:null,navigation_verified:true,preview:'outputs/browser-preview.jpg',temporary_tab_closed:true},review:{evidence_kind:'recorded independent reviewer findings',storyboard_findings_repaired:2,render_finding_retracted_after_full_size_check:true,remaining_material_findings:0},ffmpeg:execFileSync('ffmpeg',['-version'],{encoding:'utf8'}).split('\n')[0],sha256_final:crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT,'outputs/SleepStage-English-Silent-5min.mp4'))).digest('hex'),training:false,new_inference:false};
+fs.writeFileSync(path.join(ROOT,`outputs/qa-verification${tag}.json`),JSON.stringify(result,null,2)+'\n',{flag:'wx'});console.log(output);console.log(JSON.stringify(result,null,2));

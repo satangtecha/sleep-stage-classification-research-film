@@ -1,0 +1,11 @@
+param(
+ [string]$LaunchEvidenceBuilderPath=(Join-Path $PSScriptRoot 'build_r17_launch_test_evidence.ps1'),
+ [string]$GateBuilderPath=(Join-Path $PSScriptRoot 'build_r17_canonical_gate.ps1'),
+ [string]$AuthorizationBuilderPath=(Join-Path $PSScriptRoot 'build_r17_delegated_authorization_confirmation.ps1')
+)
+$ErrorActionPreference='Stop';$ps51="$env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe";$prefix='paper-text-v1-multiseed-cap128-r17-20260901';$launchOutput=(Join-Path $PSScriptRoot '..\r17_bootstrap_diagnostic_launch_test_evidence_20260901_v4.json');$gateOutput=(Join-Path $PSScriptRoot '..\canonical_r17_multiseed_launch_gate_20260901.final.json');$authOutput=(Join-Path $PSScriptRoot '..\r17_delegated_user_launch_authorization_20260901.json')
+foreach($p in @($launchOutput,$gateOutput,$authOutput)){if(Test-Path -LiteralPath $p){throw "production output exists before parameter smoke: $p"}}
+$prior=$ErrorActionPreference;try{$ErrorActionPreference='Continue';$launchText=@(& $ps51 -NoProfile -NonInteractive -ExecutionPolicy Bypass -File (Resolve-Path -LiteralPath $LaunchEvidenceBuilderPath).Path 2>&1|%{[string]$_});$launchCode=[int]$LASTEXITCODE;$gateText=@(& $ps51 -NoProfile -NonInteractive -ExecutionPolicy Bypass -File (Resolve-Path -LiteralPath $GateBuilderPath).Path 2>&1|%{[string]$_});$gateCode=[int]$LASTEXITCODE;$authText=@(& $ps51 -NoProfile -NonInteractive -ExecutionPolicy Bypass -File (Resolve-Path -LiteralPath $AuthorizationBuilderPath).Path 2>&1|%{[string]$_});$authCode=[int]$LASTEXITCODE}finally{$ErrorActionPreference=$prior}
+if($launchCode-ne1-or$gateCode-ne1-or$authCode-ne1-or(Test-Path -LiteralPath $launchOutput)-or(Test-Path -LiteralPath $gateOutput)-or(Test-Path -LiteralPath $authOutput)){throw 'r17 builder mandatory-parameter fail-closed behavior failed'}
+if((@($launchText)+@($gateText)+@($authText)-join"`n")-match'Cannot bind argument to parameter ''Path'' because it is an empty string'){throw 'r17 builder retained PS5.1 PSScriptRoot parameter-default bug'}
+[ordered]@{status='pass';pilot_launched=$false;launch_builder_missing_parameter_exit=1;gate_builder_missing_parameter_exit=1;authorization_builder_missing_parameter_exit=1;psscriptroot_parameter_default_bug_absent=$true;production_outputs_created=$false}|ConvertTo-Json -Compress

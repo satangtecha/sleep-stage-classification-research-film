@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "objective": "Produce an evidence-backed fresh-r11 launch package whose Windows supervisor survives termination of the invoking Codex execution session, preserves the existing research protocol and r10 Stage3 stability adaptation, and stops at an immutable canonical approval gate without launching training.",
+  "scope": "large",
+  "risk": "high",
+  "phase": "executing",
+  "userApproval": "proceed",
+  "maxConcurrentAgents": 2,
+  "deliverables": [
+    "Immutable local and drive-E evidence for the non-retriable r10 infrastructure abort",
+    "A versioned r11 durable-supervision protocol and fresh exactly-once launcher/runner implementation",
+    "Focused PowerShell 5.1, WSL, lifecycle, power, stable-lock, and caller-termination survival tests",
+    "Independent implementation and launch-gate reviews with all confirmed findings closed",
+    "A byte-identical local and drive-E canonical r11 gate that requires a new exact user confirmation before launch"
+  ],
+  "nonGoals": [
+    "Do not retry, resume, relaunch, or reuse r1 through r10",
+    "Do not launch r11 or consume its permanent marker during readiness engineering or tests",
+    "Do not weaken cache, power, storage, GPU, source-hash, confirmation, reviewer, or terminal-validation gates",
+    "Do not overwrite historical launchers, runners, confirmations, evidence, logs, markers, or run directories"
+  ],
+  "acceptance": [
+    "r10 abort evidence binds the exact marker, lifecycle, empty logs, absent children, absent process, unlocked marker, and unchanged Windows boot session",
+    "A non-training canary proves the durable supervisor remains alive and records terminal status after its short-lived invoker exits",
+    "The r11 launcher consumes a permanent FileMode.CreateNew plus FileShare.None marker only after all immutable inputs and namespace absence checks pass",
+    "The durable supervisor provides a unique identity, no automatic restart, explicit exit evidence, and fail-closed collision handling",
+    "All focused tests pass under Windows PowerShell 5.1 and relevant WSL runtimes without launching a pilot",
+    "Two distinct independent reviews report no material finding and the canonical r11 gate is byte-identical on drives C and E"
+  ],
+  "workers": [
+    {
+      "id": "r11-durability-explorer",
+      "role": "explorer",
+      "ownership": [
+        "Read-only analysis of r10 lifecycle evidence, r10 launcher process topology, Windows Task Scheduler persistence options, and focused survival-test design"
+      ],
+      "write": false,
+      "doneWhen": [
+        "Return a compact evidence packet naming the smallest durable design, failure modes, and testable invariants"
+      ]
+    },
+    {
+      "id": "r11-implementation-reviewer",
+      "role": "reviewer",
+      "ownership": [
+        "Independent read-only review of the integrated r11 dispatcher, systemd supervisor, Windows lock holder, runner, and focused durability tests"
+      ],
+      "write": false,
+      "doneWhen": [
+        "Return evidence-backed findings ranked by materiality, or no material finding, without changing files"
+      ]
+    },
+    {
+      "id": "r11-launch-gate-reviewer",
+      "role": "reviewer",
+      "ownership": [
+        "Independent read-only review of the final immutable test evidence, distinct-review evidence, canonical r11 gate, source bindings, confirmation boundary, and production namespace absence"
+      ],
+      "write": false,
+      "doneWhen": [
+        "Return evidence-backed launch-gate findings ranked by materiality, or no material finding, without changing files"
+      ]
+    }
+  ],
+  "decisions": [
+    "The user authorized readiness engineering by saying เริ่มทำเลย on 2026-08-30.",
+    "r10 is permanently consumed and may be inspected only; every future execution namespace must be fresh and versioned.",
+    "Training launch remains separately gated by a new exact user confirmation bound to the final canonical r11 gate SHA-256.",
+    "Task Scheduler, WMI, and CREATE_BREAKAWAY_FROM_JOB were rejected after live canaries; the accepted design is a Restart=no transient systemd unit running the WSL workload directly while a Windows PowerShell interop lock holder preserves FileShare locks and terminal evidence.",
+    "A one-time dispatch capability binds a random nonce digest to the exact prefix, systemd unit, canonical gate, and confirmation before the permanent attempt marker can be created.",
+    "Lifecycle events use bounded FileStream append retries with FileShare.Read and durable flush after a live canary confirmed a transient read/append race in Add-Content.",
+    "The canonical GPU field is windows_driver_version; dispatcher and lock holder must validate it before either permanent marker, and validators must reject the obsolete driver_version mapping."
+  ],
+  "evidence": [
+    "r10 lifecycle ends at process_started 2026-08-29T22:27:14.6475341+07:00 with no process_exited event.",
+    "On 2026-08-30 the r10 marker was unlocked, both logs were zero bytes, both child directories were absent, no r10 process existed, WSL was stopped, and Windows LastBootUpTime remained 2026-08-28T17:40:11+07:00.",
+    "The fresh post-hardening hybrid survival canary passed caller termination, systemd ownership, Windows interop lock-holder parentage, stable-lock refusal, success and nonzero terminal evidence, marker collision refusal, and no automatic restart without launching training.",
+    "Host pytest and locked WSL TF2.4 unittest each passed all 10 multi-seed tests after the final lifecycle hardening.",
+    "Distinct launch-gate review rejected draft SHA 671305eae8231c9b9c626159a794d734374ba9cd4ebfcd0014d35486e59267c6 because scripts read a nonexistent GPU field and the lock holder checked it after its permanent marker; that draft and launch-test evidence v1 are ineligible for final publication."
+  ]
+}

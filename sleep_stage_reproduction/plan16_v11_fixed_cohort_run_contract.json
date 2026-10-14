@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "objective": "Run one fresh, exactly-once quality replicate with the completed v9 cohort/data fixed at selection seed 43 and a new model seed 45, after recording v10's pre-dispatch admission failure.",
+  "scope": "large",
+  "risk": "high",
+  "phase": "executing",
+  "userApproval": "proceed",
+  "maxConcurrentAgents": 2,
+  "deliverables": [
+    "v11 protocol with the v9 cohort/folds/cap/epochs fixed and model_seed=45.",
+    "A dispatcher whose source-tree calculation is byte-for-byte compatible with the locked launcher.",
+    "Fresh resource, binding, review, canonical gate, terminal validation, and locked-TF2.4 verification for v11.",
+    "A v9/v11 same-cohort two-seed preliminary comparison without an 83% paper claim."
+  ],
+  "nonGoals": [
+    "Do not invoke v10 again; its pre-dispatch failure is retained as evidence.",
+    "Do not retry, resume, relaunch, or reuse any prior namespace.",
+    "Do not alter selection seed 43, the six subjects, fold pairs, cap 64, epochs 12, or stage specifications."
+  ],
+  "acceptance": [
+    "v11 proves selection_seed=43, model_seed=45, equal v9 subjects and fold pairing, cap 64, and 12 epochs.",
+    "The dispatcher static test proves exact source-tree agreement with the locked launcher and proves no side effects.",
+    "Fresh resource/binding/review/gate pass before the single production invocation.",
+    "Parent and each child pass locked-TF2.4 standalone verification."
+  ],
+  "workers": [{"id":"main","role":"implementer","ownership":["v11 evidence, dispatch, verification, comparison"],"write":true,"doneWhen":["acceptance evidence is complete or v11 failure is recorded without retry"]}],
+  "decisions": [
+    "v10 is retired because a pre-marker source-tree hash mismatch was detected; it made no runtime, driver, marker, child, or training state.",
+    "v11 uses model_seed 45 as the next independent seed while holding the v9 selection cohort fixed.",
+    "The exact locked-launcher source-tree algorithm is a required pre-dispatch test input."
+  ],
+  "evidence": [
+    "E:/blp/sleep_stage_reproduction/runtime/reviews/plan16-v10-pre-dispatch-failure-v1-20261006.json",
+    "E:/blp/sleep_stage_reproduction/runtime/protocols/subject-generalization-quality-plan16-v11-cap64-e12-cohort43-model45-20261006.json"
+  ]
+}

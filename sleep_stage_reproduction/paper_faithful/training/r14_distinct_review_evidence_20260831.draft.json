@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "artifact_type": "r14_distinct_review_evidence",
+  "status": "pending_final_review",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r14-20260831",
+  "pilot_launched": false,
+  "launch_test_evidence_sha256": "1a4fd2001627fac5e34506acc0f8f66e7142d97648b0365e8b0bef0f32058edd",
+  "reviews": [
+    {
+      "review_id": "authorization_contract_review",
+      "agent_id": "01a05834-38de-7df0-995e-96372e76746e",
+      "role": "independent_implementation_reviewer",
+      "status": "material_finding_closed",
+      "finding_id": "R14-AUTH-PROVENANCE-001",
+      "finding_severity": "high",
+      "finding_summary": "The original confirmation schema conflated standing authorization with a direct user request for the exact r14 identity and allowed only one self-hashed excerpt.",
+      "closure_status": "closed",
+      "closure_summary": "Authorization schema v2 now requires both exact excerpts, records direct-r14-request=false, labels the r14 binding as agent_interpretation_not_user_quote, and fail-closes on fabricated, omitted, mislabeled, or misquoted provenance.",
+      "closure_evidence": {
+        "launcher_sha256": "14c715d220beb904ac3238aef4171444cf651fc373a25709cc83defd1321987a",
+        "supervisor_template_and_staged_v3_sha256": "bb208381beeb09b853594d24728338485de687869818a6d1f81db985f871f96d",
+        "helper_sha256": "efe26bb6f928cf52e065aad48b87e6b370aec319bc733ca5fa8844c2bca21fbc",
+        "authorization_refusal_test_sha256": "409bc07590f402677700eb43997b238bec422db77503546d21d895094383a038",
+        "authorization_refusal_test_status": "pass",
+        "launch_test_evidence_v2_sha256": "1a4fd2001627fac5e34506acc0f8f66e7142d97648b0365e8b0bef0f32058edd",
+        "exact_user_excerpt_count": 2,
+        "combined_exact_excerpt_sha256": "1acefb63aa855c34e9fa1163d5818bac6f5ee80cbdbe406cf9058a4eba2c639e"
+      }
+    },
+    {
+      "review_id": "final_gate_review",
+      "agent_id": null,
+      "role": "independent_launch_gate_reviewer",
+      "status": "pending"
+    }
+  ],
+  "created_at": "2026-08-31T21:45:00+07:00"
+}

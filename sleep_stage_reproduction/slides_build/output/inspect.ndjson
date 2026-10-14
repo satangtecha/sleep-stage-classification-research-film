@@ -1,0 +1,112 @@
+{"kind":"slide","id":"sl/x4kdas","slide":1,"title":"RESEARCH PROPOSAL","textShapes":8}
+{"kind":"shape","id":"sh/4zu98nap","slide":1,"bbox":[0,0,650,720]}
+{"kind":"textbox","id":"sh/p03q1sba","slide":1,"text":"RESEARCH PROPOSAL","textPreview":"RESEARCH PROPOSAL","textChars":17,"textLines":1,"bbox":[76,72,330,28]}
+{"kind":"shape","id":"sh/q1cradsf","slide":1,"bbox":[76,112,86,4]}
+{"kind":"textbox","id":"sh/r2ls3i90","slide":1,"text":"แยกประเภทการนอน\nจาก EEG ช่องเดียว","textPreview":"แยกประเภทการนอน | จาก EEG ช่องเดียว","textChars":33,"textLines":2,"bbox":[76,156,570,145]}
+{"kind":"textbox","id":"sh/c3e9cnal","slide":1,"text":"พัฒนาโมเดล Sleep Stage Classification\nด้วย SST + CNN + Contrastive Learning + GRU","textPreview":"พัฒนาโมเดล Sleep Stage Classification | ด้วย SST + CNN + Contrastive Learning + GRU","textChars":81,"textLines":2,"bbox":[80,330,520,80]}
+{"kind":"shape","id":"sh/d4na5sr6","slide":1,"bbox":[78,462,350,86]}
+{"kind":"textbox","id":"sh/65srytsb","slide":1,"text":"1 ช่อง EEG  →  5 ระยะการนอน","textPreview":"1 ช่อง EEG  →  5 ระยะการนอน","textChars":27,"textLines":1,"bbox":[100,486,315,30]}
+{"kind":"textbox","id":"sh/7618rytw","slide":1,"text":"Wake · N1 · N2 · N3 · REM","textPreview":"Wake · N1 · N2 · N3 · REM","textChars":25,"textLines":1,"bbox":[100,521,315,22]}
+{"kind":"textbox","id":"sh/7exsj21s","slide":1,"text":"จากสัญญาณดิบสู่การตัดสินใจที่อธิบายได้","textPreview":"จากสัญญาณดิบสู่การตัดสินใจที่อธิบายได้","textChars":38,"textLines":1,"bbox":[78,608,470,30]}
+{"kind":"shape","id":"sh/6doraxkn","slide":1,"bbox":[70,680,1140,1]}
+{"kind":"textbox","id":"sh/t0falcjy","slide":1,"text":"แหล่งข้อมูล: Scientific Reports 2026 · PhysioNet Sleep-EDF","textPreview":"แหล่งข้อมูล: Scientific Reports 2026 · PhysioNet Sleep-EDF","textChars":58,"textLines":1,"bbox":[70,690,850,18]}
+{"kind":"textbox","id":"sh/sf6tc72d","slide":1,"text":"01 / 03","textPreview":"01 / 03","textChars":7,"textLines":1,"bbox":[1110,690,100,18]}
+{"kind":"image","id":"im/ihkv2lkv","slide":1,"name":"","alt":"Abstract single-channel EEG signal transformed into sleep-stage bands","bbox":[0,0,1280,720]}
+{"kind":"notes","id":"nt/x4kdas","slide":1,"text":"เปิดด้วยคำถาม: เราสามารถลดจำนวน channel ของ EEG แต่ยังจำแนกระยะการนอนได้หรือไม่\n[Sources]\n- https://www.nature.com/articles/s41598-026-62832-5 (งานวิจัยหลักและผลที่รายงาน)\n- https://physionet.org/content/sleep-edfx/1.0.0/ (ชุดข้อมูล Sleep-EDF)\n- ภาพประกอบสร้างด้วย OpenAI image generation เพื่อใช้ในสไลด์นี้"}
+{"kind":"slide","id":"sl/xwqhku","slide":2,"title":"โมเดลเปลี่ยนสัญญาณ EEG ให้เป็น sleep stage ได้อย่างไร","textShapes":26}
+{"kind":"textbox","id":"sh/aho7e9kr","slide":2,"text":"โมเดลเปลี่ยนสัญญาณ EEG ให้เป็น sleep stage ได้อย่างไร","textPreview":"โมเดลเปลี่ยนสัญญาณ EEG ให้เป็น sleep stage ได้อย่างไร","textChars":53,"textLines":1,"bbox":[70,52,1060,56]}
+{"kind":"textbox","id":"sh/x4f69o3i","slide":2,"text":"ใช้ทั้งรูปแบบเวลา–ความถี่ และบริบทของ epoch ที่ต่อเนื่องกัน","textPreview":"ใช้ทั้งรูปแบบเวลา–ความถี่ และบริบทของ epoch ที่ต่อเนื่องกัน","textChars":59,"textLines":1,"bbox":[72,119,840,30]}
+{"kind":"shape","id":"sh/w36pgj2x","slide":2,"bbox":[950,62,260,72]}
+{"kind":"textbox","id":"sh/j6hobelo","slide":2,"text":"30 วินาที\n3,000 samples / epoch","textPreview":"30 วินาที | 3,000 samples / epoch","textChars":31,"textLines":2,"bbox":[968,76,224,45]}
+{"kind":"shape","id":"sh/y587itk3","slide":2,"bbox":[218,328,28,28]}
+{"kind":"shape","id":"sh/l8z6do3e","slide":2,"bbox":[398,328,28,28]}
+{"kind":"shape","id":"sh/k7qpkj29","slide":2,"bbox":[578,328,28,28]}
+{"kind":"shape","id":"sh/7ah8fylk","slide":2,"bbox":[758,328,28,28]}
+{"kind":"shape","id":"sh/6987mtkz","slide":2,"bbox":[938,328,28,28]}
+{"kind":"shape","id":"sh/svq5krel","slide":2,"bbox":[70,268,140,150]}
+{"kind":"shape","id":"sh/twz6twf6","slide":2,"bbox":[70,268,140,12]}
+{"kind":"textbox","id":"sh/6t8nihwv","slide":2,"text":"EEG","textPreview":"EEG","textChars":3,"textLines":1,"bbox":[82,300,116,30]}
+{"kind":"textbox","id":"sh/ruhormx0","slide":2,"text":"Fpz–Cz\nraw signal","textPreview":"Fpz–Cz | raw signal","textChars":17,"textLines":2,"bbox":[82,346,116,54]}
+{"kind":"shape","id":"sh/gzq5orex","slide":2,"bbox":[250,268,140,150]}
+{"kind":"shape","id":"sh/10j6xwfi","slide":2,"bbox":[250,268,140,12]}
+{"kind":"textbox","id":"sh/ex8nm1wr","slide":2,"text":"SST","textPreview":"SST","textChars":3,"textLines":1,"bbox":[262,300,116,30]}
+{"kind":"textbox","id":"sh/fyhovmxc","slide":2,"text":"T–F map","textPreview":"T–F map","textChars":7,"textLines":1,"bbox":[262,346,116,54]}
+{"kind":"shape","id":"sh/ona5sbet","slide":2,"bbox":[430,268,140,150]}
+{"kind":"shape","id":"sh/poj61gfe","slide":2,"bbox":[430,268,140,12]}
+{"kind":"textbox","id":"sh/d8vepc36","slide":2,"text":"CNN","textPreview":"CNN","textChars":3,"textLines":1,"bbox":[442,300,116,30]}
+{"kind":"textbox","id":"sh/c7mxw721","slide":2,"text":"short-window\nfeatures","textPreview":"short-window | features","textChars":21,"textLines":2,"bbox":[442,346,116,54]}
+{"kind":"shape","id":"sh/b6dwn2lg","slide":2,"bbox":[610,268,140,150]}
+{"kind":"shape","id":"sh/q54vuxkv","slide":2,"bbox":[610,268,140,12]}
+{"kind":"textbox","id":"sh/lwfetc3i","slide":2,"text":"Contrastive","textPreview":"Contrastive","textChars":11,"textLines":1,"bbox":[622,300,116,30]}
+{"kind":"textbox","id":"sh/kv6x0r2x","slide":2,"text":"refine\nfeatures","textPreview":"refine | features","textChars":15,"textLines":2,"bbox":[622,346,116,54]}
+{"kind":"shape","id":"sh/zaxwrmlc","slide":2,"bbox":[790,268,140,150]}
+{"kind":"shape","id":"sh/y9ofyhkr","slide":2,"bbox":[790,268,140,12]}
+{"kind":"textbox","id":"sh/10behs3y","slide":2,"text":"GRU × 2","textPreview":"GRU × 2","textChars":7,"textLines":1,"bbox":[802,300,116,30]}
+{"kind":"textbox","id":"sh/gf2don2t","slide":2,"text":"sequence\ncontext","textPreview":"sequence | context","textChars":16,"textLines":2,"bbox":[802,346,116,54]}
+{"kind":"shape","id":"sh/6l0byt0b","slide":2,"bbox":[970,268,140,150]}
+{"kind":"shape","id":"sh/r69cry1w","slide":2,"bbox":[970,268,140,12]}
+{"kind":"textbox","id":"sh/s7it03ih","slide":2,"text":"5 stages","textPreview":"5 stages","textChars":8,"textLines":1,"bbox":[982,300,116,30]}
+{"kind":"textbox","id":"sh/t8rutoj2","slide":2,"text":"W · N1 · N2\nN3 · REM","textPreview":"W · N1 · N2 | N3 · REM","textChars":20,"textLines":2,"bbox":[982,346,116,54]}
+{"kind":"textbox","id":"sh/e90b2t0n","slide":2,"text":"สิ่งที่ทำให้แนวทางนี้ต่างจาก CNN ธรรมดา","textPreview":"สิ่งที่ทำให้แนวทางนี้ต่างจาก CNN ธรรมดา","textChars":39,"textLines":1,"bbox":[70,478,500,30]}
+{"kind":"shape","id":"sh/fatcvy18","slide":2,"bbox":[70,522,510,2]}
+{"kind":"textbox","id":"sh/gb2t43it","slide":2,"text":"SST ช่วยรักษารายละเอียดของ EEG ในโดเมนเวลา–ความถี่\nขณะที่ GRU ใช้บริบทของลำดับ ไม่ตัดสินจาก epoch เดียวแบบโดด ๆ","textPreview":"SST ช่วยรักษารายละเอียดของ EEG ในโดเมนเวลา–ความถี่ | ขณะที่ GRU ใช้บริบทของลำดับ ไม่ตัดสินจาก epoch เดียวแบบโดด ๆ","textChars":111,"textLines":2,"bbox":[70,546,540,70]}
+{"kind":"textbox","id":"sh/1cbux8jy","slide":2,"text":"OUTPUT LABELS","textPreview":"OUTPUT LABELS","textChars":13,"textLines":1,"bbox":[760,478,300,24]}
+{"kind":"shape","id":"sh/udgbq903","slide":2,"bbox":[760,522,70,52]}
+{"kind":"textbox","id":"sh/vepsje1o","slide":2,"text":"W","textPreview":"W","textChars":1,"textLines":1,"bbox":[760,535,70,22]}
+{"kind":"shape","id":"sh/bah8nqts","slide":2,"bbox":[846,522,70,52]}
+{"kind":"textbox","id":"sh/a98ru5c7","slide":2,"text":"N1","textPreview":"N1","textChars":2,"textLines":1,"bbox":[846,535,70,22]}
+{"kind":"shape","id":"sh/xczqp0bi","slide":2,"bbox":[932,522,70,52]}
+{"kind":"textbox","id":"sh/wbq9wvud","slide":2,"text":"N2","textPreview":"N2","textChars":2,"textLines":1,"bbox":[932,535,70,22]}
+{"kind":"shape","id":"sh/je1srato","slide":2,"bbox":[1018,522,70,52]}
+{"kind":"textbox","id":"sh/yd8ry5c3","slide":2,"text":"N3","textPreview":"N3","textChars":2,"textLines":1,"bbox":[1018,535,70,22]}
+{"kind":"shape","id":"sh/l0jatkbu","slide":2,"bbox":[1104,522,70,52]}
+{"kind":"textbox","id":"sh/kza90fu9","slide":2,"text":"REM","textPreview":"REM","textChars":3,"textLines":1,"bbox":[1104,535,70,22]}
+{"kind":"textbox","id":"sh/721svat0","slide":2,"text":"เป้าหมาย: โมเดลที่แม่นขึ้นและตรวจสอบได้\nโดยไม่ให้ข้อมูลจากคนเดียวกันรั่วข้ามชุด","textPreview":"เป้าหมาย: โมเดลที่แม่นขึ้นและตรวจสอบได้ | โดยไม่ให้ข้อมูลจากคนเดียวกันรั่วข้ามชุด","textChars":79,"textLines":2,"bbox":[760,596,430,48]}
+{"kind":"shape","id":"sh/61sr2pcf","slide":2,"bbox":[70,680,1140,1]}
+{"kind":"textbox","id":"sh/47u9czqd","slide":2,"text":"แหล่งข้อมูล: Nature Scientific Reports 2026 · protocol-level reproduction","textPreview":"แหล่งข้อมูล: Nature Scientific Reports 2026 · protocol-level reproduction","textChars":73,"textLines":1,"bbox":[70,690,1030,18]}
+{"kind":"textbox","id":"sh/583qlkry","slide":2,"text":"02 / 03","textPreview":"02 / 03","textChars":7,"textLines":1,"bbox":[1110,690,100,18]}
+{"kind":"notes","id":"nt/xwqhku","slide":2,"text":"อธิบาย pipeline จากซ้ายไปขวา โดยเน้นว่าระบบไม่ได้ดูแค่ amplitude แต่สร้าง representation และใช้ sequence context\n[Sources]\n- https://www.nature.com/articles/s41598-026-62832-5 (โครงสร้าง SST, CNN, contrastive learning และ GRU)\n- https://physionet.org/content/sleep-edfx/1.0.0/ (EEG และ hypnogram)"}
+{"kind":"slide","id":"sl/bnw1l2","slide":3,"title":"pilot บอกอะไรเรา และต้องทำอะไรต่อ","textShapes":26}
+{"kind":"textbox","id":"sh/0bmlwzqh","slide":3,"text":"pilot บอกอะไรเรา และต้องทำอะไรต่อ","textPreview":"pilot บอกอะไรเรา และต้องทำอะไรต่อ","textChars":33,"textLines":1,"bbox":[70,52,930,56]}
+{"kind":"textbox","id":"sh/zqd43upc","slide":3,"text":"ผลรอบแรกยืนยันว่า pipeline ทำงาน แต่ข้อมูลและ compute ยังเป็นคอขวด","textPreview":"ผลรอบแรกยืนยันว่า pipeline ทำงาน แต่ข้อมูลและ compute ยังเป็นคอขวด","textChars":66,"textLines":1,"bbox":[72,120,930,30]}
+{"kind":"shape","id":"sh/yp43up8r","slide":3,"bbox":[70,184,650,416]}
+{"kind":"textbox","id":"sh/9gfm947e","slide":3,"text":"PILOT RESULT · 4 คืน · 588 epochs · CPU","textPreview":"PILOT RESULT · 4 คืน · 588 epochs · CPU","textChars":39,"textLines":1,"bbox":[100,214,520,24]}
+{"kind":"shape","id":"sh/8fml0zqt","slide":3,"bbox":[154,532,485,2]}
+{"kind":"shape","id":"sh/ned47up8","slide":3,"bbox":[154,532,485,1]}
+{"kind":"textbox","id":"sh/md43yp8n","slide":3,"text":"0%","textPreview":"0%","textChars":2,"textLines":1,"bbox":[100,522,42,20]}
+{"kind":"shape","id":"sh/pkb2x07u","slide":3,"bbox":[154,472,485,1]}
+{"kind":"textbox","id":"sh/oj2lofq9","slide":3,"text":"25%","textPreview":"25%","textChars":3,"textLines":1,"bbox":[100,462,42,20]}
+{"kind":"shape","id":"sh/m1k7i14n","slide":3,"bbox":[154,412,485,1]}
+{"kind":"textbox","id":"sh/n2dorml8","slide":3,"text":"50%","textPreview":"50%","textChars":3,"textLines":1,"bbox":[100,402,42,20]}
+{"kind":"shape","id":"sh/83mpkrmd","slide":3,"bbox":[154,352,485,1]}
+{"kind":"textbox","id":"sh/94v6tw3y","slide":3,"text":"75%","textPreview":"75%","textChars":3,"textLines":1,"bbox":[100,342,42,20]}
+{"kind":"shape","id":"sh/a547m14j","slide":3,"bbox":[154,292,485,1]}
+{"kind":"textbox","id":"sh/v6d8v6l4","slide":3,"text":"100%","textPreview":"100%","textChars":4,"textLines":1,"bbox":[100,282,42,20]}
+{"kind":"shape","id":"sh/wrmpobmp","slide":3,"bbox":[154,332.8,485,2]}
+{"kind":"textbox","id":"sh/xsvqxg3a","slide":3,"text":"83% · paper reported\nfull protocol; not directly comparable","textPreview":"83% · paper reported | full protocol; not directly comparable","textChars":59,"textLines":2,"bbox":[410,290.8,215,36]}
+{"kind":"shape","id":"sh/it47ql4v","slide":3,"bbox":[270,472,120,60]}
+{"kind":"textbox","id":"sh/jux8z6l0","slide":3,"text":"25%","textPreview":"25%","textChars":3,"textLines":1,"bbox":[270,438,120,28]}
+{"kind":"textbox","id":"sh/fyxonq18","slide":3,"text":"unweighted","textPreview":"unweighted","textChars":10,"textLines":1,"bbox":[252,552,156,28]}
+{"kind":"shape","id":"sh/uxonel0n","slide":3,"bbox":[500,419.44,120,112.56]}
+{"kind":"textbox","id":"sh/h0f6pgje","slide":3,"text":"46.9%","textPreview":"46.9%","textChars":5,"textLines":1,"bbox":[500,385.44,120,28]}
+{"kind":"textbox","id":"sh/gz6pgbit","slide":3,"text":"class-weighted","textPreview":"class-weighted","textChars":14,"textLines":1,"bbox":[482,552,156,28]}
+{"kind":"textbox","id":"sh/7uxoj61c","slide":3,"text":"+21.9 pp","textPreview":"+21.9 pp","textChars":8,"textLines":1,"bbox":[300,574,240,30]}
+{"kind":"textbox","id":"sh/6tona10r","slide":3,"text":"ดีขึ้นเมื่อชดเชย class imbalance","textPreview":"ดีขึ้นเมื่อชดเชย class imbalance","textChars":32,"textLines":1,"bbox":[260,601,320,22]}
+{"kind":"shape","id":"sh/twf6lgji","slide":3,"bbox":[770,184,440,440]}
+{"kind":"textbox","id":"sh/sv65cbix","slide":3,"text":"ข้อค้นพบสำคัญ","textPreview":"ข้อค้นพบสำคัญ","textChars":13,"textLines":1,"bbox":[805,218,340,30]}
+{"kind":"shape","id":"sh/j6dof610","slide":3,"bbox":[808,286,22,22]}
+{"kind":"textbox","id":"sh/i54n610f","slide":3,"text":"โมเดลอ่านข้อมูลได้จริง","textPreview":"โมเดลอ่านข้อมูลได้จริง","textChars":22,"textLines":1,"bbox":[846,284,320,25]}
+{"kind":"textbox","id":"sh/8b2lg7yd","slide":3,"text":"โหลด EDF → train → evaluate ครบ","textPreview":"โหลด EDF → train → evaluate ครบ","textChars":31,"textLines":1,"bbox":[846,313,320,22]}
+{"kind":"shape","id":"sh/9cbm9szy","slide":3,"bbox":[808,364,22,22]}
+{"kind":"textbox","id":"sh/m903exg7","slide":3,"text":"class imbalance สำคัญ","textPreview":"class imbalance สำคัญ","textChars":21,"textLines":1,"bbox":[846,362,320,25]}
+{"kind":"textbox","id":"sh/natk72hs","slide":3,"text":"N1 และ REM ยังถูกทำนายน้อย","textPreview":"N1 และ REM ยังถูกทำนายน้อย","textChars":26,"textLines":1,"bbox":[846,391,320,22]}
+{"kind":"shape","id":"sh/wz2lk7yp","slide":3,"bbox":[808,442,22,22]}
+{"kind":"textbox","id":"sh/x0bmdcza","slide":3,"text":"ยังสรุปผลใหญ่ไม่ได้","textPreview":"ยังสรุปผลใหญ่ไม่ได้","textChars":19,"textLines":1,"bbox":[846,440,320,25]}
+{"kind":"textbox","id":"sh/adk3ixgj","slide":3,"text":"ต้องใช้ full dataset และ GPU","textPreview":"ต้องใช้ full dataset และ GPU","textChars":28,"textLines":1,"bbox":[846,469,320,22]}
+{"kind":"shape","id":"sh/vyt4b2h4","slide":3,"bbox":[805,500,350,2]}
+{"kind":"textbox","id":"sh/c3il8ny5","slide":3,"text":"NEXT","textPreview":"NEXT","textChars":4,"textLines":1,"bbox":[805,520,110,22]}
+{"kind":"textbox","id":"sh/d4r2h8zq","slide":3,"text":"1  Full Sleep-EDF\n2  Train บน GPU\n3  Validate ข้าม dataset","textPreview":"1  Full Sleep-EDF | 2  Train บน GPU | 3  Validate ข้าม dataset","textChars":58,"textLines":3,"bbox":[805,548,330,62]}
+{"kind":"shape","id":"sh/503uh8za","slide":3,"bbox":[70,680,1140,1]}
+{"kind":"textbox","id":"sh/4zud83yp","slide":3,"text":"ผล pilot จาก local reproduction · paper benchmark ใช้ protocol เต็มของผู้วิจัย","textPreview":"ผล pilot จาก local reproduction · paper benchmark ใช้ protocol เต็มของผู้วิจัย","textChars":78,"textLines":1,"bbox":[70,690,1030,18]}
+{"kind":"textbox","id":"sh/jy1cfih4","slide":3,"text":"03 / 03","textPreview":"03 / 03","textChars":7,"textLines":1,"bbox":[1110,690,100,18]}
+{"kind":"notes","id":"nt/bnw1l2","slide":3,"text":"ปิดด้วยความแตกต่างระหว่าง pilot กับ benchmark: 83% เป็นผลของ paper บน protocol เต็ม ไม่ใช่ตัวเลขที่นำมาเทียบตรง ๆ กับ subset นี้\n[Sources]\n- https://www.nature.com/articles/s41598-026-62832-5 (83% ที่ paper รายงาน)\n- C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\real_sst_gru_fullish_results.json (pilot unweighted)\n- C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\real_sst_gru_weighted_results.json (pilot class-weighted)"}

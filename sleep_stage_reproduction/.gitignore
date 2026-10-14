@@ -1,0 +1,21 @@
+__pycache__/
+.ipynb_checkpoints/
+
+# Local environments and raw/private data
+.venv/
+data/
+runtime/
+.pytest_cache/
+.codex-staging/
+*.edf
+*.h5
+*.deflate
+*.bin
+*.whl
+
+# Generated document internals and temporary outputs
+explainer_doc_build/zipcheck/
+
+# Embedded upstream checkout is kept locally as a reference, not as an
+# accidental nested Git repository in this project.
+paper_faithful/vendor/

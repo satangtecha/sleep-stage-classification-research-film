@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "not_a_training_run": true,
+  "pilot_launched": false,
+  "observed_at": "2026-08-30T10:01:18.4855739+07:00",
+  "run_id_prefix": "paper-text-v1-multiseed-cap128-r11-20260830",
+  "seeds": [42, 43],
+  "expected_children": [
+    "paper-text-v1-multiseed-cap128-r11-20260830-split42-model42",
+    "paper-text-v1-multiseed-cap128-r11-20260830-split43-model43"
+  ],
+  "durable_supervisor_canary": {
+    "status": "pass",
+    "pilot_launched": false,
+    "caller_termination_survived": true,
+    "supervisor_owned_by_systemd_interop": true,
+    "lockholder_parent_name": "wslhost.exe",
+    "systemd_user": "techatat",
+    "systemd_restart": "no",
+    "systemd_collect": true,
+    "windows_identity": "BATH\\Acer",
+    "session_id": 1,
+    "wsl_user": "techatat",
+    "wsl_gpu_observed": true,
+    "stable_input_write_refused": true,
+    "stable_input_replace_refused": true,
+    "terminal_validated_recorded": true,
+    "atomic_nonzero_exit_recorded": true,
+    "dispatch_marker_refused_second_dispatch": true,
+    "attempt_marker_refused_second_supervisor": true,
+    "automatic_restart_observed": false
+  },
+  "lifecycle_append_hardening": {
+    "status": "pass",
+    "pre_hardening_live_canary_exposed_transient_read_append_race": true,
+    "adaptation": "bounded FileStream append retries with FileShare.Read and Flush(true)",
+    "post_hardening_full_canary_passed": true
+  },
+  "supersedes_invalidated_evidence": {
+    "path": "C:\\Users\\Acer\\OneDrive\\Documents\\เป้าๆรวยๆๆๆ\\sleep_stage_reproduction\\paper_faithful\\training\\r11_durable_launch_test_evidence_20260830_v1.json",
+    "sha256": "4517d91914e412811d7dc2ab914c08d2a566aeea95b1173661328d753bdf8116",
+    "ineligible_reason": "distinct launch-gate review found GPU field schema mismatch and post-attempt-marker validation ordering",
+    "ineligible_for_final_gate": true
+  },
+  "gpu_schema_and_pre_marker_ordering": {
+    "status": "pass",
+    "canonical_field": "windows_driver_version",
+    "obsolete_driver_version_field_refused": true,
+    "dispatcher_gpu_gate_precedes_dispatch_capability_and_dispatch_marker": true,
+    "lockholder_gpu_storage_cache_process_power_gates_precede_attempt_marker": true,
+    "validated_by_non_writing_static_mapping_test": true
+  },
+  "syntax_and_static_validation": {
+    "status": "pass",
+    "powershell_parser": "pass",
+    "windows_powershell_5_1_static_smoke": "pass",
+    "supervisor_bash_n": "pass",
+    "runner_bash_n": "pass"
+  },
+  "fail_closed_absent_gate": {
+    "status": "pass",
+    "dispatcher_exit_code": 92,
+    "lockholder_exit_code": 92,
+    "production_artifacts_created": 0,
+    "systemd_unit_created": false
+  },
+  "regression_tests": {
+    "host_pytest": {"status": "pass", "tests_run": 10, "skipped": 0, "exit_code": 0},
+    "locked_wsl_tf24_unittest": {"status": "pass", "tests_run": 10, "skipped": 0, "exit_code": 0},
+    "locked_tf24_python": "/home/techatat/.local/share/sleep-stage-paper/envs/tf24/bin/python"
+  },
+  "production_namespace_absence": {
+    "status": "pass",
+    "canonical_gate_absent": true,
+    "explicit_confirmation_absent": true,
+    "dispatch_capability_absent": true,
+    "dispatch_marker_absent": true,
+    "attempt_marker_absent": true,
+    "lifecycle_and_logs_absent": true,
+    "child_directories_absent": true,
+    "matching_windows_processes": 0,
+    "matching_wsl_processes": 0,
+    "systemd_unit": "LoadState=not-found;ActiveState=inactive;SubState=dead;Restart=no"
+  },
+  "resource_snapshot": {
+    "power": {"active": true, "power_online": true, "critical": false, "charging": false, "discharging": false, "win32_battery_status": 2, "estimated_charge_remaining": 100, "status": "pass_current_online"},
+    "gpu": {"name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU", "windows_driver_version": "32.0.16.1047", "wsl_driver_version": "610.47", "status": "OK"},
+    "storage": {"c_free_gib": 15.408, "e_free_gib": 370.787, "status": "pass"},
+    "recheck_immediately_before_launch": true
+  },
+  "cache_gate": {
+    "manifest_sha256": "a4512970c6023cd1dc727cad40c2352126fea46356b78bb6782055f9d0ce7ed2",
+    "validator_log_sha256": "8c52cc004fb134354d87a133d4bb85a0160563f65e361065fc2560256f517e07",
+    "status": "valid",
+    "epochs": 194655,
+    "route_epoch_entries": 583965
+  },
+  "source_sha256": {
+    "dispatcher_ps1": "67f3c5e89d474f0ead17df521f6820758ed90dcf7e262cd9823e02777855d626",
+    "lockholder_ps1": "f6014915cf6aedb28cdf8a4ad05f851ff29f161b0e41d6e2f1af7d0e85fa2dd4",
+    "supervisor_sh": "6fbcbc3fbfb0eccf2d4b99f8f3fc7dd3aa9ee376a18d4716a8c2f9e401ec20f5",
+    "runner_sh": "cedfaa44545b8934b786455d5b7040edb4d8f48cc9566e50622e08f5fc16e15d",
+    "r11_static_smoke_ps1": "003bcce6b447abf7d08999ba18749682bab46185a240f37fb19af29248cdcb5f",
+    "r11_launch_test_evidence_smoke_ps1": "6a2007dc7927cd64f21ad14e8fac2c9a9d5f24f8dbf4daec85456c956450249e",
+    "r11_canonical_gate_smoke_ps1": "0bbe8825e85b5a7b2a8a3c7d2b95386a3e8e4d382d3204dc77237bb8b2eebacb",
+    "r11_survival_smoke_ps1": "d086166af2bb83e1bcf906e2de1efec6289c9a01fb5893b850a1dfec0279abdf",
+    "r11_canary_lockholder_ps1": "74170083e647e37754a3c2e3f0e8a7f91bbf0ecfbd63340537344d6b48ea2c4a",
+    "r11_canary_supervisor_sh": "148dc5e9e9bb121571b86169abff7b10e707deffcfa8aa5cd3fdaf624680b188",
+    "test_multi_seed_py": "a3eb62650cbdb36803a3c7943be563b14d3c1bb1108b7efe8bb8308ac7d434e6",
+    "lean_team_contract_json": "a2c2ef135d8d4cdfee10463c3ac3378bf155b6c5fe23d00f1a80b02b9efd10a8",
+    "training_init_py": "508254473f607fd6e154bfce0156d8b0cde297c6a77192988af407f7b14c9292",
+    "training_cache_loader_py": "da3a518bd599d58309ebe088948795008c750c88651590b3d9b5b042aaa84041",
+    "cli_py": "ff284c53883a5fc082ba86a6465e2ece300d3f4907e34de77852efd9a9315b50",
+    "training_metrics_py": "4b4ba248b450147f623d9476c11309dae6cf10967bdcc9e06298f7f94d879baa",
+    "training_models_py": "17f37c00a680cf9f1e102fe14256de4b085b187f2dfe74195e89444b3189ef4f",
+    "training_protocols_py": "1c3ba57351cd3d35d56aad81d15cdd6528ad7e0001003ea5b9662b16df141d40",
+    "training_run_manifest_py": "b4af23373fb2273d8b8d768fdb889b39e4a11d177719976dc34262423e6dd91d",
+    "training_splits_py": "f846bc8f969c4b03e5083a092a2f73c95786456ea1db95810fabc110a40163b5",
+    "training_storage_py": "4a7f205b5d4705d5dd2acfd6c7345a4df82512ca26b41028dbff760591ab53f8",
+    "trainer_py": "3cad48aa46d3ec7d3501640980250b5c48d199bd9c19b663b482114e1a12c77f",
+    "verify_run_py": "b0da43b53f736434b037febe17071433b6b779d2d02074db8f17200e38140277",
+    "sst_init_py": "9ccfadc07a64931fbea328a6b69535c18b3fe1a60d818c2488d1afc07d7bd155",
+    "sst_cache_manifest_py": "6bebeb728637108a587fcda7b1ca929d34370179786cc2bc5c26e26ee0efb581",
+    "sst_cache_writer_py": "8a96c780471d1f18c8f423a34d58ea6ead8280ebaed88551f3214b831a84f31c",
+    "sst_cohort_cache_py": "a3144976052a205181fb373b145e942f2c646eb758403bbff0ff19c061a6ff02",
+    "sst_storage_py": "ab144bb725a1cc65e54e04f21043249f01980ff1578c3a84815a6ed48bf30ddd",
+    "sst_transform_py": "c165aea2b212c4e799c25f94a16cab07c7707a8c8013164a75cf6bd60287c98f",
+    "sst_windowing_py": "69242e85197939bbad1809a70c579d70eb3e4f975ed89d6ef436c1b4adb8c2aa",
+    "source_manifest_json": "578fd3afec29e3d8ecdf9d142b8841e94d3b939624ca019f9d0701c94f544b50",
+    "environment_manifest_json": "5194d573abd019444f073fec3252125f290d70f44315627070abd5dac1084a79",
+    "r10_stability_protocol_json": "295b943ac77145ef06cda25c76ab3113045204f8729ead6a909ef382082004b2",
+    "r10_stability_implementation_evidence_json": "6e7250312834d66e0a0f92223b4648b8e3c96b291b0897963adf063cf391e2ba",
+    "r10_infrastructure_abort_evidence_json": "cd29623ac94a564599bae7a1a6fa3a4077a199fa37ec121b420930271560e984",
+    "r9_failure_evidence_json": "d6b39f398b09b8198007feefd0f1c09b9f78c143d7adbee1568356b3d5863e79",
+    "multi_seed_implementation_evidence_json": "a53dfd37056fd0ea3ceeee41d25a2d953160411ac15d31df89e418e3b1b7ff97",
+    "cache_manifest_json": "a4512970c6023cd1dc727cad40c2352126fea46356b78bb6782055f9d0ce7ed2",
+    "cache_validator_log": "8c52cc004fb134354d87a133d4bb85a0160563f65e361065fc2560256f517e07"
+  }
+}

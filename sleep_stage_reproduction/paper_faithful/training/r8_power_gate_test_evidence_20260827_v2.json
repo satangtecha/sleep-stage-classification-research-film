@@ -1,0 +1,87 @@
+{
+  "schema_version": 2,
+  "artifact_type": "r8_power_review_and_user_confirmation_gate_test_evidence",
+  "status": "pass",
+  "captured_at": "2026-08-27T12:40:32.6766977+07:00",
+  "run_id": "paper-text-v1-pilot-cap128-seed42-r8-20260827",
+  "not_a_training_run": true,
+  "pilot_launched": false,
+  "r7_diagnosis_sha256": "5e4352123ed0022a2e74b3b502857ee42649dc86982f071cffc9aca08ea7dab9",
+  "source_sha256": {
+    "launcher_ps1": "d0c6277bfcd03152f2aca77589d2d93f920131653c8f4b2f49e23608582d1036",
+    "runner_sh": "2f059bb13fd3694376c19b7bd4513724c5dd7428ad410d0bd2d981276b00105c",
+    "lean_team_contract_json": "7b63e7e75ce5e409285ca667982cc90a15329ffac34476e09dc7c15d7245142a",
+    "r8_power_gate_smoke_ps1": "76dcd19ce8b31e96ed732df95a6b3e71b60e37a6a4fdfc10bbfa13685d1243d0",
+    "r8_review_binding_smoke_ps1": "ac19e3dc0e407f98e2b61936a53a885e1c678f24b0b9037f3fbf7cc4a38dee24",
+    "r8_live_power_gate_probe_ps1": "0854218088b0abb626661c03945fe1c0293f8e8429e5d8306a905300f808951d",
+    "r8_user_confirmation_gate_smoke_ps1": "57ef06a2bf525edd5d3e37e571971c96e98b0ed022b7c9cce9502312ee2b609d"
+  },
+  "powershell_parser": {
+    "status": "pass",
+    "errors": 0
+  },
+  "power_gate_smoke": {
+    "status": "pass",
+    "refused_cases": 14,
+    "accepted_battery_statuses": [2, 3, 6, 7, 8, 11],
+    "pilot_launched": false
+  },
+  "review_binding_smoke": {
+    "status": "pass",
+    "refused_invalid_cases": 12,
+    "copied_r7_review_shape_refused": true,
+    "accepted_valid_r8_bindings": true,
+    "pilot_launched": false
+  },
+  "user_confirmation_gate_smoke": {
+    "status": "pass",
+    "refused_invalid_cases": 12,
+    "accepted_valid_confirmation": true,
+    "confirmation_precedes_attempt_marker": true,
+    "confirmation_artifact_absent_during_test": true,
+    "attempt_marker_absent_after_test": true,
+    "pilot_launched": false
+  },
+  "bash_syntax": {
+    "status": "pass",
+    "distribution": "Ubuntu"
+  },
+  "live_offline_refusal": {
+    "status": "pass",
+    "observed_at": "2026-08-27T12:40:04.5752584+07:00",
+    "accepted": false,
+    "refusal": "Active battery is not online and noncritical; refusing launch",
+    "pilot_launched": false
+  },
+  "hidden_host_offline_refusal": {
+    "status": "pass",
+    "host": "Windows PowerShell 5.1 hidden noninteractive",
+    "observed_at": "2026-08-27T12:40:32.6766977+07:00",
+    "accepted": false,
+    "refusal": "Active battery is not online and noncritical; refusing launch",
+    "exit_code": 0,
+    "pilot_launched": false,
+    "stdout": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r8-power-gate-hidden-host-v3.stdout.jsonl",
+      "bytes": 217,
+      "sha256": "b7a36a918561b0dc834411a0b600e094db31443b74620e1c76e71e721e06a341"
+    },
+    "stderr": {
+      "path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r8-power-gate-hidden-host-v3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "runtime_absence": {
+    "canonical_recovery_gate_absent": true,
+    "user_confirmation_artifact_absent": true,
+    "r8_attempt_marker_absent": true,
+    "r8_lifecycle_absent": true,
+    "r8_run_directory_absent": true
+  },
+  "publication": {
+    "canonical_path": "E:\\blp\\sleep_stage_reproduction\\runtime\\driver-recovery\\r8-power-gate-test-evidence-20260827-v2.json",
+    "workspace_copy": "paper_faithful/training/r8_power_gate_test_evidence_20260827_v2.json",
+    "overwrite_forbidden": true
+  }
+}
