@@ -1,0 +1,16 @@
+{
+ "name": "sleep-stage-english-silent-film-v3",
+ "private": true,
+ "type": "module",
+ "scripts": {
+  "test": "node --test tests/film.test.mjs",
+  "stills": "node film.mjs stills",
+  "srt": "node film.mjs srt",
+  "deliver": "node deliver.mjs"
+ },
+ "dependencies": {
+  "@johnhenry/ecmanim": "^0.1.0",
+  "@napi-rs/canvas": "^0.1.100",
+  "mathjax-full": "^3.2.2"
+ }
+}
