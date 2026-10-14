@@ -1,0 +1,989 @@
+{
+ "language": "en",
+ "audio": false,
+ "fps": 30,
+ "duration_seconds": 712.9,
+ "crossfade_seconds": 0.9,
+ "chapters": [
+  {
+   "n": 0,
+   "title": "Opening"
+  },
+  {
+   "n": 1,
+   "title": "The signal"
+  },
+  {
+   "n": 2,
+   "title": "From waves to frequencies"
+  },
+  {
+   "n": 3,
+   "title": "Putting nights on one scale"
+  },
+  {
+   "n": 4,
+   "title": "The network"
+  },
+  {
+   "n": 5,
+   "title": "How it learns"
+  },
+  {
+   "n": 6,
+   "title": "Predicting and scoring"
+  },
+  {
+   "n": 7,
+   "title": "What we found"
+  },
+  {
+   "n": 8,
+   "title": "The evidence boundary"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "open",
+   "chapter": 0,
+   "tag": "Illustrative signal. Not recorded data.",
+   "start": 0,
+   "end": 12.557,
+   "captions": [
+    {
+     "at": 0,
+     "text": "One night of sleep. One EEG channel. One stage label for every 30 seconds."
+    },
+    {
+     "at": 6.278,
+     "text": "This film walks through the math behind every step, then what the evidence does and does not show."
+    }
+   ]
+  },
+  {
+   "id": "chapter-1",
+   "chapter": 1,
+   "tag": null,
+   "start": 11.657,
+   "end": 15.257,
+   "captions": []
+  },
+  {
+   "id": "electrodes",
+   "chapter": 1,
+   "tag": "Illustrative signal. Not recorded data.",
+   "start": 14.357,
+   "end": 26.948,
+   "captions": [
+    {
+     "at": 14.357,
+     "text": "EEG measures a voltage difference between two electrodes on the scalp. It does not read thoughts."
+    },
+    {
+     "at": 20.652,
+     "text": "Our channel is Fpz minus Cz, recorded in microvolts. One point on the trace is one voltage reading."
+    }
+   ]
+  },
+  {
+   "id": "sampling",
+   "chapter": 1,
+   "tag": "From the project code.",
+   "start": 26.048,
+   "end": 38.048,
+   "captions": [
+    {
+     "at": 26.048,
+     "text": "A computer cannot store a continuous curve. It keeps samples at regular moments."
+    },
+    {
+     "at": 32.048,
+     "text": "Our recording uses 100 samples per second, so one value every 0.01 seconds."
+    }
+   ]
+  },
+  {
+   "id": "aliasing",
+   "chapter": 1,
+   "tag": "Illustrative signal. Not recorded data.",
+   "start": 37.148,
+   "end": 49.148,
+   "captions": [
+    {
+     "at": 37.148,
+     "text": "Sampling sets a ceiling: the Nyquist frequency is half the sampling rate, here 50 Hz."
+    },
+    {
+     "at": 43.148,
+     "text": "A 70 Hz wave sampled at 100 Hz lands on the same points as a 30 Hz wave. That is aliasing."
+    }
+   ]
+  },
+  {
+   "id": "epoch",
+   "chapter": 1,
+   "tag": "From the project code.",
+   "start": 48.248,
+   "end": 60.248,
+   "captions": [
+    {
+     "at": 48.248,
+     "text": "We cut the night into 30-second epochs. At 100 Hz, each epoch holds 3,000 numbers."
+    },
+    {
+     "at": 54.248,
+     "text": "So one epoch is a vector of 3,000 real numbers, paired with one reference stage label y."
+    }
+   ]
+  },
+  {
+   "id": "labels",
+   "chapter": 1,
+   "tag": "From the project code.",
+   "start": 59.348,
+   "end": 74.165,
+   "captions": [
+    {
+     "at": 59.348,
+     "text": "Each epoch gets one of five labels, coded 0 to 4. The codes are names, not depth: REM = 4 is not deeper than N3 = 3."
+    },
+    {
+     "at": 67.374,
+     "text": "Old sleep stages 3 and 4 are merged into N3. Movement and unknown epochs are left out of the five classes."
+    }
+   ]
+  },
+  {
+   "id": "cohort",
+   "chapter": 1,
+   "tag": "Archived result. Measured.",
+   "start": 73.265,
+   "end": 87.486,
+   "captions": [
+    {
+     "at": 73.265,
+     "text": "The evaluated cohort: 20 participants, 39 recorded nights and 42,307 retained epochs from Sleep-EDF Expanded."
+    },
+    {
+     "at": 81.022,
+     "text": "Epochs from the same person are strongly related, so the data must be split by person, not by epoch."
+    }
+   ]
+  },
+  {
+   "id": "split",
+   "chapter": 1,
+   "tag": "From the project code.",
+   "start": 86.586,
+   "end": 100.363,
+   "captions": [
+    {
+     "at": 86.586,
+     "text": "In each fold, 16 people train the model, 2 people choose the checkpoint and 2 people are kept for testing."
+    },
+    {
+     "at": 93.474,
+     "text": "Ten folds rotate the held-out people, so every participant is tested exactly once and never sits in two sets."
+    }
+   ]
+  },
+  {
+   "id": "chapter-2",
+   "chapter": 2,
+   "tag": null,
+   "start": 99.463,
+   "end": 103.063,
+   "captions": []
+  },
+  {
+   "id": "sine",
+   "chapter": 2,
+   "tag": "Illustrative signal. Not recorded data.",
+   "start": 102.163,
+   "end": 114.163,
+   "captions": [
+    {
+     "at": 102.163,
+     "text": "A sine wave has three knobs. Amplitude A sets its size."
+    },
+    {
+     "at": 106.163,
+     "text": "Frequency f sets how many cycles happen each second."
+    },
+    {
+     "at": 110.163,
+     "text": "Phase φ sets where in its cycle the wave starts."
+    }
+   ]
+  },
+  {
+   "id": "sum",
+   "chapter": 2,
+   "tag": "Worked example. Hypothetical numbers.",
+   "start": 113.263,
+   "end": 125.263,
+   "captions": [
+    {
+     "at": 113.263,
+     "text": "Real signals are sums of waves. Here: a 2 Hz wave of size 20 plus a 12 Hz wave of size 5."
+    },
+    {
+     "at": 119.763,
+     "text": "The recorded trace only shows the sum. The individual parts are hidden inside it."
+    }
+   ]
+  },
+  {
+   "id": "power",
+   "chapter": 2,
+   "tag": "Worked example. Hypothetical numbers.",
+   "start": 124.363,
+   "end": 136.92,
+   "captions": [
+    {
+     "at": 124.363,
+     "text": "For a sine wave over full cycles, the average of x² equals A²/2."
+    },
+    {
+     "at": 130.642,
+     "text": "Double the amplitude and the power grows four times. Magnitude and power are different quantities."
+    }
+   ]
+  },
+  {
+   "id": "dft",
+   "chapter": 2,
+   "tag": "Illustrative signal. Not recorded data.",
+   "start": 136.02,
+   "end": 154.961,
+   "captions": [
+    {
+     "at": 136.02,
+     "text": "The DFT compares the signal with a cosine and a sine at each test frequency."
+    },
+    {
+     "at": 142.785,
+     "text": "Wrap the signal around a circle at that frequency. When the frequency matches, the wrapped curve leans to one side."
+    },
+    {
+     "at": 149.549,
+     "text": "Measure that lean for every frequency and peaks appear at 2 Hz and 12 Hz."
+    }
+   ]
+  },
+  {
+   "id": "complex",
+   "chapter": 2,
+   "tag": "Worked example. Hypothetical numbers.",
+   "start": 154.061,
+   "end": 166.653,
+   "captions": [
+    {
+     "at": 154.061,
+     "text": "Each DFT output is a complex number with a real part a and an imaginary part b."
+    },
+    {
+     "at": 160.357,
+     "text": "We keep the magnitude |X| and drop the phase. The FFT is simply a fast way to compute the same DFT."
+    }
+   ]
+  },
+  {
+   "id": "stft",
+   "chapter": 2,
+   "tag": "From the project code.",
+   "start": 165.753,
+   "end": 181.894,
+   "captions": [
+    {
+     "at": 165.753,
+     "text": "One FFT over all 30 seconds tells which frequencies exist, but not when they happen."
+    },
+    {
+     "at": 171.517,
+     "text": "The STFT slides a 2-second Hamming window forward 1 second at a time and runs an FFT at each stop."
+    },
+    {
+     "at": 177.282,
+     "text": "Stacking the 29 windows gives a time-frequency picture of one epoch."
+    }
+   ]
+  },
+  {
+   "id": "hamming",
+   "chapter": 2,
+   "tag": "Illustrative signal. Not recorded data.",
+   "start": 180.994,
+   "end": 195.111,
+   "captions": [
+    {
+     "at": 180.994,
+     "text": "Cutting a short piece of signal creates hard edges, and hard edges smear energy into nearby frequencies."
+    },
+    {
+     "at": 188.053,
+     "text": "The Hamming window weights the middle and fades the edges. Leakage drops, at the cost of a slightly wider peak."
+    }
+   ]
+  },
+  {
+   "id": "grid",
+   "chapter": 2,
+   "tag": "From the project code.",
+   "start": 194.211,
+   "end": 207.637,
+   "captions": [
+    {
+     "at": 194.211,
+     "text": "Count the windows: 29 time steps. Count the one-sided FFT bins: 129 frequencies. One epoch becomes a 129 × 29 grid."
+    },
+    {
+     "at": 201.441,
+     "text": "Bins are 0.39 Hz apart, but zero-padding from 200 to 256 points adds bins, not new information."
+    }
+   ]
+  },
+  {
+   "id": "log",
+   "chapter": 2,
+   "tag": "From the project code.",
+   "start": 206.737,
+   "end": 219.222,
+   "captions": [
+    {
+     "at": 206.737,
+     "text": "Spectral magnitudes span huge ranges, so we take the natural logarithm. A 100× gap becomes about 4.6 units."
+    },
+    {
+     "at": 213.5,
+     "text": "This is log-magnitude, not log-power. The tiny ε = 10⁻⁶ prevents ln(0) = −∞."
+    }
+   ]
+  },
+  {
+   "id": "numbers",
+   "chapter": 2,
+   "tag": "Concept picture. Not model internals.",
+   "start": 218.322,
+   "end": 228.322,
+   "captions": [
+    {
+     "at": 218.322,
+     "text": "Colors are only for people. The network never sees colors."
+    },
+    {
+     "at": 222.822,
+     "text": "It receives a 129 × 29 matrix of real numbers for every epoch."
+    }
+   ]
+  },
+  {
+   "id": "chapter-3",
+   "chapter": 3,
+   "tag": null,
+   "start": 227.422,
+   "end": 231.022,
+   "captions": []
+  },
+  {
+   "id": "zscore",
+   "chapter": 3,
+   "tag": "Worked example. Hypothetical numbers.",
+   "start": 230.122,
+   "end": 243.985,
+   "captions": [
+    {
+     "at": 230.122,
+     "text": "Standardizing asks one question: how many standard deviations is this value from the mean?"
+    },
+    {
+     "at": 237.053,
+     "text": "12, with mean 10 and SD 2, becomes z = 1. The pattern of the data does not change, only its center and scale."
+    }
+   ]
+  },
+  {
+   "id": "perfreq",
+   "chapter": 3,
+   "tag": "From the project code.",
+   "start": 243.085,
+   "end": 256.61,
+   "captions": [
+    {
+     "at": 243.085,
+     "text": "Our statistics are computed separately for each frequency bin, across every epoch and time step of a night."
+    },
+    {
+     "at": 249.847,
+     "text": "That gives 129 means and 129 standard deviations. A floor of 10⁻³ stops division by a tiny SD."
+    }
+   ]
+  },
+  {
+   "id": "baser1",
+   "chapter": 3,
+   "tag": "From the project code.",
+   "start": 255.71,
+   "end": 270.043,
+   "captions": [
+    {
+     "at": 255.71,
+     "text": "Baseline: the statistics come only from the training participants, then the same numbers are used for every night."
+    },
+    {
+     "at": 262.876,
+     "text": "R1: every night uses its own statistics, including validation and test nights. That makes R1 transductive."
+    }
+   ]
+  },
+  {
+   "id": "gain",
+   "chapter": 3,
+   "tag": "Worked example. Hypothetical numbers.",
+   "start": 269.143,
+   "end": 288.385,
+   "captions": [
+    {
+     "at": 269.143,
+     "text": "Why might per-night statistics help? Suppose one night was recorded with a different gain a."
+    },
+    {
+     "at": 275.156,
+     "text": "The STFT is linear, so the gain becomes a constant shift ln a in the log-magnitude features."
+    },
+    {
+     "at": 280.568,
+     "text": "Per-night standardization cancels the shift. Ideal case only: real nights can differ in more complex ways."
+    }
+   ]
+  },
+  {
+   "id": "mix",
+   "chapter": 3,
+   "tag": "Worked example. Hypothetical numbers.",
+   "start": 287.485,
+   "end": 305.307,
+   "captions": [
+    {
+     "at": 287.485,
+     "text": "There is a catch. A night's mean also depends on how much of each sleep stage the night contains."
+    },
+    {
+     "at": 296.396,
+     "text": "A wake-heavy night and a deep-sleep-heavy night get different statistics even with perfect recording. Per-night normalization is a trade-off."
+    }
+   ]
+  },
+  {
+   "id": "chapter-4",
+   "chapter": 4,
+   "tag": null,
+   "start": 304.407,
+   "end": 308.007,
+   "captions": []
+  },
+  {
+   "id": "tensor",
+   "chapter": 4,
+   "tag": "From the project code.",
+   "start": 307.107,
+   "end": 323.916,
+   "captions": [
+    {
+     "at": 307.107,
+     "text": "A training batch holds 32 sequences. Each sequence has 20 consecutive epochs, and each epoch is a 1 × 129 × 29 image."
+    },
+    {
+     "at": 316.158,
+     "text": "Twenty epochs cover ten minutes. The CNN reads all 640 images at once, then they are regrouped into sequences for the GRU."
+    }
+   ]
+  },
+  {
+   "id": "conv",
+   "chapter": 4,
+   "tag": "Concept picture. Not model internals.",
+   "start": 323.016,
+   "end": 337.985,
+   "captions": [
+    {
+     "at": 323.016,
+     "text": "A single unit multiplies inputs by learned weights and adds a bias: 0.5·1 − 0.2·2 + 0.3 = 0.4."
+    },
+    {
+     "at": 329.349,
+     "text": "Convolution slides the same 3 × 3 weights over the whole image, producing a feature map. In PyTorch this is technically cross-correlation."
+    }
+   ]
+  },
+  {
+   "id": "relu",
+   "chapter": 4,
+   "tag": "Concept picture. Not model internals.",
+   "start": 337.085,
+   "end": 352.475,
+   "captions": [
+    {
+     "at": 337.085,
+     "text": "ReLU keeps positive values and turns negatives into zero. Without it, stacked linear layers collapse into one linear map."
+    },
+    {
+     "at": 344.78,
+     "text": "Max pooling keeps the largest value in each 2 × 2 block, halving height and width."
+    }
+   ]
+  },
+  {
+   "id": "cnn3d",
+   "chapter": 4,
+   "tag": "From the project code.",
+   "start": 351.575,
+   "end": 366.662,
+   "captions": [
+    {
+     "at": 351.575,
+     "text": "Three blocks of convolution, BatchNorm, ReLU and pooling shrink the image while adding feature channels."
+    },
+    {
+     "at": 359.118,
+     "text": "Global average pooling turns 128 feature maps into one vector, then a linear layer gives the 128-number epoch embedding."
+    }
+   ]
+  },
+  {
+   "id": "bndrop",
+   "chapter": 4,
+   "tag": "From the project code.",
+   "start": 365.762,
+   "end": 382.358,
+   "captions": [
+    {
+     "at": 365.762,
+     "text": "BatchNorm normalizes activations inside the CNN, per feature channel. It is a different step from our per-night input normalization."
+    },
+    {
+     "at": 374.06,
+     "text": "Dropout with p = 0.3 switches off random activations during training only. model.eval() makes both layers fixed rules."
+    }
+   ]
+  },
+  {
+   "id": "gru",
+   "chapter": 4,
+   "tag": "From the project code.",
+   "start": 381.458,
+   "end": 396.42,
+   "captions": [
+    {
+     "at": 381.458,
+     "text": "A GRU carries a hidden state h from one epoch to the next, mixing in each new epoch embedding e_t."
+    },
+    {
+     "at": 388.939,
+     "text": "The reset gate r limits old context when proposing a candidate n. The update gate z decides how much old state to keep."
+    }
+   ]
+  },
+  {
+   "id": "bigru",
+   "chapter": 4,
+   "tag": "From the project code.",
+   "start": 395.52,
+   "end": 411.546,
+   "captions": [
+    {
+     "at": 395.52,
+     "text": "A bidirectional GRU runs twice: once forward in time and once backward. Two layers, 128 hidden units per direction."
+    },
+    {
+     "at": 403.533,
+     "text": "Each epoch gets 128 + 128 = 256 context features. Context stops at the 20-epoch window; there is no memory of the whole night."
+    }
+   ]
+  },
+  {
+   "id": "softmax",
+   "chapter": 4,
+   "tag": "Worked example. Hypothetical numbers.",
+   "start": 410.646,
+   "end": 433.357,
+   "captions": [
+    {
+     "at": 410.646,
+     "text": "The classifier maps 256 features to five logits per epoch. Logits can be negative and need not sum to 1."
+    },
+    {
+     "at": 417.743,
+     "text": "Softmax exponentiates and divides by the total. With logit ln 4 for N2 and 0 for the rest, N2 gets 4 / 8 = 0.5."
+    },
+    {
+     "at": 424.272,
+     "text": "The prediction is the largest logit. A probability of 0.9 is not automatically right 90% of the time."
+    }
+   ]
+  },
+  {
+   "id": "chapter-5",
+   "chapter": 5,
+   "tag": null,
+   "start": 432.457,
+   "end": 436.057,
+   "captions": []
+  },
+  {
+   "id": "ce",
+   "chapter": 5,
+   "tag": "Worked example. Hypothetical numbers.",
+   "start": 435.157,
+   "end": 447.367,
+   "captions": [
+    {
+     "at": 435.157,
+     "text": "Training uses cross-entropy: minus the log of the probability the model gives to the true class."
+    },
+    {
+     "at": 441.262,
+     "text": "Confident and correct costs little. Confident and wrong is punished hard: p = 0.01 costs 4.6."
+    }
+   ]
+  },
+  {
+   "id": "weights",
+   "chapter": 5,
+   "tag": "From the project code.",
+   "start": 446.467,
+   "end": 461.283,
+   "captions": [
+    {
+     "at": 446.467,
+     "text": "N1 is rare and hard, so N1 mistakes are weighted 1.5 times. The loss is divided by the sum of the weights used."
+    },
+    {
+     "at": 454.492,
+     "text": "A sequence does not get one answer: all 20 epochs keep their own label and add their own term to the loss."
+    }
+   ]
+  },
+  {
+   "id": "grad",
+   "chapter": 5,
+   "tag": "Worked example. Hypothetical numbers.",
+   "start": 460.383,
+   "end": 475.298,
+   "captions": [
+    {
+     "at": 460.383,
+     "text": "The gradient of the loss for each logit is simple: p − 1 for the true class and p for every other class."
+    },
+    {
+     "at": 467.841,
+     "text": "True class N1 with p = 0.2 gives −0.8, so its score should rise. N2 with p = 0.6 gives +0.6, so its score should fall."
+    }
+   ]
+  },
+  {
+   "id": "adamw",
+   "chapter": 5,
+   "tag": "From the project code.",
+   "start": 474.398,
+   "end": 489.234,
+   "captions": [
+    {
+     "at": 474.398,
+     "text": "AdamW keeps a running average of the gradient (m) and of its square (v), then scales each step parameter by parameter."
+    },
+    {
+     "at": 481.816,
+     "text": "Learning rate 10⁻³, weight decay 10⁻⁴, and gradients clipped to a norm of 1 to avoid occasional violent steps."
+    }
+   ]
+  },
+  {
+   "id": "general",
+   "chapter": 5,
+   "tag": "Illustrative signal. Not recorded data.",
+   "start": 488.334,
+   "end": 503.375,
+   "captions": [
+    {
+     "at": 488.334,
+     "text": "Low training loss is not the goal. The goal is good predictions for people the model has never seen."
+    },
+    {
+     "at": 495.855,
+     "text": "We keep the checkpoint with the best validation macro-F1, stopping after 10 epochs without improvement or at 60 epochs."
+    }
+   ]
+  },
+  {
+   "id": "chapter-6",
+   "chapter": 6,
+   "tag": null,
+   "start": 502.475,
+   "end": 506.075,
+   "captions": []
+  },
+  {
+   "id": "windows",
+   "chapter": 6,
+   "tag": "From the project code.",
+   "start": 505.175,
+   "end": 519.458,
+   "captions": [
+    {
+     "at": 505.175,
+     "text": "At inference, 20-epoch windows slide forward 5 epochs at a time, so most epochs are predicted by several windows."
+    },
+    {
+     "at": 512.317,
+     "text": "We average the logits, not labels or probabilities. Softmax of an average is not the average of softmaxes."
+    }
+   ]
+  },
+  {
+   "id": "confusion",
+   "chapter": 6,
+   "tag": "Archived result. Measured.",
+   "start": 518.558,
+   "end": 531.786,
+   "captions": [
+    {
+     "at": 518.558,
+     "text": "Each scored epoch is counted by true stage (row) and predicted stage (column). These are R1 test counts."
+    },
+    {
+     "at": 525.172,
+     "text": "The diagonal is correct: 34,266 of 42,307 epochs, a pooled accuracy of 80.99%."
+    }
+   ]
+  },
+  {
+   "id": "n1",
+   "chapter": 6,
+   "tag": "Archived result. Measured.",
+   "start": 530.886,
+   "end": 548.337,
+   "captions": [
+    {
+     "at": 530.886,
+     "text": "Recall asks: of all true N1 epochs, how many did we catch? 1,253 of 2,804, or 44.7%."
+    },
+    {
+     "at": 536.703,
+     "text": "Precision asks: of everything predicted N1, how much was right? 1,253 of 3,220, or 38.9%."
+    },
+    {
+     "at": 541.938,
+     "text": "Their harmonic mean: pooled N1 F1 = 0.416. An accuracy near 81% hides this weak class."
+    }
+   ]
+  },
+  {
+   "id": "macro",
+   "chapter": 6,
+   "tag": "Concept picture. Not model internals.",
+   "start": 547.437,
+   "end": 560.791,
+   "captions": [
+    {
+     "at": 547.437,
+     "text": "Macro-F1 averages the five class F1 scores, so rare N1 counts as much as common N2."
+    },
+    {
+     "at": 554.114,
+     "text": "Our headline goes one step further: compute macro-F1 for each person, then average the 20 people equally."
+    }
+   ]
+  },
+  {
+   "id": "chapter-7",
+   "chapter": 7,
+   "tag": null,
+   "start": 559.891,
+   "end": 563.491,
+   "captions": []
+  },
+  {
+   "id": "nights",
+   "chapter": 7,
+   "tag": "Archived result. Measured.",
+   "start": 562.591,
+   "end": 575.437,
+   "captions": [
+    {
+     "at": 562.591,
+     "text": "The baseline collapsed on particular test nights. One night was predicted entirely as a single class."
+    },
+    {
+     "at": 569.014,
+     "text": "Four diagnostic rounds found no confirmed pairing, timing, channel or label-alignment defect."
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "chapter": 7,
+   "tag": "Archived result. Measured.",
+   "start": 574.537,
+   "end": 590.882,
+   "captions": [
+    {
+     "at": 574.537,
+     "text": "Subject-mean macro-F1: baseline 56.42%, R1 74.86%, full-night sensitivity 71.84%. Pooled accuracy rose from 65.00% to 80.99%."
+    },
+    {
+     "at": 582.709,
+     "text": "R1 changed normalization and retrained the weights together, and it was chosen after seeing the baseline failures. It is post-hoc."
+    }
+   ]
+  },
+  {
+   "id": "fullnight",
+   "chapter": 7,
+   "tag": "From the project code.",
+   "start": 589.982,
+   "end": 605.626,
+   "captions": [
+    {
+     "at": 589.982,
+     "text": "The full-night sensitivity run takes statistics from the complete recording, without hypnogram-based trimming."
+    },
+    {
+     "at": 597.804,
+     "text": "Training and scored epochs stay exactly the same. Only the range used for the statistics changes. It is still transductive."
+    }
+   ]
+  },
+  {
+   "id": "bootstrap",
+   "chapter": 7,
+   "tag": "Archived result. Measured.",
+   "start": 604.726,
+   "end": 621.905,
+   "captions": [
+    {
+     "at": 604.726,
+     "text": "A paired bootstrap redraws the 20 participants with replacement, 1,000 times, using the same draw for both runs."
+    },
+    {
+     "at": 612.743,
+     "text": "Full-night minus R1: −3.02 points, 95% interval −7.12 to +1.22. It crosses zero: not enough evidence of a difference, and not proof they are equal."
+    }
+   ]
+  },
+  {
+   "id": "folds",
+   "chapter": 7,
+   "tag": "Archived result. Measured.",
+   "start": 621.005,
+   "end": 636.364,
+   "captions": [
+    {
+     "at": 621.005,
+     "text": "Ten held-out folds tell a less tidy story. R1 improved pooled macro-F1 in all ten folds, but folds 0 and 9 stay comparatively weak."
+    },
+    {
+     "at": 629.383,
+     "text": "Each fold pools only two test participants, and training sets overlap, so folds are not independent samples."
+    }
+   ]
+  },
+  {
+   "id": "recall",
+   "chapter": 7,
+   "tag": "Archived result. Measured.",
+   "start": 635.464,
+   "end": 648.638,
+   "captions": [
+    {
+     "at": 635.464,
+     "text": "Per-class recall shows which stages are recovered. N1 is still the hardest: 44.7% with R1, 39.5% with full-night."
+    },
+    {
+     "at": 642.65,
+     "text": "Better overall numbers do not solve every class."
+    }
+   ]
+  },
+  {
+   "id": "chapter-8",
+   "chapter": 8,
+   "tag": null,
+   "start": 647.738,
+   "end": 651.338,
+   "captions": []
+  },
+  {
+   "id": "pilots",
+   "chapter": 8,
+   "tag": "Archived result. Measured.",
+   "start": 650.438,
+   "end": 664.938,
+   "captions": [
+    {
+     "at": 650.438,
+     "text": "Three small validation-only pilots tried to fix N1: logit adjustment, head-only retraining and a sequence decoder."
+    },
+    {
+     "at": 657.688,
+     "text": "None reached the locked +1.00 point macro-F1 gate. All were rejected and the original settings were kept."
+    }
+   ]
+  },
+  {
+   "id": "audit",
+   "chapter": 8,
+   "tag": "Archived result. Measured.",
+   "start": 664.038,
+   "end": 678.575,
+   "captions": [
+    {
+     "at": 664.038,
+     "text": "A provenance audit checked 78 further participants: 30 had documented development exposure and 48 have unresolved history."
+    },
+    {
+     "at": 671.912,
+     "text": "Zero are certified independent. Unresolved does not mean unused, so there is no clean external test yet."
+    }
+   ]
+  },
+  {
+   "id": "limits",
+   "chapter": 8,
+   "tag": "Concept picture. Not model internals.",
+   "start": 677.675,
+   "end": 693.517,
+   "captions": [
+    {
+     "at": 677.675,
+     "text": "Read every number within these limits: post-hoc selection, one model seed, and normalization that sees each test night."
+    },
+    {
+     "at": 685.596,
+     "text": "The protocol differs from the original SST paper. This is neither a replication nor clinical validation, nor an online system."
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "chapter": 8,
+   "tag": "Concept picture. Not model internals.",
+   "start": 692.617,
+   "end": 712.913,
+   "captions": [
+    {
+     "at": 692.617,
+     "text": "Sampling, STFT, log, normalization, CNN, BiGRU, loss, AdamW, averaging, metrics, bootstrap: one connected system."
+    },
+    {
+     "at": 699.72,
+     "text": "R1 scored higher in this cohort, and we know exactly which data, transforms and averaging produced it."
+    },
+    {
+     "at": 705.809,
+     "text": "Next gate: a locked protocol on genuinely independent participants, after human approval."
+    }
+   ]
+  }
+ ]
+}

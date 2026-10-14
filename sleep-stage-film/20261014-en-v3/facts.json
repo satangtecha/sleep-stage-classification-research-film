@@ -1,0 +1,677 @@
+{
+  "source_commit": "5f5965d8a69627271651c80ddb6d6546f0006a51",
+  "closeout_result_commit": "25f93f893e5977a61c9aa9e6911e30b361184101",
+  "source_sha256": {
+    "evidence.json": "49e978d68aeb8eac31f7e424830227b6114b662d612392d24ba37bfc2a4e33ec",
+    "participant_exposure.json": "e0d3fd892df2b591ee4d384f58a7ddd96a257f40e339c0f24da366a7134054f1"
+  },
+  "study": {
+    "participants": 20,
+    "nights": 39,
+    "epochs": 42307,
+    "epoch_seconds": 30,
+    "folds": 10,
+    "test_subjects_per_fold": 2
+  },
+  "test": {
+    "base": {
+      "subject_mf1": {
+        "point": 0.5642008634055926,
+        "ci95": [
+          0.4825688338786079,
+          0.6343554541788532
+        ]
+      },
+      "pooled_accuracy": {
+        "point": 0.6500106365376888,
+        "ci95": [
+          0.567323920352382,
+          0.7230284571240283
+        ]
+      },
+      "recall": [
+        0.7984065668759054,
+        0.22574893009985736,
+        0.6388561155121074,
+        0.6612309310889006,
+        0.6623040041466891
+      ]
+    },
+    "r1": {
+      "subject_mf1": {
+        "point": 0.7485800654100225,
+        "ci95": [
+          0.7133130378610136,
+          0.7803087307577196
+        ]
+      },
+      "pooled_accuracy": {
+        "point": 0.8099368898763798,
+        "ci95": [
+          0.7725686250842059,
+          0.8414721693848485
+        ]
+      },
+      "recall": [
+        0.8856832448092709,
+        0.44686162624821685,
+        0.8340356199786505,
+        0.7685428721725408,
+        0.8355578592717378
+      ]
+    },
+    "fullnight": {
+      "subject_mf1": {
+        "point": 0.7183630958105216,
+        "ci95": [
+          0.6881563125450988,
+          0.7448441305679223
+        ]
+      },
+      "pooled_accuracy": {
+        "point": 0.7909565792894793,
+        "ci95": [
+          0.7607883838525945,
+          0.8173671094511645
+        ]
+      },
+      "recall": [
+        0.852245292129406,
+        0.39514978601997147,
+        0.797123433900781,
+        0.7822198842714361,
+        0.8612154982506155
+      ]
+    }
+  },
+  "differences": {
+    "r1-minus-base": {
+      "per_subject_mean_macro_f1": {
+        "point": 0.18437920200442992,
+        "ci95": [
+          0.10065949163768759,
+          0.27545603519245
+        ]
+      },
+      "pooled_accuracy": {
+        "point": 0.15992625333869104,
+        "ci95": [
+          0.07855564788873434,
+          0.2533811059127311
+        ]
+      }
+    },
+    "fullnight-minus-base": {
+      "per_subject_mean_macro_f1": {
+        "point": 0.154162232404929,
+        "ci95": [
+          0.07580520340439136,
+          0.24050170544818994
+        ]
+      },
+      "pooled_accuracy": {
+        "point": 0.1409459427517905,
+        "ci95": [
+          0.06290863160813316,
+          0.22736325925550624
+        ]
+      }
+    },
+    "fullnight-minus-r1": {
+      "per_subject_mean_macro_f1": {
+        "point": -0.03021696959950093,
+        "ci95": [
+          -0.07124246147063606,
+          0.012159229787675252
+        ]
+      },
+      "pooled_accuracy": {
+        "point": -0.01898031058690053,
+        "ci95": [
+          -0.06273049139713435,
+          0.02739609866153575
+        ]
+      }
+    }
+  },
+  "pilots": [
+    {
+      "pilot": "logit",
+      "setting": 0,
+      "mf1": 0.7598786775666286,
+      "accuracy": 0.8293662987212518,
+      "n1_f1": 0.46432532347504624,
+      "phase": "validation"
+    },
+    {
+      "pilot": "logit",
+      "setting": 0.25,
+      "mf1": 0.7612491190158769,
+      "accuracy": 0.8241898503793699,
+      "n1_f1": 0.4741562041415294,
+      "phase": "validation"
+    },
+    {
+      "pilot": "logit",
+      "setting": 0.5,
+      "mf1": 0.7596194766500595,
+      "accuracy": 0.8166497269955326,
+      "n1_f1": 0.47944612721765467,
+      "phase": "validation"
+    },
+    {
+      "pilot": "logit",
+      "setting": 1,
+      "mf1": 0.7442382782823094,
+      "accuracy": 0.7893729170113692,
+      "n1_f1": 0.45150273224043713,
+      "phase": "validation"
+    },
+    {
+      "pilot": "head_cached_FP32",
+      "setting": "baseline",
+      "mf1": 0.7599957520543673,
+      "accuracy": 0.8294135722220909,
+      "n1_f1": 0.46452328159645234,
+      "phase": "validation"
+    },
+    {
+      "pilot": "head_cached_FP32",
+      "setting": "candidate",
+      "mf1": 0.7548163155053492,
+      "accuracy": 0.8003403692060416,
+      "n1_f1": 0.46127281697089295,
+      "phase": "validation"
+    },
+    {
+      "pilot": "decoder",
+      "setting": 0,
+      "mf1": 0.7598786775666286,
+      "accuracy": 0.8293662987212518,
+      "n1_f1": 0.46432532347504624,
+      "phase": "validation"
+    },
+    {
+      "pilot": "decoder",
+      "setting": 0.05,
+      "mf1": 0.7591821976620378,
+      "accuracy": 0.8279717304464982,
+      "n1_f1": 0.4652942248132629,
+      "phase": "validation"
+    },
+    {
+      "pilot": "decoder",
+      "setting": 0.1,
+      "mf1": 0.7594555138158761,
+      "accuracy": 0.8272626279339117,
+      "n1_f1": 0.46618705035971225,
+      "phase": "validation"
+    },
+    {
+      "pilot": "decoder",
+      "setting": 0.2,
+      "mf1": 0.7587661711701845,
+      "accuracy": 0.8258444229087385,
+      "n1_f1": 0.4630576617880444,
+      "phase": "validation"
+    }
+  ],
+  "audit": {
+    "available": 78,
+    "nights": 153,
+    "counts": {
+      "completed_metadata_association_usage_not_fully_resolved": 48,
+      "documented_development_exposure": 30
+    },
+    "independent_confirmed": 0,
+    "parsed_json": 3171
+  },
+  "disclosures": [
+    "R1 post-hoc",
+    "R1/fullnight offline/transductive",
+    "Fullnight-vs-R1 CI includes zero",
+    "Three pilots validation only, all rejected",
+    "No independent cohort certified",
+    "Not original paper replication or clinical validation"
+  ],
+  "visual_policy": "EEG traces, spectra, meshes and network edges are illustrative; only charts of archived results are measured evidence.",
+  "comparison": {
+    "source": "saved terminal receipts and test_logits.npz only",
+    "runs": {
+      "base": {
+        "epochs": 42307,
+        "folds": [
+          {
+            "fold": 0,
+            "macro_f1": 0.6184404410928602,
+            "accuracy": 0.7298989898989899
+          },
+          {
+            "fold": 1,
+            "macro_f1": 0.42786126542041625,
+            "accuracy": 0.4596908442330559
+          },
+          {
+            "fold": 2,
+            "macro_f1": 0.7436953954807978,
+            "accuracy": 0.8094674556213017
+          },
+          {
+            "fold": 3,
+            "macro_f1": 0.6590500924303597,
+            "accuracy": 0.7238646101113967
+          },
+          {
+            "fold": 4,
+            "macro_f1": 0.5964121408928055,
+            "accuracy": 0.6358653093187158
+          },
+          {
+            "fold": 5,
+            "macro_f1": 0.7438820147481564,
+            "accuracy": 0.811070110701107
+          },
+          {
+            "fold": 6,
+            "macro_f1": 0.5357678567459626,
+            "accuracy": 0.5683453237410072
+          },
+          {
+            "fold": 7,
+            "macro_f1": 0.39951062147524036,
+            "accuracy": 0.47684045647795925
+          },
+          {
+            "fold": 8,
+            "macro_f1": 0.5159001503377584,
+            "accuracy": 0.5750394944707741
+          },
+          {
+            "fold": 9,
+            "macro_f1": 0.6271749355108849,
+            "accuracy": 0.7229477611940298
+          }
+        ],
+        "per_class_recall": [
+          0.7984065668759054,
+          0.22574893009985736,
+          0.6388561155121074,
+          0.6612309310889006,
+          0.6623040041466891
+        ],
+        "pooled_confusion": [
+          [
+            6614,
+            565,
+            552,
+            195,
+            358
+          ],
+          [
+            653,
+            633,
+            814,
+            24,
+            680
+          ],
+          [
+            3248,
+            611,
+            11371,
+            1044,
+            1525
+          ],
+          [
+            1071,
+            173,
+            646,
+            3771,
+            42
+          ],
+          [
+            1177,
+            346,
+            1080,
+            3,
+            5111
+          ]
+        ],
+        "predicted_class_share": [
+          0.30167584560474625,
+          0.0550263549767178,
+          0.3418583213179852,
+          0.11905831186328504,
+          0.1823811662372657
+        ],
+        "max_fold_predicted_share": 0.7112960760998811,
+        "max_night_predicted_share": 1,
+        "single_class_nights": 1,
+        "selected_nights": {
+          "SC4021": {
+            "epochs": 1025,
+            "accuracy": 0.0721951219512195
+          },
+          "SC4051": {
+            "epochs": 672,
+            "accuracy": 0.875
+          },
+          "SC4062": {
+            "epochs": 1016,
+            "accuracy": 0.1860236220472441
+          },
+          "SC4101": {
+            "epochs": 1104,
+            "accuracy": 0.8759057971014492
+          },
+          "SC4142": {
+            "epochs": 952,
+            "accuracy": 0.19012605042016806
+          }
+        }
+      },
+      "r1": {
+        "epochs": 42307,
+        "folds": [
+          {
+            "fold": 0,
+            "macro_f1": 0.6503213191694721,
+            "accuracy": 0.7064646464646465
+          },
+          {
+            "fold": 1,
+            "macro_f1": 0.787942382730358,
+            "accuracy": 0.8478002378121284
+          },
+          {
+            "fold": 2,
+            "macro_f1": 0.7509906133031785,
+            "accuracy": 0.8134911242603551
+          },
+          {
+            "fold": 3,
+            "macro_f1": 0.8217628937479955,
+            "accuracy": 0.872107969151671
+          },
+          {
+            "fold": 4,
+            "macro_f1": 0.8098090989903163,
+            "accuracy": 0.8574784651527017
+          },
+          {
+            "fold": 5,
+            "macro_f1": 0.763057387120978,
+            "accuracy": 0.8496924969249693
+          },
+          {
+            "fold": 6,
+            "macro_f1": 0.7069710142734553,
+            "accuracy": 0.7393469839513005
+          },
+          {
+            "fold": 7,
+            "macro_f1": 0.7777846221714104,
+            "accuracy": 0.8353099127321548
+          },
+          {
+            "fold": 8,
+            "macro_f1": 0.7863780656928381,
+            "accuracy": 0.8362954186413902
+          },
+          {
+            "fold": 9,
+            "macro_f1": 0.6389332581325254,
+            "accuracy": 0.7204601990049752
+          }
+        ],
+        "per_class_recall": [
+          0.8856832448092709,
+          0.44686162624821685,
+          0.8340356199786505,
+          0.7685428721725408,
+          0.8355578592717378
+        ],
+        "pooled_confusion": [
+          [
+            7337,
+            572,
+            138,
+            27,
+            210
+          ],
+          [
+            443,
+            1253,
+            722,
+            10,
+            376
+          ],
+          [
+            349,
+            726,
+            14845,
+            1043,
+            836
+          ],
+          [
+            207,
+            132,
+            969,
+            4383,
+            12
+          ],
+          [
+            163,
+            537,
+            569,
+            0,
+            6448
+          ]
+        ],
+        "predicted_class_share": [
+          0.20088874181577518,
+          0.07611033635095847,
+          0.40756848748434066,
+          0.12912756754201432,
+          0.18630486680691138
+        ],
+        "max_fold_predicted_share": 0.5195266272189349,
+        "max_night_predicted_share": 0.5416666666666666,
+        "single_class_nights": 0,
+        "selected_nights": {
+          "SC4021": {
+            "epochs": 1025,
+            "accuracy": 0.8253658536585365
+          },
+          "SC4051": {
+            "epochs": 672,
+            "accuracy": 0.8854166666666666
+          },
+          "SC4062": {
+            "epochs": 1016,
+            "accuracy": 0.8868110236220472
+          },
+          "SC4101": {
+            "epochs": 1104,
+            "accuracy": 0.8387681159420289
+          },
+          "SC4142": {
+            "epochs": 952,
+            "accuracy": 0.8487394957983193
+          }
+        }
+      },
+      "fullnight": {
+        "epochs": 42307,
+        "folds": [
+          {
+            "fold": 0,
+            "macro_f1": 0.7382961351940038,
+            "accuracy": 0.7997979797979798
+          },
+          {
+            "fold": 1,
+            "macro_f1": 0.7428947726593869,
+            "accuracy": 0.8342449464922711
+          },
+          {
+            "fold": 2,
+            "macro_f1": 0.6938819581488093,
+            "accuracy": 0.7479289940828402
+          },
+          {
+            "fold": 3,
+            "macro_f1": 0.6810670406824879,
+            "accuracy": 0.726649528706084
+          },
+          {
+            "fold": 4,
+            "macro_f1": 0.7624020694114969,
+            "accuracy": 0.8332028191072827
+          },
+          {
+            "fold": 5,
+            "macro_f1": 0.7330421482104658,
+            "accuracy": 0.8019680196801968
+          },
+          {
+            "fold": 6,
+            "macro_f1": 0.7050492883145768,
+            "accuracy": 0.7457111234089652
+          },
+          {
+            "fold": 7,
+            "macro_f1": 0.6897111053763376,
+            "accuracy": 0.7637055269635266
+          },
+          {
+            "fold": 8,
+            "macro_f1": 0.7946784927699835,
+            "accuracy": 0.8485387045813586
+          },
+          {
+            "fold": 9,
+            "macro_f1": 0.743274697586682,
+            "accuracy": 0.8044154228855721
+          }
+        ],
+        "per_class_recall": [
+          0.852245292129406,
+          0.39514978601997147,
+          0.797123433900781,
+          0.7822198842714361,
+          0.8612154982506155
+        ],
+        "pooled_confusion": [
+          [
+            7060,
+            600,
+            237,
+            42,
+            345
+          ],
+          [
+            436,
+            1108,
+            673,
+            14,
+            573
+          ],
+          [
+            164,
+            652,
+            14188,
+            992,
+            1803
+          ],
+          [
+            42,
+            7,
+            1176,
+            4461,
+            17
+          ],
+          [
+            229,
+            298,
+            541,
+            3,
+            6646
+          ]
+        ],
+        "predicted_class_share": [
+          0.18746306757746944,
+          0.06299193986810693,
+          0.39745195830477226,
+          0.13028576831257238,
+          0.22180726593707897
+        ],
+        "max_fold_predicted_share": 0.48370986920332937,
+        "max_night_predicted_share": 0.6219262295081968,
+        "single_class_nights": 0,
+        "selected_nights": {
+          "SC4021": {
+            "epochs": 1025,
+            "accuracy": 0.8565853658536585
+          },
+          "SC4051": {
+            "epochs": 672,
+            "accuracy": 0.7738095238095238
+          },
+          "SC4062": {
+            "epochs": 1016,
+            "accuracy": 0.640748031496063
+          },
+          "SC4101": {
+            "epochs": 1104,
+            "accuracy": 0.8242753623188406
+          },
+          "SC4142": {
+            "epochs": 952,
+            "accuracy": 0.8676470588235294
+          }
+        }
+      }
+    },
+    "identities": {
+      "base": {
+        "split_sha256": "00274d9483a1bf8edf3d3188095c50fc5fce063fcb06b57213dc071e3363fc17",
+        "data_sha256": "890aaf8393c5761edd869dc58ffc338dc51f9fb9fe9d52c1cf40a5b68dab5be4",
+        "code_sha256": "0029aa8178871e80a0c5852114016b4060c77a48ce9b5ca081853a4f0bce619e"
+      },
+      "r1": {
+        "split_sha256": "00274d9483a1bf8edf3d3188095c50fc5fce063fcb06b57213dc071e3363fc17",
+        "data_sha256": "890aaf8393c5761edd869dc58ffc338dc51f9fb9fe9d52c1cf40a5b68dab5be4",
+        "code_sha256": "7eacc15d762efce261db67b6f497e3eb2df91ea681a8df49fc0d8c10e76bf53e"
+      },
+      "fullnight": {
+        "split_sha256": "00274d9483a1bf8edf3d3188095c50fc5fce063fcb06b57213dc071e3363fc17",
+        "data_sha256": "890aaf8393c5761edd869dc58ffc338dc51f9fb9fe9d52c1cf40a5b68dab5be4",
+        "code_sha256": "53b2d6d7ce42a54dc1496d5745f4f46e88dd56753d03156e3059c85f081cafad"
+      }
+    }
+  },
+  "bootstrap": {
+    "unit": "participant, paired across runs",
+    "resamples": 1000,
+    "seed": 20261011
+  },
+  "pipeline": {
+    "channel": "EEG Fpz-Cz",
+    "hz": 100,
+    "epoch_seconds": 30,
+    "shape": [
+      129,
+      29
+    ],
+    "cnn_channels": [
+      32,
+      64,
+      128
+    ],
+    "embedding_size": 128,
+    "gru_layers": 2,
+    "gru_hidden_size": 128,
+    "bidirectional": true,
+    "infer_stride": 5
+  }
+}

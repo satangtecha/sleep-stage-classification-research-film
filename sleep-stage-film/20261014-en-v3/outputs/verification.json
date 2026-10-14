@@ -1,0 +1,85 @@
+{
+  "file": "outputs/SleepStage-English-Silent-v3.mp4",
+  "sha256": "084080b5842d3d508c1504fe17ab2bf983233edfc4c07fb4d8d1611e9011c731",
+  "bytes": 50003086,
+  "duration_seconds": 712.9,
+  "frames": 21387,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "audio_streams": 0,
+  "chapters": [
+    {
+      "title": "Opening",
+      "start": 0,
+      "end": 11.657
+    },
+    {
+      "title": "1. The signal",
+      "start": 11.657,
+      "end": 99.463
+    },
+    {
+      "title": "2. From waves to frequencies",
+      "start": 99.463,
+      "end": 227.422
+    },
+    {
+      "title": "3. Putting nights on one scale",
+      "start": 227.422,
+      "end": 304.407
+    },
+    {
+      "title": "4. The network",
+      "start": 304.407,
+      "end": 432.457
+    },
+    {
+      "title": "5. How it learns",
+      "start": 432.457,
+      "end": 502.475
+    },
+    {
+      "title": "6. Predicting and scoring",
+      "start": 502.475,
+      "end": 559.891
+    },
+    {
+      "title": "7. What we found",
+      "start": 559.891,
+      "end": 647.738
+    },
+    {
+      "title": "8. The evidence boundary",
+      "start": 647.738,
+      "end": 712.9
+    }
+  ],
+  "scenes": 58,
+  "checks": {
+    "no_audio": true,
+    "frames_match": true,
+    "duration_close": true,
+    "size_1080p": true,
+    "chapters": true,
+    "under_100MB": true
+  },
+  "source_sha256": {
+    "film.mjs": "6c105eb6e4a4eeaffb32287a4ae9e721dd3adefbdb961136f365913bbac3fc7b",
+    "lib.mjs": "4f72043382bb665e612118910bd4864cc54dfa32320cd34dd584b7a5a913ce72",
+    "scenes-a.mjs": "73758406667693230c0a0ba5492b25c14568f15b63fc54e69580025570765a3c",
+    "scenes-b.mjs": "9e4732b9d3741146dc4cc7f2dcfc7230455cc92b00e4fdc5bf0e1f0503dd97f5",
+    "scenes-c.mjs": "3d5aa92f095664cd3fb8a2157daf11a42dbf9576df92ffe821e446e5da4fd84d",
+    "facts.json": "655bc12e619b039d08df94fbd6beb585cbd2a4c0c1785d254610a57e06729133",
+    "deliver.mjs": "61c423161981709d44fb071a0b4cd4c5bed2be18cbff8f6e4bb3a2d4ca2f36ae"
+  },
+  "research_source_sha256": {
+    "evidence.json": "49e978d68aeb8eac31f7e424830227b6114b662d612392d24ba37bfc2a4e33ec",
+    "participant_exposure.json": "e0d3fd892df2b591ee4d384f58a7ddd96a257f40e339c0f24da366a7134054f1"
+  },
+  "source_commit": "5f5965d8a69627271651c80ddb6d6546f0006a51",
+  "closeout_result_commit": "25f93f893e5977a61c9aa9e6911e30b361184101",
+  "training": false,
+  "new_inference": false,
+  "new_test_evaluation": false
+}

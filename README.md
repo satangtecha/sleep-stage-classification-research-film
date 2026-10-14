@@ -12,7 +12,8 @@ This repository preserves the public, reviewable parts of a sleep stage classifi
 
 ## Watch the films
 
-- [Latest English film, silent with English captions (5 min)](sleep-stage-film/20261014-en-v2/outputs/SleepStage-English-Silent-5min.mp4) · [interactive presentation](sleep-stage-film/20261014-en-v2/outputs/presentation.html) · [source and caveats](sleep-stage-film/20261014-en-v2/README.md)
+- **[v3 English film, silent, full math walkthrough (≈12 min)](sleep-stage-film/20261014-en-v3/outputs/SleepStage-English-Silent-v3.mp4)** · [interactive presentation](sleep-stage-film/20261014-en-v3/outputs/presentation.html) · [captions](sleep-stage-film/20261014-en-v3/outputs/captions-en.srt) · [source and caveats](sleep-stage-film/20261014-en-v3/README.md)
+- [v2 English film, silent with English captions (5 min)](sleep-stage-film/20261014-en-v2/outputs/SleepStage-English-Silent-5min.mp4) · [interactive presentation](sleep-stage-film/20261014-en-v2/outputs/presentation.html) · [source and caveats](sleep-stage-film/20261014-en-v2/README.md)
 - [Earlier Thai film with narration (5 min)](sleep-stage-film/20261013-v1/outputs/final/SleepStageResearch-5min-final.mp4) · [interactive presentation](sleep-stage-film/20261013-v1/outputs/final/presentation-final.html) · [source and caveats](sleep-stage-film/20261013-v1/README.md)
 
 The film source, story, facts, package lockfiles, and verification records are in each version directory. The 3D animation is an explanatory visualization of archived research, not an EEG model or a clinical tool.

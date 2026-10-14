@@ -1,0 +1,427 @@
+1
+00:00:00,000 --> 00:00:06,278
+One night of sleep. One EEG channel. One stage label for every 30 seconds.
+
+2
+00:00:06,278 --> 00:00:12,107
+This film walks through the math behind every step, then what the evidence does and does not show.
+
+3
+00:00:14,807 --> 00:00:20,652
+EEG measures a voltage difference between two electrodes on the scalp. It does not read thoughts.
+
+4
+00:00:20,652 --> 00:00:26,498
+Our channel is Fpz minus Cz, recorded in microvolts. One point on the trace is one voltage reading.
+
+5
+00:00:26,498 --> 00:00:32,048
+A computer cannot store a continuous curve. It keeps samples at regular moments.
+
+6
+00:00:32,048 --> 00:00:37,598
+Our recording uses 100 samples per second, so one value every 0.01 seconds.
+
+7
+00:00:37,598 --> 00:00:43,148
+Sampling sets a ceiling: the Nyquist frequency is half the sampling rate, here 50 Hz.
+
+8
+00:00:43,148 --> 00:00:48,698
+A 70 Hz wave sampled at 100 Hz lands on the same points as a 30 Hz wave. That is aliasing.
+
+9
+00:00:48,698 --> 00:00:54,248
+We cut the night into 30-second epochs. At 100 Hz, each epoch holds 3,000 numbers.
+
+10
+00:00:54,248 --> 00:00:59,798
+So one epoch is a vector of 3,000 real numbers, paired with one reference stage label y.
+
+11
+00:00:59,798 --> 00:01:07,374
+Each epoch gets one of five labels, coded 0 to 4. The codes are names, not depth: REM = 4 is not deeper than N3 = 3.
+
+12
+00:01:07,374 --> 00:01:13,715
+Old sleep stages 3 and 4 are merged into N3. Movement and unknown epochs are left out of the five classes.
+
+13
+00:01:13,715 --> 00:01:21,022
+The evaluated cohort: 20 participants, 39 recorded nights and 42,307 retained epochs from Sleep-EDF Expanded.
+
+14
+00:01:21,022 --> 00:01:27,036
+Epochs from the same person are strongly related, so the data must be split by person, not by epoch.
+
+15
+00:01:27,036 --> 00:01:33,474
+In each fold, 16 people train the model, 2 people choose the checkpoint and 2 people are kept for testing.
+
+16
+00:01:33,474 --> 00:01:39,913
+Ten folds rotate the held-out people, so every participant is tested exactly once and never sits in two sets.
+
+17
+00:01:42,613 --> 00:01:46,163
+A sine wave has three knobs. Amplitude A sets its size.
+
+18
+00:01:46,163 --> 00:01:50,163
+Frequency f sets how many cycles happen each second.
+
+19
+00:01:50,163 --> 00:01:53,713
+Phase φ sets where in its cycle the wave starts.
+
+20
+00:01:53,713 --> 00:01:59,763
+Real signals are sums of waves. Here: a 2 Hz wave of size 20 plus a 12 Hz wave of size 5.
+
+21
+00:01:59,763 --> 00:02:04,813
+The recorded trace only shows the sum. The individual parts are hidden inside it.
+
+22
+00:02:04,813 --> 00:02:10,642
+For a sine wave over full cycles, the average of x² equals A²/2.
+
+23
+00:02:10,642 --> 00:02:16,470
+Double the amplitude and the power grows four times. Magnitude and power are different quantities.
+
+24
+00:02:16,470 --> 00:02:22,785
+The DFT compares the signal with a cosine and a sine at each test frequency.
+
+25
+00:02:22,785 --> 00:02:29,549
+Wrap the signal around a circle at that frequency. When the frequency matches, the wrapped curve leans to one side.
+
+26
+00:02:29,549 --> 00:02:34,511
+Measure that lean for every frequency and peaks appear at 2 Hz and 12 Hz.
+
+27
+00:02:34,511 --> 00:02:40,357
+Each DFT output is a complex number with a real part a and an imaginary part b.
+
+28
+00:02:40,357 --> 00:02:46,203
+We keep the magnitude |X| and drop the phase. The FFT is simply a fast way to compute the same DFT.
+
+29
+00:02:46,203 --> 00:02:51,517
+One FFT over all 30 seconds tells which frequencies exist, but not when they happen.
+
+30
+00:02:51,517 --> 00:02:57,282
+The STFT slides a 2-second Hamming window forward 1 second at a time and runs an FFT at each stop.
+
+31
+00:02:57,282 --> 00:03:01,444
+Stacking the 29 windows gives a time-frequency picture of one epoch.
+
+32
+00:03:01,444 --> 00:03:08,053
+Cutting a short piece of signal creates hard edges, and hard edges smear energy into nearby frequencies.
+
+33
+00:03:08,053 --> 00:03:14,661
+The Hamming window weights the middle and fades the edges. Leakage drops, at the cost of a slightly wider peak.
+
+34
+00:03:14,661 --> 00:03:21,441
+Count the windows: 29 time steps. Count the one-sided FFT bins: 129 frequencies. One epoch becomes a 129 × 29 grid.
+
+35
+00:03:21,441 --> 00:03:27,187
+Bins are 0.39 Hz apart, but zero-padding from 200 to 256 points adds bins, not new information.
+
+36
+00:03:27,187 --> 00:03:33,500
+Spectral magnitudes span huge ranges, so we take the natural logarithm. A 100× gap becomes about 4.6 units.
+
+37
+00:03:33,500 --> 00:03:38,772
+This is log-magnitude, not log-power. The tiny ε = 10⁻⁶ prevents ln(0) = −∞.
+
+38
+00:03:38,772 --> 00:03:42,822
+Colors are only for people. The network never sees colors.
+
+39
+00:03:42,822 --> 00:03:47,872
+It receives a 129 × 29 matrix of real numbers for every epoch.
+
+40
+00:03:50,572 --> 00:03:57,053
+Standardizing asks one question: how many standard deviations is this value from the mean?
+
+41
+00:03:57,053 --> 00:04:03,535
+12, with mean 10 and SD 2, becomes z = 1. The pattern of the data does not change, only its center and scale.
+
+42
+00:04:03,535 --> 00:04:09,847
+Our statistics are computed separately for each frequency bin, across every epoch and time step of a night.
+
+43
+00:04:09,847 --> 00:04:16,160
+That gives 129 means and 129 standard deviations. A floor of 10⁻³ stops division by a tiny SD.
+
+44
+00:04:16,160 --> 00:04:22,876
+Baseline: the statistics come only from the training participants, then the same numbers are used for every night.
+
+45
+00:04:22,876 --> 00:04:29,593
+R1: every night uses its own statistics, including validation and test nights. That makes R1 transductive.
+
+46
+00:04:29,593 --> 00:04:35,156
+Why might per-night statistics help? Suppose one night was recorded with a different gain a.
+
+47
+00:04:35,156 --> 00:04:40,568
+The STFT is linear, so the gain becomes a constant shift ln a in the log-magnitude features.
+
+48
+00:04:40,568 --> 00:04:47,935
+Per-night standardization cancels the shift. Ideal case only: real nights can differ in more complex ways.
+
+49
+00:04:47,935 --> 00:04:56,396
+There is a catch. A night's mean also depends on how much of each sleep stage the night contains.
+
+50
+00:04:56,396 --> 00:05:04,857
+A wake-heavy night and a deep-sleep-heavy night get different statistics even with perfect recording. Per-night normalization is a trade-off.
+
+51
+00:05:07,557 --> 00:05:16,158
+A training batch holds 32 sequences. Each sequence has 20 consecutive epochs, and each epoch is a 1 × 129 × 29 image.
+
+52
+00:05:16,158 --> 00:05:23,466
+Twenty epochs cover ten minutes. The CNN reads all 640 images at once, then they are regrouped into sequences for the GRU.
+
+53
+00:05:23,466 --> 00:05:29,349
+A single unit multiplies inputs by learned weights and adds a bias: 0.5·1 − 0.2·2 + 0.3 = 0.4.
+
+54
+00:05:29,349 --> 00:05:37,535
+Convolution slides the same 3 × 3 weights over the whole image, producing a feature map. In PyTorch this is technically cross-correlation.
+
+55
+00:05:37,535 --> 00:05:44,780
+ReLU keeps positive values and turns negatives into zero. Without it, stacked linear layers collapse into one linear map.
+
+56
+00:05:44,780 --> 00:05:52,025
+Max pooling keeps the largest value in each 2 × 2 block, halving height and width.
+
+57
+00:05:52,025 --> 00:05:59,118
+Three blocks of convolution, BatchNorm, ReLU and pooling shrink the image while adding feature channels.
+
+58
+00:05:59,118 --> 00:06:06,212
+Global average pooling turns 128 feature maps into one vector, then a linear layer gives the 128-number epoch embedding.
+
+59
+00:06:06,212 --> 00:06:14,060
+BatchNorm normalizes activations inside the CNN, per feature channel. It is a different step from our per-night input normalization.
+
+60
+00:06:14,060 --> 00:06:21,908
+Dropout with p = 0.3 switches off random activations during training only. model.eval() makes both layers fixed rules.
+
+61
+00:06:21,908 --> 00:06:28,939
+A GRU carries a hidden state h from one epoch to the next, mixing in each new epoch embedding e_t.
+
+62
+00:06:28,939 --> 00:06:35,970
+The reset gate r limits old context when proposing a candidate n. The update gate z decides how much old state to keep.
+
+63
+00:06:35,970 --> 00:06:43,533
+A bidirectional GRU runs twice: once forward in time and once backward. Two layers, 128 hidden units per direction.
+
+64
+00:06:43,533 --> 00:06:51,096
+Each epoch gets 128 + 128 = 256 context features. Context stops at the 20-epoch window; there is no memory of the whole night.
+
+65
+00:06:51,096 --> 00:06:57,743
+The classifier maps 256 features to five logits per epoch. Logits can be negative and need not sum to 1.
+
+66
+00:06:57,743 --> 00:07:04,272
+Softmax exponentiates and divides by the total. With logit ln 4 for N2 and 0 for the rest, N2 gets 4 / 8 = 0.5.
+
+67
+00:07:04,272 --> 00:07:12,907
+The prediction is the largest logit. A probability of 0.9 is not automatically right 90% of the time.
+
+68
+00:07:15,607 --> 00:07:21,262
+Training uses cross-entropy: minus the log of the probability the model gives to the true class.
+
+69
+00:07:21,262 --> 00:07:26,917
+Confident and correct costs little. Confident and wrong is punished hard: p = 0.01 costs 4.6.
+
+70
+00:07:26,917 --> 00:07:34,492
+N1 is rare and hard, so N1 mistakes are weighted 1.5 times. The loss is divided by the sum of the weights used.
+
+71
+00:07:34,492 --> 00:07:40,833
+A sequence does not get one answer: all 20 epochs keep their own label and add their own term to the loss.
+
+72
+00:07:40,833 --> 00:07:47,841
+The gradient of the loss for each logit is simple: p − 1 for the true class and p for every other class.
+
+73
+00:07:47,841 --> 00:07:54,848
+True class N1 with p = 0.2 gives −0.8, so its score should rise. N2 with p = 0.6 gives +0.6, so its score should fall.
+
+74
+00:07:54,848 --> 00:08:01,816
+AdamW keeps a running average of the gradient (m) and of its square (v), then scales each step parameter by parameter.
+
+75
+00:08:01,816 --> 00:08:08,784
+Learning rate 10⁻³, weight decay 10⁻⁴, and gradients clipped to a norm of 1 to avoid occasional violent steps.
+
+76
+00:08:08,784 --> 00:08:15,855
+Low training loss is not the goal. The goal is good predictions for people the model has never seen.
+
+77
+00:08:15,855 --> 00:08:22,925
+We keep the checkpoint with the best validation macro-F1, stopping after 10 epochs without improvement or at 60 epochs.
+
+78
+00:08:25,625 --> 00:08:32,317
+At inference, 20-epoch windows slide forward 5 epochs at a time, so most epochs are predicted by several windows.
+
+79
+00:08:32,317 --> 00:08:39,008
+We average the logits, not labels or probabilities. Softmax of an average is not the average of softmaxes.
+
+80
+00:08:39,008 --> 00:08:45,172
+Each scored epoch is counted by true stage (row) and predicted stage (column). These are R1 test counts.
+
+81
+00:08:45,172 --> 00:08:51,336
+The diagonal is correct: 34,266 of 42,307 epochs, a pooled accuracy of 80.99%.
+
+82
+00:08:51,336 --> 00:08:56,703
+Recall asks: of all true N1 epochs, how many did we catch? 1,253 of 2,804, or 44.7%.
+
+83
+00:08:56,703 --> 00:09:01,938
+Precision asks: of everything predicted N1, how much was right? 1,253 of 3,220, or 38.9%.
+
+84
+00:09:01,938 --> 00:09:07,887
+Their harmonic mean: pooled N1 F1 = 0.416. An accuracy near 81% hides this weak class.
+
+85
+00:09:07,887 --> 00:09:14,114
+Macro-F1 averages the five class F1 scores, so rare N1 counts as much as common N2.
+
+86
+00:09:14,114 --> 00:09:20,341
+Our headline goes one step further: compute macro-F1 for each person, then average the 20 people equally.
+
+87
+00:09:23,041 --> 00:09:29,014
+The baseline collapsed on particular test nights. One night was predicted entirely as a single class.
+
+88
+00:09:29,014 --> 00:09:34,987
+Four diagnostic rounds found no confirmed pairing, timing, channel or label-alignment defect.
+
+89
+00:09:34,987 --> 00:09:42,709
+Subject-mean macro-F1: baseline 56.42%, R1 74.86%, full-night sensitivity 71.84%. Pooled accuracy rose from 65.00% to 80.99%.
+
+90
+00:09:42,709 --> 00:09:50,432
+R1 changed normalization and retrained the weights together, and it was chosen after seeing the baseline failures. It is post-hoc.
+
+91
+00:09:50,432 --> 00:09:57,804
+The full-night sensitivity run takes statistics from the complete recording, without hypnogram-based trimming.
+
+92
+00:09:57,804 --> 00:10:05,176
+Training and scored epochs stay exactly the same. Only the range used for the statistics changes. It is still transductive.
+
+93
+00:10:05,176 --> 00:10:12,743
+A paired bootstrap redraws the 20 participants with replacement, 1,000 times, using the same draw for both runs.
+
+94
+00:10:12,743 --> 00:10:21,455
+Full-night minus R1: −3.02 points, 95% interval −7.12 to +1.22. It crosses zero: not enough evidence of a difference, and not proof they are equal.
+
+95
+00:10:21,455 --> 00:10:29,383
+Ten held-out folds tell a less tidy story. R1 improved pooled macro-F1 in all ten folds, but folds 0 and 9 stay comparatively weak.
+
+96
+00:10:29,383 --> 00:10:35,914
+Each fold pools only two test participants, and training sets overlap, so folds are not independent samples.
+
+97
+00:10:35,914 --> 00:10:42,650
+Per-class recall shows which stages are recovered. N1 is still the hardest: 44.7% with R1, 39.5% with full-night.
+
+98
+00:10:42,650 --> 00:10:48,188
+Better overall numbers do not solve every class.
+
+99
+00:10:50,888 --> 00:10:57,688
+Three small validation-only pilots tried to fix N1: logit adjustment, head-only retraining and a sequence decoder.
+
+100
+00:10:57,688 --> 00:11:04,488
+None reached the locked +1.00 point macro-F1 gate. All were rejected and the original settings were kept.
+
+101
+00:11:04,488 --> 00:11:11,912
+A provenance audit checked 78 further participants: 30 had documented development exposure and 48 have unresolved history.
+
+102
+00:11:11,912 --> 00:11:18,125
+Zero are certified independent. Unresolved does not mean unused, so there is no clean external test yet.
+
+103
+00:11:18,125 --> 00:11:25,596
+Read every number within these limits: post-hoc selection, one model seed, and normalization that sees each test night.
+
+104
+00:11:25,596 --> 00:11:33,067
+The protocol differs from the original SST paper. This is neither a replication nor clinical validation, nor an online system.
+
+105
+00:11:33,067 --> 00:11:39,720
+Sampling, STFT, log, normalization, CNN, BiGRU, loss, AdamW, averaging, metrics, bootstrap: one connected system.
+
+106
+00:11:39,720 --> 00:11:45,809
+R1 scored higher in this cohort, and we know exactly which data, transforms and averaging produced it.
+
+107
+00:11:45,809 --> 00:11:52,913
+Next gate: a locked protocol on genuinely independent participants, after human approval.

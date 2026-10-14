@@ -1,0 +1,72 @@
+{
+  "slides": [
+    {
+      "file": "outputs/slides-media/chapter-0.mp4",
+      "rev_file": "outputs/slides-media/chapter-0.mp4",
+      "auto_next": false,
+      "loop": false,
+      "notes": "Opening\nOne night of sleep. One EEG channel. One stage label for every 30 seconds.\nThis film walks through the math behind every step, then what the evidence does and does not show."
+    },
+    {
+      "file": "outputs/slides-media/chapter-1.mp4",
+      "rev_file": "outputs/slides-media/chapter-1.mp4",
+      "auto_next": false,
+      "loop": false,
+      "notes": "1. The signal\nEEG measures a voltage difference between two electrodes on the scalp. It does not read thoughts.\nOur channel is Fpz minus Cz, recorded in microvolts. One point on the trace is one voltage reading.\nA computer cannot store a continuous curve. It keeps samples at regular moments.\nOur recording uses 100 samples per second, so one value every 0.01 seconds.\nSampling sets a ceiling: the Nyquist frequency is half the sampling rate, here 50 Hz.\nA 70 Hz wave sampled at 100 Hz lands on the same points as a 30 Hz wave. That is aliasing.\nWe cut the night into 30-second epochs. At 100 Hz, each epoch holds 3,000 numbers.\nSo one epoch is a vector of 3,000 real numbers, paired with one reference stage label y.\nEach epoch gets one of five labels, coded 0 to 4. The codes are names, not depth: REM = 4 is not deeper than N3 = 3.\nOld sleep stages 3 and 4 are merged into N3. Movement and unknown epochs are left out of the five classes.\nThe evaluated cohort: 20 participants, 39 recorded nights and 42,307 retained epochs from Sleep-EDF Expanded.\nEpochs from the same person are strongly related, so the data must be split by person, not by epoch.\nIn each fold, 16 people train the model, 2 people choose the checkpoint and 2 people are kept for testing.\nTen folds rotate the held-out people, so every participant is tested exactly once and never sits in two sets."
+    },
+    {
+      "file": "outputs/slides-media/chapter-2.mp4",
+      "rev_file": "outputs/slides-media/chapter-2.mp4",
+      "auto_next": false,
+      "loop": false,
+      "notes": "2. From waves to frequencies\nA sine wave has three knobs. Amplitude A sets its size.\nFrequency f sets how many cycles happen each second.\nPhase φ sets where in its cycle the wave starts.\nReal signals are sums of waves. Here: a 2 Hz wave of size 20 plus a 12 Hz wave of size 5.\nThe recorded trace only shows the sum. The individual parts are hidden inside it.\nFor a sine wave over full cycles, the average of x² equals A²/2.\nDouble the amplitude and the power grows four times. Magnitude and power are different quantities.\nThe DFT compares the signal with a cosine and a sine at each test frequency.\nWrap the signal around a circle at that frequency. When the frequency matches, the wrapped curve leans to one side.\nMeasure that lean for every frequency and peaks appear at 2 Hz and 12 Hz.\nEach DFT output is a complex number with a real part a and an imaginary part b.\nWe keep the magnitude |X| and drop the phase. The FFT is simply a fast way to compute the same DFT.\nOne FFT over all 30 seconds tells which frequencies exist, but not when they happen.\nThe STFT slides a 2-second Hamming window forward 1 second at a time and runs an FFT at each stop.\nStacking the 29 windows gives a time-frequency picture of one epoch.\nCutting a short piece of signal creates hard edges, and hard edges smear energy into nearby frequencies.\nThe Hamming window weights the middle and fades the edges. Leakage drops, at the cost of a slightly wider peak.\nCount the windows: 29 time steps. Count the one-sided FFT bins: 129 frequencies. One epoch becomes a 129 × 29 grid.\nBins are 0.39 Hz apart, but zero-padding from 200 to 256 points adds bins, not new information.\nSpectral magnitudes span huge ranges, so we take the natural logarithm. A 100× gap becomes about 4.6 units.\nThis is log-magnitude, not log-power. The tiny ε = 10⁻⁶ prevents ln(0) = −∞.\nColors are only for people. The network never sees colors.\nIt receives a 129 × 29 matrix of real numbers for every epoch."
+    },
+    {
+      "file": "outputs/slides-media/chapter-3.mp4",
+      "rev_file": "outputs/slides-media/chapter-3.mp4",
+      "auto_next": false,
+      "loop": false,
+      "notes": "3. Putting nights on one scale\nStandardizing asks one question: how many standard deviations is this value from the mean?\n12, with mean 10 and SD 2, becomes z = 1. The pattern of the data does not change, only its center and scale.\nOur statistics are computed separately for each frequency bin, across every epoch and time step of a night.\nThat gives 129 means and 129 standard deviations. A floor of 10⁻³ stops division by a tiny SD.\nBaseline: the statistics come only from the training participants, then the same numbers are used for every night.\nR1: every night uses its own statistics, including validation and test nights. That makes R1 transductive.\nWhy might per-night statistics help? Suppose one night was recorded with a different gain a.\nThe STFT is linear, so the gain becomes a constant shift ln a in the log-magnitude features.\nPer-night standardization cancels the shift. Ideal case only: real nights can differ in more complex ways.\nThere is a catch. A night's mean also depends on how much of each sleep stage the night contains.\nA wake-heavy night and a deep-sleep-heavy night get different statistics even with perfect recording. Per-night normalization is a trade-off."
+    },
+    {
+      "file": "outputs/slides-media/chapter-4.mp4",
+      "rev_file": "outputs/slides-media/chapter-4.mp4",
+      "auto_next": false,
+      "loop": false,
+      "notes": "4. The network\nA training batch holds 32 sequences. Each sequence has 20 consecutive epochs, and each epoch is a 1 × 129 × 29 image.\nTwenty epochs cover ten minutes. The CNN reads all 640 images at once, then they are regrouped into sequences for the GRU.\nA single unit multiplies inputs by learned weights and adds a bias: 0.5·1 − 0.2·2 + 0.3 = 0.4.\nConvolution slides the same 3 × 3 weights over the whole image, producing a feature map. In PyTorch this is technically cross-correlation.\nReLU keeps positive values and turns negatives into zero. Without it, stacked linear layers collapse into one linear map.\nMax pooling keeps the largest value in each 2 × 2 block, halving height and width.\nThree blocks of convolution, BatchNorm, ReLU and pooling shrink the image while adding feature channels.\nGlobal average pooling turns 128 feature maps into one vector, then a linear layer gives the 128-number epoch embedding.\nBatchNorm normalizes activations inside the CNN, per feature channel. It is a different step from our per-night input normalization.\nDropout with p = 0.3 switches off random activations during training only. model.eval() makes both layers fixed rules.\nA GRU carries a hidden state h from one epoch to the next, mixing in each new epoch embedding e_t.\nThe reset gate r limits old context when proposing a candidate n. The update gate z decides how much old state to keep.\nA bidirectional GRU runs twice: once forward in time and once backward. Two layers, 128 hidden units per direction.\nEach epoch gets 128 + 128 = 256 context features. Context stops at the 20-epoch window; there is no memory of the whole night.\nThe classifier maps 256 features to five logits per epoch. Logits can be negative and need not sum to 1.\nSoftmax exponentiates and divides by the total. With logit ln 4 for N2 and 0 for the rest, N2 gets 4 / 8 = 0.5.\nThe prediction is the largest logit. A probability of 0.9 is not automatically right 90% of the time."
+    },
+    {
+      "file": "outputs/slides-media/chapter-5.mp4",
+      "rev_file": "outputs/slides-media/chapter-5.mp4",
+      "auto_next": false,
+      "loop": false,
+      "notes": "5. How it learns\nTraining uses cross-entropy: minus the log of the probability the model gives to the true class.\nConfident and correct costs little. Confident and wrong is punished hard: p = 0.01 costs 4.6.\nN1 is rare and hard, so N1 mistakes are weighted 1.5 times. The loss is divided by the sum of the weights used.\nA sequence does not get one answer: all 20 epochs keep their own label and add their own term to the loss.\nThe gradient of the loss for each logit is simple: p − 1 for the true class and p for every other class.\nTrue class N1 with p = 0.2 gives −0.8, so its score should rise. N2 with p = 0.6 gives +0.6, so its score should fall.\nAdamW keeps a running average of the gradient (m) and of its square (v), then scales each step parameter by parameter.\nLearning rate 10⁻³, weight decay 10⁻⁴, and gradients clipped to a norm of 1 to avoid occasional violent steps.\nLow training loss is not the goal. The goal is good predictions for people the model has never seen.\nWe keep the checkpoint with the best validation macro-F1, stopping after 10 epochs without improvement or at 60 epochs."
+    },
+    {
+      "file": "outputs/slides-media/chapter-6.mp4",
+      "rev_file": "outputs/slides-media/chapter-6.mp4",
+      "auto_next": false,
+      "loop": false,
+      "notes": "6. Predicting and scoring\nAt inference, 20-epoch windows slide forward 5 epochs at a time, so most epochs are predicted by several windows.\nWe average the logits, not labels or probabilities. Softmax of an average is not the average of softmaxes.\nEach scored epoch is counted by true stage (row) and predicted stage (column). These are R1 test counts.\nThe diagonal is correct: 34,266 of 42,307 epochs, a pooled accuracy of 80.99%.\nRecall asks: of all true N1 epochs, how many did we catch? 1,253 of 2,804, or 44.7%.\nPrecision asks: of everything predicted N1, how much was right? 1,253 of 3,220, or 38.9%.\nTheir harmonic mean: pooled N1 F1 = 0.416. An accuracy near 81% hides this weak class.\nMacro-F1 averages the five class F1 scores, so rare N1 counts as much as common N2.\nOur headline goes one step further: compute macro-F1 for each person, then average the 20 people equally."
+    },
+    {
+      "file": "outputs/slides-media/chapter-7.mp4",
+      "rev_file": "outputs/slides-media/chapter-7.mp4",
+      "auto_next": false,
+      "loop": false,
+      "notes": "7. What we found\nThe baseline collapsed on particular test nights. One night was predicted entirely as a single class.\nFour diagnostic rounds found no confirmed pairing, timing, channel or label-alignment defect.\nSubject-mean macro-F1: baseline 56.42%, R1 74.86%, full-night sensitivity 71.84%. Pooled accuracy rose from 65.00% to 80.99%.\nR1 changed normalization and retrained the weights together, and it was chosen after seeing the baseline failures. It is post-hoc.\nThe full-night sensitivity run takes statistics from the complete recording, without hypnogram-based trimming.\nTraining and scored epochs stay exactly the same. Only the range used for the statistics changes. It is still transductive.\nA paired bootstrap redraws the 20 participants with replacement, 1,000 times, using the same draw for both runs.\nFull-night minus R1: −3.02 points, 95% interval −7.12 to +1.22. It crosses zero: not enough evidence of a difference, and not proof they are equal.\nTen held-out folds tell a less tidy story. R1 improved pooled macro-F1 in all ten folds, but folds 0 and 9 stay comparatively weak.\nEach fold pools only two test participants, and training sets overlap, so folds are not independent samples.\nPer-class recall shows which stages are recovered. N1 is still the hardest: 44.7% with R1, 39.5% with full-night.\nBetter overall numbers do not solve every class."
+    },
+    {
+      "file": "outputs/slides-media/chapter-8.mp4",
+      "rev_file": "outputs/slides-media/chapter-8.mp4",
+      "auto_next": false,
+      "loop": false,
+      "notes": "8. The evidence boundary\nThree small validation-only pilots tried to fix N1: logit adjustment, head-only retraining and a sequence decoder.\nNone reached the locked +1.00 point macro-F1 gate. All were rejected and the original settings were kept.\nA provenance audit checked 78 further participants: 30 had documented development exposure and 48 have unresolved history.\nZero are certified independent. Unresolved does not mean unused, so there is no clean external test yet.\nRead every number within these limits: post-hoc selection, one model seed, and normalization that sees each test night.\nThe protocol differs from the original SST paper. This is neither a replication nor clinical validation, nor an online system.\nSampling, STFT, log, normalization, CNN, BiGRU, loss, AdamW, averaging, metrics, bootstrap: one connected system.\nR1 scored higher in this cohort, and we know exactly which data, transforms and averaging produced it.\nNext gate: a locked protocol on genuinely independent participants, after human approval."
+    }
+  ],
+  "resolution": [
+    1280,
+    720
+  ],
+  "background_color": "#07101C"
+}
