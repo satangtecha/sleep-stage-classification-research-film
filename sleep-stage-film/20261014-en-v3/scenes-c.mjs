@@ -143,7 +143,7 @@ draw(c,u){
     const st=seg(u,6.4+i*.4,.5,outBack);if(st>0){c.save();c.translate(1560,y);c.rotate(-.12);c.scale(clamp(st,0,1.3),clamp(st,0,1.3));rect(c,-110,-30,220,60,null,{stroke:P.coral,sw:4,r:8});T(c,'REJECTED',0,12,{size:30,weight:'bold',color:P.coral,align:'center'});c.restore()}});
   T(c,'validation-only change in macro-F1 (points)',zero,800,{size:24,color:P.muted,align:'center',alpha:fin(u,.5)});
 }},
-{id:'audit',ch:8,tag:'MEAS',dur:12,cap:[[0,'A provenance audit checked 78 further participants: 30 had documented development exposure and 48 have unresolved history.'],[6.5,'Zero are certified independent. Unresolved does not mean unused, so there is no clean external test yet.']],
+{id:'audit',ch:8,tag:'MEAS',dur:12,cap:[[0,'A provenance audit checked 78 participants: 30 had documented development exposure and 48 have unresolved history.'],[6.5,'Zero are certified independent. Unresolved does not mean unused, so there is no clean external test yet.']],
 draw(c,u){
   const w=new World({box:[96,200,1728,560],center:[0,0,.3],phi:1.0,theta:-1.45+.2*Math.sin(u/5),frameHeight:6.6});w.floor({size:7,alpha:.3});
   for(let i=0;i<78;i++){const g=seg(u,.2+i*.025,.5,outBack);w.grow([(i%13-6)*.68,(Math.floor(i/13)-2.5)*.7,0],[.48,.5,.42],i<30?P.cyan:P.amber,g)}w.draw(c);
