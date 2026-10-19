@@ -690,5 +690,14 @@
   "recordings": 153,
   "windows": 194655,
   "code_data_doi": "10.5281/zenodo.21302907"
+ },
+ "dataset": {
+  "name": "Sleep-EDF Expanded (sleep-cassette)",
+  "source": "PhysioNet",
+  "psg_hours": 20,
+  "rk_year": 1968,
+  "stft_window_s": 2,
+  "stft_hop_s": 1,
+  "note": "dataset descriptors from the PhysioNet Sleep-EDF Expanded page; counts under study come from archived results"
  }
 }

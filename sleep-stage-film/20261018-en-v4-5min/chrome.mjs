@@ -3,7 +3,7 @@ import {W,H,P,clamp,lerp,smooth,rgba,T,poly,dot,wrap,mixCol} from './lib.mjs';
 import {TIMELINE,capAt,capLines} from './captions.mjs';
 import {glowCircle} from './light.mjs';
 
-export const ACT_OF={T1:0,ActI:1,B1:1,B2:1,ActII:2,B3:2,B4:2,B5:2,B6:2,ActIII:3,B7:3,B7b:3,B8:3,B9:3,B9b:3,ActIV:4,B10:4,B11:4,B12:4,B13:4,End:5};
+export const ACT_OF={T1:0,ActI:1,B1:1,B2:1,ActII:2,B3:2,B3b:2,B4:2,B5:2,B6:2,ActIII:3,B7:3,B7b:3,B8:3,B9:3,B9b:3,ActIV:4,B10:4,B11:4,B12:4,B13:4,End:5};
 export const ACTS=[null,
  {n:'I',name:'A night in 30-second pieces',col:P.cyan},
  {n:'II',name:'A different question',col:P.violet},
@@ -11,7 +11,7 @@ export const ACTS=[null,
  {n:'IV',name:'What we can honestly say',col:P.muted}];
 export const TAGS={
  MEAS:['Archived result. Measured.',P.green],CODE:['From the project code.',P.blue],ILLU:['Illustrative. Not recorded data.',P.amber],
- CONCEPT:['Concept picture.',P.amber],MATH:['Worked example. Hypothetical numbers.',P.violet],REF:['Reported by the paper. Not our result.',P.ref],MIX:['Measured rate. Tile positions simulated.',P.green]};
+ CONCEPT:['Concept picture.',P.amber],MATH:['Worked example. Hypothetical numbers.',P.violet],REF:['Reported by the paper. Not our result.',P.ref],DATA:['Dataset description (PhysioNet). Illustration.',P.violet],MIX:['Measured rate. Tile positions simulated.',P.green]};
 export const TAG_FULL={...TAGS};
 
 const q=(v,s)=>Math.round(v/s)*s;
@@ -21,7 +21,7 @@ export function toneAt(t){
   switch(sc.id){
     case 'T1':vig=.25;break;
     case 'ActI':case 'B1':case 'B2':vig=.18;break;
-    case 'ActII':case 'B3':case 'B4':case 'B5':case 'B6':vig=.12;wash={rgb:[91,224,240],a:.03,screen:true};break;
+    case 'ActII':case 'B3':case 'B3b':case 'B4':case 'B5':case 'B6':vig=.12;wash={rgb:[91,224,240],a:.03,screen:true};break;
     case 'ActIII':vig=lerp(.45,.30,smooth(ub/2.5));wash={rgb:[255,160,150],a:.06};break;
     case 'B7':case 'B7b':case 'B8':case 'B9':case 'B9b':{vig=.30;
       const g=sc.id==='B8'?smooth((t-182.9)/2):sc.id==='B9'||sc.id==='B9b'?1:0;

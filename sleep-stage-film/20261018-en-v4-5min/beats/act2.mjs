@@ -57,32 +57,43 @@ function pre4(us){return [1,1,1,1]}
 S['B4.S2']={tag:'CODE',elements:E('badge','left','right','slot'),draw(c,us,k){
   const c1=k.cue('B4.c1','short-time Fourier'),c2=k.cue('B4.c1','CNN'),c3=k.cue('B4.c1','bidirectional'),g=us>2.0?Math.sin(Math.PI*clamp((us-2.4)/1.2)):0;
   b4(c,k,{left:pre4(),right:[(us-c1)/.5,(us-c2)/.5,(us-c3)/.5],glowC:g,slotText:smooth((us-2.8)/.4)});}};
-S['B4.S3']={tag:'CODE',elements:E('badge','left','right','icons'),draw(c,us,k){
-  const a=k.cue('B4.c2','drawn'),b=k.cue('B4.c2','derived'),d=k.cue('B4.c2','checked');
-  b4(c,k,{left:pre4(),right:[1,1,1],leftA:1-.45*smooth(us/.5),slotText:1,icons:[smooth((us-a)/.3),smooth((us-b)/.3),smooth((us-d)/.3)]});}};
-S['B4.S4']={tag:null,elements:E('badge','left','right'),camera:us=>({x:0,y:0,zoom:lerp(1,.96,smooth(us/1.5))}),draw(c,us,k){
+S['B4.S3']={tag:'CODE',elements:E('badge','left','right','icons','reason'),draw(c,us,k){
+  const g0=k.cue('B4.c2','contrastive'),r0=k.cue('B4.c2','time and compute'),a=k.cue('B4.c2','draw'),b=k.cue('B4.c2','derive'),d=k.cue('B4.c2','check');
+  b4(c,k,{left:pre4(),right:[1,1,1],leftA:1-.3*smooth(us/.5),glowC:Math.sin(Math.PI*clamp((us-g0)/1.8)),slotText:smooth((us-g0)/.4),icons:[smooth((us-a)/.3),smooth((us-b)/.3),smooth((us-d)/.3)]});
+  const ra=smooth((us-r0)/.4);T(c,'Not reproduced: time and compute limits',COLX[0],612,{size:28,weight:'med',color:P.amber,alpha:ra});
+  rect(c,COLX[2],BY+160,176,8,rgba(P.amber,.6*ra),{r:3})}};
+S['B4.S4']={tag:'CODE',elements:E('badge','left','right','icons','note'),draw(c,us,k){
+  const h0=k.cue('B4.c3','helps or hurts');
+  b4(c,k,{left:pre4(),right:[1,1,1],leftA:.55,slotText:1,icons:[1,1,1]});
+  const n=smooth((us-h0)/.4);T(c,'Helps? Hurts?  Never compared.',960,830,{size:44,weight:'bold',color:P.amber,align:'center',alpha:n})}};
+S['B4.S5']={tag:null,elements:E('badge','left','right'),camera:us=>({x:0,y:0,zoom:lerp(1,.96,smooth(us/1.5))}),draw(c,us,k){
   b4(c,k,{left:pre4(),right:[1,1,1],leftA:lerp(.55,1,smooth(us/.8)),slotText:1,icons:[1,1,1]});}};
 // ---- B5
 const EX=200,EW=1520;
-S['B5.S1']={tag:'ILLU',elements:E('strip','signal','spec'),draw(c,us,k){
+S['B5.S1']={tag:'ILLU',elements:E('signal','label'),draw(c,us,k){
+  const e=smooth(us/.8);surface(c,[EX,300,EW,220],'#0C1A2E',{level:'E1',r:12,alpha:e});
+  const pts=wavePts(EX+12,410,EW-24,60,a=>eeg(a,3,'mixed'),400);poly(c,pts,{stroke:STAGE_COL[2],width:2.4,alpha:e});
+  T(c,'one 30 s epoch of EEG',960,590,{size:30,weight:'med',color:P.muted,align:'center',alpha:smooth((us-.8)/.5)})}};
+S['B5.S2']={tag:'ILLU',elements:E('strip','signal','spec','win'),draw(c,us,k){
   const sp=cubic((us-.8)/2.5);
   NightStrip(c,{k,el:'strip',y:180,h:44,x:104,appear:1,tray:false,alpha:.35,mode:i=>i===12?'on':'dim',lit:i=>i===12?1:0,range:[0,96]});
   const e=smooth(us/.7);const fy=250;surface(c,[EX,fy,EW,150],'#0C1A2E',{level:'E1',r:12,alpha:e});
   const pts=wavePts(EX+12,fy+75,EW-24,38,a=>eeg(a,3,'mixed'),400);poly(c,pts,{stroke:STAGE_COL[2],width:2.4,alpha:e});
   T(c,'30 s',EX+EW/2,fy+186,{size:26,weight:'med',color:P.muted,align:'center',alpha:e});
-  const wx=EX+12+(EW-24)*(1-1/29)*sp,ww=(EW-24)/29*3;if(us>.8&&sp<1)rect(c,wx,fy+6,ww,138,rgba(P.cyan,.18),{stroke:P.cyan,sw:2,r:4});
+  const wu=(EW-24)/30,wx=EX+12+wu*Math.min(28,Math.floor(sp*29)),ww=wu*2;if(us>.8)rect(c,wx,fy+6,ww,138,rgba(P.cyan,.18*(1-.7*(sp>=1))),{stroke:P.cyan,sw:2,r:4});
+  T(c,'2 s Hamming window · 1 s hop',EX+EW/2,fy-14,{size:26,weight:'med',color:P.cyan,align:'center',alpha:smooth((us-.5)/.4)});
   const sx=360,sy=470,sw=1200,sh=340;Spectrogram(c,{k,el:'spec',x:sx,y:sy,w:sw,h:sh,p:sp,alpha:smooth((us-.8)/.3)});
   const la=smooth((us-2.8)/.4);T(c,'frequency · '+fact('pipeline.shape',{idx:0})+' bins',sx-20,sy+sh/2,{size:26,weight:'med',color:P.muted,align:'right',alpha:la});
   T(c,'time · '+fact('pipeline.shape',{idx:1})+' frames',sx+sw/2,sy+sh+50,{size:26,weight:'med',color:P.muted,align:'center',alpha:la});
   Pill(c,{k,x:EX,y:200+0,w:0,h:0,text:'',alpha:0})}};
-S['B5.S2']={tag:'ILLU',elements:E('spec','plates','label','bar'),draw(c,us,k){
+S['B5.S3']={tag:'ILLU',elements:E('spec','plates','label','bar'),draw(c,us,k){
   const sh=smooth(us/.8),sx=lerp(360,170,sh),sy=lerp(470,440,sh),sw=lerp(1200,260,sh),sHh=lerp(340,200,sh);
   Spectrogram(c,{k,el:'spec',x:sx,y:sy-60+60*0,w:sw,h:sHh,p:1});
   const t=us;Plates(c,{k,el:'plates',cx:880,cy:540,t,p:[(us-.8)/.5,(us-1.4)/.5,(us-2.0)/.5],squeeze:smooth((us-3)/1.5)});
   const bp=smooth((us-3.4)/1.2);Bar128(c,{k,el:'bar',x:1500,y:340,w:44,h:360,seed:1,p:bp});
   const m=smooth((us-4.4)/.8);T(c,fact('pipeline.shape',{idx:0})+' × '+fact('pipeline.shape',{idx:1}),1360,780,{size:60,weight:'bold',align:'center',alpha:(1-m)});
   T(c,fact('pipeline.embedding_size'),1360,780,{size:60,weight:'bold',align:'center',color:P.cyan,alpha:m})}};
-S['B5.S3']={tag:'CODE',elements:E('bars','strip','bracket','arrows'),camera:us=>({x:0,y:0,zoom:lerp(1.06,1,smooth(us/1.2))}),draw(c,us,k){
+S['B5.S4']={tag:'CODE',elements:E('bars','strip','bracket','arrows'),camera:us=>({x:0,y:0,zoom:lerp(1.06,1,smooth(us/1.2))}),draw(c,us,k){
   const n=fact('pipeline.window_epochs',{}),x0=200,pw=1520/20;
   for(let i=0;i<20;i++){const p=(us-.2-i*.05)/.4;Bar128(c,{x:x0+i*pw+4,y:300,w:pw-8,h:220,seed:i+3,p:clamp(p),lit:i===10?smooth((us-3.4)/.4):0,alpha:1})}
   NightStrip(c,{k,el:'strip',x:x0,w:1520,y:640,h:60,range:[38,58],appear:1,mode:'dim',lit:i=>0,tray:true,
@@ -91,8 +102,8 @@ S['B5.S3']={tag:'CODE',elements:E('bars','strip','bracket','arrows'),camera:us=>
   Bracket(c,{k,el:'bracket',x0:x0,x1:x0+1520,y:262,dir:1,p:cubic((us-1.2)/.6),col:P.ink,label:n+' epochs',lsize:30,labelAbove:true,tip:12,width:3});
   const ap=cubic((us-2.4)/1.0);if(ap>0){c.save();c.strokeStyle=P.cyan;c.lineWidth=4;c.lineCap='round';
     for(const dir of [1,-1]){c.beginPath();const y0=dir>0?560:590;c.moveTo(lerp(x0+100,x0+1420,dir>0?0:1),y0);c.bezierCurveTo(x0+500,y0+dir*60,x0+1000,y0+dir*60,lerp(x0+100,x0+1420,dir>0?ap:1-ap),y0);c.stroke()}c.restore()}
-  T(c,'forward',x0+1560,570,{size:24,weight:'med',color:P.cyan,align:'right',alpha:smooth((us-3)/.3)});T(c,'backward',x0+1560,610,{size:24,weight:'med',color:P.cyan,align:'right',alpha:smooth((us-3)/.3)})}};
-S['B5.S4']={tag:null,elements:E('bars','strip'),draw(c,us,k){const x0=200,pw=76;for(let i=0;i<20;i++)Bar128(c,{x:x0+i*pw+4,y:300,w:pw-8,h:220,seed:i+3,lit:i===10?1:0});
+  T(c,'Bidirectional GRU',x0,232,{size:28,weight:'bold',color:P.cyan,align:'left',alpha:smooth((us-2.4)/.4)});T(c,'forward',x0+1560,570,{size:24,weight:'med',color:P.cyan,align:'right',alpha:smooth((us-3)/.3)});T(c,'backward',x0+1560,610,{size:24,weight:'med',color:P.cyan,align:'right',alpha:smooth((us-3)/.3)})}};
+S['B5.S5']={tag:null,elements:E('bars','strip'),draw(c,us,k){const x0=200,pw=76;for(let i=0;i<20;i++)Bar128(c,{x:x0+i*pw+4,y:300,w:pw-8,h:220,seed:i+3,lit:i===10?1:0});
   NightStrip(c,{k,el:'strip',x:x0,w:1520,y:640,h:60,range:[38,58],appear:1,mode:'dim',stage:i=>HYPNO[i]});
   for(let i=0;i<20;i++)rect(c,x0+i*pw+4,720,pw-8,36,STAGE_COL[HYPNO[38+i]],{r:3});
   Bracket(c,{k,el:'bracket',x0,x1:x0+1520,y:262,dir:1,p:1,col:P.ink,label:'20 epochs',lsize:30,tip:12,width:3})}};
@@ -101,10 +112,8 @@ const cnt=(t,v)=>Math.round(v*outExpo(clamp(t)));
 const fmtc=n=>n.toLocaleString('en-US');
 S['B6.S1']={tag:'MEAS',elements:E('grid','counter'),camera:us=>({x:0,y:0,zoom:lerp(1.06,1,smooth(us/.9))}),draw(c,us,k){
   PeopleGrid(c,{k,el:'grid',appear:i=>(us-.2-i*.05)/.35});
-  const t=(us-1.2)/1.6;const a=smooth((us-1.0)/.3);
-  const s=[cnt(t,factRaw('study.participants'))+' people',cnt(t,factRaw('study.nights'))+' nights',fmtc(cnt(t,factRaw('study.epochs')))+' epochs'].join('  ·  ');
   fact('study.participants');fact('study.nights');fact('study.epochs',{comma:true});
-  T(c,s,960,800,{size:44,weight:'bold',align:'center',alpha:a})}};
+  T(c,fact('study.participants')+' people',960,800,{size:44,weight:'bold',align:'center',alpha:smooth((us-1.0)/.3)})}};
 const FOLDCOL={train:P.blue,choose:P.amber,test:P.coral};
 S['B6.S2']={tag:'CODE',elements:E('grid','legend','counter'),draw(c,us,k){
   const f=us<2.6?0:Math.min(9,Math.floor((us-2.6)/.35)),st=i=>foldState(i,f);

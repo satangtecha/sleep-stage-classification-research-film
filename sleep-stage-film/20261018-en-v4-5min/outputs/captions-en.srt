@@ -26,111 +26,128 @@ but “does it still work on a person the model has never seen?”
 And can we explain every step from first principles?
 
 7
-00:01:08,600 --> 00:01:15,400
+00:01:07,100 --> 00:01:15,300
+Our data is Sleep-EDF, a public PhysioNet set: healthy adults recorded
+at home on cassette recorders, usually two nights of about 20 hours.
+
+8
+00:01:16,000 --> 00:01:22,600
+Trained technicians then scored every 30-second epoch
+by hand, following the 1968 Rechtschaffen and Kales rules.
+
+9
+00:01:23,300 --> 00:01:30,200
+We use 20 people and 39 nights: 42,307 epochs. Trimmed
+to its scored span, a night is about 1,085 epochs, or 9 hours.
+
+10
+00:01:35,900 --> 00:01:42,800
 The paper chains four ideas. Ours is three plain ones: a
 short-time Fourier transform, a CNN and a bidirectional GRU.
 
-8
-00:01:16,100 --> 00:01:20,100
-Simpler on purpose, so every step can be drawn, derived and checked.
+11
+00:01:43,500 --> 00:01:51,600
+We dropped the contrastive stage: reproducing it failed within our time
+and compute, and we wanted a chain we can draw, derive and check.
 
-9
-00:01:27,800 --> 00:01:34,100
+12
+00:01:52,300 --> 00:01:56,400
+We make no claim that it helps or hurts: we never ran that comparison.
+
+13
+00:02:02,100 --> 00:02:09,000
+The paper uses a synchrosqueezed transform. We use a plain
+STFT: a 2-second Hamming window sliding in 1-second steps.
+
+14
+00:02:09,700 --> 00:02:16,000
 Each 30-second epoch becomes a 129 × 29 picture of
 frequency over time. A CNN squeezes it into 128 numbers.
 
-10
-00:01:34,800 --> 00:01:40,500
-A bidirectional GRU then reads 20 neighbouring epochs, because sleep is a story, not a snapshot.
+15
+00:02:16,700 --> 00:02:23,700
+A bidirectional GRU then reads 20 neighbouring epochs forwards
+and backwards, because sleep is a story, not a snapshot.
 
-11
-00:01:46,200 --> 00:01:53,000
+16
+00:02:29,400 --> 00:02:36,200
 Testing is strict. Twenty people, ten folds: in each fold 16
 people train, 2 choose the checkpoint and 2 are tested.
 
-12
-00:01:53,700 --> 00:01:59,500
+17
+00:02:36,900 --> 00:02:42,700
 Nobody appears twice. A person's epochs look alike, so splitting by epoch would flatter the score.
 
-13
-00:02:07,700 --> 00:02:14,400
+18
+00:02:49,400 --> 00:02:56,200
 First result: 56.42% macro-F1, a score that treats all five
 stages equally, averaged over people. Accuracy: 65.00%.
 
-14
-00:02:15,100 --> 00:02:21,800
+19
+00:02:56,900 --> 00:03:03,600
 Then we opened individual nights. On three of them the model
 was right on only 7.22%, 18.60% and 19.01% of epochs.
 
-15
-00:02:29,000 --> 00:02:35,400
+20
+00:03:07,800 --> 00:03:14,200
 Our hypothesis: nights differ in overall signal strength,
 so a model trained on some nights misreads others.
 
-16
-00:02:36,100 --> 00:02:43,900
-A per-night yardstick cancels that difference in the ideal case. It
-is a trade-off: a night's average also depends on its stage mix.
+21
+00:03:14,900 --> 00:03:20,500
+A per-night yardstick cancels that, at a cost: a night's average also depends on its stage mix.
 
-17
-00:02:49,600 --> 00:02:56,400
+22
+00:03:24,200 --> 00:03:31,100
 Our idea, R1: judge every night against its own yardstick,
 using that night's own mean and spread for each frequency.
 
-18
-00:02:57,100 --> 00:03:02,900
+23
+00:03:31,800 --> 00:03:37,600
 Same architecture, retrained. Macro-F1 rose from
 56.42% to 74.86%; accuracy from 65.00% to 80.99%.
 
-19
-00:03:03,600 --> 00:03:07,400
+24
+00:03:38,300 --> 00:03:42,100
 The three failing nights recovered to 82.54%, 88.68% and 84.87%.
 
-20
-00:03:15,600 --> 00:03:22,300
+25
+00:03:46,800 --> 00:03:53,500
 But R1 reads each test night's unlabeled signal within its
 scored span, and we chose it after the baseline failed.
 
-21
-00:03:23,000 --> 00:03:27,400
+26
+00:03:54,200 --> 00:03:58,600
 So it is offline and post-hoc: a promising finding, not a finished product.
 
-22
-00:03:33,100 --> 00:03:40,000
+27
+00:04:02,300 --> 00:04:09,200
 Our 80.99% sits near the paper's 83%. We do not rank them:
 the protocols differ, and R1 sees each test night's signal.
 
-23
-00:03:40,700 --> 00:03:43,000
-Different question, different evidence.
-
-24
-00:03:51,200 --> 00:03:56,000
+28
+00:04:15,400 --> 00:04:20,200
 A sensitivity check takes the statistics from the whole recording instead: 71.84%.
 
-25
-00:03:56,700 --> 00:04:03,900
+29
+00:04:20,900 --> 00:04:28,000
 Versus R1: −3.02 points, 95% interval −7.12 to +1.22. It crosses
 zero: no clear difference, but not proof they are equal.
 
-26
-00:04:09,600 --> 00:04:16,100
+30
+00:04:31,700 --> 00:04:38,200
 N1, the lightest sleep, stays hard: R1 recovers 44.69%
 of true N1 epochs, and 38.91% of its N1 calls are right.
 
-27
-00:04:16,800 --> 00:04:19,700
+31
+00:04:38,900 --> 00:04:41,800
 Three small attempts to fix it were all rejected.
 
-28
-00:04:25,400 --> 00:04:31,400
-What we learned: an average can hide failing nights, and per-night scaling rescued them in this cohort.
-
-29
-00:04:40,100 --> 00:04:46,600
+32
+00:04:45,500 --> 00:04:52,000
 What we cannot yet say: that it works on new people.
 None of 78 audited participants is certified independent.
 
-30
-00:04:47,300 --> 00:04:50,200
+33
+00:04:52,700 --> 00:04:55,600
 Next: a locked protocol on truly independent data.

@@ -52,7 +52,7 @@ export function drawLayer(c,scene,t,pass='all',{content=true}={}){
 
 const layerA=createCanvas(W,H),layerB=createCanvas(W,H);const frozen=new Map();
 const IRIS_COL={1:P.cyan,2:P.violet,3:P.amber,4:P.muted};
-const KIND={ActI:'iris',B1:'iris',B2:'push',ActII:'iris',B3:'iris',B4:'zoom',B5:'match',B6:'push',ActIII:'iris',B7:'iris',B7b:'zoom',B8:'push',B9:'pullback',B9b:'push',ActIV:'iris',B10:'iris',B11:'zoom',B12:'push',B13:'zoom',End:'slow'};
+const KIND={ActI:'iris',B1:'iris',B2:'push',ActII:'iris',B3:'iris',B3b:'push',B4:'zoom',B5:'match',B6:'push',ActIII:'iris',B7:'iris',B7b:'zoom',B8:'push',B9:'pullback',B9b:'push',ActIV:'iris',B10:'iris',B11:'zoom',B12:'push',B13:'zoom',End:'slow'};
 export const transitionKind=id=>KIND[id];
 export function transitionAt(t){const i=SCENES.findIndex(s=>t>=s.t0&&t<s.t1);if(i<=0)return null;const s=SCENES[i];if(t>=s.t0+s.xf)return null;return {from:SCENES[i-1],to:s,p:cubic((t-s.t0)/s.xf),kind:KIND[s.id]}}
 

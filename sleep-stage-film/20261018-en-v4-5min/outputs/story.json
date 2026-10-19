@@ -2,7 +2,7 @@
  "language": "en",
  "audio": false,
  "fps": 30,
- "duration_seconds": 298.4,
+ "duration_seconds": 303.3,
  "scenes": [
   {
    "id": "T1",
@@ -137,33 +137,77 @@
    ]
   },
   {
-   "id": "B4",
+   "id": "B3b",
    "kind": "beat",
    "start": 65.1,
-   "end": 84.3,
+   "end": 92.4,
+   "shots": [
+    {
+     "id": "B3b.S1",
+     "start": 65.1,
+     "end": 67.1,
+     "tag": "DATA"
+    },
+    {
+     "id": "B3b.S2",
+     "start": 67.1,
+     "end": 75.3,
+     "tag": "DATA"
+    },
+    {
+     "id": "B3b.S3",
+     "start": 75.3,
+     "end": 82.6,
+     "tag": "ILLU"
+    },
+    {
+     "id": "B3b.S4",
+     "start": 82.6,
+     "end": 90.2,
+     "tag": "MEAS"
+    },
+    {
+     "id": "B3b.S5",
+     "start": 90.2,
+     "end": 92.4,
+     "tag": "MEAS"
+    }
+   ]
+  },
+  {
+   "id": "B4",
+   "kind": "beat",
+   "start": 92.4,
+   "end": 118.6,
    "shots": [
     {
      "id": "B4.S1",
-     "start": 65.1,
-     "end": 68.6,
+     "start": 92.4,
+     "end": 95.9,
      "tag": "CODE"
     },
     {
      "id": "B4.S2",
-     "start": 68.6,
-     "end": 75.4,
+     "start": 95.9,
+     "end": 102.8,
      "tag": "CODE"
     },
     {
      "id": "B4.S3",
-     "start": 75.4,
-     "end": 80.1,
+     "start": 102.8,
+     "end": 111.6,
      "tag": "CODE"
     },
     {
      "id": "B4.S4",
-     "start": 80.1,
-     "end": 84.3,
+     "start": 111.6,
+     "end": 116.4,
+     "tag": "CODE"
+    },
+    {
+     "id": "B4.S5",
+     "start": 116.4,
+     "end": 118.6,
      "tag": null
     }
    ]
@@ -171,31 +215,37 @@
   {
    "id": "B5",
    "kind": "beat",
-   "start": 84.3,
-   "end": 102.7,
+   "start": 118.6,
+   "end": 145.9,
    "shots": [
     {
      "id": "B5.S1",
-     "start": 84.3,
-     "end": 87.8,
+     "start": 118.6,
+     "end": 122.1,
      "tag": "ILLU"
     },
     {
      "id": "B5.S2",
-     "start": 87.8,
-     "end": 94.1,
+     "start": 122.1,
+     "end": 129,
      "tag": "ILLU"
     },
     {
      "id": "B5.S3",
-     "start": 94.1,
-     "end": 100.5,
-     "tag": "CODE"
+     "start": 129,
+     "end": 136,
+     "tag": "ILLU"
     },
     {
      "id": "B5.S4",
-     "start": 100.5,
-     "end": 102.7,
+     "start": 136,
+     "end": 143.7,
+     "tag": "CODE"
+    },
+    {
+     "id": "B5.S5",
+     "start": 143.7,
+     "end": 145.9,
      "tag": null
     }
    ]
@@ -203,31 +253,31 @@
   {
    "id": "B6",
    "kind": "beat",
-   "start": 102.7,
-   "end": 121.7,
+   "start": 145.9,
+   "end": 164.9,
    "shots": [
     {
      "id": "B6.S1",
-     "start": 102.7,
-     "end": 106.2,
+     "start": 145.9,
+     "end": 149.4,
      "tag": "MEAS"
     },
     {
      "id": "B6.S2",
-     "start": 106.2,
-     "end": 113,
+     "start": 149.4,
+     "end": 156.2,
      "tag": "CODE"
     },
     {
      "id": "B6.S3",
-     "start": 113,
-     "end": 119.5,
+     "start": 156.2,
+     "end": 162.7,
      "tag": "CODE"
     },
     {
      "id": "B6.S4",
-     "start": 119.5,
-     "end": 121.7,
+     "start": 162.7,
+     "end": 164.9,
      "tag": "CODE"
     }
    ]
@@ -235,13 +285,13 @@
   {
    "id": "ActIII",
    "kind": "act",
-   "start": 121.7,
-   "end": 124.2,
+   "start": 164.9,
+   "end": 167.4,
    "shots": [
     {
      "id": "ActIII",
-     "start": 121.7,
-     "end": 124.2,
+     "start": 164.9,
+     "end": 167.4,
      "tag": null
     }
    ]
@@ -249,31 +299,31 @@
   {
    "id": "B7",
    "kind": "beat",
-   "start": 124.2,
-   "end": 145.5,
+   "start": 167.4,
+   "end": 185.8,
    "shots": [
     {
      "id": "B7.S1",
-     "start": 124.2,
-     "end": 127.7,
+     "start": 167.4,
+     "end": 169.4,
      "tag": "MIX"
     },
     {
      "id": "B7.S2",
-     "start": 127.7,
-     "end": 134.4,
+     "start": 169.4,
+     "end": 176.2,
      "tag": "MEAS"
     },
     {
      "id": "B7.S3",
-     "start": 134.4,
-     "end": 141.8,
+     "start": 176.2,
+     "end": 183.6,
      "tag": "MIX"
     },
     {
      "id": "B7.S4",
-     "start": 141.8,
-     "end": 145.5,
+     "start": 183.6,
+     "end": 185.8,
      "tag": "MIX"
     }
    ]
@@ -281,37 +331,37 @@
   {
    "id": "B7b",
    "kind": "beat",
-   "start": 145.5,
-   "end": 166.1,
+   "start": 185.8,
+   "end": 202.2,
    "shots": [
     {
      "id": "B7b.S1",
-     "start": 145.5,
-     "end": 149,
+     "start": 185.8,
+     "end": 187.8,
      "tag": "MATH"
     },
     {
      "id": "B7b.S2",
-     "start": 149,
-     "end": 155.4,
+     "start": 187.8,
+     "end": 194.2,
      "tag": "MATH"
     },
     {
      "id": "B7b.S3",
-     "start": 155.4,
-     "end": 160.5,
+     "start": 194.2,
+     "end": 198,
      "tag": "MATH"
     },
     {
      "id": "B7b.S4",
-     "start": 160.5,
-     "end": 163.9,
+     "start": 198,
+     "end": 200.5,
      "tag": "MATH"
     },
     {
      "id": "B7b.S5",
-     "start": 163.9,
-     "end": 166.1,
+     "start": 200.5,
+     "end": 202.2,
      "tag": null
     }
    ]
@@ -319,37 +369,37 @@
   {
    "id": "B8",
    "kind": "beat",
-   "start": 166.1,
-   "end": 192.1,
+   "start": 202.2,
+   "end": 224.8,
    "shots": [
     {
      "id": "B8.S1",
-     "start": 166.1,
-     "end": 169.6,
+     "start": 202.2,
+     "end": 204.2,
      "tag": "ILLU"
     },
     {
      "id": "B8.S2",
-     "start": 169.6,
-     "end": 176.4,
+     "start": 204.2,
+     "end": 211.1,
      "tag": "ILLU"
     },
     {
      "id": "B8.S3",
-     "start": 176.4,
-     "end": 182.9,
+     "start": 211.1,
+     "end": 217.6,
      "tag": "MEAS"
     },
     {
      "id": "B8.S4",
-     "start": 182.9,
-     "end": 187.4,
+     "start": 217.6,
+     "end": 222.1,
      "tag": "MIX"
     },
     {
      "id": "B8.S5",
-     "start": 187.4,
-     "end": 192.1,
+     "start": 222.1,
+     "end": 224.8,
      "tag": "MIX"
     }
    ]
@@ -357,31 +407,31 @@
   {
    "id": "B9",
    "kind": "beat",
-   "start": 192.1,
-   "end": 209.6,
+   "start": 224.8,
+   "end": 240.3,
    "shots": [
     {
      "id": "B9.S1",
-     "start": 192.1,
-     "end": 195.6,
+     "start": 224.8,
+     "end": 226.8,
      "tag": "CODE"
     },
     {
      "id": "B9.S2",
-     "start": 195.6,
-     "end": 202.3,
+     "start": 226.8,
+     "end": 233.5,
      "tag": "CODE"
     },
     {
      "id": "B9.S3",
-     "start": 202.3,
-     "end": 207.4,
+     "start": 233.5,
+     "end": 238.6,
      "tag": "CODE"
     },
     {
      "id": "B9.S4",
-     "start": 207.4,
-     "end": 209.6,
+     "start": 238.6,
+     "end": 240.3,
      "tag": "CODE"
     }
    ]
@@ -389,31 +439,25 @@
   {
    "id": "B9b",
    "kind": "beat",
-   "start": 209.6,
-   "end": 225.2,
+   "start": 240.3,
+   "end": 250.9,
    "shots": [
     {
      "id": "B9b.S1",
-     "start": 209.6,
-     "end": 213.1,
+     "start": 240.3,
+     "end": 242.3,
      "tag": "MEAS"
     },
     {
      "id": "B9b.S2",
-     "start": 213.1,
-     "end": 220,
-     "tag": "MEAS"
-    },
-    {
-     "id": "B9b.S3",
-     "start": 220,
-     "end": 223,
+     "start": 242.3,
+     "end": 249.2,
      "tag": "MEAS"
     },
     {
      "id": "B9b.S4",
-     "start": 223,
-     "end": 225.2,
+     "start": 249.2,
+     "end": 250.9,
      "tag": null
     }
    ]
@@ -421,13 +465,13 @@
   {
    "id": "ActIV",
    "kind": "act",
-   "start": 225.2,
-   "end": 227.7,
+   "start": 250.9,
+   "end": 253.4,
    "shots": [
     {
      "id": "ActIV",
-     "start": 225.2,
-     "end": 227.7,
+     "start": 250.9,
+     "end": 253.4,
      "tag": null
     }
    ]
@@ -435,31 +479,31 @@
   {
    "id": "B10",
    "kind": "beat",
-   "start": 227.7,
-   "end": 246.1,
+   "start": 253.4,
+   "end": 269.7,
    "shots": [
     {
      "id": "B10.S1",
-     "start": 227.7,
-     "end": 231.2,
+     "start": 253.4,
+     "end": 255.4,
      "tag": "CODE"
     },
     {
      "id": "B10.S2",
-     "start": 231.2,
-     "end": 236,
+     "start": 255.4,
+     "end": 260.2,
      "tag": "MEAS"
     },
     {
      "id": "B10.S3",
-     "start": 236,
-     "end": 243.9,
+     "start": 260.2,
+     "end": 268,
      "tag": "MEAS"
     },
     {
      "id": "B10.S4",
-     "start": 243.9,
-     "end": 246.1,
+     "start": 268,
+     "end": 269.7,
      "tag": "MEAS"
     }
    ]
@@ -467,57 +511,31 @@
   {
    "id": "B11",
    "kind": "beat",
-   "start": 246.1,
-   "end": 261.9,
+   "start": 269.7,
+   "end": 283.5,
    "shots": [
     {
      "id": "B11.S1",
-     "start": 246.1,
-     "end": 249.6,
+     "start": 269.7,
+     "end": 271.7,
      "tag": "MIX"
     },
     {
      "id": "B11.S2",
-     "start": 249.6,
-     "end": 256.1,
+     "start": 271.7,
+     "end": 278.2,
      "tag": "MEAS"
     },
     {
      "id": "B11.S3",
-     "start": 256.1,
-     "end": 259.7,
+     "start": 278.2,
+     "end": 281.8,
      "tag": "MEAS"
     },
     {
      "id": "B11.S4",
-     "start": 259.7,
-     "end": 261.9,
-     "tag": "MEAS"
-    }
-   ]
-  },
-  {
-   "id": "B12",
-   "kind": "beat",
-   "start": 261.9,
-   "end": 276.6,
-   "shots": [
-    {
-     "id": "B12.S1",
-     "start": 261.9,
-     "end": 265.4,
-     "tag": "MEAS"
-    },
-    {
-     "id": "B12.S2",
-     "start": 265.4,
-     "end": 271.4,
-     "tag": "MEAS"
-    },
-    {
-     "id": "B12.S3",
-     "start": 271.4,
-     "end": 276.6,
+     "start": 281.8,
+     "end": 283.5,
      "tag": "MEAS"
     }
    ]
@@ -525,31 +543,31 @@
   {
    "id": "B13",
    "kind": "beat",
-   "start": 276.6,
-   "end": 292.4,
+   "start": 283.5,
+   "end": 297.3,
    "shots": [
     {
      "id": "B13.S1",
-     "start": 276.6,
-     "end": 280.1,
+     "start": 283.5,
+     "end": 285.5,
      "tag": "MEAS"
     },
     {
      "id": "B13.S2",
-     "start": 280.1,
-     "end": 286.6,
+     "start": 285.5,
+     "end": 292,
      "tag": "MEAS"
     },
     {
      "id": "B13.S3",
-     "start": 286.6,
-     "end": 290.2,
+     "start": 292,
+     "end": 295.6,
      "tag": "CONCEPT"
     },
     {
      "id": "B13.S4",
-     "start": 290.2,
-     "end": 292.4,
+     "start": 295.6,
+     "end": 297.3,
      "tag": "CONCEPT"
     }
    ]
@@ -557,19 +575,19 @@
   {
    "id": "End",
    "kind": "end",
-   "start": 292.4,
-   "end": 298.4,
+   "start": 297.3,
+   "end": 303.3,
    "shots": [
     {
      "id": "E1",
-     "start": 292.4,
-     "end": 293.6,
+     "start": 297.3,
+     "end": 298.5,
      "tag": null
     },
     {
      "id": "E2",
-     "start": 293.6,
-     "end": 298.4,
+     "start": 298.5,
+     "end": 303.3,
      "tag": null
     }
    ]
@@ -625,195 +643,219 @@
    "text": "And can we explain every step from first principles?"
   },
   {
+   "id": "B3b.c1",
+   "beat": "B3b",
+   "c": 1,
+   "s": 67.1,
+   "e": 75.3,
+   "text": "Our data is Sleep-EDF, a public PhysioNet set: healthy adults recorded at home on cassette recorders, usually two nights of about 20 hours."
+  },
+  {
+   "id": "B3b.c2",
+   "beat": "B3b",
+   "c": 2,
+   "s": 76,
+   "e": 82.6,
+   "text": "Trained technicians then scored every 30-second epoch by hand, following the 1968 Rechtschaffen and Kales rules."
+  },
+  {
+   "id": "B3b.c3",
+   "beat": "B3b",
+   "c": 3,
+   "s": 83.3,
+   "e": 90.2,
+   "text": "We use 20 people and 39 nights: 42,307 epochs. Trimmed to its scored span, a night is about 1,085 epochs, or 9 hours."
+  },
+  {
    "id": "B4.c1",
    "beat": "B4",
    "c": 1,
-   "s": 68.6,
-   "e": 75.4,
+   "s": 95.9,
+   "e": 102.8,
    "text": "The paper chains four ideas. Ours is three plain ones: a short-time Fourier transform, a CNN and a bidirectional GRU."
   },
   {
    "id": "B4.c2",
    "beat": "B4",
    "c": 2,
-   "s": 76.1,
-   "e": 80.1,
-   "text": "Simpler on purpose, so every step can be drawn, derived and checked."
+   "s": 103.5,
+   "e": 111.6,
+   "text": "We dropped the contrastive stage: reproducing it failed within our time and compute, and we wanted a chain we can draw, derive and check."
+  },
+  {
+   "id": "B4.c3",
+   "beat": "B4",
+   "c": 3,
+   "s": 112.3,
+   "e": 116.4,
+   "text": "We make no claim that it helps or hurts: we never ran that comparison."
   },
   {
    "id": "B5.c1",
    "beat": "B5",
    "c": 1,
-   "s": 87.8,
-   "e": 94.1,
-   "text": "Each 30-second epoch becomes a 129 × 29 picture of frequency over time. A CNN squeezes it into 128 numbers."
+   "s": 122.1,
+   "e": 129,
+   "text": "The paper uses a synchrosqueezed transform. We use a plain STFT: a 2-second Hamming window sliding in 1-second steps."
   },
   {
    "id": "B5.c2",
    "beat": "B5",
    "c": 2,
-   "s": 94.8,
-   "e": 100.5,
-   "text": "A bidirectional GRU then reads 20 neighbouring epochs, because sleep is a story, not a snapshot."
+   "s": 129.7,
+   "e": 136,
+   "text": "Each 30-second epoch becomes a 129 × 29 picture of frequency over time. A CNN squeezes it into 128 numbers."
+  },
+  {
+   "id": "B5.c3",
+   "beat": "B5",
+   "c": 3,
+   "s": 136.7,
+   "e": 143.7,
+   "text": "A bidirectional GRU then reads 20 neighbouring epochs forwards and backwards, because sleep is a story, not a snapshot."
   },
   {
    "id": "B6.c1",
    "beat": "B6",
    "c": 1,
-   "s": 106.2,
-   "e": 113,
+   "s": 149.4,
+   "e": 156.2,
    "text": "Testing is strict. Twenty people, ten folds: in each fold 16 people train, 2 choose the checkpoint and 2 are tested."
   },
   {
    "id": "B6.c2",
    "beat": "B6",
    "c": 2,
-   "s": 113.7,
-   "e": 119.5,
+   "s": 156.9,
+   "e": 162.7,
    "text": "Nobody appears twice. A person's epochs look alike, so splitting by epoch would flatter the score."
   },
   {
    "id": "B7.c1",
    "beat": "B7",
    "c": 1,
-   "s": 127.7,
-   "e": 134.4,
+   "s": 169.4,
+   "e": 176.2,
    "text": "First result: 56.42% macro-F1, a score that treats all five stages equally, averaged over people. Accuracy: 65.00%."
   },
   {
    "id": "B7.c2",
    "beat": "B7",
    "c": 2,
-   "s": 135.1,
-   "e": 141.8,
+   "s": 176.9,
+   "e": 183.6,
    "text": "Then we opened individual nights. On three of them the model was right on only 7.22%, 18.60% and 19.01% of epochs."
   },
   {
    "id": "B7b.c1",
    "beat": "B7b",
    "c": 1,
-   "s": 149,
-   "e": 155.4,
+   "s": 187.8,
+   "e": 194.2,
    "text": "Our hypothesis: nights differ in overall signal strength, so a model trained on some nights misreads others."
   },
   {
    "id": "B7b.c2",
    "beat": "B7b",
    "c": 2,
-   "s": 156.1,
-   "e": 163.9,
-   "text": "A per-night yardstick cancels that difference in the ideal case. It is a trade-off: a night's average also depends on its stage mix."
+   "s": 194.9,
+   "e": 200.5,
+   "text": "A per-night yardstick cancels that, at a cost: a night's average also depends on its stage mix."
   },
   {
    "id": "B8.c1",
    "beat": "B8",
    "c": 1,
-   "s": 169.6,
-   "e": 176.4,
+   "s": 204.2,
+   "e": 211.1,
    "text": "Our idea, R1: judge every night against its own yardstick, using that night's own mean and spread for each frequency."
   },
   {
    "id": "B8.c2",
    "beat": "B8",
    "c": 2,
-   "s": 177.1,
-   "e": 182.9,
+   "s": 211.8,
+   "e": 217.6,
    "text": "Same architecture, retrained. Macro-F1 rose from 56.42% to 74.86%; accuracy from 65.00% to 80.99%."
   },
   {
    "id": "B8.c3",
    "beat": "B8",
    "c": 3,
-   "s": 183.6,
-   "e": 187.4,
+   "s": 218.3,
+   "e": 222.1,
    "text": "The three failing nights recovered to 82.54%, 88.68% and 84.87%."
   },
   {
    "id": "B9.c1",
    "beat": "B9",
    "c": 1,
-   "s": 195.6,
-   "e": 202.3,
+   "s": 226.8,
+   "e": 233.5,
    "text": "But R1 reads each test night's unlabeled signal within its scored span, and we chose it after the baseline failed."
   },
   {
    "id": "B9.c2",
    "beat": "B9",
    "c": 2,
-   "s": 203,
-   "e": 207.4,
+   "s": 234.2,
+   "e": 238.6,
    "text": "So it is offline and post-hoc: a promising finding, not a finished product."
   },
   {
    "id": "B9b.c1",
    "beat": "B9b",
    "c": 1,
-   "s": 213.1,
-   "e": 220,
+   "s": 242.3,
+   "e": 249.2,
    "text": "Our 80.99% sits near the paper's 83%. We do not rank them: the protocols differ, and R1 sees each test night's signal."
-  },
-  {
-   "id": "B9b.c2",
-   "beat": "B9b",
-   "c": 2,
-   "s": 220.7,
-   "e": 223,
-   "text": "Different question, different evidence."
   },
   {
    "id": "B10.c1",
    "beat": "B10",
    "c": 1,
-   "s": 231.2,
-   "e": 236,
+   "s": 255.4,
+   "e": 260.2,
    "text": "A sensitivity check takes the statistics from the whole recording instead: 71.84%."
   },
   {
    "id": "B10.c2",
    "beat": "B10",
    "c": 2,
-   "s": 236.7,
-   "e": 243.9,
+   "s": 260.9,
+   "e": 268,
    "text": "Versus R1: −3.02 points, 95% interval −7.12 to +1.22. It crosses zero: no clear difference, but not proof they are equal."
   },
   {
    "id": "B11.c1",
    "beat": "B11",
    "c": 1,
-   "s": 249.6,
-   "e": 256.1,
+   "s": 271.7,
+   "e": 278.2,
    "text": "N1, the lightest sleep, stays hard: R1 recovers 44.69% of true N1 epochs, and 38.91% of its N1 calls are right."
   },
   {
    "id": "B11.c2",
    "beat": "B11",
    "c": 2,
-   "s": 256.8,
-   "e": 259.7,
+   "s": 278.9,
+   "e": 281.8,
    "text": "Three small attempts to fix it were all rejected."
-  },
-  {
-   "id": "B12.c1",
-   "beat": "B12",
-   "c": 1,
-   "s": 265.4,
-   "e": 271.4,
-   "text": "What we learned: an average can hide failing nights, and per-night scaling rescued them in this cohort."
   },
   {
    "id": "B13.c1",
    "beat": "B13",
    "c": 1,
-   "s": 280.1,
-   "e": 286.6,
+   "s": 285.5,
+   "e": 292,
    "text": "What we cannot yet say: that it works on new people. None of 78 audited participants is certified independent."
   },
   {
    "id": "B13.c2",
    "beat": "B13",
    "c": 2,
-   "s": 287.3,
-   "e": 290.2,
+   "s": 292.7,
+   "e": 295.6,
    "text": "Next: a locked protocol on truly independent data."
   }
  ]
