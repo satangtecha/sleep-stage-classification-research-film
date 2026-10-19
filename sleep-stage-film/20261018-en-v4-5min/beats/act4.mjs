@@ -47,7 +47,7 @@ S['B11.S1']={tag:'MIX',elements:E('rows','links'),draw(c,us,k){const {E:eIdx,bot
   for(let i=0;i<96;i++){const a=smooth((us-i*.004)/.25);if(a<=0)continue;c.save();c.globalAlpha*=a;const col=stageColor(1,4)&&STAGE_COL[1],isN1=HYPNO[i]===1;
     dark(c,x+i*pw,y0,tw,56,STAGE_COL[HYPNO[i]],isN1);dark(c,x+i*pw,y1,tw,56,STAGE_COL[1],mset.has(i));
     if(bset.has(i)){const lp=smooth((us-1.6-i*.01)/.4);if(lp>0)poly(c,[[x+i*pw+tw/2,y0+56],[x+i*pw+tw/2,y0+56+(y1-y0-56)*lp]],{stroke:'#FFFFFF',width:2,alpha:.6})}c.restore()}
-  T(c,'Expert',104,380,{size:30,weight:'med',color:P.muted});T(c,'Model',104,512,{size:30,weight:'med',color:P.muted})}};
+  T(c,'Expert',104,380,{size:30,weight:'med',color:P.muted});T(c,'Model',104,634,{size:30,weight:'med',color:P.muted})}};
 S['B11.S2']={tag:'MEAS',elements:E('venn','nums','pct'),draw(c,us,k){const {row,col,both}=n1(),rB=175,rA=rB*Math.sqrt(row/col),d=vennDistance(rA,rB,Math.PI*rA*rA*both/row);
   const cx=520,cy=480,e=smooth(us/.9),t=n=>Math.round(n*outExpo((us-.6)/1.6));
   c.save();c.globalAlpha*=e;c.fillStyle=rgba(P.cyan,.22);c.strokeStyle=P.cyan;c.lineWidth=3;c.beginPath();c.arc(cx,cy,rA,0,Math.PI*2);c.fill();c.stroke();
@@ -91,8 +91,8 @@ S['B13.S1']={tag:'MEAS',elements:E('table','head','grid78'),draw(c,us,k){const t
   if(tp<1){c.save();c.globalAlpha*=1-tp;c.translate(0,-120*tp);Table(c,k,{});c.restore()}
   T(c,'Not shown yet',960,230,{size:40,weight:'bold',align:'center',alpha:smooth((us-1)/.5)});grid78(c,k,{a:i=>(us-1.2-i*.012)/.3})}};
 S['B13.S2']={tag:'MEAS',elements:E('head','grid78','counter'),draw(c,us,k){const am=smooth((us-1.2)/.8);T(c,'Not shown yet',960,230,{size:40,weight:'bold',align:'center'});grid78(c,k,{amber:am});
-  T(c,'Certified independent:',760,780,{size:40,weight:'med',align:'right'});NumText(c,`${fact('audit.independent_confirmed')} / ${fact('audit.available')}`,790,780,{size:56,weight:'bold',color:AMB});
-  const la=smooth((us-1.6)/.5);dot(c,520,845,9,AMB,la);T(c,`${fact('audit.counts.documented_development_exposure')} documented exposure`,540,853,{size:24,color:P.muted,alpha:la});dot(c,1000,845,9,P.muted,la);T(c,`${fact('audit.counts.completed_metadata_association_usage_not_fully_resolved')} usage unresolved`,1020,853,{size:24,color:P.muted,alpha:la})}};
+  T(c,'Certified independent:',760,820,{size:40,weight:'med',align:'right'});NumText(c,`${fact('audit.independent_confirmed')} / ${fact('audit.available')}`,790,820,{size:56,weight:'bold',color:AMB});
+  const la=smooth((us-1.6)/.5);dot(c,520,880,9,AMB,la);T(c,`${fact('audit.counts.documented_development_exposure')} documented exposure`,540,888,{size:24,color:P.muted,alpha:la});dot(c,1000,880,9,P.muted,la);T(c,`${fact('audit.counts.completed_metadata_association_usage_not_fully_resolved')} usage unresolved`,1020,888,{size:24,color:P.muted,alpha:la})}};
 const sheet=(c,k,x,y,{open=0,lockA=1,glow=0})=>{surface(c,[x,y,300,360],P.paper,{level:'E3',r:14,gradient:.02});for(let i=0;i<7;i++)rect(c,x+30,y+40+i*40,i%3===2?160:240,10,rgba(P.paperInk,.3),{r:5});Padlock(c,{k,el:'lock',x:x+122,y:y+150,open,alpha:lockA,glowA:glow,s:1.4})};
 S['B13.S3']={tag:'CONCEPT',elements:E('grid78','sheet','box','arrow'),draw(c,us,k){const d=1-.9*smooth(us/.6);grid78(c,k,{dim:d*.45,qA:1});
   const s=smooth((us-.5)/.5);c.save();c.globalAlpha*=s;sheet(c,k,420,330,{});c.restore();

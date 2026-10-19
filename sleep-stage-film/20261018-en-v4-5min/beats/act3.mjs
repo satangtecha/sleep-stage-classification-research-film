@@ -43,7 +43,7 @@ S['B7.S1']={tag:'MIX',elements:E('rows','labels'),
  camera:(us,ub)=>{const pinks=[...Array(96).keys()].filter(i=>!pooled.has(i)).slice(0,6).map(i=>.4+i*.029);return {x:0,y:shakeDy(us,pinks,{amp:1.4}),zoom:1+.035*smooth(us/3.5)}},
  draw(c,us,k){const ta=i=>(us-(.4+i*.029+.15))/.15;fact('test.base.pooled_accuracy.point',{tiles:96});
   Rows(c,{y:400,gap:130,match:pooled,appear:i=>(us-i*.004)/.25,tickA:ta});
-  const la=smooth((us-.4)/.4);T(c,'Expert',104,370,{size:30,weight:'med',color:P.muted,alpha:la});T(c,'Model',104,515,{size:30,weight:'med',color:P.muted,alpha:la})}};
+  const la=smooth((us-.4)/.4);T(c,'Expert',104,370,{size:30,weight:'med',color:P.muted,alpha:la});T(c,'Model',104,612,{size:30,weight:'med',color:P.muted,alpha:la})}};
 const bgRows=(c,a)=>{c.save();c.filter='blur(2px)';Rows(c,{y:400,gap:130,match:pooled,tickA:()=>1,tickCol:(i,m)=>m?GRN:PINK,alpha:a});c.restore()};
 S['B7.S2']={tag:'MEAS',elements:E('bgstrip','cardL','cardS','bars','persons'),draw(c,us,k){bgRows(c,.2*(1-smooth((us-.8)/.6))+.18*smooth((us-.8)/.6));
   const cp=cubic((us-.6)/.7);const dx=(1-cp)*-300;

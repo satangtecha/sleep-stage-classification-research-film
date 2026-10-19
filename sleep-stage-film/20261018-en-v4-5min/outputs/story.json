@@ -1,0 +1,820 @@
+{
+ "language": "en",
+ "audio": false,
+ "fps": 30,
+ "duration_seconds": 298.4,
+ "scenes": [
+  {
+   "id": "T1",
+   "kind": "cover",
+   "start": 0,
+   "end": 6,
+   "shots": [
+    {
+     "id": "T1",
+     "start": 0,
+     "end": 6,
+     "tag": null
+    }
+   ]
+  },
+  {
+   "id": "ActI",
+   "kind": "act",
+   "start": 6,
+   "end": 8.5,
+   "shots": [
+    {
+     "id": "ActI",
+     "start": 6,
+     "end": 8.5,
+     "tag": null
+    }
+   ]
+  },
+  {
+   "id": "B1",
+   "kind": "beat",
+   "start": 8.5,
+   "end": 25.4,
+   "shots": [
+    {
+     "id": "B1.S1",
+     "start": 8.5,
+     "end": 12,
+     "tag": "ILLU"
+    },
+    {
+     "id": "B1.S2",
+     "start": 12,
+     "end": 18,
+     "tag": "ILLU"
+    },
+    {
+     "id": "B1.S3",
+     "start": 18,
+     "end": 25.4,
+     "tag": "ILLU"
+    }
+   ]
+  },
+  {
+   "id": "B2",
+   "kind": "beat",
+   "start": 25.4,
+   "end": 45.8,
+   "shots": [
+    {
+     "id": "B2.S1",
+     "start": 25.4,
+     "end": 28.9,
+     "tag": "REF"
+    },
+    {
+     "id": "B2.S2",
+     "start": 28.9,
+     "end": 37.3,
+     "tag": "REF"
+    },
+    {
+     "id": "B2.S3",
+     "start": 37.3,
+     "end": 42.1,
+     "tag": "ILLU"
+    },
+    {
+     "id": "B2.S4",
+     "start": 42.1,
+     "end": 45.8,
+     "tag": "REF"
+    }
+   ]
+  },
+  {
+   "id": "ActII",
+   "kind": "act",
+   "start": 45.8,
+   "end": 48.3,
+   "shots": [
+    {
+     "id": "ActII",
+     "start": 45.8,
+     "end": 48.3,
+     "tag": null
+    }
+   ]
+  },
+  {
+   "id": "B3",
+   "kind": "beat",
+   "start": 48.3,
+   "end": 65.1,
+   "shots": [
+    {
+     "id": "B3.S1",
+     "start": 48.3,
+     "end": 51.8,
+     "tag": "CONCEPT"
+    },
+    {
+     "id": "B3.S2",
+     "start": 51.8,
+     "end": 59.1,
+     "tag": "CONCEPT"
+    },
+    {
+     "id": "B3.S3",
+     "start": 59.1,
+     "end": 62.9,
+     "tag": "CONCEPT"
+    },
+    {
+     "id": "B3.S4",
+     "start": 62.9,
+     "end": 65.1,
+     "tag": null
+    }
+   ]
+  },
+  {
+   "id": "B4",
+   "kind": "beat",
+   "start": 65.1,
+   "end": 84.3,
+   "shots": [
+    {
+     "id": "B4.S1",
+     "start": 65.1,
+     "end": 68.6,
+     "tag": "CODE"
+    },
+    {
+     "id": "B4.S2",
+     "start": 68.6,
+     "end": 75.4,
+     "tag": "CODE"
+    },
+    {
+     "id": "B4.S3",
+     "start": 75.4,
+     "end": 80.1,
+     "tag": "CODE"
+    },
+    {
+     "id": "B4.S4",
+     "start": 80.1,
+     "end": 84.3,
+     "tag": null
+    }
+   ]
+  },
+  {
+   "id": "B5",
+   "kind": "beat",
+   "start": 84.3,
+   "end": 102.7,
+   "shots": [
+    {
+     "id": "B5.S1",
+     "start": 84.3,
+     "end": 87.8,
+     "tag": "ILLU"
+    },
+    {
+     "id": "B5.S2",
+     "start": 87.8,
+     "end": 94.1,
+     "tag": "ILLU"
+    },
+    {
+     "id": "B5.S3",
+     "start": 94.1,
+     "end": 100.5,
+     "tag": "CODE"
+    },
+    {
+     "id": "B5.S4",
+     "start": 100.5,
+     "end": 102.7,
+     "tag": null
+    }
+   ]
+  },
+  {
+   "id": "B6",
+   "kind": "beat",
+   "start": 102.7,
+   "end": 121.7,
+   "shots": [
+    {
+     "id": "B6.S1",
+     "start": 102.7,
+     "end": 106.2,
+     "tag": "MEAS"
+    },
+    {
+     "id": "B6.S2",
+     "start": 106.2,
+     "end": 113,
+     "tag": "CODE"
+    },
+    {
+     "id": "B6.S3",
+     "start": 113,
+     "end": 119.5,
+     "tag": "CODE"
+    },
+    {
+     "id": "B6.S4",
+     "start": 119.5,
+     "end": 121.7,
+     "tag": "CODE"
+    }
+   ]
+  },
+  {
+   "id": "ActIII",
+   "kind": "act",
+   "start": 121.7,
+   "end": 124.2,
+   "shots": [
+    {
+     "id": "ActIII",
+     "start": 121.7,
+     "end": 124.2,
+     "tag": null
+    }
+   ]
+  },
+  {
+   "id": "B7",
+   "kind": "beat",
+   "start": 124.2,
+   "end": 145.5,
+   "shots": [
+    {
+     "id": "B7.S1",
+     "start": 124.2,
+     "end": 127.7,
+     "tag": "MIX"
+    },
+    {
+     "id": "B7.S2",
+     "start": 127.7,
+     "end": 134.4,
+     "tag": "MEAS"
+    },
+    {
+     "id": "B7.S3",
+     "start": 134.4,
+     "end": 141.8,
+     "tag": "MIX"
+    },
+    {
+     "id": "B7.S4",
+     "start": 141.8,
+     "end": 145.5,
+     "tag": "MIX"
+    }
+   ]
+  },
+  {
+   "id": "B7b",
+   "kind": "beat",
+   "start": 145.5,
+   "end": 166.1,
+   "shots": [
+    {
+     "id": "B7b.S1",
+     "start": 145.5,
+     "end": 149,
+     "tag": "MATH"
+    },
+    {
+     "id": "B7b.S2",
+     "start": 149,
+     "end": 155.4,
+     "tag": "MATH"
+    },
+    {
+     "id": "B7b.S3",
+     "start": 155.4,
+     "end": 160.5,
+     "tag": "MATH"
+    },
+    {
+     "id": "B7b.S4",
+     "start": 160.5,
+     "end": 163.9,
+     "tag": "MATH"
+    },
+    {
+     "id": "B7b.S5",
+     "start": 163.9,
+     "end": 166.1,
+     "tag": null
+    }
+   ]
+  },
+  {
+   "id": "B8",
+   "kind": "beat",
+   "start": 166.1,
+   "end": 192.1,
+   "shots": [
+    {
+     "id": "B8.S1",
+     "start": 166.1,
+     "end": 169.6,
+     "tag": "ILLU"
+    },
+    {
+     "id": "B8.S2",
+     "start": 169.6,
+     "end": 176.4,
+     "tag": "ILLU"
+    },
+    {
+     "id": "B8.S3",
+     "start": 176.4,
+     "end": 182.9,
+     "tag": "MEAS"
+    },
+    {
+     "id": "B8.S4",
+     "start": 182.9,
+     "end": 187.4,
+     "tag": "MIX"
+    },
+    {
+     "id": "B8.S5",
+     "start": 187.4,
+     "end": 192.1,
+     "tag": "MIX"
+    }
+   ]
+  },
+  {
+   "id": "B9",
+   "kind": "beat",
+   "start": 192.1,
+   "end": 209.6,
+   "shots": [
+    {
+     "id": "B9.S1",
+     "start": 192.1,
+     "end": 195.6,
+     "tag": "CODE"
+    },
+    {
+     "id": "B9.S2",
+     "start": 195.6,
+     "end": 202.3,
+     "tag": "CODE"
+    },
+    {
+     "id": "B9.S3",
+     "start": 202.3,
+     "end": 207.4,
+     "tag": "CODE"
+    },
+    {
+     "id": "B9.S4",
+     "start": 207.4,
+     "end": 209.6,
+     "tag": "CODE"
+    }
+   ]
+  },
+  {
+   "id": "B9b",
+   "kind": "beat",
+   "start": 209.6,
+   "end": 225.2,
+   "shots": [
+    {
+     "id": "B9b.S1",
+     "start": 209.6,
+     "end": 213.1,
+     "tag": "MEAS"
+    },
+    {
+     "id": "B9b.S2",
+     "start": 213.1,
+     "end": 220,
+     "tag": "MEAS"
+    },
+    {
+     "id": "B9b.S3",
+     "start": 220,
+     "end": 223,
+     "tag": "MEAS"
+    },
+    {
+     "id": "B9b.S4",
+     "start": 223,
+     "end": 225.2,
+     "tag": null
+    }
+   ]
+  },
+  {
+   "id": "ActIV",
+   "kind": "act",
+   "start": 225.2,
+   "end": 227.7,
+   "shots": [
+    {
+     "id": "ActIV",
+     "start": 225.2,
+     "end": 227.7,
+     "tag": null
+    }
+   ]
+  },
+  {
+   "id": "B10",
+   "kind": "beat",
+   "start": 227.7,
+   "end": 246.1,
+   "shots": [
+    {
+     "id": "B10.S1",
+     "start": 227.7,
+     "end": 231.2,
+     "tag": "CODE"
+    },
+    {
+     "id": "B10.S2",
+     "start": 231.2,
+     "end": 236,
+     "tag": "MEAS"
+    },
+    {
+     "id": "B10.S3",
+     "start": 236,
+     "end": 243.9,
+     "tag": "MEAS"
+    },
+    {
+     "id": "B10.S4",
+     "start": 243.9,
+     "end": 246.1,
+     "tag": "MEAS"
+    }
+   ]
+  },
+  {
+   "id": "B11",
+   "kind": "beat",
+   "start": 246.1,
+   "end": 261.9,
+   "shots": [
+    {
+     "id": "B11.S1",
+     "start": 246.1,
+     "end": 249.6,
+     "tag": "MIX"
+    },
+    {
+     "id": "B11.S2",
+     "start": 249.6,
+     "end": 256.1,
+     "tag": "MEAS"
+    },
+    {
+     "id": "B11.S3",
+     "start": 256.1,
+     "end": 259.7,
+     "tag": "MEAS"
+    },
+    {
+     "id": "B11.S4",
+     "start": 259.7,
+     "end": 261.9,
+     "tag": "MEAS"
+    }
+   ]
+  },
+  {
+   "id": "B12",
+   "kind": "beat",
+   "start": 261.9,
+   "end": 276.6,
+   "shots": [
+    {
+     "id": "B12.S1",
+     "start": 261.9,
+     "end": 265.4,
+     "tag": "MEAS"
+    },
+    {
+     "id": "B12.S2",
+     "start": 265.4,
+     "end": 271.4,
+     "tag": "MEAS"
+    },
+    {
+     "id": "B12.S3",
+     "start": 271.4,
+     "end": 276.6,
+     "tag": "MEAS"
+    }
+   ]
+  },
+  {
+   "id": "B13",
+   "kind": "beat",
+   "start": 276.6,
+   "end": 292.4,
+   "shots": [
+    {
+     "id": "B13.S1",
+     "start": 276.6,
+     "end": 280.1,
+     "tag": "MEAS"
+    },
+    {
+     "id": "B13.S2",
+     "start": 280.1,
+     "end": 286.6,
+     "tag": "MEAS"
+    },
+    {
+     "id": "B13.S3",
+     "start": 286.6,
+     "end": 290.2,
+     "tag": "CONCEPT"
+    },
+    {
+     "id": "B13.S4",
+     "start": 290.2,
+     "end": 292.4,
+     "tag": "CONCEPT"
+    }
+   ]
+  },
+  {
+   "id": "End",
+   "kind": "end",
+   "start": 292.4,
+   "end": 298.4,
+   "shots": [
+    {
+     "id": "E1",
+     "start": 292.4,
+     "end": 293.6,
+     "tag": null
+    },
+    {
+     "id": "E2",
+     "start": 293.6,
+     "end": 298.4,
+     "tag": null
+    }
+   ]
+  }
+ ],
+ "captions": [
+  {
+   "id": "B1.c1",
+   "beat": "B1",
+   "c": 1,
+   "s": 12,
+   "e": 18,
+   "text": "Every 30 seconds of a night's sleep gets a label: Wake, N1, N2, N3 or REM. Experts score them by hand."
+  },
+  {
+   "id": "B1.c2",
+   "beat": "B1",
+   "c": 2,
+   "s": 18.7,
+   "e": 23.2,
+   "text": "Can a computer do it from one EEG channel, a single pair of scalp electrodes?"
+  },
+  {
+   "id": "B2.c1",
+   "beat": "B2",
+   "c": 1,
+   "s": 28.9,
+   "e": 37.3,
+   "text": "A 2026 paper in Scientific Reports says yes: about 83% accuracy, combining a synchrosqueezed transform, a CNN, contrastive learning and a GRU."
+  },
+  {
+   "id": "B2.c2",
+   "beat": "B2",
+   "c": 2,
+   "s": 38,
+   "e": 42.1,
+   "text": "We set out to reproduce it. Within our time and compute, we could not."
+  },
+  {
+   "id": "B3.c1",
+   "beat": "B3",
+   "c": 1,
+   "s": 51.8,
+   "e": 59.1,
+   "text": "So we changed the question. Not “how high can one number go?” but “does it still work on a person the model has never seen?”"
+  },
+  {
+   "id": "B3.c2",
+   "beat": "B3",
+   "c": 2,
+   "s": 59.8,
+   "e": 62.9,
+   "text": "And can we explain every step from first principles?"
+  },
+  {
+   "id": "B4.c1",
+   "beat": "B4",
+   "c": 1,
+   "s": 68.6,
+   "e": 75.4,
+   "text": "The paper chains four ideas. Ours is three plain ones: a short-time Fourier transform, a CNN and a bidirectional GRU."
+  },
+  {
+   "id": "B4.c2",
+   "beat": "B4",
+   "c": 2,
+   "s": 76.1,
+   "e": 80.1,
+   "text": "Simpler on purpose, so every step can be drawn, derived and checked."
+  },
+  {
+   "id": "B5.c1",
+   "beat": "B5",
+   "c": 1,
+   "s": 87.8,
+   "e": 94.1,
+   "text": "Each 30-second epoch becomes a 129 × 29 picture of frequency over time. A CNN squeezes it into 128 numbers."
+  },
+  {
+   "id": "B5.c2",
+   "beat": "B5",
+   "c": 2,
+   "s": 94.8,
+   "e": 100.5,
+   "text": "A bidirectional GRU then reads 20 neighbouring epochs, because sleep is a story, not a snapshot."
+  },
+  {
+   "id": "B6.c1",
+   "beat": "B6",
+   "c": 1,
+   "s": 106.2,
+   "e": 113,
+   "text": "Testing is strict. Twenty people, ten folds: in each fold 16 people train, 2 choose the checkpoint and 2 are tested."
+  },
+  {
+   "id": "B6.c2",
+   "beat": "B6",
+   "c": 2,
+   "s": 113.7,
+   "e": 119.5,
+   "text": "Nobody appears twice. A person's epochs look alike, so splitting by epoch would flatter the score."
+  },
+  {
+   "id": "B7.c1",
+   "beat": "B7",
+   "c": 1,
+   "s": 127.7,
+   "e": 134.4,
+   "text": "First result: 56.42% macro-F1, a score that treats all five stages equally, averaged over people. Accuracy: 65.00%."
+  },
+  {
+   "id": "B7.c2",
+   "beat": "B7",
+   "c": 2,
+   "s": 135.1,
+   "e": 141.8,
+   "text": "Then we opened individual nights. On three of them the model was right on only 7.22%, 18.60% and 19.01% of epochs."
+  },
+  {
+   "id": "B7b.c1",
+   "beat": "B7b",
+   "c": 1,
+   "s": 149,
+   "e": 155.4,
+   "text": "Our hypothesis: nights differ in overall signal strength, so a model trained on some nights misreads others."
+  },
+  {
+   "id": "B7b.c2",
+   "beat": "B7b",
+   "c": 2,
+   "s": 156.1,
+   "e": 163.9,
+   "text": "A per-night yardstick cancels that difference in the ideal case. It is a trade-off: a night's average also depends on its stage mix."
+  },
+  {
+   "id": "B8.c1",
+   "beat": "B8",
+   "c": 1,
+   "s": 169.6,
+   "e": 176.4,
+   "text": "Our idea, R1: judge every night against its own yardstick, using that night's own mean and spread for each frequency."
+  },
+  {
+   "id": "B8.c2",
+   "beat": "B8",
+   "c": 2,
+   "s": 177.1,
+   "e": 182.9,
+   "text": "Same architecture, retrained. Macro-F1 rose from 56.42% to 74.86%; accuracy from 65.00% to 80.99%."
+  },
+  {
+   "id": "B8.c3",
+   "beat": "B8",
+   "c": 3,
+   "s": 183.6,
+   "e": 187.4,
+   "text": "The three failing nights recovered to 82.54%, 88.68% and 84.87%."
+  },
+  {
+   "id": "B9.c1",
+   "beat": "B9",
+   "c": 1,
+   "s": 195.6,
+   "e": 202.3,
+   "text": "But R1 reads each test night's unlabeled signal within its scored span, and we chose it after the baseline failed."
+  },
+  {
+   "id": "B9.c2",
+   "beat": "B9",
+   "c": 2,
+   "s": 203,
+   "e": 207.4,
+   "text": "So it is offline and post-hoc: a promising finding, not a finished product."
+  },
+  {
+   "id": "B9b.c1",
+   "beat": "B9b",
+   "c": 1,
+   "s": 213.1,
+   "e": 220,
+   "text": "Our 80.99% sits near the paper's 83%. We do not rank them: the protocols differ, and R1 sees each test night's signal."
+  },
+  {
+   "id": "B9b.c2",
+   "beat": "B9b",
+   "c": 2,
+   "s": 220.7,
+   "e": 223,
+   "text": "Different question, different evidence."
+  },
+  {
+   "id": "B10.c1",
+   "beat": "B10",
+   "c": 1,
+   "s": 231.2,
+   "e": 236,
+   "text": "A sensitivity check takes the statistics from the whole recording instead: 71.84%."
+  },
+  {
+   "id": "B10.c2",
+   "beat": "B10",
+   "c": 2,
+   "s": 236.7,
+   "e": 243.9,
+   "text": "Versus R1: −3.02 points, 95% interval −7.12 to +1.22. It crosses zero: no clear difference, but not proof they are equal."
+  },
+  {
+   "id": "B11.c1",
+   "beat": "B11",
+   "c": 1,
+   "s": 249.6,
+   "e": 256.1,
+   "text": "N1, the lightest sleep, stays hard: R1 recovers 44.69% of true N1 epochs, and 38.91% of its N1 calls are right."
+  },
+  {
+   "id": "B11.c2",
+   "beat": "B11",
+   "c": 2,
+   "s": 256.8,
+   "e": 259.7,
+   "text": "Three small attempts to fix it were all rejected."
+  },
+  {
+   "id": "B12.c1",
+   "beat": "B12",
+   "c": 1,
+   "s": 265.4,
+   "e": 271.4,
+   "text": "What we learned: an average can hide failing nights, and per-night scaling rescued them in this cohort."
+  },
+  {
+   "id": "B13.c1",
+   "beat": "B13",
+   "c": 1,
+   "s": 280.1,
+   "e": 286.6,
+   "text": "What we cannot yet say: that it works on new people. None of 78 audited participants is certified independent."
+  },
+  {
+   "id": "B13.c2",
+   "beat": "B13",
+   "c": 2,
+   "s": 287.3,
+   "e": 290.2,
+   "text": "Next: a locked protocol on truly independent data."
+  }
+ ]
+}

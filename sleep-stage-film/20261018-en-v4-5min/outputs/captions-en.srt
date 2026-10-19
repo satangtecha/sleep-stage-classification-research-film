@@ -1,0 +1,136 @@
+1
+00:00:12,000 --> 00:00:18,000
+Every 30 seconds of a night's sleep gets a label:
+Wake, N1, N2, N3 or REM. Experts score them by hand.
+
+2
+00:00:18,700 --> 00:00:23,200
+Can a computer do it from one EEG channel, a single pair of scalp electrodes?
+
+3
+00:00:28,900 --> 00:00:37,300
+A 2026 paper in Scientific Reports says yes: about 83% accuracy, combining
+a synchrosqueezed transform, a CNN, contrastive learning and a GRU.
+
+4
+00:00:38,000 --> 00:00:42,100
+We set out to reproduce it. Within our time and compute, we could not.
+
+5
+00:00:51,800 --> 00:00:59,100
+So we changed the question. Not “how high can one number go?”
+but “does it still work on a person the model has never seen?”
+
+6
+00:00:59,800 --> 00:01:02,900
+And can we explain every step from first principles?
+
+7
+00:01:08,600 --> 00:01:15,400
+The paper chains four ideas. Ours is three plain ones: a
+short-time Fourier transform, a CNN and a bidirectional GRU.
+
+8
+00:01:16,100 --> 00:01:20,100
+Simpler on purpose, so every step can be drawn, derived and checked.
+
+9
+00:01:27,800 --> 00:01:34,100
+Each 30-second epoch becomes a 129 × 29 picture of
+frequency over time. A CNN squeezes it into 128 numbers.
+
+10
+00:01:34,800 --> 00:01:40,500
+A bidirectional GRU then reads 20 neighbouring epochs, because sleep is a story, not a snapshot.
+
+11
+00:01:46,200 --> 00:01:53,000
+Testing is strict. Twenty people, ten folds: in each fold 16
+people train, 2 choose the checkpoint and 2 are tested.
+
+12
+00:01:53,700 --> 00:01:59,500
+Nobody appears twice. A person's epochs look alike, so splitting by epoch would flatter the score.
+
+13
+00:02:07,700 --> 00:02:14,400
+First result: 56.42% macro-F1, a score that treats all five
+stages equally, averaged over people. Accuracy: 65.00%.
+
+14
+00:02:15,100 --> 00:02:21,800
+Then we opened individual nights. On three of them the model
+was right on only 7.22%, 18.60% and 19.01% of epochs.
+
+15
+00:02:29,000 --> 00:02:35,400
+Our hypothesis: nights differ in overall signal strength,
+so a model trained on some nights misreads others.
+
+16
+00:02:36,100 --> 00:02:43,900
+A per-night yardstick cancels that difference in the ideal case. It
+is a trade-off: a night's average also depends on its stage mix.
+
+17
+00:02:49,600 --> 00:02:56,400
+Our idea, R1: judge every night against its own yardstick,
+using that night's own mean and spread for each frequency.
+
+18
+00:02:57,100 --> 00:03:02,900
+Same architecture, retrained. Macro-F1 rose from
+56.42% to 74.86%; accuracy from 65.00% to 80.99%.
+
+19
+00:03:03,600 --> 00:03:07,400
+The three failing nights recovered to 82.54%, 88.68% and 84.87%.
+
+20
+00:03:15,600 --> 00:03:22,300
+But R1 reads each test night's unlabeled signal within its
+scored span, and we chose it after the baseline failed.
+
+21
+00:03:23,000 --> 00:03:27,400
+So it is offline and post-hoc: a promising finding, not a finished product.
+
+22
+00:03:33,100 --> 00:03:40,000
+Our 80.99% sits near the paper's 83%. We do not rank them:
+the protocols differ, and R1 sees each test night's signal.
+
+23
+00:03:40,700 --> 00:03:43,000
+Different question, different evidence.
+
+24
+00:03:51,200 --> 00:03:56,000
+A sensitivity check takes the statistics from the whole recording instead: 71.84%.
+
+25
+00:03:56,700 --> 00:04:03,900
+Versus R1: −3.02 points, 95% interval −7.12 to +1.22. It crosses
+zero: no clear difference, but not proof they are equal.
+
+26
+00:04:09,600 --> 00:04:16,100
+N1, the lightest sleep, stays hard: R1 recovers 44.69%
+of true N1 epochs, and 38.91% of its N1 calls are right.
+
+27
+00:04:16,800 --> 00:04:19,700
+Three small attempts to fix it were all rejected.
+
+28
+00:04:25,400 --> 00:04:31,400
+What we learned: an average can hide failing nights, and per-night scaling rescued them in this cohort.
+
+29
+00:04:40,100 --> 00:04:46,600
+What we cannot yet say: that it works on new people.
+None of 78 audited participants is certified independent.
+
+30
+00:04:47,300 --> 00:04:50,200
+Next: a locked protocol on truly independent data.

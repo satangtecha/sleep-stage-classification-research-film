@@ -60,12 +60,12 @@ function setup(){
   const cx=CARD[0]+CARD[2]/2,cy=CARD[1]+CARD[3]/2,dmax=Math.hypot(CARD[2]/2,CARD[3]/2);
   for(let y=0;y<H;y++)for(let xx=0;xx<W;xx++){const i=y*W+xx;const rr=Math.hypot(xx-cx,y-cy)/dmax;const u=clamp((rr-.55)/.45);vigT[i]=u*u*(3-2*u);const v=clamp((y-cy)/(CARD[3]/2));wy[i]=v>0?v*v:0;noise[i]=rnd(i)+rnd(i+N)-1}
   base={outer,mask,vigT,wy,noise,ctx:createCanvas(W,H).getContext('2d')};base.img=base.ctx.createImageData(W,H);return base}
-const cache=new Map();
+const cache=new Map(),pool=[];
 /** bgField(s, wash): opaque ImageData of the whole frame; wash={rgb:[r,g,b],a,bottom?,screen?} ; cached (LRU 16) */
 export function bgField(s,wash=null){
   const key=Math.round(s*100)+'|'+(wash?`${wash.rgb}|${wash.a.toFixed(3)}|${wash.bottom?1:0}|${wash.screen?1:0}`:'-');
   if(cache.has(key)){const v=cache.get(key);cache.delete(key);cache.set(key,v);return v}
-  const B=setup(),img=B.ctx.createImageData(W,H),d=img.data,card=[10,20,34];
+  const B=setup(),img=pool.pop()||B.ctx.createImageData(W,H),d=img.data,card=[10,20,34];
   const sa=Math.round(s*100)/100,wa=wash?wash.a:0,wr=wash?wash.rgb:[0,0,0],bot=wash&&wash.bottom,scr=wash&&wash.screen;
   const o=B.outer,mk=B.mask,vg=B.vigT,wy=B.wy,nz=B.noise;
   for(let i=0,p=0;i<N;i++,p+=4){const m=mk[i];
@@ -73,7 +73,7 @@ export function bgField(s,wash=null){
       for(let c=0;c<3;c++){let b=card[c];if(a>0){b=scr?255-(255-b)*(1-wr[c]/255*a):b*(1-a)+wr[c]*a}d[p+c]=b*v+n}d[p+3]=255}
     else if(m===0){d[p]=o[p];d[p+1]=o[p+1];d[p+2]=o[p+2];d[p+3]=255}
     else{const t=m/255,v=1-sa*vg[i];for(let c=0;c<3;c++)d[p+c]=o[p+c]*(1-t)+(card[c]*v+nz[i])*t;d[p+3]=255}}
-  cache.set(key,img);if(cache.size>16)cache.delete(cache.keys().next().value);return img}
+  cache.set(key,img);if(cache.size>16){const k0=cache.keys().next().value;pool.push(cache.get(k0));cache.delete(k0)}return img}
 export function paintBackground(c,s,wash){c.putImageData(bgField(s,wash),0,0);
   c.strokeStyle='rgba(255,255,255,0.06)';c.lineWidth=1.5;c.beginPath();c.roundRect(...CARD,22);c.stroke()}
 export const clipCard=c=>{c.beginPath();c.roundRect(...CARD,22);c.clip()};

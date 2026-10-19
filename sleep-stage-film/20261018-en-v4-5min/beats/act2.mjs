@@ -103,7 +103,7 @@ S['B6.S1']={tag:'MEAS',elements:E('grid','counter'),camera:us=>({x:0,y:0,zoom:le
   PeopleGrid(c,{k,el:'grid',appear:i=>(us-.2-i*.05)/.35});
   const t=(us-1.2)/1.6;const a=smooth((us-1.0)/.3);
   const s=[cnt(t,factRaw('study.participants'))+' people',cnt(t,factRaw('study.nights'))+' nights',fmtc(cnt(t,factRaw('study.epochs')))+' epochs'].join('  ·  ');
-  if(t>=1)fact('study.participants'),fact('study.nights'),fact('study.epochs',{comma:true});
+  fact('study.participants');fact('study.nights');fact('study.epochs',{comma:true});
   T(c,s,960,800,{size:44,weight:'bold',align:'center',alpha:a})}};
 const FOLDCOL={train:P.blue,choose:P.amber,test:P.coral};
 S['B6.S2']={tag:'CODE',elements:E('grid','legend','counter'),draw(c,us,k){
