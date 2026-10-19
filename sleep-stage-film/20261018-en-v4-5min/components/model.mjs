@@ -15,5 +15,5 @@ export function PipelineBlock(c,o){const {k,el,x,y,w=176,h=150,kind,label,alpha=
   surface(c,[x,yy,w,h],'#16273F',{level:drop<1?'E4':'E2',r:16,gradient:.05});
   blockIcon(c,kind,x+w/2,yy+50,56);T(c,label,x+w/2,yy+h-22,{size:26,weight:'med',color:P.ink,align:'center'});c.restore()}
 export function Slot(c,o){const {x,y,w=176,h=150,alpha=1,text=null,tAlpha=1}=o;if(alpha<=0)return;c.save();c.globalAlpha*=alpha;c.setLineDash([7,6]);c.strokeStyle='rgba(147,163,184,.5)';c.lineWidth=1.5;c.beginPath();c.roundRect(x,y,w,h,16);c.stroke();c.setLineDash([]);
-  if(text)T(c,text,x+w/2,y+h/2+8,{size:24,weight:'med',color:P.muted,align:'center',alpha:tAlpha});c.restore()}
+  if(text)text.split('\n').forEach((s,i)=>T(c,s,x+w/2,y+h/2+(i?30:0)-4,{size:22,weight:'med',color:P.muted,align:'center',alpha:tAlpha}));c.restore()}
 export function Connector(c,x0,y,x1,{p=1,col=P.muted,dashed=false,alpha=1}={}){if(p<=0)return;c.save();c.globalAlpha*=alpha;c.strokeStyle=col;c.fillStyle=col;c.lineWidth=2.5;if(dashed)c.setLineDash([8,6]);const xe=lerp(x0,x1,p);c.beginPath();c.moveTo(x0,y);c.lineTo(xe,y);c.stroke();c.setLineDash([]);if(p>.9){c.beginPath();c.moveTo(x1,y);c.lineTo(x1-10,y-6);c.lineTo(x1-10,y+6);c.closePath();c.fill()}c.restore()}

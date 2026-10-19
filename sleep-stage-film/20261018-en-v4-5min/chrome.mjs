@@ -11,7 +11,7 @@ export const ACTS=[null,
  {n:'IV',name:'What we can honestly say',col:P.muted}];
 export const TAGS={
  MEAS:['Archived result. Measured.',P.green],CODE:['From the project code.',P.blue],ILLU:['Illustrative. Not recorded data.',P.amber],
- CONCEPT:['Concept picture.',P.amber],MATH:['Worked example. Hypothetical numbers.',P.violet],REF:['Reported by the paper. Not our result.',P.ref]};
+ CONCEPT:['Concept picture.',P.amber],MATH:['Worked example. Hypothetical numbers.',P.violet],REF:['Reported by the paper. Not our result.',P.ref],MIX:['Measured rate. Tile positions simulated.',P.green]};
 export const TAG_FULL={...TAGS};
 
 const q=(v,s)=>Math.round(v/s)*s;

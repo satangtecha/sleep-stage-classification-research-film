@@ -15,7 +15,7 @@ export function Person(c,o){const {k,el,x,y,s=44,state='neutral',alpha=1,sc=1,gl
   if(q){c.strokeStyle=P.ink;c.fillStyle=P.ink;c.lineWidth=2.2;c.lineCap='round';c.beginPath();c.arc(0,.14*s,.1*s,Math.PI*1.1,Math.PI*2.1);c.lineTo(0,.28*s);c.stroke();c.beginPath();c.arc(0,.36*s,1.6,0,Math.PI*2);c.fill()}
   c.restore()}
 export function MiniStrip(c,{x,y,w=104,h=14,n=8,seed=0,alpha=1,tint=1}){if(alpha<=0)return;const pw=w/n,tw=pw-2;c.save();c.globalAlpha*=alpha;for(let j=0;j<n;j++){const col=STAGE_COL[HYPNO[(seed*5+j*11+3)%96]];bevel(c,x+j*pw,y,tw,h,col,{r:2,half:true})}c.restore()}
-export const gridPos=i=>[184+160*(i%10),i<10?330:590];
+export const gridPos=i=>[240+160*(i%10),i<10?330:590];
 export const foldState=(i,f)=>{const t0=2*f,t1=2*f+1;if(i===t0||i===t1)return 'test';if(i===(2*f+2)%20||i===(2*f+3)%20)return 'choose';return 'train'};
 /** PeopleGrid 2x10 */
 export function PeopleGrid(c,o){const {k,el,state=()=>'neutral',appear=()=>1,glowSet=null,glowA=0,alpha=1,strips=1,skip=null,mini=true}=o;k&&k.rec('PeopleGrid',{el,n:20});
