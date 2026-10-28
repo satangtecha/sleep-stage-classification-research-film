@@ -52,12 +52,12 @@ export const SECTIONS=[
    "Baseline first: macro-F1 56.42%, 95% interval 48.26 to 63.44. Accuracy 65.00%. Folds swing from 39.95% to 74.39%.",
    "Opening single nights, three were right on only 7.22%, 18.60% and 19.01% of epochs. The average hid them."]},
   {id:'E2',name:'R1: a ruler per night',caps:[
-   "z-scoring, per frequency: subtract the mean, then divide by the spread. Values become standard deviations.",
-   "Why? Raw sizes differ across frequencies and nights; z-scores put values on a common scale.",
+   "To fix this, R1 changes one step: how each frequency picture is scaled before it reaches the CNN.",
+   "STFT hands the CNN one picture per epoch. We first rescale each frequency row, so every frequency counts evenly.",
+   "That rescaling is a z-score: subtract the mean, divide by the spread. Values become standard deviations.",
    "The baseline already did this, but with one ruler for all nights: the 16 training people's mean and spread.",
    "R1 gives every night its own ruler: that night's own mean and spread, with no labels used.",
-   "Everything else stays the same: STFT, CNN and BiGRU, retrained on the per-night z-scores.",
-   "Retrained: macro-F1 74.86%, interval 71.33 to 78.03; accuracy 80.99%. Gain +18.44, interval 10.07 to 27.55.",
+   "Same architecture, retrained: macro-F1 74.86%, interval 71.33 to 78.03; accuracy 80.99%. Gain +18.44 (10.07 to 27.55).",
    "The three failing nights recover to 82.54%, 88.68% and 84.87%."]},
   {id:'E3',name:'The catch',caps:[
    "But R1 reads each test night's unlabeled signal and was chosen after the baseline failed: offline, post-hoc.",

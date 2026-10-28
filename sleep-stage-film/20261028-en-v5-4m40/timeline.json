@@ -1,7 +1,7 @@
 {
  "fps": 30,
- "duration": 305.1,
- "frames": 9153,
+ "duration": 307.3,
+ "frames": 9219,
  "scenes": [
   {
    "id": "T1",
@@ -331,123 +331,123 @@
    "t0": 216.1,
    "shots": [
     {
-     "id": "E2.Z",
+     "id": "E2.P",
      "t0": 216.1,
-     "t1": 222.7
+     "t1": 222.2
     },
     {
-     "id": "E2.Y",
-     "t0": 222.7,
-     "t1": 228.8
+     "id": "E2.F",
+     "t0": 222.2,
+     "t1": 229.5
+    },
+    {
+     "id": "E2.Z",
+     "t0": 229.5,
+     "t1": 236.3
     },
     {
      "id": "E2.S1",
-     "t0": 228.8,
-     "t1": 235.8
+     "t0": 236.3,
+     "t1": 243.3
     },
     {
      "id": "E2.R",
-     "t0": 235.8,
-     "t1": 241.8
-    },
-    {
-     "id": "E2.P",
-     "t0": 241.8,
-     "t1": 247.7
+     "t0": 243.3,
+     "t1": 249.3
     },
     {
      "id": "E2.S2",
-     "t0": 247.7,
-     "t1": 254.7
+     "t0": 249.3,
+     "t1": 256.9
     },
     {
      "id": "E2.S3",
-     "t0": 254.7,
-     "t1": 259.4
+     "t0": 256.9,
+     "t1": 261.6
     }
    ],
-   "t1": 259.4
+   "t1": 261.6
   },
   {
    "id": "E3",
    "kind": "beat",
    "xf": 0.9,
-   "t0": 259.4,
+   "t0": 261.6,
    "shots": [
     {
      "id": "E3.S1",
-     "t0": 259.4,
-     "t1": 266.3
+     "t0": 261.6,
+     "t1": 268.5
     },
     {
      "id": "E3.S2",
-     "t0": 266.3,
-     "t1": 274.7
+     "t0": 268.5,
+     "t1": 276.9
     }
    ],
-   "t1": 274.7
+   "t1": 276.9
   },
   {
    "id": "L2",
    "kind": "beat",
    "xf": 0.9,
-   "t0": 274.7,
+   "t0": 276.9,
    "shots": [
     {
      "id": "L2.S1",
-     "t0": 274.7,
-     "t1": 275.2
+     "t0": 276.9,
+     "t1": 277.4
     },
     {
      "id": "L2.S2",
-     "t0": 275.2,
-     "t1": 281
+     "t0": 277.4,
+     "t1": 283.2
     },
     {
      "id": "L2.S3",
-     "t0": 281,
-     "t1": 287.6
+     "t0": 283.2,
+     "t1": 289.8
     },
     {
      "id": "L2.S4",
-     "t0": 287.6,
-     "t1": 292.2
+     "t0": 289.8,
+     "t1": 294.4
     }
    ],
-   "t1": 292.2
+   "t1": 294.4
   },
   {
    "id": "L3",
    "kind": "beat",
    "xf": 0.9,
-   "t0": 292.2,
+   "t0": 294.4,
    "shots": [
     {
      "id": "L3.S1",
-     "t0": 292.2,
-     "t1": 300.7
+     "t0": 294.4,
+     "t1": 302.9
     }
    ],
-   "t1": 300.7
+   "t1": 302.9
   },
   {
    "id": "End",
    "kind": "end",
    "xf": 1,
-   "t0": 300.7,
+   "t0": 302.9,
    "shots": [
     {
      "id": "E1",
-     "t0": 300.7,
-     "t1": 301.7
+     "t0": 302.9,
+     "t1": 303.9
     },
     {
      "id": "E2",
-     "t0": 301.7,
-     "t1": 305.1
+     "t0": 303.9,
+     "t1": 307.3
     }
    ],
-   "t1": 305.1
+   "t1": 307.3
   }
  ],
  "captions": [
@@ -712,103 +712,103 @@
    "beat": "E2",
    "c": 1,
    "s": 216.5,
-   "e": 222.7,
-   "text": "z-scoring, per frequency: subtract the mean, then divide by the spread. Values become standard deviations."
+   "e": 222.2,
+   "text": "To fix this, R1 changes one step: how each frequency picture is scaled before it reaches the CNN."
   },
   {
    "id": "E2.c2",
    "beat": "E2",
    "c": 2,
-   "s": 223.4,
-   "e": 228.8,
-   "text": "Why? Raw sizes differ across frequencies and nights; z-scores put values on a common scale."
+   "s": 222.9,
+   "e": 229.5,
+   "text": "STFT hands the CNN one picture per epoch. We first rescale each frequency row, so every frequency counts evenly."
   },
   {
    "id": "E2.c3",
    "beat": "E2",
    "c": 3,
-   "s": 229.5,
-   "e": 235.8,
-   "text": "The baseline already did this, but with one ruler for all nights: the 16 training people's mean and spread."
+   "s": 230.2,
+   "e": 236.3,
+   "text": "That rescaling is a z-score: subtract the mean, divide by the spread. Values become standard deviations."
   },
   {
    "id": "E2.c4",
    "beat": "E2",
    "c": 4,
-   "s": 236.5,
-   "e": 241.8,
-   "text": "R1 gives every night its own ruler: that night's own mean and spread, with no labels used."
+   "s": 237,
+   "e": 243.3,
+   "text": "The baseline already did this, but with one ruler for all nights: the 16 training people's mean and spread."
   },
   {
    "id": "E2.c5",
    "beat": "E2",
    "c": 5,
-   "s": 242.5,
-   "e": 247.7,
-   "text": "Everything else stays the same: STFT, CNN and BiGRU, retrained on the per-night z-scores."
+   "s": 244,
+   "e": 249.3,
+   "text": "R1 gives every night its own ruler: that night's own mean and spread, with no labels used."
   },
   {
    "id": "E2.c6",
    "beat": "E2",
    "c": 6,
-   "s": 248.4,
-   "e": 254.7,
-   "text": "Retrained: macro-F1 74.86%, interval 71.33 to 78.03; accuracy 80.99%. Gain +18.44, interval 10.07 to 27.55."
+   "s": 250,
+   "e": 256.9,
+   "text": "Same architecture, retrained: macro-F1 74.86%, interval 71.33 to 78.03; accuracy 80.99%. Gain +18.44 (10.07 to 27.55)."
   },
   {
    "id": "E2.c7",
    "beat": "E2",
    "c": 7,
-   "s": 255.4,
-   "e": 259,
+   "s": 257.6,
+   "e": 261.2,
    "text": "The three failing nights recover to 82.54%, 88.68% and 84.87%."
   },
   {
    "id": "E3.c1",
    "beat": "E3",
    "c": 1,
-   "s": 259.9,
-   "e": 266.3,
+   "s": 262.1,
+   "e": 268.5,
    "text": "But R1 reads each test night's unlabeled signal and was chosen after the baseline failed: offline, post-hoc."
   },
   {
    "id": "E3.c2",
    "beat": "E3",
    "c": 2,
-   "s": 267,
-   "e": 274.4,
+   "s": 269.2,
+   "e": 276.6,
    "text": "Whole-recording statistics give 71.84%: −3.02 versus R1, interval −7.12 to +1.22. No clear difference, not proof of equality."
   },
   {
    "id": "L2.c1",
    "beat": "L2",
    "c": 1,
-   "s": 275.2,
-   "e": 281,
+   "s": 277.4,
+   "e": 283.2,
    "text": "What we cannot say: that it works on new people, since R1 is offline and was chosen after the fact."
   },
   {
    "id": "L2.c2",
    "beat": "L2",
    "c": 2,
-   "s": 281.7,
-   "e": 287.6,
+   "s": 283.9,
+   "e": 289.8,
    "text": "Nor that 80.99% beats or matches the paper's 83%, that it is clinically ready, or that N1 is solved."
   },
   {
    "id": "L2.c3",
    "beat": "L2",
    "c": 3,
-   "s": 288.3,
-   "e": 291.9,
+   "s": 290.5,
+   "e": 294.1,
    "text": "None of the 78 audited participants is certified independent."
   },
   {
    "id": "L3.c1",
    "beat": "L3",
    "c": 1,
-   "s": 292.7,
-   "e": 299.8,
+   "s": 294.9,
+   "e": 302,
    "text": "Nights differ, and an average can hide the one that fails. Next: lock the protocol, then test on truly independent data."
   }
  ]

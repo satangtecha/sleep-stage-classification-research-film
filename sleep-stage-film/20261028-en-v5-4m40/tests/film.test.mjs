@@ -1,7 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {createCanvas} from '@napi-rs/canvas';import crypto from 'node:crypto';
 import {SCENES,FRAMES,FPS,DURATION,frameAt,CUE_LOG} from '../film.mjs';import {SHOTS} from '../beats/index.mjs';import {CAPS,CPS_MAX,capLines} from '../captions.mjs';import {USED,FACTS} from '../facts.mjs';
 const shots=SCENES.flatMap(s=>s.shots),cv=createCanvas(1920,1080),hash=t=>{frameAt(cv,t);return crypto.createHash('sha1').update(cv.data()).digest('hex')};
-test('timeline',()=>{assert.equal(SCENES.length,19);assert.equal(shots.length,55);assert.equal(FRAMES,9153);assert.equal(FPS,30);assert.ok(Math.abs(DURATION-305.1)<1e-9);
+test('timeline',()=>{assert.equal(SCENES.length,19);assert.equal(shots.length,55);assert.equal(FRAMES,9219);assert.equal(FPS,30);assert.ok(Math.abs(DURATION-307.3)<1e-9);
   for(const s of shots)assert.ok(SHOTS[s.id],'undefined shot '+s.id);for(let i=1;i<shots.length;i++)assert.ok(Math.abs(shots[i].t0-shots[i-1].t1)<1e-6,'gap at '+shots[i].id)});
 test('captions: rate, lines, spacing',()=>{const ctx=cv.getContext('2d');let prev=null;for(const c of CAPS){assert.ok(c.text.length/(c.e-c.s)<=CPS_MAX+1e-6,'too fast '+c.id);assert.ok(capLines(ctx,c.text).length<=2,'>2 lines '+c.id);if(prev)assert.ok(c.s-prev.e>=.69,'spacing before '+c.id);prev=c}});
 test('element budget: at most 7 per shot',()=>{for(const [id,d] of Object.entries(SHOTS))assert.ok((d.elements||[]).length<=7,id+' has '+d.elements.length)});
