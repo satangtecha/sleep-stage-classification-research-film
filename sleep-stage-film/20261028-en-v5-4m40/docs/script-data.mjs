@@ -13,7 +13,8 @@ export const SECTIONS=[
   {id:'B2',name:'The reference',caps:[
    "A 2026 paper in Scientific Reports reports about 83% accuracy from one channel, chaining four ideas.",
    "We set out to reproduce it. Within our time and compute, we could not.",
-   "The paper splits epochs at random, so one person can be on both sides. We split by person."]},
+   "The paper splits epochs at random, so one person can be on both sides. We split by person.",
+   "Why? A new patient is a new person. A random split can reward recognising the person, not reading the sleep."]},
   {id:'B3',name:'The new question',caps:[
    "So we changed the question: does it still work on a person the model has never seen, and can we explain every step?"]},
   {id:'Q2',name:'Scope and hypothesis',caps:[
@@ -22,7 +23,8 @@ export const SECTIONS=[
  {id:'3',title:'Data',beats:[
   {id:'B3b',name:'The data',caps:[
    "Our data is Sleep-EDF, public on PhysioNet: healthy adults recorded at home on cassette recorders, usually two nights of about 20 hours.",
-   "Trained technicians then scored every 30-second epoch by hand, following the 1968 Rechtschaffen and Kales rules.",
+   "Trained technicians scored every 30-second page of each whole night by hand, following the 1968 Rechtschaffen and Kales rules.",
+   "Two experts can disagree, so these labels are a trusted reference, not perfect truth.",
    "We use 20 people and 39 nights: 42,307 epochs. Trimmed to its scored span, a night is about 1,085 epochs, or 9 hours."]},
   {id:'D2',name:'Variables and limits',caps:[
    "Three variables: the EEG signal, the stage label, and a person ID that only splits the data and never feeds the model.",
@@ -30,13 +32,17 @@ export const SECTIONS=[
  {id:'4',title:'Technique',beats:[
   {id:'M1',name:'STFT',caps:[
    "STFT: a 2-second Hamming window slides in 1-second steps, turning each epoch into a 129 × 29 picture of frequency over time.",
+   "Why frequencies? Sleep stages are defined by rhythms: slow waves mark N3, spindles N2, alpha waves relaxed wake.",
    "The paper uses a synchrosqueezed transform. We chose STFT because we can draw, compute and check it by hand. We never compared them."]},
   {id:'M2',name:'CNN',caps:[
    "CNN: three blocks of 32, 64 and 128 channels squeeze each picture into 128 numbers. Its limit: it sees one epoch at a time."]},
   {id:'M3',name:'BiGRU',caps:[
    "BiGRU: two layers read 20 neighbouring epochs forwards and backwards, because sleep is a sequence.",
+   "Why? Sleep comes in long runs, so an epoch is easier to judge with its neighbours than alone.",
    "The cost: it uses future epochs, so it works offline only, never in real time."]},
   {id:'M4',name:'Why no contrastive stage',caps:[
+   "Contrastive learning trains the CNN's embedding: epochs that should match are pulled together, the rest pushed apart.",
+   "It adds a second training phase with many settings to tune, so it costs more time and compute.",
    "We dropped the paper's contrastive stage: reproducing it failed, and we wanted a chain we can check step by step.",
    "We never ran that comparison, so we do not claim it helps or hurts."]},
   {id:'M5',name:'The test',caps:[
@@ -47,7 +53,8 @@ export const SECTIONS=[
    "Baseline first: macro-F1 56.42%, 95% interval 48.26 to 63.44. Accuracy 65.00%. Folds swing from 39.95% to 74.39%.",
    "Opening single nights, three were right on only 7.22%, 18.60% and 19.01% of epochs. The average hid them."]},
   {id:'E2',name:'R1: a ruler per night',caps:[
-   "The baseline already z-scored each frequency, but with one ruler from the 16 training people. R1 gives every night its own ruler.",
+   "The baseline already z-scored each frequency, but with one ruler: the mean and spread of the 16 training people.",
+   "R1 gives every night its own ruler: that night's own mean and spread, with no labels used.",
    "Same architecture, retrained: macro-F1 74.86%, interval 71.33 to 78.03; accuracy 80.99%. Gain +18.44, interval 10.07 to 27.55.",
    "The three failing nights recover to 82.54%, 88.68% and 84.87%."]},
   {id:'E3',name:'The catch',caps:[

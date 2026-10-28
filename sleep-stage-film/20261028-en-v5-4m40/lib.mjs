@@ -93,6 +93,8 @@ export function rnd(i){const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.
 /** illustrative EEG-like signal (sum of rhythms, deterministic) */
 export function eeg(a,seed=0,mode='mixed'){const s=seed*7.3;let v=0;
   if(mode==='slow')v=.75*Math.sin(a*2*Math.PI*8+s)+.25*Math.sin(a*2*Math.PI*21+s*2);
+  else if(mode==='n1')v=.4*Math.sin(a*2*Math.PI*14+s)+.3*Math.sin(a*2*Math.PI*29+s*1.3);
+  else if(mode==='rem')v=.3*Math.sin(a*2*Math.PI*10+s)+.28*Math.sin(a*2*Math.PI*44+s*.7)+.2*Math.sin(a*2*Math.PI*71+s);
   else if(mode==='fast')v=.35*Math.sin(a*2*Math.PI*60+s)+.25*Math.sin(a*2*Math.PI*97+s);
   else v=.45*Math.sin(a*2*Math.PI*6+s)+.22*Math.sin(a*2*Math.PI*37+s*1.7)+.12*Math.sin(a*2*Math.PI*91+s*.3)+.5*Math.exp(-(((a-.63)/.025)**2))*Math.sin(a*2*Math.PI*140);
   return v+.08*Math.sin(a*733+s)}

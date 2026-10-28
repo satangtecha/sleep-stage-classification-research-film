@@ -89,7 +89,10 @@ S['B2.S4']={tag:'REF',elements:E('paper','left','right','lock','mark'),draw(c,us
     MiniStrip(c,{x:x+gx*smooth(rp)-40,y:Y+230,w:80,h:14,n:8,seed:i+4,alpha:a});}
   if(rp>0){const lx=RX+75+5.5*95+12;poly(c,[[lx+6,Y+130],[lx+6,Y+280]],{stroke:P.ink,width:3,dash:[8,6],alpha:rp})}
   const lk=smooth((us-sp-.8)/.5);Padlock(c,{k,el:'lock',x:RX+PW/2-28,y:Y+310,open:1-lk,alpha:lk});
-  T(c,'one person → one set',RX+PW/2,Y+410,{size:30,weight:'bold',align:'center',alpha:lk})}};
+  T(c,'one person → one set',RX+PW/2,Y+410,{size:30,weight:'bold',align:'center',alpha:lk});
+  const wy=smooth((us-k.cue('B2.c4','Why?'))/.5);
+  if(wy>0){surface(c,[304,772,1312,76],rgba(AMB,.10),{level:'E1',r:38,gradient:0,alpha:wy});c.save();c.globalAlpha*=wy;c.strokeStyle=rgba(AMB,.8);c.lineWidth=2;c.beginPath();c.roundRect(304,772,1312,76,38);c.stroke();c.restore();
+    T(c,'real use = a person the model has never seen',960,823,{size:36,weight:'med',color:AMB,align:'center',alpha:wy})}}};
 
 // ---------------------------------------------------------------- B3: the new question (badge stays)
 const badge=(c,k,a=1)=>RefBadge(c,{k,el:'badge',alpha:a});

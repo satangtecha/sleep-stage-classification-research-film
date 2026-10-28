@@ -1,5 +1,5 @@
 // Sections 3-4 (new shots): D2 variables and limits, M1-M5 technique
-import {P,STAGE_COL,clamp,lerp,smooth,cubic,outBack,outExpo,rgba,mixCol,T,poly,dot,rect,arrow,typed,seg,measure,eeg,wavePts,heat} from '../lib.mjs';
+import {P,STAGE_COL,clamp,lerp,smooth,cubic,outBack,outExpo,rgba,mixCol,T,poly,dot,rect,arrow,typed,seg,measure,eeg,wavePts,heat,rnd} from '../lib.mjs';
 import {HYPNO} from '../shared.mjs';
 import {NightStrip,Legend,tileX} from '../components/strip.mjs';
 import {EegFrame,Pill,Bracket} from '../components/misc.mjs';
@@ -98,7 +98,7 @@ const ridge=(c,x,y,w,h)=>{const cols=44,rows=44,cw=w/cols,rh=h/rows;for(let i=0;
   for(let j=0;j<rows;j++){const v=j/(rows-1);const val=Math.min(1,.06+.95*Math.exp(-((v-r)**2)/.0009)+.35*Math.exp(-((v-r2)**2)/.0007)+.10*Math.exp(-v*6));
     c.fillStyle=heat(val);c.fillRect(x+i*cw,y+h-(j+1)*rh,cw+.6,rh+.6)}}};
 S['M1.S2']={tag:'CONCEPT',elements:E('bar','left','right','chips','note'),draw(c,us,k){
-  const cSST=k.cue('M1.c2','synchrosqueezed'),cWe=k.cue('M1.c2','We chose STFT'),cDr=k.cue('M1.c2','draw, compute'),cNv=k.cue('M1.c2','never compared');
+  const cSST=k.cue('M1.c3','synchrosqueezed'),cWe=k.cue('M1.c3','We chose STFT'),cDr=k.cue('M1.c3','draw, compute'),cNv=k.cue('M1.c3','never compared');
   const refA=smooth((us-cSST+.5)/.5);pipeBar(c,k,{n:1,act:0,ref:refA});
   const ra=smooth((us-cSST+.2)/.5),la=smooth((us-cWe+.4)/.5);
   // right: SST (paper)
@@ -144,7 +144,7 @@ S['M3.S1']={tag:'ILLU',elements:E('bar','bars','bracket','arrows','out'),draw(c,
   const pr=smooth((us-cS+.2)/1.2);for(let i=0;i<20;i++){const q=smooth((us-cS+.2-Math.abs(i-10)*.07)/.3);if(q>0)rect(c,BX+i*BPW+4,770,BPW-8,34,STAGE_COL[HYPNO[38+i]],{r:3,alpha:q})}
   T(c,'a stage for every epoch',960,846,{size:26,weight:'med',color:P.muted,align:'center',alpha:pr})}};
 S['M3.S2']={tag:'CONCEPT',elements:E('bar','strip','now','arrows','stamp'),draw(c,us,k){
-  const cF=k.cue('M3.c2','future epochs'),cO=k.cue('M3.c2','offline only'),cR=k.cue('M3.c2','never in real time');
+  const cF=k.cue('M3.c3','future epochs'),cO=k.cue('M3.c3','offline only'),cR=k.cue('M3.c3','never in real time');
   pipeBar(c,k,{n:3,act:2,ref:1,slot:1});
   const n=40,x0=160,w=1600,pw=w/n,y=500,now=18;
   NightStrip(c,{k,el:'strip',x:x0,w,y,h:70,range:[20,20+n],appear:1,mode:i=>i-20<=now?'on':'dim',stage:i=>HYPNO[i]});
@@ -173,12 +173,12 @@ function b4(c,k,{left=[1,1,1,1],right=[1,1,1],slot=1,leftA=1,glowC=0,slotText=0,
     if(i>0&&dr>0)Connector(c,RXs[i-1]+180,BY+75,RXs[i]-4,{p:clamp(dr*2),col:P.cyan})});
   if(icons)['pencil','sigma','check'].forEach((n,i)=>IconChip(c,{k,el:'icons',cx:RXs[0]+88+i*216,y:520,icon:n,lit:icons[i],litCol:P.cyan,drop:clamp(icons[i]*3),label:['drawn','derived','checked'][i],labelY:700}))}
 S['M4.S1']={tag:'CODE',elements:E('badge','left','right','icons','note'),draw(c,us,k){
-  const g0=k.cue('M4.c1','contrastive'),r0=k.cue('M4.c1','reproducing it failed'),a=k.cue('M4.c1','chain'),b=k.cue('M4.c1','check'),d=k.cue('M4.c1','step by step');
+  const g0=k.cue('M4.c3','contrastive'),r0=k.cue('M4.c3','reproducing it failed'),a=k.cue('M4.c3','chain'),b=k.cue('M4.c3','check'),d=k.cue('M4.c3','step by step');
   b4(c,k,{left:[0,1,2,3].map(i=>(us-.05-i*.18)/.4),right:[0,1,2].map(i=>(us-.45-i*.2)/.4),slot:smooth((us-.5)/.4),glowC:Math.sin(Math.PI*clamp((us-g0)/1.8)),slotText:smooth((us-g0)/.4),heads:(us-.3)/.3,
     icons:[smooth((us-a)/.3),smooth((us-b)/.3),smooth((us-d)/.3)]});
   const ra=smooth((us-r0)/.4);T(c,'Not reproduced: time and compute limits',CX[0],612,{size:28,weight:'med',color:AMB,alpha:ra});rect(c,CX[2],BY+160,176,8,rgba(AMB,.6*ra),{r:3})}};
 S['M4.S2']={tag:'CODE',elements:E('badge','left','right','icons','note'),draw(c,us,k){
-  const h0=k.cue('M4.c2','do not claim');b4(c,k,{leftA:.55,slotText:1,icons:[1,1,1]});
+  const h0=k.cue('M4.c4','do not claim');b4(c,k,{leftA:.55,slotText:1,icons:[1,1,1]});
   T(c,'Helps? Hurts?  Never compared.',960,810,{size:44,weight:'bold',color:AMB,align:'center',alpha:smooth((us-h0+.5)/.4)})}};
 
 // ---------------------------------------------------------------- M5: leave-persons-out test
@@ -200,4 +200,65 @@ S['M5.S2']={tag:'CODE',elements:E('persons','gauge','note'),draw(c,us,k){
   const gp=smooth((us-cS+.3)/.5);if(gp>0){c.save();c.globalAlpha*=gp;const gx=1420,gy=520,r=150;c.strokeStyle=P.line;c.lineWidth=16;c.lineCap='round';c.beginPath();c.arc(gx,gy,r,Math.PI*1.1,Math.PI*1.9);c.stroke();
     const ang=Math.PI*1.5+Math.sin((us-cS)*3.2)*.62*Math.min(1,(us-cS+.3));c.strokeStyle=AMB;c.lineWidth=7;c.beginPath();c.moveTo(gx,gy);c.lineTo(gx+Math.cos(ang)*(r-16),gy+Math.sin(ang)*(r-16));c.stroke();dot(c,gx,gy,12,AMB);
     T(c,'scores swing between folds',gx,gy+90,{size:28,weight:'bold',color:AMB,align:'center'});c.restore()}}};
+
+// ================================================================ new explanation shots (M1.W, M3.W, M4.C)
+const wavePt=(x,y,w,amp,fn,n=260)=>{const o=[];for(let i=0;i<=n;i++){const u=i/n;o.push([x+u*w,y-amp*fn(u)])}return o};
+S['M1.W']={tag:'CONCEPT',elements:E('bar','cards','waves','axes','chips'),draw(c,us,k){
+  pipeBar(c,k,{n:1,act:0});
+  const cs=[k.cue('M1.c2','slow waves'),k.cue('M1.c2','spindles'),k.cue('M1.c2','alpha waves')];
+  T(c,'Sleep stages are defined by rhythms',960,300,{size:34,weight:'bold',align:'center',alpha:smooth(us/.4)});
+  const D=[{st:'N3',col:STAGE_COL[3],title:'Slow waves',hz:'0.5–2 Hz',lo:.5,hi:2,fn:u=>Math.sin(u*Math.PI*2*2)*.95+.08*Math.sin(u*Math.PI*2*21),amp:70},
+           {st:'N2',col:STAGE_COL[2],title:'Sleep spindles',hz:'11–16 Hz',lo:11,hi:16,fn:u=>.28*Math.sin(u*Math.PI*2*3+1)+1.0*Math.exp(-(((u-.55)/.14)**2))*Math.sin(u*Math.PI*2*26),amp:60},
+           {st:'W',col:STAGE_COL[0],title:'Alpha waves',hz:'8–13 Hz',lo:8,hi:13,fn:u=>.7*Math.sin(u*Math.PI*2*20)+.12*Math.sin(u*Math.PI*2*47),amp:52}];
+  D.forEach((d,i)=>{const x=104+i*582,y=330,w=548,h=520,a=smooth((us-cs[i]+.5)/.5);if(a<=0)return;
+    c.save();c.globalAlpha*=a;if(true)glowRect(c,x,y,w,h,d.col,{blur:20,alpha:.18*smooth((us-cs[i])/.5)},18);
+    surface(c,[x,y,w,h],'#0E1C30',{level:'E2',r:18});
+    c.fillStyle=rgba(d.col,.18);c.beginPath();c.roundRect(x+30,y+28,100,52,26);c.fill();c.strokeStyle=rgba(d.col,.8);c.lineWidth=2;c.stroke();T(c,d.st,x+80,y+65,{size:30,weight:'bold',color:d.col,align:'center'});
+    T(c,d.title,x+152,y+66,{size:34,weight:'bold',color:P.ink});
+    surface(c,[x+30,y+120,w-60,190],'#0C1A2E',{level:'E1',r:12});
+    c.save();c.beginPath();c.roundRect(x+30,y+120,w-60,190,12);c.clip();poly(c,wavePt(x+44,y+215,w-88,d.amp,d.fn),{stroke:d.col,width:2.6});c.restore();
+    T(c,'2 seconds of EEG',x+w/2,y+338,{size:22,color:P.muted,align:'center'});
+    // where it sits on the frequency axis 0-30 Hz
+    const ax=x+50,aw=w-100,ay=y+446,F=f=>ax+f/30*aw;
+    poly(c,[[ax,ay],[ax+aw,ay]],{stroke:P.line,width:2});[0,10,20,30].forEach(f=>{poly(c,[[F(f),ay],[F(f),ay+8]],{stroke:P.line,width:2});T(c,f===30?'30 Hz':String(f),F(f),ay+34,{size:21,color:P.muted,align:f===30?'right':'center'})});
+    rect(c,F(d.lo),ay-22,Math.max(8,F(d.hi)-F(d.lo)),22,rgba(d.col,.55),{r:4});
+    T(c,d.hz,x+w/2,y+392,{size:36,weight:'bold',color:d.col,align:'center'});c.restore()});
+  T(c,'a frequency picture shows them directly',960,884,{size:28,weight:'med',color:P.cyan,align:'center',alpha:smooth((us-cs[2]-.8)/.5)})}};
+S['M3.W']={tag:'CONCEPT',elements:E('bar','tiles','arrows','labels'),draw(c,us,k){
+  pipeBar(c,k,{n:3,act:2,ref:1,slot:1});
+  const cR=k.cue('M3.c2','long runs'),cN=k.cue('M3.c2','neighbours'),cA=k.cue('M3.c2','alone');
+  const n=11,tw=122,gp=14,x0=(1920-(n*tw+(n-1)*gp))/2,y=420,N2=STAGE_COL[2];
+  const a=smooth(us/.5),rs=smooth((us-cR+.3)/.5),res=cubic((us-cN-.6)/.9);
+  for(let i=0;i<n;i++){const mid=i===5,x=x0+i*(tw+gp),pa=smooth((us-i*.04)/.3);
+    const col=mid?mixCol('#5C6B80',N2,res):N2;surface(c,[x,y,tw,140],mid&&res<1?mixCol('#1B2A40',N2,res):N2,{level:'E1',r:10,gradient:.05,alpha:pa*a});
+    if(mid){T(c,res>.5?'N2':'?',x+tw/2,y+92,{size:res>.5?44:64,weight:'bold',color:res>.5?'#10131C':P.ink,align:'center',alpha:pa})}}
+  poly(c,[[x0,y+176],[x0+5*(tw+gp)-gp,y+176]],{stroke:rgba(N2,.9),width:4,alpha:rs});poly(c,[[x0+6*(tw+gp),y+176],[x0+n*(tw+gp)-gp,y+176]],{stroke:rgba(N2,.9),width:4,alpha:rs});
+  T(c,'a run of N2',x0+2.5*(tw+gp),y+222,{size:28,weight:'med',color:N2,align:'center',alpha:rs});T(c,'the run continues',x0+8.5*(tw+gp),y+222,{size:28,weight:'med',color:N2,align:'center',alpha:rs});
+  const ar=smooth((us-cN+.2)/.4)*(1-smooth((us-cN-1.6)/.5));
+  if(ar>0){[[2,-1],[3,-1],[7,1],[8,1]].forEach(([i,d])=>{const sx=x0+i*(tw+gp)+tw/2,tx=x0+5*(tw+gp)+tw/2+d*30;c.save();c.globalAlpha*=ar;c.strokeStyle=P.cyan;c.lineWidth=3.5;c.setLineDash([]);c.beginPath();c.moveTo(sx,y-10);c.quadraticCurveTo((sx+tx)/2,y-90,tx,y-14);c.stroke();c.restore()});
+    T(c,'both sides vote',960,y-96,{size:28,weight:'med',color:P.cyan,align:'center',alpha:ar})}
+  T(c,'alone: unsure',x0+5*(tw+gp)+tw/2,y+300,{size:30,weight:'bold',color:P.muted,align:'center',alpha:smooth((us-cA+.3)/.4)*(1-res)});
+  T(c,'with its neighbours: N2',x0+5*(tw+gp)+tw/2,y+300,{size:30,weight:'bold',color:N2,align:'center',alpha:res});
+  T(c,'illustration: one ambiguous epoch inside a run',960,820,{size:24,color:P.muted,align:'center',alpha:a})}};
+S['M4.C']={tag:'CONCEPT',elements:E('badge','scatter','arrows','phases','tags'),draw(c,us,k){
+  RefBadge(c,{k,el:'badge',alpha:1});
+  const cP=k.cue('M4.c1','pulled together'),cQ=k.cue('M4.c1','pushed apart'),cT=k.cue('M4.c2','second training phase'),cK=k.cue('M4.c2','many settings');
+  T(c,'Contrastive learning (the paper)',960,206,{size:34,weight:'bold',color:P.ref,align:'center',alpha:smooth(us/.4)});
+  const SX=104,SY=250,SW=880,SH=580;surface(c,[SX,SY,SW,SH],'#0E1C30',{level:'E2',r:18,alpha:smooth(us/.4)});
+  T(c,'embedding space: each dot is one epoch',SX+SW/2,SY+44,{size:26,weight:'med',color:P.muted,align:'center',alpha:smooth(us/.4)});
+  const G=[STAGE_COL[2],STAGE_COL[3],STAGE_COL[4]],near=[[400,500],[470,520],[430,560]],far=[[240,640],[780,640],[510,380]],pull=cubic((us-cP)/1.3),push=cubic((us-cQ)/1.3);
+  for(let g=0;g<3;g++)for(let i=0;i<14;i++){const r1=rnd(g*50+i*3+1),r2=rnd(g*50+i*3+2),j1=rnd(g*50+i*7+4)-.5,j2=rnd(g*50+i*7+5)-.5;
+    const p0=[SX+80+r1*(SW-160),SY+100+r2*(SH-180)],pc=[near[g][0]+j1*70,near[g][1]+j2*60],pf=[far[g][0]+j1*90,far[g][1]+j2*80];
+    const a1=[lerp(p0[0],pc[0],pull),lerp(p0[1],pc[1],pull)],a2=[lerp(a1[0],pf[0],push),lerp(a1[1],pf[1],push)];
+    dot(c,a2[0],a2[1],10,G[g],smooth(us/.4))}
+  const pa=smooth((us-cP)/.4)*(1-smooth((us-cQ+.2)/.4)),qa=smooth((us-cQ)/.4);
+  T(c,'pull together',SX+SW/2,SY+SH-30,{size:30,weight:'bold',color:GRN,align:'center',alpha:pa});T(c,'push apart',SX+SW/2,SY+SH-30,{size:30,weight:'bold',color:PINK,align:'center',alpha:qa});
+  // right: the cost
+  const RXp=1030,RW2=786,ra=smooth((us-cT+.3)/.5);
+  if(ra>0){c.save();c.globalAlpha*=ra;surface(c,[RXp,SY,RW2,SH],'#0E1C30',{level:'E2',r:18});
+    [['Phase 1 · contrastive pre-training',P.ref,SY+60],['Phase 2 · train the classifier',P.cyan,SY+200]].forEach(([t,col,yy],i)=>{surface(c,[RXp+40,yy,RW2-80,100],'#16273F',{level:'E1',r:14});c.strokeStyle=rgba(col,.8);c.lineWidth=2;c.beginPath();c.roundRect(RXp+40,yy,RW2-80,100,14);c.stroke();T(c,t,RXp+RW2/2,yy+62,{size:30,weight:'bold',color:col,align:'center'})});
+    arrow(c,RXp+RW2/2,SY+166,RXp+RW2/2,SY+194,{col:P.muted,width:4,head:12,p:1});
+    const ka=smooth((us-cK+.3)/.5);['pair choice','batch size','temperature'].forEach((t,i)=>Pill(c,{k,el:'tags',x:RXp+48+i*236,y:SY+372,w:222,h:46,text:t,color:AMB,size:22,alpha:ka}));
+    T(c,'many settings to tune',RXp+RW2/2,SY+346,{size:24,color:P.muted,align:'center',alpha:ka});
+    T(c,'more time · more compute',RXp+RW2/2,SY+495,{size:36,weight:'bold',color:AMB,align:'center',alpha:ka});c.restore()}}};
 export const s2=S;

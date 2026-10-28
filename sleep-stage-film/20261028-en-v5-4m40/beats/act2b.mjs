@@ -2,7 +2,8 @@
 import {P,STAGE_COL,clamp,lerp,smooth,cubic,outBack,outExpo,rgba,T,poly,dot,rect,typed,seg,measure} from '../lib.mjs';
 import {HYPNO} from '../shared.mjs';
 import {NightStrip} from '../components/strip.mjs';
-import {Bracket} from '../components/misc.mjs';
+import {Bracket,Pen} from '../components/misc.mjs';
+const AMB=P.amber;
 import {surface} from '../light.mjs';
 import {fact,factRaw,derived} from '../facts.mjs';
 import {RefBadge} from '../components/cards.mjs';
@@ -30,7 +31,14 @@ S['B3b.S3']={tag:'ILLU',elements:E('badge','title','strip','bracket','label'),dr
   NightStrip(c,{k,el:'strip',x,y:420,h:90,w,range:[0,n],appear:i=>(us-t0-i*.07)/.3,mode:'on'});
   const b=cubic((us-.9)/.6);Bracket(c,{k,el:'bracket',x0:x,x1:x+pitch-3,y:390,dir:1,p:b,col:P.ink,label:'30 s',lsize:28,labelAbove:true,tip:12,width:3});
   const a=smooth((us-3)/.5);T(c,'scored by hand by trained technicians · Rechtschaffen & Kales '+fact('dataset.rk_year'),960,640,{size:34,weight:'med',align:'center',alpha:a});
-  T(c,'Wake · N1 · N2 · N3 · REM',960,700,{size:28,weight:'med',color:P.muted,align:'center',alpha:a})}};
+  T(c,'Wake · N1 · N2 · N3 · REM',960,700,{size:28,weight:'med',color:P.muted,align:'center',alpha:a});
+  // a technician pages through the night: one 30-second window at a time
+  const sw0=k.cue('B3b.c2','scored every'),stp=.13,ii=Math.min(n-1,Math.max(0,Math.floor((us-sw0)/stp))),sa=smooth((us-sw0)/.3)*(1-smooth((us-sw0-n*stp-.1)/.4));
+  if(sa>0){const wx=x+ii*pitch;c.save();c.globalAlpha*=sa;c.strokeStyle=P.ink;c.lineWidth=4;c.beginPath();c.roundRect(wx-4,414,pitch+5,102,6);c.stroke();c.restore();
+    T(c,'page '+(ii+1),960,566,{size:30,weight:'med',color:P.ink,align:'center',alpha:sa});Pen(c,wx+pitch/2+10,412,{alpha:sa})}
+  const cn=smooth((us-k.cue('B3b.c3','Two experts'))/.5);
+  if(cn>0){surface(c,[460,760,1000,70],rgba(AMB,.10),{level:'E1',r:35,gradient:0,alpha:cn});c.save();c.globalAlpha*=cn;c.strokeStyle=rgba(AMB,.8);c.lineWidth=2;c.beginPath();c.roundRect(460,760,1000,70,35);c.stroke();c.restore();
+    T(c,'a trusted reference, not perfect truth',960,805,{size:32,weight:'med',color:AMB,align:'center',alpha:cn})}}};
 const b3c=(c,us,k,hold)=>{badge(c,k);title(c,1,230);
   const t=(us-.3)/1.6,a=smooth((us-.2)/.3);
   PeopleGrid(c,{k,el:'grid',appear:i=>(us-.1-i*.04)/.35,strips:0});
@@ -39,7 +47,7 @@ const b3c=(c,us,k,hold)=>{badge(c,k);title(c,1,230);
   const s=[cnt(t,P_)+' people',cnt(t,N_)+' nights',fmtc(cnt(t,E_))+' epochs'].join('   ·   ');
   T(c,s,960,720,{size:44,weight:'bold',align:'center',alpha:a});
   const per=Math.round(E_/N_),hrs=(per*factRaw('study.epoch_seconds')/3600).toFixed(1);
-  const q=hold?1:smooth((us-k.cue('B3b.c3','a night is'))/.5);
+  const q=hold?1:smooth((us-k.cue('B3b.c4','a night is'))/.5);
   T(c,'≈ '+derived('epochs_per_night',per,fmtc(per))+' epochs per night  ≈  '+derived('hours_per_night',+hrs,hrs)+' h',960,800,{size:44,weight:'bold',color:P.cyan,align:'center',alpha:q})};
 S['B3b.S4']={tag:'MEAS',elements:E('badge','title','grid','counter'),draw(c,us,k){b3c(c,us,k,false)}};
 S['B3b.S5']={tag:'MEAS',elements:E('badge','title','grid','counter'),draw(c,us,k){b3c(c,99,k,true)}};

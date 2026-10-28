@@ -25,29 +25,29 @@ S['T1']={tag:null,elements:[{id:'line',in:0,out:6},{id:'title',in:2,out:6},{id:'
 S['B1.S1']={tag:'ILLU',elements:[{id:'strip',in:0,out:3.5},{id:'legend',in:1.6,out:3.5}],
  draw(c,us,k){k.L(3,()=>NightStrip(c,{k,el:'strip',y:481,appear:i=>(us-i*.02)/.25}));
   k.L(6,()=>Legend(c,{k,el:'legend',y:598,t:us-1.0}))}};
-const frameX=[205,419,598],frameY=250;
+const frameX=[190,390,590,790,990],frameY=250,DEMO5=[1,3,7,12,23],KINDS=['fast','n1','mixed','slow','rem'],LABS=['W','N1','N2','N3','REM'],AMPS5=[.45,.6,1,1.25,.55],COLS5=STAGE_COL,WORDS=['Wake','N1','N2','N3','REM'];
 S['B1.S2']={tag:'ILLU',elements:[{id:'strip',in:0,out:6},{id:'frames',in:1.2,out:6},{id:'bracket',in:2,out:6},{id:'pen',in:4.2,out:6},{id:'labels',in:4.2,out:6}],
  camera:us=>({x:-452*smooth(us/1.2),y:0,zoom:lerp(1,2,smooth(us/1.2))}),
  draw(c,us,k){
   const cueP=k.cue('B1.c1','Experts score'),litOut=1-smooth((us-5.6)/.4);
-  k.L(3,()=>NightStrip(c,{k,el:'strip',y:481,appear:1,lit:i=>DEMO_TILES.includes(i)?smooth((us-(1.2+DEMO_TILES.indexOf(i)*.25))/.2)*litOut:0}));
+  k.L(3,()=>NightStrip(c,{k,el:'strip',y:481,appear:1,lit:i=>DEMO5.includes(i)?smooth((us-(1.2+DEMO5.indexOf(i)*.25))/.2)*litOut:0}));
   if(us<.4)Legend(c,{k,y:598,t:1,alpha:1-smooth(us/.4)});
-  const kinds=['fast','mixed','slow'],labs=['W','N2','N3'],cols=[STAGE_COL[0],STAGE_COL[2],STAGE_COL[3]],amps=[.45,1,1.25];
-  DEMO_TILES.forEach((tile,j)=>{const t0=1.2+j*.25,p=outBack(clamp((us-t0)/.5));if(p<=0)return;
-    const tx=[187.6,401.6,580][j]+0,x=lerp(tx,frameX[j],p),w=lerp(14,150,clamp(p)),y=lerp(481-0,frameY,clamp(p)),h=lerp(64,110,clamp(p));
-    EegFrame(c,{k,el:'frames',x:frameX[j],y:frameY,w:150,h:110,mode:kinds[j],amp:amps[j]*.8,seed:j+2,alpha:smooth((us-t0)/.25),label:null,r:10,ampPx:36,lw:2.2,color:cols[j]})});
+  DEMO5.forEach((tile,j)=>{const t0=1.2+j*.25,p=outBack(clamp((us-t0)/.5));if(p<=0)return;
+    EegFrame(c,{k,el:'frames',x:frameX[j],y:frameY,w:150,h:110,mode:KINDS[j],amp:AMPS5[j]*.8,seed:j+2,alpha:smooth((us-t0)/.25),label:null,r:10,ampPx:36,lw:2.2,color:COLS5[j]})});
   const bp=cubic((us-2)/.5);if(bp>0)Bracket(c,{k,el:'bracket',x0:frameX[0],x1:frameX[0]+150,y:380,dir:-1,p:bp,col:P.ink,label:fact('study.epoch_seconds')+' s',lsize:26,labelAbove:false,tip:12,width:3});
-  labs.forEach((l,j)=>{const t0=cueP+j*.5;if(us<t0)return;T(c,typed(l,(us-t0-.35)/(l.length*.04)),frameX[j]+75,236,{size:28,weight:'med',color:cols[j],align:'center'});
-    if(us>t0&&us<t0+.35){}});
-  // pen travels W -> N2 -> N3
-  const pj=clamp((us-cueP)/.5,0,2.999),pi=Math.floor(pj),pf=cubic((pj-pi)*.5/.35);const px=lerp(frameX[Math.min(2,pi)]+90,frameX[Math.min(2,pi+(pf>0&&pi<2?1:0))]+90,pf);
-  if(us>cueP-.1)Pen(c,frameX[pi]+112+(pi<2?(frameX[pi+1]-frameX[pi])*pf:0),240,{alpha:smooth((us-cueP+.1)/.2)})}};
+  const wc=WORDS.map(w=>k.cue('B1.c1',w));
+  LABS.forEach((l,j)=>{const t0=wc[j];if(us<t0)return;T(c,typed(l,(us-t0)/(l.length*.05+.1)),frameX[j]+75,236,{size:28,weight:'med',color:COLS5[j],align:'center'})});
+  // pen follows the spoken label: Wake -> N1 -> N2 -> N3 -> REM
+  let pj=-1;wc.forEach((t,j)=>{if(us>=t)pj=j});
+  if(pj>=0){const prev=Math.max(0,pj-1),pf=pj===0?1:cubic((us-wc[pj])/.3);const px=lerp(frameX[prev]+112,frameX[pj]+112,pf);Pen(c,px,240,{alpha:smooth((us-wc[0]+.1)/.2)})}}};
+
 S['B1.S3']={tag:'ILLU',elements:[{id:'strip',in:0,out:7.4},{id:'head',in:1,out:7.4},{id:'bracket',in:2,out:7.4},{id:'q',in:.9,out:7.4}],
  camera:us=>({x:-452*(1-smooth(us/1.2)),y:0,zoom:lerp(2,1,smooth(us/1.2))}),
  draw(c,us,k){
   k.L(3,()=>NightStrip(c,{k,el:'strip',y:481,appear:1}));
   // frames shrink back
-  const sh=1-smooth(us/.6);if(sh>0)DEMO_TILES.forEach((t,j)=>EegFrame(c,{k,x:frameX[j],y:frameY,w:150,h:110,mode:['fast','mixed','slow'][j],seed:j+2,alpha:sh,r:10,ampPx:36}));
+  const sh=1-smooth(us/.6);if(sh>0)DEMO5.forEach((t,j)=>EegFrame(c,{k,x:frameX[j],y:frameY,w:150,h:110,mode:KINDS[j],amp:AMPS5[j]*.8,seed:j+2,alpha:sh,r:10,ampPx:36,lw:2.2,color:COLS5[j]}));
+  if(sh>0)LABS.forEach((l,j)=>T(c,l,frameX[j]+75,236,{size:28,weight:'med',color:COLS5[j],align:'center',alpha:sh}));
   const hp=outBack(clamp((us-1)/.8)),hx=lerp(1900,1580,hp);
   const pts=HeadTop(c,{k,el:'head',cx:hx,cy:300,r:120,alpha:smooth((us-1)/.4),fpz:smooth((us-2)/.25),cz:smooth((us-2.25)/.25)});
   const bp=cubic((us-2.6)/.6);if(bp>0){const xb=1580-120*.86-26;poly(c,partial([[xb+10,pts.f[1]],[xb,pts.f[1]],[xb,pts.z[1]],[xb+10,pts.z[1]]],bp),{stroke:P.ink,width:3});

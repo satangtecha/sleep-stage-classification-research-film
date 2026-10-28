@@ -61,16 +61,70 @@ function rulerPanel(c,k,us,{x,title,col,sub,mode,reveal,bandA,persons,norm,curve
   // night labels
   if(reveal>0){dot(c,x+60,PY2+88,6,NA.col,reveal);T(c,'Night A · weak signal',x+76,PY2+95,{size:21,color:P.muted,alpha:reveal});dot(c,x+PW2-250,PY2+88,6,NB_.col,reveal);T(c,'Night B · strong signal',x+PW2-234,PY2+95,{size:21,color:P.muted,alpha:reveal})}
   if(persons>0)for(let i=0;i<16;i++)Person(c,{k,el:'persons',x:x+60+i*45.5,y:PY2+PH2-118,s:19,state:'train',alpha:persons*smooth((persons*1.8-i*.05)),sc:.8+.2*persons})}
-S['E2.S1']={tag:'CONCEPT',elements:E('panelL','panelR','persons','formula'),draw(c,us,k){
-  const cZ=k.cue('E2.c1','already z-scored'),cOne=k.cue('E2.c1','one ruler'),c16=k.cue('E2.c1','16 training people'),cR=k.cue('E2.c1','R1 gives'),cOwn=k.cue('E2.c1','its own ruler');
-  T(c,'per frequency:   z = (x − μ) / σ',960,205,{size:32,weight:'med',color:P.ink,align:'center',alpha:smooth((us-cZ+.2)/.4)});
-  const lp=smooth((us-.3)/.5);c.save();c.globalAlpha*=lp;
-  rulerPanel(c,k,us,{x:104,title:'Baseline: one shared ruler',col:P.muted,sub:'every night is measured by the same μ and σ',mode:'shared',reveal:smooth((us-cZ+.1)/.5),bandA:smooth((us-cOne+.1)/.5),persons:smooth((us-c16+.1)/.6)});c.restore();
-  c.save();c.globalAlpha*=lp;
-  rulerPanel(c,k,us,{x:976,title:'R1: a ruler per night',col:P.cyan,sub:'each night uses its own μ and σ',mode:'own',reveal:smooth((us-cR+.1)/.5),bandA:smooth((us-cOwn+.4)/.5),persons:0,norm:cubic((us-cOwn-.5)/1.8)});c.restore();
-  const ta=smooth((us-c16-.8)/.5);T(c,'μ, σ from the 16 training people',104+PW2/2,PY2+PH2-68,{size:22,color:P.blue,align:'center',alpha:ta*smooth((us-c16)/.4)})}};
+// ---- E2.S1 / E2.R : the ruler, in 3D and in maths
+const R3=9,C3=90,U3=44,DX3=8,DY3=10,X03=210,YB3=640,W3=600;
+const mk=(seed,i)=>Math.sin(i*127.1+seed*311.7)*43758.5453-Math.floor(Math.sin(i*127.1+seed*311.7)*43758.5453);
+function night(seed){const rows=[];for(let r=0;r<R3;r++){const f=[],ph=[],am=[];for(let j=0;j<4;j++){f.push(1+mk(seed+r,j)*1.6+j*1.5);ph.push(mk(seed*3+r,j+9)*6.28);am.push([1,.8,.5,.3][j]*(.7+mk(seed*5+r,j+3)*.5))}
+  const raw=[];for(let t=0;t<C3;t++){const u=t/(C3-1);let v=0;for(let j=0;j<4;j++)v+=am[j]*Math.sin(u*Math.PI*2*f[j]+ph[j]);raw.push(v)}
+  const m=raw.reduce((a,b)=>a+b,0)/C3,sd=Math.sqrt(raw.reduce((a,b)=>a+(b-m)**2,0)/C3);rows.push(raw.map(v=>(v-m)/sd))}return rows}
+const TA=night(11),TB=night(29);
+// baseline z = offset + spread * (night-standardised shape); R1 z = the shape itself (mean 0, sd 1 by construction)
+const offA=r=>-1.05+.25*Math.sin(r*.7),sprA=r=>.55+.08*Math.sin(r*.5+1),offB=r=>.85+.2*Math.sin(r*.6+2),sprB=r=>1.3+.12*Math.sin(r*.4);
+const pdf=(x,m,sd)=>Math.exp(-((x-m)**2)/(2*sd*sd))/(sd*Math.sqrt(2*Math.PI));
+function ruler3d(c,k,us,{m=0,rev=1,eqP=1,eqMode='base',slabA=1,persons=0,pdfA=1,noLab=0,label=1}){
+  const LX=104,LY=290,LW=936,LH=590,RX=1080,RW=736;
+  surface(c,[LX,LY,LW,LH],'#0E1C30',{level:'E2',r:18});surface(c,[RX,LY,RW,LH],'#0E1C30',{level:'E2',r:18});
+  T(c,'z-scored spectrograms of two nights',LX+LW/2,LY+48,{size:30,weight:'bold',color:P.ink,align:'center'});
+  dot(c,LX+200,LY+82,7,P.cyan);T(c,'Night A · weak signal',LX+216,LY+90,{size:23,color:P.muted});dot(c,LX+520,LY+82,7,P.violet);T(c,'Night B · strong signal',LX+536,LY+90,{size:23,color:P.muted});
+  const ux=(z)=>z*U3,X=(r,t)=>X03+r*DX3+t/(C3-1)*W3,Yp=(r,z)=>YB3-r*DY3-ux(z);
+  // translucent slab: the ruler, mean ± 1 sd, drawn at the front, the right side and the back
+  const sc=m>.5?P.cyan:AMB,sa=slabA;
+  if(sa>0){const x1=X03+W3,xb=X03+(R3-1)*DX3,x1b=x1+(R3-1)*DX3,yt=Yp(0,1),yo=Yp(0,-1),ytb=Yp(R3-1,1),yob=Yp(R3-1,-1);
+    c.save();c.globalAlpha*=sa;c.fillStyle=rgba(sc,.07);c.beginPath();c.moveTo(X03,yt);c.lineTo(x1,yt);c.lineTo(x1,yo);c.lineTo(X03,yo);c.closePath();c.fill();
+    c.fillStyle=rgba(sc,.05);c.beginPath();c.moveTo(x1,yt);c.lineTo(x1b,ytb);c.lineTo(x1b,yob);c.lineTo(x1,yo);c.closePath();c.fill();
+    c.strokeStyle=rgba(sc,.75);c.lineWidth=2;c.setLineDash([9,7]);[[X03,yt,x1,yt,x1b,ytb,xb,ytb],[X03,yo,x1,yo,x1b,yob,xb,yob]].forEach(q=>{c.beginPath();c.moveTo(q[0],q[1]);c.lineTo(q[2],q[3]);c.lineTo(q[4],q[5]);c.lineTo(q[6],q[7]);c.closePath();c.stroke()});c.setLineDash([]);
+    c.strokeStyle=rgba(sc,.95);c.lineWidth=2.6;c.beginPath();c.moveTo(X03,Yp(0,0));c.lineTo(x1,Yp(0,0));c.lineTo(x1b,Yp(R3-1,0));c.stroke();c.restore();
+    [['+1σ',1],['0',0],['−1σ',-1]].forEach(([l,z])=>T(c,l,X03-16,Yp(0,z)+8,{size:23,weight:'med',color:sc,align:'right',alpha:sa}));
+    T(c,m>.5?'each night: mean 0, spread 1':'one shared ruler: μ ± 1σ from training',LX+LW/2,LY+LH-62,{size:25,weight:'med',color:sc,align:'center',alpha:sa})}
+  // ridges: back to front, 12 of the 129 frequency bins
+  const e=cubic(rev);
+  for(let r=R3-1;r>=0;r--){const pr=clamp(e*1.6-(R3-1-r)/R3*.6);if(pr<=0)continue;
+    [[TA,offA,sprA,P.cyan],[TB,offB,sprB,P.violet]].forEach(([T_,of,sp,col])=>{const pts=[];const n=Math.max(2,Math.round(C3*pr));
+      for(let t=0;t<n;t++){const s0=T_[r][t],zb=of(r)+sp(r)*s0,z=lerp(zb,s0,cubic(m));pts.push([X(r,t),Yp(r,z)])}
+      poly(c,pts,{stroke:col,width:2.4-r*.05,alpha:.95-r*.045})})}
+  T(c,'time →',LX+LW/2,LY+LH-24,{size:22,color:P.muted,align:'center',alpha:label});
+  const fx=X03+W3+(R3-1)*DX3+26;poly(c,[[X03+W3+14,YB3+8],[fx,Yp(R3-1,0)+8]],{stroke:P.muted,width:2,alpha:label});T(c,'frequency f',fx+8,Yp(R3-1,0)-4,{size:23,color:P.muted,alpha:label});
+  // right: one frequency bin, after z-scoring
+  T(c,'one frequency bin, after z-scoring',RX+RW/2,LY+48,{size:30,weight:'bold',color:P.ink,align:'center'});
+  const px=RX+50,pw=RW-100,py=LY+370,ys=300,Z=z=>px+(z+4)/8*pw,cm=cubic(m);
+  poly(c,[[px,py],[px+pw,py]],{stroke:P.line,width:2});[-2,0,2].forEach(z=>{poly(c,[[Z(z),py],[Z(z),py+10]],{stroke:P.line,width:2});T(c,String(z).replace('-','−'),Z(z),py+40,{size:22,color:P.muted,align:'center'})});T(c,'z',px+pw+6,py+8,{size:22,color:P.muted});
+  const cur=(mu,sd,col,fa,dash)=>{const pts=[];for(let i=0;i<=120;i++){const z=-4+8*i/120;pts.push([Z(z),py-pdf(z,mu,sd)*ys])}
+    if(fa>0){c.save();c.globalAlpha*=pdfA;c.beginPath();pts.forEach((q,i)=>i?c.lineTo(q[0],q[1]):c.moveTo(q[0],q[1]));c.lineTo(px+pw,py);c.lineTo(px,py);c.closePath();c.fillStyle=rgba(col,fa);c.fill();c.restore()}
+    poly(c,pts,{stroke:col,width:dash?2.2:3,dash:dash?[8,7]:undefined,alpha:pdfA})};
+  cur(0,1,P.slate,0,true);
+  const mA=lerp(-1.0,0,cm),sA=lerp(.55,1,cm),mB=lerp(.85,0,cm),sB=lerp(1.45,1,cm);
+  cur(mA,sA,P.cyan,.2,false);cur(mB,sB,P.violet,.2,false);
+  poly(c,[[Z(0),py-.4*ys-30],[Z(0),py]],{stroke:rgba(P.slate,.5),width:1.5,dash:[4,6],alpha:pdfA});
+  T(c,'training people: mean 0, spread 1',RX+RW/2,LY+98,{size:23,color:P.slate,align:'center',alpha:pdfA});
+  const tl=1-smooth(cm*3);T(c,'Night A: shifted and squeezed',RX+RW/2,py+86,{size:26,weight:'med',color:P.cyan,align:'center',alpha:pdfA*tl});T(c,'Night B: shifted and stretched',RX+RW/2,py+122,{size:26,weight:'med',color:P.violet,align:'center',alpha:pdfA*tl});
+  T(c,'both nights land on the same ruler',RX+RW/2,py+104,{size:28,weight:'bold',color:P.cyan,align:'center',alpha:pdfA*smooth((cm-.55)*3)});
+  if(persons>0)for(let i=0;i<16;i++)Person(c,{k,el:'persons',x:RX+60+i*40.5,y:py+160,s:17,state:'train',alpha:persons*smooth((persons*1.8-i*.05)),sc:.8+.2*persons});
+  if(persons>0)T(c,'16 training people → one μ, σ per frequency',RX+RW/2,py+212,{size:23,color:P.blue,align:'center',alpha:persons});
+  if(noLab>0)Pill(c,{k,el:'nolabel',x:RX+RW/2-190,y:py+130,w:380,h:50,text:'no labels used · offline',color:GRN,size:24,alpha:noLab});
+  // equation
+  const ey=184,ea=eqMode==='base'?1:0,eb=eqMode==='base'?0:1;
+  if(eqMode==='base')EQ(c,'z_{f,t}\\,=\\,\\frac{x_{f,t}-\\mu_f^{\\mathrm{train}}}{\\sigma_f^{\\mathrm{train}}}',960,ey,{size:40,p:eqP});
+  else EQ(c,'z_{f,t}\\,=\\,\\frac{x_{f,t}-\\mu_f^{\\mathrm{night}}}{\\sigma_f^{\\mathrm{night}}}\\qquad\\mu_f^{\\mathrm{night}}=\\frac{1}{T}\\sum_{t=1}^{T}x_{f,t}',960,ey,{size:36,p:eqP,color:P.cyan});
+  T(c,'x = log-STFT value at frequency bin f, frame t · z is what the CNN sees',960,270,{size:22,color:P.muted,align:'center'})}
+S['E2.S1']={tag:'CONCEPT',elements:E('wall','ridges','plot','eq','persons'),draw(c,us,k){
+  const cZ=k.cue('E2.c1','z-scored'),cOne=k.cue('E2.c1','one ruler'),c16=k.cue('E2.c1','16 training people');
+  ruler3d(c,k,us,{m:0,rev:(us-cZ+.3)/1.6,eqP:(us-cZ)/.9,slabA:smooth((us-cOne+.5)/.6),persons:smooth((us-c16+.1)/.6),pdfA:smooth((us-cOne+.2)/.6),eqMode:'base'})}};
+S['E2.R']={tag:'CONCEPT',elements:E('wall','ridges','plot','eq','nolabel'),draw(c,us,k){
+  const cR=k.cue('E2.c2','R1 gives'),cO=k.cue('E2.c2','its own ruler'),cN=k.cue('E2.c2','no labels');
+  const sw=smooth((us-cR+.1)/.5);
+  ruler3d(c,k,us,{m:(us-cO-.2)/2.2,rev:1,eqP:us<cR-.1?1:(us-cR)/1.1,slabA:1,persons:1-smooth((us-cR)/.4),pdfA:1,eqMode:us<cR-.1?'base':'night',noLab:smooth((us-cN+.2)/.4)})}};
 S['E2.S2']={tag:'MEAS',elements:E('cardL','cardR','arrows','gain'),draw(c,us,k){act3['B8.S3'].draw(c,us,k);
-  const ga=k.cue('E2.c2','Gain'),a=smooth((us-ga+.3)/.4);
+  const ga=k.cue('E2.c3','Gain'),a=smooth((us-ga+.3)/.4);
   if(a>0){const D='differences.r1-minus-base.per_subject_mean_macro_f1';c.save();c.globalAlpha*=a;surface(c,[300,812,1320,66],rgba(GRN,.08),{level:'E1',r:33,gradient:0});c.strokeStyle=rgba(GRN,.7);c.lineWidth=2;c.beginPath();c.roundRect(300,812,1320,66,33);c.stroke();
     T(c,`Gain over baseline ${fm(D+'.point',{mul:100,signed:true})} points · 95% interval ${fm(D+'.ci95',{idx:0,mul:100})} to ${fm(D+'.ci95',{idx:1,mul:100})} · excludes zero`,960,855,{size:29,weight:'bold',color:GRN,align:'center'});c.restore()}}};
 S['E2.S3']={tag:'MIX',elements:E('lanes','nums'),draw(c,us,k){act3['B8.S4'].draw(c,us,k)}};
