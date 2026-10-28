@@ -117,7 +117,7 @@ S['B8.S3']={tag:'MEAS',elements:E('cardL','cardR','arrows'),draw(c,us,k){Pill(c,
   c.save();c.globalAlpha*=smooth((us-.9)/.4);c.strokeStyle=GRN;c.fillStyle=GRN;c.lineWidth=5;c.lineCap='round';for(const x of [510,1290]){c.beginPath();c.moveTo(x,640);c.lineTo(x,690);c.stroke();c.beginPath();c.moveTo(x-16,682);c.lineTo(x,704);c.lineTo(x+16,682);c.fill()}c.restore();
   T(c,`95% CI ${fact('test.base.subject_mf1.ci95',{idx:0,mul:100})}–${fact('test.base.subject_mf1.ci95',{idx:1,mul:100})} → ${fact('test.r1.subject_mf1.ci95',{idx:0,mul:100})}–${fact('test.r1.subject_mf1.ci95',{idx:1,mul:100})}`,510,770,{size:26,color:P.muted,align:'center',alpha:smooth((us-3)/.5)});
   T(c,'Same architecture, retrained',1290,770,{size:28,weight:'med',color:P.muted,align:'center',alpha:smooth((us-3.2)/.5)})}};
-const laneR=(c,us,k,{breathe=0})=>{const cs=[k.cue('E2.c4','82.54%'),k.cue('E2.c4','88.68%'),k.cue('E2.c4','84.87%')];
+const laneR=(c,us,k,{breathe=0})=>{const cs=[k.cue('E2.c7','82.54%'),k.cue('E2.c7','88.68%'),k.cue('E2.c7','84.87%')];
   LANES.forEach((id,j)=>{const y=290+j*170,bs=baseSet(id),rs=r1Set(id);const t0=.2+j*.3;
     const flipT=i=>t0+i/96*1.4;
     const mset=new Set([...bs]);

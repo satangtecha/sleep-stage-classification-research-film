@@ -5,6 +5,7 @@ import {NightStrip,tileX,stageColor} from '../components/strip.mjs';
 import {Bracket,Pill} from '../components/misc.mjs';
 import {NumberCard,NumText,Stamp,Padlock,fmtNum} from '../components/cards.mjs';
 import {Person} from '../components/people.mjs';
+import {blockIcon} from '../components/model.mjs';
 import {surface,bevel,glowRect,glowCircle} from '../light.mjs';
 import {fact,factRaw,derived} from '../facts.mjs';
 import {act3} from './act3.mjs';
@@ -116,15 +117,73 @@ function ruler3d(c,k,us,{m=0,rev=1,eqP=1,eqMode='base',slabA=1,persons=0,pdfA=1,
   if(eqMode==='base')EQ(c,'z_{f,t}\\,=\\,\\frac{x_{f,t}-\\mu_f^{\\mathrm{train}}}{\\sigma_f^{\\mathrm{train}}}',960,ey,{size:40,p:eqP});
   else EQ(c,'z_{f,t}\\,=\\,\\frac{x_{f,t}-\\mu_f^{\\mathrm{night}}}{\\sigma_f^{\\mathrm{night}}}\\qquad\\mu_f^{\\mathrm{night}}=\\frac{1}{T}\\sum_{t=1}^{T}x_{f,t}',960,ey,{size:36,p:eqP,color:P.cyan});
   T(c,'x = log-STFT value at frequency bin f, frame t · z is what the CNN sees',960,270,{size:22,color:P.muted,align:'center'})}
+
+// ---- E2.Z: what z-scoring does, one frequency bin of one night
+const gauss=(x,m,sd)=>Math.exp(-((x-m)**2)/(2*sd*sd))/(sd*Math.sqrt(2*Math.PI));
+S['E2.Z']={tag:'MATH',elements:E('eq','axis','curve','arrows','labels'),draw(c,us,k){
+  const cS=k.cue('E2.c1','subtract'),cD=k.cue('E2.c1','divide'),cE=k.cue('E2.c1','standard deviations');
+  const a=smooth(us/.5);surface(c,[104,290,1712,590],'#0E1C30',{level:'E2',r:18,alpha:a});
+  EQ(c,'z\\,=\\,\\frac{x-\\mu}{\\sigma}',960,190,{size:46,p:us/.9,color:P.ink});
+  const X0=160,XW=1600,x2p=v=>X0+(v+6)/18*XW,py=780,ys=720,m1=smooth((us-cS)/1.3),m2=smooth((us-cD)/1.3);
+  poly(c,[[X0,py],[X0+XW,py]],{stroke:P.line,width:2,alpha:a});
+  const mu=lerp(5,0,cubic(m1)),sd=lerp(2,1,cubic(m2)),col=P.cyan;
+  const fill=[];const pts=[];for(let i=0;i<=160;i++){const v=-6+18*i/160,y=py-gauss(v,mu,sd)*ys*sd*.9;pts.push([x2p(v),y])}
+  c.save();c.globalAlpha*=a;c.beginPath();pts.forEach((q,i)=>i?c.lineTo(q[0],q[1]):c.moveTo(q[0],q[1]));c.lineTo(x2p(12),py);c.lineTo(x2p(-6),py);c.closePath();c.fillStyle=rgba(col,.18);c.fill();c.restore();
+  poly(c,pts,{stroke:col,width:4,alpha:a});
+  // zero line and the mean marker
+  poly(c,[[x2p(0),py+4],[x2p(0),py-330]],{stroke:rgba(P.ink,.35),width:2,dash:[6,8],alpha:a});T(c,'0',x2p(0),py+34,{size:26,color:P.muted,align:'center',alpha:a});
+  poly(c,[[x2p(mu),py],[x2p(mu),py-gauss(mu,mu,sd)*ys*sd*.9-14]],{stroke:AMB,width:3,alpha:a});T(c,'mean μ',x2p(mu),py-gauss(mu,mu,sd)*ys*sd*.9-26,{size:26,weight:'med',color:AMB,align:'center',alpha:a});
+  // the spread: ±1σ bracket
+  const by=py-150;poly(c,[[x2p(mu-sd),by],[x2p(mu+sd),by]],{stroke:GRN,width:4,alpha:a});[mu-sd,mu+sd].forEach(v=>poly(c,[[x2p(v),by-10],[x2p(v),by+10]],{stroke:GRN,width:4,alpha:a}));
+  T(c,m2>.5?'spread σ = 1':'spread σ',x2p(mu),by+40,{size:26,weight:'med',color:GRN,align:'center',alpha:a});
+  // step arrows and labels
+  if(us>cS-.3){const sa=smooth((us-cS+.3)/.4)*(1-smooth((us-cS-1.1)/.4));arrow(c,x2p(5.2),py-390,x2p(0.4),py-390,{col:AMB,width:5,head:16,p:cubic((us-cS+.3)/1.0),alpha:sa});T(c,'step 1: subtract the mean',x2p(3.4),py-420,{size:28,weight:'bold',color:AMB,align:'center',alpha:sa})}
+  if(us>cD-.3){const sa=smooth((us-cD+.3)/.4)*(1-smooth((us-cD-1.8)/.4)),pp=cubic((us-cD+.3)/1.0);arrow(c,x2p(-4.2),py-390,x2p(-1.2),py-390,{col:GRN,width:5,head:16,p:pp,alpha:sa});arrow(c,x2p(4.2),py-390,x2p(1.2),py-390,{col:GRN,width:5,head:16,p:pp,alpha:sa});T(c,'step 2: divide by the spread',x2p(0),py-420,{size:28,weight:'bold',color:GRN,align:'center',alpha:sa})}
+  const ea=smooth((us-cE+.2)/.5);T(c,'mean 0 · spread 1 · values are counted in standard deviations',960,852,{size:30,weight:'bold',color:P.cyan,align:'center',alpha:ea});
+  T(c,'one frequency bin of one night · x = log power',960,316,{size:24,color:P.muted,align:'center',alpha:a})}};
+// ---- E2.Y: why, every frequency has its own mean and spread
+const BANDS=[['0.5–4 Hz',9,1.8],['4–8 Hz',7.4,1.4],['8–13 Hz',6,1.0],['13–20 Hz',4.6,.8],['20–30 Hz',3.4,.6]];
+S['E2.Y']={tag:'CONCEPT',elements:E('lanes','bars','axis','labels'),draw(c,us,k){
+  const cW=k.cue('E2.c2','Raw sizes'),cC=k.cue('E2.c2','common scale');
+  const a=smooth(us/.5),mp=cubic((us-cC+.2)/1.5);surface(c,[104,290,1712,590],'#0E1C30',{level:'E2',r:18,alpha:a});
+  EQ(c,'z\\,=\\,\\frac{x-\\mu_f}{\\sigma_f}',960,190,{size:46,p:1});
+  T(c,mp>.5?'z-scored: every frequency on the same scale':'raw log power: every frequency has its own mean and spread',960,350,{size:30,weight:'bold',color:mp>.5?P.cyan:P.ink,align:'center',alpha:a});
+  const AX0=420,AXW=1180,X=v=>AX0+(v/12)*AXW,ZX=v=>AX0+((v+4)/8)*AXW;
+  BANDS.forEach(([lab,mu,sd],i)=>{const y=430+i*84,al=smooth((us-cW+.3-i*.12)/.4);if(al<=0)return;
+    T(c,lab,360,y+10,{size:28,weight:'med',color:P.muted,align:'right',alpha:al});
+    const cx=lerp(X(mu),ZX(0),mp),hw=lerp(sd/12*AXW,1/8*AXW,mp);
+    c.save();c.globalAlpha*=al;surface(c,[cx-hw,y-20,hw*2,40],rgba(P.cyan,.28),{level:'E1',r:8,gradient:0});c.strokeStyle=P.cyan;c.lineWidth=2.5;c.beginPath();c.roundRect(cx-hw,y-20,hw*2,40,8);c.stroke();dot(c,cx,y,6,AMB);c.restore()});
+  poly(c,[[ZX(0),410],[ZX(0),850]],{stroke:rgba(P.ink,.4),width:2,dash:[6,8],alpha:mp});
+  T(c,'bar = mean ± 1 spread',960,868,{size:24,color:P.muted,align:'center',alpha:a*(1-mp)});T(c,'0',ZX(0),868,{size:26,color:P.muted,align:'center',alpha:mp})}};
+// ---- E2.P: what R1 changes in the pipeline
+S['E2.P']={tag:'CONCEPT',elements:E('blocks','chips','note','arrows'),draw(c,us,k){
+  const cE=k.cue('E2.c5','Everything else'),cR=k.cue('E2.c5','retrained');
+  const a=smooth(us/.5),BW=270,GP=62,X0=(1920-(5*BW+4*GP))/2,Y=380,H=190;
+  const B=[['Night','eeg','one night, no labels'],['STFT','stft','same'],['z-score','z','changed'],['CNN','cnn','same'],['BiGRU','bigru','same']];
+  B.forEach(([t,kind,note],i)=>{const x=X0+i*(BW+GP),ch=kind==='z',pa=smooth((us-i*.1)/.4);
+    if(i>0)arrow(c,x-GP+6,Y+H/2,x-6,Y+H/2,{col:P.muted,width:4,head:12,p:pa,alpha:pa});
+    c.save();c.globalAlpha*=pa;if(ch)glowRect(c,x,Y,BW,H,AMB,{blur:22,alpha:.45},16);surface(c,[x,Y,BW,H],ch?'#2A2314':'#16273F',{level:'E2',r:16});
+    if(ch){c.strokeStyle=rgba(AMB,.9);c.lineWidth=2.6;c.beginPath();c.roundRect(x,Y,BW,H,16);c.stroke();T(c,'z',x+BW/2,Y+95,{size:92,weight:'bold',color:AMB,align:'center'})}
+    else if(kind==='eeg'){poly(c,wavePts(x+30,Y+85,BW-60,34,u=>eeg(u,5,'mixed'),160),{stroke:P.cyan,width:2.4})}
+    else blockIcon(c,kind,x+BW/2,Y+82,76);
+    T(c,t,x+BW/2,Y+H-26,{size:30,weight:'bold',color:ch?AMB:P.ink,align:'center'});c.restore();
+    const ca=i===0?pa:ch?smooth((us-.6)/.4):smooth((us-cE+.2-i*.12)/.4);
+    if(i>0||true)Pill(c,{k,el:'chips',x:x+25,y:Y+H+24,w:BW-50,h:46,text:note,color:ch?AMB:i===0?P.muted:GRN,size:22,alpha:ca})});
+  const zx=X0+2*(BW+GP),ra=smooth((us-.9)/.5);
+  T(c,'baseline: the 16 training people’s ruler',zx+BW/2,Y-70,{size:26,color:P.muted,align:'center',alpha:ra*(1-smooth((us-1.8)/.4))});
+  T(c,'R1: this night’s own ruler',zx+BW/2,Y-70,{size:30,weight:'bold',color:P.cyan,align:'center',alpha:smooth((us-1.8)/.4)});
+  const na=smooth((us-cR+.2)/.5);T(c,'retrained on the per-night z-scores',960,780,{size:36,weight:'bold',color:P.cyan,align:'center',alpha:na});
+  T(c,'no labels read · offline',960,826,{size:26,color:P.muted,align:'center',alpha:na})}};
+
 S['E2.S1']={tag:'CONCEPT',elements:E('wall','ridges','plot','eq','persons'),draw(c,us,k){
-  const cZ=k.cue('E2.c1','z-scored'),cOne=k.cue('E2.c1','one ruler'),c16=k.cue('E2.c1','16 training people');
+  const cZ=k.cue('E2.c3','already did this'),cOne=k.cue('E2.c3','one ruler'),c16=k.cue('E2.c3','16 training people');
   ruler3d(c,k,us,{m:0,rev:(us-cZ+.3)/1.6,eqP:(us-cZ)/.9,slabA:smooth((us-cOne+.5)/.6),persons:smooth((us-c16+.1)/.6),pdfA:smooth((us-cOne+.2)/.6),eqMode:'base'})}};
 S['E2.R']={tag:'CONCEPT',elements:E('wall','ridges','plot','eq','nolabel'),draw(c,us,k){
-  const cR=k.cue('E2.c2','R1 gives'),cO=k.cue('E2.c2','its own ruler'),cN=k.cue('E2.c2','no labels');
+  const cR=k.cue('E2.c4','R1 gives'),cO=k.cue('E2.c4','its own ruler'),cN=k.cue('E2.c4','no labels');
   const sw=smooth((us-cR+.1)/.5);
   ruler3d(c,k,us,{m:(us-cO-.2)/2.2,rev:1,eqP:us<cR-.1?1:(us-cR)/1.1,slabA:1,persons:1-smooth((us-cR)/.4),pdfA:1,eqMode:us<cR-.1?'base':'night',noLab:smooth((us-cN+.2)/.4)})}};
 S['E2.S2']={tag:'MEAS',elements:E('cardL','cardR','arrows','gain'),draw(c,us,k){act3['B8.S3'].draw(c,us,k);
-  const ga=k.cue('E2.c3','Gain'),a=smooth((us-ga+.3)/.4);
+  const ga=k.cue('E2.c6','Gain'),a=smooth((us-ga+.3)/.4);
   if(a>0){const D='differences.r1-minus-base.per_subject_mean_macro_f1';c.save();c.globalAlpha*=a;surface(c,[300,812,1320,66],rgba(GRN,.08),{level:'E1',r:33,gradient:0});c.strokeStyle=rgba(GRN,.7);c.lineWidth=2;c.beginPath();c.roundRect(300,812,1320,66,33);c.stroke();
     T(c,`Gain over baseline ${fm(D+'.point',{mul:100,signed:true})} points · 95% interval ${fm(D+'.ci95',{idx:0,mul:100})} to ${fm(D+'.ci95',{idx:1,mul:100})} · excludes zero`,960,855,{size:29,weight:'bold',color:GRN,align:'center'});c.restore()}}};
 S['E2.S3']={tag:'MIX',elements:E('lanes','nums'),draw(c,us,k){act3['B8.S4'].draw(c,us,k)}};

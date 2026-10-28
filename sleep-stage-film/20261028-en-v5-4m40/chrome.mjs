@@ -44,7 +44,7 @@ export function header(c,scene,shot,t){
 function mixTag(c){const a='Measured rate.',b=' Tile positions simulated.';c.save();c.font='24px FilmMed';const wb=c.measureText(b).width;c.restore();T(c,b,1816,108,{size:24,color:P.amber,align:'right',weight:'med'});T(c,a,1816-wb,108,{size:24,color:P.green,align:'right',weight:'med'})}
 export function drawCaption(c,t){const r=capAt(t);if(!r)return;const lines=capLines(c,r.cap.text).slice(0,2);const y0=lines.length>1?950:968;
   lines.forEach((l,i)=>T(c,l,960,y0+i*44,{size:33,align:'center',alpha:r.alpha}))}
-const ACT_STARTS=['B1','B2','B3b','M1','E1','L1'].map(id=>TIMELINE.scenes.find(s=>s.id===id).t0);
+const ACT_STARTS=['B1','B2','B3b','M1','E1','L2'].map(id=>TIMELINE.scenes.find(s=>s.id===id).t0);
 export function progress(c,t){const x0=104,x1=1816,y=1012,D=TIMELINE.duration;poly(c,[[x0,y],[x1,y]],{stroke:'#1A2940',width:3});
   for(const s of ACT_STARTS)dot(c,x0+(x1-x0)*s/D,y,4,P.line);
   const x=x0+(x1-x0)*t/D;poly(c,[[x0,y],[x,y]],{stroke:P.cyan,width:3});dot(c,x,y,5,P.cyan,1,10)}
