@@ -1,0 +1,767 @@
+{
+ "fps": 30,
+ "duration": 280.6,
+ "frames": 8418,
+ "scenes": [
+  {
+   "id": "T1",
+   "kind": "cover",
+   "xf": 0,
+   "t0": 0,
+   "shots": [
+    {
+     "id": "T1",
+     "t0": 0,
+     "t1": 4
+    }
+   ],
+   "t1": 4
+  },
+  {
+   "id": "B1",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 4,
+   "shots": [
+    {
+     "id": "B1.S1",
+     "t0": 4,
+     "t1": 5.6
+    },
+    {
+     "id": "B1.S2",
+     "t0": 5.6,
+     "t1": 11.6
+    },
+    {
+     "id": "B1.S3",
+     "t0": 11.6,
+     "t1": 17.6
+    }
+   ],
+   "t1": 17.6
+  },
+  {
+   "id": "P1",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 17.6,
+   "shots": [
+    {
+     "id": "P1.S1",
+     "t0": 17.6,
+     "t1": 18.6
+    },
+    {
+     "id": "P1.S2",
+     "t0": 18.6,
+     "t1": 23.4
+    },
+    {
+     "id": "P1.S3",
+     "t0": 23.4,
+     "t1": 29.6
+    },
+    {
+     "id": "P1.S4",
+     "t0": 29.6,
+     "t1": 34.8
+    }
+   ],
+   "t1": 34.8
+  },
+  {
+   "id": "B2",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 34.8,
+   "shots": [
+    {
+     "id": "B2.S1",
+     "t0": 34.8,
+     "t1": 36
+    },
+    {
+     "id": "B2.S2",
+     "t0": 36,
+     "t1": 41.9
+    },
+    {
+     "id": "B2.S3",
+     "t0": 41.9,
+     "t1": 46.7
+    },
+    {
+     "id": "B2.S4",
+     "t0": 46.7,
+     "t1": 53.2
+    }
+   ],
+   "t1": 53.2
+  },
+  {
+   "id": "B3",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 53.2,
+   "shots": [
+    {
+     "id": "B3.S1",
+     "t0": 53.2,
+     "t1": 54.2
+    },
+    {
+     "id": "B3.S2",
+     "t0": 54.2,
+     "t1": 61
+    },
+    {
+     "id": "B3.S3",
+     "t0": 61,
+     "t1": 61.9
+    }
+   ],
+   "t1": 61.9
+  },
+  {
+   "id": "Q2",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 61.9,
+   "shots": [
+    {
+     "id": "Q2.S1",
+     "t0": 61.9,
+     "t1": 62.7
+    },
+    {
+     "id": "Q2.S2",
+     "t0": 62.7,
+     "t1": 68.8
+    },
+    {
+     "id": "Q2.S3",
+     "t0": 68.8,
+     "t1": 76.1
+    },
+    {
+     "id": "Q2.S4",
+     "t0": 76.1,
+     "t1": 76.8
+    }
+   ],
+   "t1": 76.8
+  },
+  {
+   "id": "B3b",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 76.8,
+   "shots": [
+    {
+     "id": "B3b.S1",
+     "t0": 76.8,
+     "t1": 77.8
+    },
+    {
+     "id": "B3b.S2",
+     "t0": 77.8,
+     "t1": 85.8
+    },
+    {
+     "id": "B3b.S3",
+     "t0": 85.8,
+     "t1": 93.1
+    },
+    {
+     "id": "B3b.S4",
+     "t0": 93.1,
+     "t1": 100.7
+    },
+    {
+     "id": "B3b.S5",
+     "t0": 100.7,
+     "t1": 101.2
+    }
+   ],
+   "t1": 101.2
+  },
+  {
+   "id": "D2",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 101.2,
+   "shots": [
+    {
+     "id": "D2.S1",
+     "t0": 101.2,
+     "t1": 108.6
+    },
+    {
+     "id": "D2.S2",
+     "t0": 108.6,
+     "t1": 116.9
+    }
+   ],
+   "t1": 116.9
+  },
+  {
+   "id": "M1",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 116.9,
+   "shots": [
+    {
+     "id": "M1.S1",
+     "t0": 116.9,
+     "t1": 124.7
+    },
+    {
+     "id": "M1.S2",
+     "t0": 124.7,
+     "t1": 133.7
+    }
+   ],
+   "t1": 133.7
+  },
+  {
+   "id": "M2",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 133.7,
+   "shots": [
+    {
+     "id": "M2.S1",
+     "t0": 133.7,
+     "t1": 142.1
+    }
+   ],
+   "t1": 142.1
+  },
+  {
+   "id": "M3",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 142.1,
+   "shots": [
+    {
+     "id": "M3.S1",
+     "t0": 142.1,
+     "t1": 148.4
+    },
+    {
+     "id": "M3.S2",
+     "t0": 148.4,
+     "t1": 154.2
+    }
+   ],
+   "t1": 154.2
+  },
+  {
+   "id": "M4",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 154.2,
+   "shots": [
+    {
+     "id": "M4.S1",
+     "t0": 154.2,
+     "t1": 161.3
+    },
+    {
+     "id": "M4.S2",
+     "t0": 161.3,
+     "t1": 166.4
+    }
+   ],
+   "t1": 166.4
+  },
+  {
+   "id": "M5",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 166.4,
+   "shots": [
+    {
+     "id": "M5.S1",
+     "t0": 166.4,
+     "t1": 173.9
+    },
+    {
+     "id": "M5.S2",
+     "t0": 173.9,
+     "t1": 178.7
+    }
+   ],
+   "t1": 178.7
+  },
+  {
+   "id": "E1",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 178.7,
+   "shots": [
+    {
+     "id": "E1.S1",
+     "t0": 178.7,
+     "t1": 185.8
+    },
+    {
+     "id": "E1.S2",
+     "t0": 185.8,
+     "t1": 193.2
+    }
+   ],
+   "t1": 193.2
+  },
+  {
+   "id": "E2",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 193.2,
+   "shots": [
+    {
+     "id": "E2.S1",
+     "t0": 193.2,
+     "t1": 201.3
+    },
+    {
+     "id": "E2.S2",
+     "t0": 201.3,
+     "t1": 209.4
+    },
+    {
+     "id": "E2.S3",
+     "t0": 209.4,
+     "t1": 214.2
+    }
+   ],
+   "t1": 214.2
+  },
+  {
+   "id": "E3",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 214.2,
+   "shots": [
+    {
+     "id": "E3.S1",
+     "t0": 214.2,
+     "t1": 221.6
+    },
+    {
+     "id": "E3.S2",
+     "t0": 221.6,
+     "t1": 231.2
+    }
+   ],
+   "t1": 231.2
+  },
+  {
+   "id": "E4",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 231.2,
+   "shots": [
+    {
+     "id": "E4.S1",
+     "t0": 231.2,
+     "t1": 240.4
+    },
+    {
+     "id": "E4.S2",
+     "t0": 240.4,
+     "t1": 241.1
+    }
+   ],
+   "t1": 241.1
+  },
+  {
+   "id": "L1",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 241.1,
+   "shots": [
+    {
+     "id": "L1.S1",
+     "t0": 241.1,
+     "t1": 248.3
+    },
+    {
+     "id": "L1.S2",
+     "t0": 248.3,
+     "t1": 248.8
+    }
+   ],
+   "t1": 248.8
+  },
+  {
+   "id": "L2",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 248.8,
+   "shots": [
+    {
+     "id": "L2.S1",
+     "t0": 248.8,
+     "t1": 249.4
+    },
+    {
+     "id": "L2.S2",
+     "t0": 249.4,
+     "t1": 255.2
+    },
+    {
+     "id": "L2.S3",
+     "t0": 255.2,
+     "t1": 261.8
+    },
+    {
+     "id": "L2.S4",
+     "t0": 261.8,
+     "t1": 266.6
+    }
+   ],
+   "t1": 266.6
+  },
+  {
+   "id": "L3",
+   "kind": "beat",
+   "xf": 0.9,
+   "t0": 266.6,
+   "shots": [
+    {
+     "id": "L3.S1",
+     "t0": 266.6,
+     "t1": 275.6
+    }
+   ],
+   "t1": 275.6
+  },
+  {
+   "id": "End",
+   "kind": "end",
+   "xf": 1,
+   "t0": 275.6,
+   "shots": [
+    {
+     "id": "E1",
+     "t0": 275.6,
+     "t1": 276.6
+    },
+    {
+     "id": "E2",
+     "t0": 276.6,
+     "t1": 280.6
+    }
+   ],
+   "t1": 280.6
+  }
+ ],
+ "captions": [
+  {
+   "id": "B1.c1",
+   "beat": "B1",
+   "c": 1,
+   "s": 5.6,
+   "e": 11.6,
+   "text": "Every 30 seconds of a night's sleep gets a label: Wake, N1, N2, N3 or REM. Experts score them by hand."
+  },
+  {
+   "id": "B1.c2",
+   "beat": "B1",
+   "c": 2,
+   "s": 12.3,
+   "e": 17.1,
+   "text": "Can a computer read sleep from one EEG channel, a single pair of scalp electrodes?"
+  },
+  {
+   "id": "P1.c1",
+   "beat": "P1",
+   "c": 1,
+   "s": 18.6,
+   "e": 23.4,
+   "text": "One pipeline. Input: a single Fpz-Cz EEG channel, 100 samples a second, all night."
+  },
+  {
+   "id": "P1.c2",
+   "beat": "P1",
+   "c": 2,
+   "s": 24.1,
+   "e": 29.6,
+   "text": "Process: cut into 30-second epochs, make a frequency picture of each, then a CNN and a BiGRU."
+  },
+  {
+   "id": "P1.c3",
+   "beat": "P1",
+   "c": 3,
+   "s": 30.3,
+   "e": 33.9,
+   "text": "Output: one of five stages for every 30 seconds, a hypnogram."
+  },
+  {
+   "id": "B2.c1",
+   "beat": "B2",
+   "c": 1,
+   "s": 36,
+   "e": 41.9,
+   "text": "A 2026 paper in Scientific Reports reports about 83% accuracy from one channel, chaining four ideas."
+  },
+  {
+   "id": "B2.c2",
+   "beat": "B2",
+   "c": 2,
+   "s": 42.6,
+   "e": 46.7,
+   "text": "We set out to reproduce it. Within our time and compute, we could not."
+  },
+  {
+   "id": "B2.c3",
+   "beat": "B2",
+   "c": 3,
+   "s": 47.4,
+   "e": 52.7,
+   "text": "The paper splits epochs at random, so one person can be on both sides. We split by person."
+  },
+  {
+   "id": "B3.c1",
+   "beat": "B3",
+   "c": 1,
+   "s": 54.2,
+   "e": 61,
+   "text": "So we changed the question: does it still work on a person the model has never seen, and can we explain every step?"
+  },
+  {
+   "id": "Q2.c1",
+   "beat": "Q2",
+   "c": 1,
+   "s": 62.7,
+   "e": 68.8,
+   "text": "Scope: not a replication or clinical validation. Twenty people, one public dataset, unseen people only."
+  },
+  {
+   "id": "Q2.c2",
+   "beat": "Q2",
+   "c": 2,
+   "s": 69.5,
+   "e": 76.1,
+   "text": "Hypothesis, formed after the baseline failed: nights differ in signal strength, so per-night scaling should help."
+  },
+  {
+   "id": "B3b.c1",
+   "beat": "B3b",
+   "c": 1,
+   "s": 77.8,
+   "e": 85.8,
+   "text": "Our data is Sleep-EDF, public on PhysioNet: healthy adults recorded at home on cassette recorders, usually two nights of about 20 hours."
+  },
+  {
+   "id": "B3b.c2",
+   "beat": "B3b",
+   "c": 2,
+   "s": 86.5,
+   "e": 93.1,
+   "text": "Trained technicians then scored every 30-second epoch by hand, following the 1968 Rechtschaffen and Kales rules."
+  },
+  {
+   "id": "B3b.c3",
+   "beat": "B3b",
+   "c": 3,
+   "s": 93.8,
+   "e": 100.7,
+   "text": "We use 20 people and 39 nights: 42,307 epochs. Trimmed to its scored span, a night is about 1,085 epochs, or 9 hours."
+  },
+  {
+   "id": "D2.c1",
+   "beat": "D2",
+   "c": 1,
+   "s": 101.7,
+   "e": 108.6,
+   "text": "Three variables: the EEG signal, the stage label, and a person ID that only splits the data and never feeds the model."
+  },
+  {
+   "id": "D2.c2",
+   "beat": "D2",
+   "c": 2,
+   "s": 109.3,
+   "e": 116.2,
+   "text": "Limits: healthy adults only, just 20 people, human-scored labels and one channel. This data cannot speak for patients."
+  },
+  {
+   "id": "M1.c1",
+   "beat": "M1",
+   "c": 1,
+   "s": 117.4,
+   "e": 124.7,
+   "text": "STFT: a 2-second Hamming window slides in 1-second steps, turning each epoch into a 129 × 29 picture of frequency over time."
+  },
+  {
+   "id": "M1.c2",
+   "beat": "M1",
+   "c": 2,
+   "s": 125.4,
+   "e": 133.2,
+   "text": "The paper uses a synchrosqueezed transform. We chose STFT because we can draw, compute and check it by hand. We never compared them."
+  },
+  {
+   "id": "M2.c1",
+   "beat": "M2",
+   "c": 1,
+   "s": 134.2,
+   "e": 141.4,
+   "text": "CNN: three blocks of 32, 64 and 128 channels squeeze each picture into 128 numbers. Its limit: it sees one epoch at a time."
+  },
+  {
+   "id": "M3.c1",
+   "beat": "M3",
+   "c": 1,
+   "s": 142.6,
+   "e": 148.4,
+   "text": "BiGRU: two layers read 20 neighbouring epochs forwards and backwards, because sleep is a sequence."
+  },
+  {
+   "id": "M3.c2",
+   "beat": "M3",
+   "c": 2,
+   "s": 149.1,
+   "e": 153.7,
+   "text": "The cost: it uses future epochs, so it works offline only, never in real time."
+  },
+  {
+   "id": "M4.c1",
+   "beat": "M4",
+   "c": 1,
+   "s": 154.7,
+   "e": 161.3,
+   "text": "We dropped the paper's contrastive stage: reproducing it failed, and we wanted a chain we can check step by step."
+  },
+  {
+   "id": "M4.c2",
+   "beat": "M4",
+   "c": 2,
+   "s": 162,
+   "e": 165.9,
+   "text": "We never ran that comparison, so we do not claim it helps or hurts."
+  },
+  {
+   "id": "M5.c1",
+   "beat": "M5",
+   "c": 1,
+   "s": 166.9,
+   "e": 173.9,
+   "text": "Testing is by person: ten folds, with 16 people training, 2 choosing the checkpoint and 2 tested. Nobody appears twice."
+  },
+  {
+   "id": "M5.c2",
+   "beat": "M5",
+   "c": 2,
+   "s": 174.6,
+   "e": 178.2,
+   "text": "Only two test people per fold, so scores swing between folds."
+  },
+  {
+   "id": "E1.c1",
+   "beat": "E1",
+   "c": 1,
+   "s": 179.2,
+   "e": 185.8,
+   "text": "Baseline first: macro-F1 56.42%, 95% interval 48.26 to 63.44. Accuracy 65.00%. Folds swing from 39.95% to 74.39%."
+  },
+  {
+   "id": "E1.c2",
+   "beat": "E1",
+   "c": 2,
+   "s": 186.5,
+   "e": 192.7,
+   "text": "Opening single nights, three were right on only 7.22%, 18.60% and 19.01% of epochs. The average hid them."
+  },
+  {
+   "id": "E2.c1",
+   "beat": "E2",
+   "c": 1,
+   "s": 193.7,
+   "e": 201.3,
+   "text": "The baseline already z-scored each frequency, but with one ruler from the 16 training people. R1 gives every night its own ruler."
+  },
+  {
+   "id": "E2.c2",
+   "beat": "E2",
+   "c": 2,
+   "s": 202,
+   "e": 209.4,
+   "text": "Same architecture, retrained: macro-F1 74.86%, interval 71.33 to 78.03; accuracy 80.99%. Gain +18.44, interval 10.07 to 27.55."
+  },
+  {
+   "id": "E2.c3",
+   "beat": "E2",
+   "c": 3,
+   "s": 210.1,
+   "e": 213.7,
+   "text": "The three failing nights recover to 82.54%, 88.68% and 84.87%."
+  },
+  {
+   "id": "E3.c1",
+   "beat": "E3",
+   "c": 1,
+   "s": 214.7,
+   "e": 221.6,
+   "text": "But R1 reads each test night's unlabeled signal and was chosen after the baseline failed. It is offline and post-hoc."
+  },
+  {
+   "id": "E3.c2",
+   "beat": "E3",
+   "c": 2,
+   "s": 222.3,
+   "e": 230.7,
+   "text": "Whole-recording statistics give 71.84%: −3.02 versus R1, interval −7.12 to +1.22. It crosses zero: no clear difference, not proof of equality."
+  },
+  {
+   "id": "E4.c1",
+   "beat": "E4",
+   "c": 1,
+   "s": 231.7,
+   "e": 240.4,
+   "text": "N1, the lightest sleep, stays weak: R1 recovers 44.69% of true N1 and 38.91% of its N1 calls are right. Three fixes on validation were all rejected."
+  },
+  {
+   "id": "L1.c1",
+   "beat": "L1",
+   "c": 1,
+   "s": 241.6,
+   "e": 248.3,
+   "text": "What we can say: in these 20 people an average can hide failing nights, and per-night scaling helped in this test."
+  },
+  {
+   "id": "L2.c1",
+   "beat": "L2",
+   "c": 1,
+   "s": 249.4,
+   "e": 255.2,
+   "text": "What we cannot say: that it works on new people, since R1 is offline and was chosen after the fact."
+  },
+  {
+   "id": "L2.c2",
+   "beat": "L2",
+   "c": 2,
+   "s": 255.9,
+   "e": 261.8,
+   "text": "Nor that 80.99% beats or matches the paper's 83%, that it is clinically ready, or that N1 is solved."
+  },
+  {
+   "id": "L2.c3",
+   "beat": "L2",
+   "c": 3,
+   "s": 262.5,
+   "e": 266.1,
+   "text": "None of the 78 audited participants is certified independent."
+  },
+  {
+   "id": "L3.c1",
+   "beat": "L3",
+   "c": 1,
+   "s": 267.1,
+   "e": 274.2,
+   "text": "Nights differ, and an average can hide the one that fails. Next: lock the protocol, then test on truly independent data."
+  }
+ ]
+}
