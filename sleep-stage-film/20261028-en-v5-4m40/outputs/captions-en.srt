@@ -1,205 +1,198 @@
 1
-00:00:05,600 --> 00:00:11,600
+00:00:04,600 --> 00:00:10,600
 Every 30 seconds of a night's sleep gets a label:
 Wake, N1, N2, N3 or REM. Experts score them by hand.
 
 2
-00:00:12,300 --> 00:00:17,100
+00:00:11,300 --> 00:00:16,100
 Can a computer read sleep from one EEG channel, a single pair of scalp electrodes?
 
 3
-00:00:18,600 --> 00:00:23,400
+00:00:17,200 --> 00:00:22,000
 One pipeline. Input: a single Fpz-Cz EEG channel, 100 samples a second, all night.
 
 4
-00:00:24,100 --> 00:00:29,600
+00:00:22,700 --> 00:00:28,200
 Process: cut into 30-second epochs, make a frequency picture of each, then a CNN and a BiGRU.
 
 5
-00:00:30,300 --> 00:00:33,900
+00:00:28,900 --> 00:00:32,500
 Output: one of five stages for every 30 seconds, a hypnogram.
 
 6
-00:00:36,000 --> 00:00:41,900
-A 2026 paper in Scientific Reports reports about 83% accuracy from one channel, chaining four ideas.
+00:00:34,400 --> 00:00:40,000
+A 2026 Scientific Reports paper claims about 83% accuracy from one channel, chaining four ideas.
 
 7
-00:00:42,600 --> 00:00:46,700
+00:00:40,700 --> 00:00:44,800
 We set out to reproduce it. Within our time and compute, we could not.
 
 8
-00:00:47,400 --> 00:00:52,700
+00:00:45,500 --> 00:00:50,800
 The paper splits epochs at random, so one person can be on both sides. We split by person.
 
 9
-00:00:53,400 --> 00:00:59,800
-Why? A new patient is a new person. A random split can
-reward recognising the person, not reading the sleep.
+00:00:51,500 --> 00:00:56,500
+Why? A new patient is a new person; a random split can reward recognising the person.
 
 10
-00:01:01,300 --> 00:01:08,100
+00:00:57,600 --> 00:01:04,400
 So we changed the question: does it still work on a person
 the model has never seen, and can we explain every step?
 
 11
-00:01:09,800 --> 00:01:15,900
+00:01:05,900 --> 00:01:12,000
 Scope: not a replication or clinical validation. Twenty people, one public dataset, unseen people only.
 
 12
-00:01:16,600 --> 00:01:23,200
+00:01:12,700 --> 00:01:19,300
 Hypothesis, formed after the baseline failed: nights differ
 in signal strength, so per-night scaling should help.
 
 13
-00:01:24,900 --> 00:01:32,900
-Our data is Sleep-EDF, public on PhysioNet: healthy adults recorded
-at home on cassette recorders, usually two nights of about 20 hours.
+00:01:20,700 --> 00:01:27,200
+Sleep-EDF, public on PhysioNet: healthy adults recorded
+at home on cassette recorders, usually two nights each.
 
 14
-00:01:33,600 --> 00:01:41,000
-Trained technicians scored every 30-second page of each whole
-night by hand, following the 1968 Rechtschaffen and Kales rules.
+00:01:27,900 --> 00:01:34,700
+Trained technicians scored every 30-second page of each
+night by hand, using the 1968 Rechtschaffen and Kales rules.
 
 15
-00:01:41,700 --> 00:01:46,700
-Two experts can disagree, so these labels are a trusted reference, not perfect truth.
+00:01:35,400 --> 00:01:40,000
+Two experts can disagree, so labels are a trusted reference, not perfect truth.
 
 16
-00:01:47,400 --> 00:01:54,300
-We use 20 people and 39 nights: 42,307 epochs. Trimmed
-to its scored span, a night is about 1,085 epochs, or 9 hours.
+00:01:40,700 --> 00:01:46,300
+We use 20 people, 39 nights, 42,307 epochs. Trimmed, a night is about 1,085 epochs, or 9 hours.
 
 17
-00:01:55,300 --> 00:02:02,200
+00:01:47,400 --> 00:01:54,300
 Three variables: the EEG signal, the stage label, and a person
 ID that only splits the data and never feeds the model.
 
 18
-00:02:02,900 --> 00:02:09,800
+00:01:55,000 --> 00:02:01,900
 Limits: healthy adults only, just 20 people, human-scored
 labels and one channel. This data cannot speak for patients.
 
 19
-00:02:11,000 --> 00:02:18,300
-STFT: a 2-second Hamming window slides in 1-second steps,
-turning each epoch into a 129 × 29 picture of frequency over time.
+00:02:03,000 --> 00:02:08,800
+STFT: a 2-second window slides in 1-second steps, making a 129 × 29 picture of frequency over time.
 
 20
-00:02:19,000 --> 00:02:25,600
-Why frequencies? Sleep stages are defined by rhythms: slow
-waves mark N3, spindles N2, alpha waves relaxed wake.
+00:02:09,500 --> 00:02:15,000
+Why? Stages are defined by rhythms: slow waves mark N3, spindles N2, alpha waves relaxed wake.
 
 21
-00:02:26,300 --> 00:02:34,100
+00:02:15,700 --> 00:02:23,500
 The paper uses a synchrosqueezed transform. We chose STFT because
 we can draw, compute and check it by hand. We never compared them.
 
 22
-00:02:35,100 --> 00:02:42,300
+00:02:24,300 --> 00:02:31,500
 CNN: three blocks of 32, 64 and 128 channels squeeze each
 picture into 128 numbers. Its limit: it sees one epoch at a time.
 
 23
-00:02:43,500 --> 00:02:49,300
+00:02:32,600 --> 00:02:38,400
 BiGRU: two layers read 20 neighbouring epochs
 forwards and backwards, because sleep is a sequence.
 
 24
-00:02:50,000 --> 00:02:55,500
-Why? Sleep comes in long runs, so an epoch is easier to judge with its neighbours than alone.
+00:02:39,100 --> 00:02:44,400
+Why? Sleep comes in long runs: an epoch is easier to judge with its neighbours than alone.
 
 25
-00:02:56,200 --> 00:03:00,800
+00:02:45,100 --> 00:02:49,700
 The cost: it uses future epochs, so it works offline only, never in real time.
 
 26
-00:03:01,800 --> 00:03:08,700
-Contrastive learning trains the CNN's embedding: epochs
-that should match are pulled together, the rest pushed apart.
+00:02:50,400 --> 00:02:56,300
+Contrastive learning trains the CNN: similar epochs are pulled together, different ones pushed apart.
 
 27
-00:03:09,400 --> 00:03:14,900
-It adds a second training phase with many settings to tune, so it costs more time and compute.
+00:02:57,000 --> 00:03:01,800
+It is a second training phase with many settings to tune: more time, more compute.
 
 28
-00:03:15,600 --> 00:03:22,200
-We dropped the paper's contrastive stage: reproducing it
-failed, and we wanted a chain we can check step by step.
+00:03:02,500 --> 00:03:09,900
+We dropped the contrastive stage: reproducing it failed, and we
+wanted a chain we can check step by step. We never tested it.
 
 29
-00:03:22,900 --> 00:03:26,800
-We never ran that comparison, so we do not claim it helps or hurts.
+00:03:10,800 --> 00:03:17,200
+Testing is by person: ten folds, 16 people train, 2 pick
+the checkpoint, 2 are tested. Nobody appears twice.
 
 30
-00:03:27,800 --> 00:03:34,800
-Testing is by person: ten folds, with 16 people training, 2
-choosing the checkpoint and 2 tested. Nobody appears twice.
-
-31
-00:03:35,500 --> 00:03:39,100
+00:03:17,900 --> 00:03:21,500
 Only two test people per fold, so scores swing between folds.
 
-32
-00:03:40,100 --> 00:03:46,700
+31
+00:03:22,300 --> 00:03:28,900
 Baseline first: macro-F1 56.42%, 95% interval 48.26 to 63.44.
 Accuracy 65.00%. Folds swing from 39.95% to 74.39%.
 
-33
-00:03:47,400 --> 00:03:53,600
+32
+00:03:29,600 --> 00:03:35,800
 Opening single nights, three were right on only 7.22%,
 18.60% and 19.01% of epochs. The average hid them.
 
+33
+00:03:36,500 --> 00:03:42,700
+z-scoring, per frequency: subtract the mean, then divide
+by the spread. Values become standard deviations.
+
 34
-00:03:54,600 --> 00:04:01,200
-The baseline already z-scored each frequency, but with
-one ruler: the mean and spread of the 16 training people.
+00:03:43,400 --> 00:03:48,800
+Why? Raw sizes differ across frequencies and nights; z-scores put values on a common scale.
 
 35
-00:04:01,900 --> 00:04:07,200
-R1 gives every night its own ruler: that night's own mean and spread, with no labels used.
+00:03:49,500 --> 00:03:55,800
+The baseline already did this, but with one ruler for all nights: the 16 training people's mean and spread.
 
 36
-00:04:07,900 --> 00:04:15,300
-Same architecture, retrained: macro-F1 74.86%, interval 71.33
-to 78.03; accuracy 80.99%. Gain +18.44, interval 10.07 to 27.55.
+00:03:56,500 --> 00:04:01,800
+R1 gives every night its own ruler: that night's own mean and spread, with no labels used.
 
 37
-00:04:16,000 --> 00:04:19,600
-The three failing nights recover to 82.54%, 88.68% and 84.87%.
+00:04:02,500 --> 00:04:07,700
+Everything else stays the same: STFT, CNN and BiGRU, retrained on the per-night z-scores.
 
 38
-00:04:20,600 --> 00:04:27,500
-But R1 reads each test night's unlabeled signal and was
-chosen after the baseline failed. It is offline and post-hoc.
+00:04:08,400 --> 00:04:14,700
+Retrained: macro-F1 74.86%, interval 71.33 to 78.03;
+accuracy 80.99%. Gain +18.44, interval 10.07 to 27.55.
 
 39
-00:04:28,200 --> 00:04:36,600
-Whole-recording statistics give 71.84%: −3.02 versus R1, interval −7.12
-to +1.22. It crosses zero: no clear difference, not proof of equality.
+00:04:15,400 --> 00:04:19,000
+The three failing nights recover to 82.54%, 88.68% and 84.87%.
 
 40
-00:04:37,600 --> 00:04:46,300
-N1, the lightest sleep, stays weak: R1 recovers 44.69% of true N1 and
-38.91% of its N1 calls are right. Three fixes on validation were all rejected.
+00:04:19,900 --> 00:04:26,300
+But R1 reads each test night's unlabeled signal and
+was chosen after the baseline failed: offline, post-hoc.
 
 41
-00:04:47,500 --> 00:04:54,200
-What we can say: in these 20 people an average can hide
-failing nights, and per-night scaling helped in this test.
+00:04:27,000 --> 00:04:34,400
+Whole-recording statistics give 71.84%: −3.02 versus R1,
+interval −7.12 to +1.22. No clear difference, not proof of equality.
 
 42
-00:04:55,300 --> 00:05:01,100
+00:04:35,200 --> 00:04:41,000
 What we cannot say: that it works on new people, since R1 is offline and was chosen after the fact.
 
 43
-00:05:01,800 --> 00:05:07,700
+00:04:41,700 --> 00:04:47,600
 Nor that 80.99% beats or matches the paper's 83%, that it is clinically ready, or that N1 is solved.
 
 44
-00:05:08,400 --> 00:05:12,000
+00:04:48,300 --> 00:04:51,900
 None of the 78 audited participants is certified independent.
 
 45
-00:05:13,000 --> 00:05:20,100
+00:04:52,700 --> 00:04:59,800
 Nights differ, and an average can hide the one that fails.
 Next: lock the protocol, then test on truly independent data.
